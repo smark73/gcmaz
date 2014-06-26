@@ -148,23 +148,11 @@ div.rbn-hdg{
     z-index:5;
     background:#546687;
     border:1px solid transparent; //necessary to display properly
-    -webkit-border-top-left-radius: 4px;
-    -moz-border-radius-topleft: 4px;
-    border-top-left-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
-div.rbn-hdg:before{
-    content:" ";
-    background:url('/media/ribbon.png');
-    display:block;
-    width:10px;
-    height:10px;
-    position:absolute;
-    bottom:0;
-    left:0;
-    margin-bottom:-11px; //10 + 1 for border
-    margin-left:-1px; //1 for border
-    z-index:-1;
-}
+
 // non page-header headers like index news
 .rbn-hdg span.gen-hdr{margin:5px auto;font-size:1.2em;color:#fff}
 
@@ -181,7 +169,9 @@ div.rbn-hdg:before{
 
 /******** archive pages **********/
 .archv-pg-lstng {margin:5px 10px}
+
 .archv-pg-hr{width:90%;margin:10px auto 0}
+/*
 div.archv-thmb {margin:0;padding:0;position:relative;z-index:5;}
 div.archv-thmb img{text-align:left;margin-top:20px;margin-left:-20px}
 div.archv-thmb:before{
@@ -200,6 +190,7 @@ div.archv-thmb:before{
 div.archv-info{margin:0;padding:2% 0;}
 div.archv-info article{margin:auto;}
 span.archv-date{margin-right:10px;font-weight:400}
+*/
 
 /******** single pages ***********/
 .info-img{padding:10px;max-width:100%;}
@@ -225,15 +216,15 @@ a.wthrcty:hover{text-decoration:none;color:#fff}
    Sidebar
    ========================================================================== */
 
-.sidebar { }
+.sidebar {}
 /********* SIDEBAR WIDGETS ***************
     the first one is default sidebar widget style
     the rest override indivual widgets
 */
-.sidebar .widget {margin:10px auto;padding:5px;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px}
-
-.sidebar .text-2, .sidebar .widget_text {background:#303a4b}
+.sidebar .widget {margin:10px 0;padding:0;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px; /*background-color:@blue-gray-lt*/}
+.sidebar .text-2, .sidebar .widget_text {}
 .sidebar .search-2, .sidebar .widget_search {margin:5px auto 10px;padding:0;}
+.sidebar div.widget-inner h4 {color:@blue-gray;font-weight:600;padding:5px;margin:0 5px;text-shadow: 1px 1px 1px rgba(0,0,0,.2)}
 
 /*  search input style */
 //input.search-field{background:#212734;color:#ccc;border:0;}
@@ -241,35 +232,16 @@ a.wthrcty:hover{text-decoration:none;color:#fff}
 //button.search-submit:hover, button.search-submit:active{color:#9aa2b1;background:#373f50;border:1px solid rgba(0,0,0,.3);}
 // search results
 .search-hdr h3{color:@red;font-size:1em}
-    
-/*  mus ctr style */
-.music-ctr, .sidebar .widget_tg_widget{margin:auto;overflow:hidden;background:#303a4b;}
-.music-ctr iframe{width:100%;min-height:300px;max-height:400px;overflow:hidden;margin-top:5px}
-
-/*  facebook */
-.sidebar .widget_facebook-like-box {background:#303a4b}
-.sidebar .widget_facebook-like-box .widget-inner .fb-like-box span iframe,
-.sidebar .widget_facebook-like-box .widget-inner .fb-like-box span,
-.sidebar .widget_facebook-like-box .widget-inner .fb-like-box {padding-top:0;margin-top:0}
 
 /* adrotate banner widget */
 .sidebar .widget_adrotate_widgets{margin:auto;padding:5px 0 10px;text-align:center;}
 .widget_adrotate_widgets img{width:100%;height:auto;max-width:300px;max-height:250px;margin:auto;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px}
 .widget_adrotate_widgets .widget-inner{ width:100%;margin:auto;padding:2% 0}
 
-.sidebar .recent-posts-2,
-.sidebar .widget_recent_entries,
-.sidebar .categories-2,
-.sidebar .widget_categories,
-.sidebar .tag_cloud-2,
-.sidebar .widget_tag_cloud {background:rgba(255,255,255,0.2);border-top:1px solid #7a96bf;border-bottom:1px solid #7a96bf;}
-
-.sidebar .recent-posts-2 h4,
-.sidebar .widget_recent_entries h4,
-.sidebar .categories-2 h4,
-.sidebar .widget_categories h4,
-.sidebar .tag_cloud-2 h4,
-.sidebar .widget_tag_cloud  h4{color:#fff;font-weight:400;padding:5px;margin:0 5px;text-shadow: 1px 1px 1px rgba(0,0,0,.2);}
+/* lists */
+.widget .widget-inner ul li {list-style-type: none;background:fade(@blue,10%);margin:5px}
+.widget .widget-inner ul {padding-left:10px}
+.widget .widget-inner ul li a{display:block;margin:5px}
     
 /* ==========================================================================
    Navigation
@@ -331,6 +303,7 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
 .hentry footer { border:0}
 .entry-content div.fb-like {margin:10px}
 .entry-summary {width:95%;margin:auto}
+.entry-content a img, .entry-content img {margin:10px}
 
 
 
@@ -374,7 +347,7 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
     a.ftr-sm { padding:0; margin:2px auto; font-weight:bold; font-size:10px; text-decoration:none; color: @light-blue}
 }
 // recent posts link color
-.widget_recent_entries div ul li a{color:#a3aebf}
+//.widget_recent_entries div ul li a{color:#a3aebf}
 
 
 /* ==========================================================================
