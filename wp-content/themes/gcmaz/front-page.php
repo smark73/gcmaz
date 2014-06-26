@@ -2,12 +2,12 @@
     
     <section class="boxy row">
         <div class="rbn-hdg">
-            <span class="centered txtshdw gen-hdr">Separate Flagstaff & Prescott Category</span>
+            <span class="centered txtshdw gen-hdr">Flag Cat | Pres Cat</span>
         </div>
         <div class="col-md-6">
         <?php $query1 = new WP_Query(array(
             'category_name' => 'flagstaff',
-            'posts_per_archive_page' => '1', //limit to just one
+            'posts_per_archive_page' => '2',
             'order' => 'DESC',
             ));
         ?>
@@ -57,7 +57,7 @@
         <div class="col-md-6">
         <?php $query2 = new WP_Query(array(
             'category_name' => 'prescott',
-            'posts_per_archive_page' => '1', //limit to just one
+            'posts_per_archive_page' => '2',
             'order' => 'DESC',
             ));
         ?>
@@ -107,12 +107,12 @@
     
         <section class="boxy row">
         <div class="rbn-hdg">
-            <span class="centered txtshdw gen-hdr">Separate Tags</span>
+            <span class="centered txtshdw gen-hdr">Flag Tag | Presc Tag</span>
         </div>
         <div class="col-md-6">
         <?php $query3 = new WP_Query(array(
             'tag' => 'flagstaff',
-            'posts_per_archive_page' => '1', //limit to just one
+            'posts_per_archive_page' => '2',
             'order' => 'DESC',
             ));
         ?>
@@ -162,7 +162,7 @@
         <div class="col-md-6">
         <?php $query4 = new WP_Query(array(
             'tag' => 'prescott',
-            'posts_per_archive_page' => '1', //limit to just one
+            'posts_per_archive_page' => '2',
             'order' => 'DESC',
             ));
         ?>
@@ -212,7 +212,7 @@
         
         <section class="boxy row">
         <div class="rbn-hdg">
-            <span class="centered txtshdw gen-hdr">Combined News Category</span>
+            <span class="centered txtshdw gen-hdr">Combined P & F Category | General News Category</span>
         </div>
         <div class="col-md-6">
         <?php $query5 = new WP_Query(array(
