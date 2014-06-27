@@ -11,7 +11,6 @@
     </section>
     <section class="ftr3 col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
         <a href="/"><img src="/media/logo-gcmaz.png" width="125" height="auto" alt="Great Circle Media Arizona"/></a>
-        <p>Great Circle Media</p>
         <p>&copy; Great Circle Media. All Rights Reserved</p>
         <p>
             <a href="http://www.gcmaz.com/legal/GeneralContestRules.pdf" target="_blank" class="ftr-sm">Contest Rules</a>

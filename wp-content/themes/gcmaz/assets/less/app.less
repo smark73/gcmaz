@@ -146,7 +146,7 @@ div.rbn-hdg{
     margin:0 0 10px -10px;
     text-shadow:1px 1px 1px rgba(0,0,0,0.5);
     z-index:5;
-    background:#546687;
+    background:@red;
     border:1px solid transparent; //necessary to display properly
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -169,7 +169,6 @@ div.rbn-hdg{
 
 /******** archive pages **********/
 .archv-pg-lstng {margin:5px 10px}
-
 .archv-pg-hr{width:90%;margin:10px auto 0}
 /*
 div.archv-thmb {margin:0;padding:0;position:relative;z-index:5;}
@@ -221,28 +220,33 @@ a.wthrcty:hover{text-decoration:none;color:#fff}
     the first one is default sidebar widget style
     the rest override indivual widgets
 */
-.sidebar .widget {margin:10px 0;padding:0;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px; /*background-color:@blue-gray-lt*/}
+.sidebar .widget {margin:10px 0;padding:10px 0;/*border-left:1px solid lighten(@light-blue,40%);*/border-bottom:2px solid lighten(@light-blue,40%);border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;}
 .sidebar .text-2, .sidebar .widget_text {}
-.sidebar .search-2, .sidebar .widget_search {margin:5px auto 10px;padding:0;}
-.sidebar div.widget-inner h4 {color:@blue-gray;font-weight:600;padding:5px;margin:0 5px;text-shadow: 1px 1px 1px rgba(0,0,0,.2)}
+.sidebar div.widget-inner h5 {color:@white;font-size:0.9em;font-weight:700;padding:5px;margin:0 5px;text-shadow: 1px 1px 1px rgba(0,0,0,.2);background:@light-blue;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px}
+
+/* menu lists */
+.widget .widget-inner ul {padding-left:15px}
+.widget .widget-inner ul li {list-style-type: none}
+.widget .widget-inner ul li a{color:@blue;padding:3px 0 3px 5px;display:block;margin-right:5px}
+.widget .widget-inner ul li a:hover{text-decoration:none;background:@blue-gray-lt}
 
 /*  search input style */
-//input.search-field{background:#212734;color:#ccc;border:0;}
-//button.search-submit{background:#2c3342;color:#5d636f;border:1px solid rgba(0,0,0,.3);}
-//button.search-submit:hover, button.search-submit:active{color:#9aa2b1;background:#373f50;border:1px solid rgba(0,0,0,.3);}
+.sidebar .search-2, .sidebar .widget_search {margin:5px auto 10px;padding:0}
+input.search-field{color:@gray;border:1px solid fade(@gray-light,40%);background:fade(@gray-light,10%)}
+button.search-submit{background:lighten(@gray-light,10%);color:@white;border:1px solid fade(@gray-light,40%)}
+button.search-submit:hover, button.search-submit:active{color:@white;background:lighten(@gray-light,15%);border:1px solid fade(@gray-light,40%)}
 // search results
 .search-hdr h3{color:@red;font-size:1em}
+
+.tagcloud {margin-left:10px}
+.tagcloud a{ padding:2px}
 
 /* adrotate banner widget */
 .sidebar .widget_adrotate_widgets{margin:auto;padding:5px 0 10px;text-align:center;}
 .widget_adrotate_widgets img{width:100%;height:auto;max-width:300px;max-height:250px;margin:auto;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px}
 .widget_adrotate_widgets .widget-inner{ width:100%;margin:auto;padding:2% 0}
 
-/* lists */
-.widget .widget-inner ul li {list-style-type: none;background:fade(@blue,10%);margin:5px}
-.widget .widget-inner ul {padding-left:10px}
-.widget .widget-inner ul li a{display:block;margin:5px}
-    
+
 /* ==========================================================================
    Navigation
    ========================================================================== */
@@ -333,7 +337,7 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
     li{line-height:2em;padding-left:5%}
     padding:2% 0;
     margin:0;
-    background:rgba(0,0,0,0.05);
+    background:fade(@light-blue,5%);
     text-align:center;
     -webkit-border-radius:0 0 0 14px;
     border-radius:0 0 0 14px;
@@ -342,9 +346,8 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
 .ftr2{}
 .ftr3{
     img{width:125px;height:auto;padding-top:4px;}
-    p:nth-child(2){color:@blue;font-size:12px;font-weight:bold;padding:0;margin:2px auto 0;}
-    p:nth-child(3){color:lighten(@light-blue,20%);font-size:10px;font-weight:bold;padding:0;margin:2px auto;}
-    a.ftr-sm { padding:0; margin:2px auto; font-weight:bold; font-size:10px; text-decoration:none; color: @light-blue}
+    p:nth-child(2){color:@light-blue;font-size:10px;font-weight:bold;padding:0;margin:2px auto;}
+    a.ftr-sm { padding:0; margin:2px auto; font-weight:bold; font-size:10px; text-decoration:none; color: @blue}
 }
 // recent posts link color
 //.widget_recent_entries div ul li a{color:#a3aebf}

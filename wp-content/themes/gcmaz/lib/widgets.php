@@ -9,8 +9,8 @@ function roots_widgets_init() {
     'id'            => 'sidebar-primary',
     'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
     'after_widget'  => '</div></section>',
-    'before_title'  => '<h4>',
-    'after_title'   => '</h4>',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
   ));
 
     register_sidebar(array(
@@ -18,8 +18,8 @@ function roots_widgets_init() {
     'id'            => 'sidebar-homepage',
     'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
     'after_widget'  => '</div></section>',
-    'before_title'  => '<h4>',
-    'after_title'   => '</h4>',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
   ));
   
   register_sidebar(array(
@@ -27,53 +27,8 @@ function roots_widgets_init() {
     'id'            => 'sidebar-footer',
     'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
     'after_widget'  => '</div></section>',
-    'before_title'  => '<h4>',
-    'after_title'   => '</h4>',
-  ));
-
-  register_sidebar(array(
-    'name'          => __('Concert Sidebar', 'roots'),
-    'id'            => 'sidebar-concert',
-    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
-    'after_widget'  => '</div></section>',
-    'before_title'  => '',
-    'after_title'   => '',
-  ));
-  
-  register_sidebar(array(
-    'name'          => __('Whats Sidebar', 'roots'),
-    'id'            => 'sidebar-whats',
-    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
-    'after_widget'  => '</div></section>',
-    'before_title'  => '',
-    'after_title'   => '',
-  ));
-  
-  register_sidebar(array(
-    'name'          => __('Community Sidebar', 'roots'),
-    'id'            => 'sidebar-community',
-    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
-    'after_widget'  => '</div></section>',
-    'before_title'  => '',
-    'after_title'   => '',
-  ));
-
-register_sidebar(array(
-    'name'          => __('On Air Sidebar', 'roots'),
-    'id'            => 'sidebar-onair',
-    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
-    'after_widget'  => '</div></section>',
-    'before_title'  => '',
-    'after_title'   => '',
-  ));
-
-register_sidebar(array(
-    'name'          => __('Song Requests Sidebar', 'roots'),
-    'id'            => 'sidebar-songrequests',
-    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
-    'after_widget'  => '</div></section>',
-    'before_title'  => '',
-    'after_title'   => '',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
   ));
 
 register_sidebar(array(
