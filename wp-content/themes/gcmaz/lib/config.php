@@ -65,7 +65,7 @@ function roots_display_sidebar() {
     array(
       'template-custom.php',
       'template-no-sidebar.php',
-      'template-splash.php',
+      //'template-splash.php',
     )
   );
 

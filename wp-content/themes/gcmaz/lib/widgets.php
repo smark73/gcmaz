@@ -39,6 +39,15 @@ register_sidebar(array(
     'before_title'  => '',
     'after_title'   => '',
   ));
+
+register_sidebar(array(
+    'name'          => __('Splash Sidebar', 'roots'),
+    'id'            => 'sidebar-splash',
+    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
+    'after_widget'  => '</div></section>',
+    'before_title'  => '',
+    'after_title'   => '',
+  ));
   
   // Widgets
   register_widget('Roots_Vcard_Widget');

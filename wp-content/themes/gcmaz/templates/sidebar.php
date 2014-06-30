@@ -1,5 +1,7 @@
 <?php
-if($post->post_title == 'Home'){
+if (is_page_template('template-splash.php')){
+    dynamic_sidebar('sidebar-splash');
+}elseif($post->post_title == 'Home'){
     dynamic_sidebar('sidebar-homepage');
 } elseif($post->post_type == 'concert'){
     dynamic_sidebar('sidebar-concert');
@@ -11,8 +13,6 @@ if($post->post_title == 'Home'){
     dynamic_sidebar('sidebar-onair');
 } elseif($post->post_title == 'Area Weather'){
     dynamic_sidebar('sidebar-weather');
-} elseif($post->post_name == 'song-requests'){
-    dynamic_sidebar('sidebar-songrequests');
 } else {
     dynamic_sidebar('sidebar-primary');
 }
