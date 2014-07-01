@@ -35,9 +35,9 @@
           </div><!-- /.main -->
           <?php if (roots_display_sidebar()) : ?>
             <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
-                <div class="hidden-xs studio-sponsor">
-                    <?php echo adrotate_group(14);?>
-                </div>
+                <?php //(wrapped in php comment to hide)<div class="hidden-xs studio-sponsor">?>
+                    <?php //echo adrotate_group(14);?>
+                <?php //</div>?>
               <?php include roots_sidebar_path(); ?>
             </aside><!-- /.sidebar -->
           <?php endif; ?>

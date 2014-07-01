@@ -1,6 +1,8 @@
 <?php
 if (is_page_template('template-splash.php')){
     dynamic_sidebar('sidebar-splash');
+}elseif(is_page_template('template-news.php')){
+    dynamic_sidebar('sidebar-news');
 }elseif($post->post_title == 'Home'){
     dynamic_sidebar('sidebar-homepage');
 } elseif($post->post_type == 'concert'){

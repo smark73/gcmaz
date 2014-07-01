@@ -10,14 +10,14 @@
         <?php dynamic_sidebar('sidebar-footer'); ?>
     </section>
     <section class="ftr3 col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center">
-        <a href="/"><img src="/media/logo-gcmaz.png" width="125" height="auto" alt="Great Circle Media Arizona"/></a>
+        <a href="/"><img src="/media/logo-gcmaz-white.png" alt="Great Circle Media Arizona" style="width:125px;height:auto;"/></a>
         <p>&copy; Great Circle Media. All Rights Reserved</p>
         <p>
-            <a href="http://www.gcmaz.com/legal/GeneralContestRules.pdf" target="_blank" class="ftr-sm">Contest Rules</a>
+            <a href="/media/GeneralContestRules.pdf" target="_blank" class="ftr-sm">Contest Rules</a>
             &nbsp;|&nbsp;
             <a href="/employment/" class="ftr-sm">Employment</a>
             &nbsp;|&nbsp;
-            <a href="http://www.gcmaz.com/legal/eeo.pdf" target="_blank" class="ftr-sm">EEO</a>
+            <a href="/media/eeo.pdf" target="_blank" class="ftr-sm">EEO</a>
         </p>
     </section>
 </footer>

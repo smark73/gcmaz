@@ -16,14 +16,13 @@
 
 // Brand colors
 // -------------------------
-@brand-primary:         @red;
-@brand-secondary:      @blue;
+@brand-primary:         @blue;
+@brand-secondary:      @red;
 @brand-success:         @red;
 @brand-warning:         @yellow;
 @brand-danger:          @yellow;
 @brand-info:                @blue;
 
-@dark-blue:             #12204f;
 @light-blue:            #4485f5;
 @red:                       #cc0000;
 @bright-red:            #ff3333;
@@ -37,7 +36,7 @@
 // Scaffolding
 // -------------------------
 
-@body-bg:               @blue-gray;
+@body-bg:              darken(@blue,20%);
 @text-color:            @gray-dark;
 
 // Links
@@ -176,7 +175,7 @@
 @dropdown-divider-bg:            darken(@brand-primary, 5%);
 
 @dropdown-link-active-color:     @white;
-@dropdown-link-active-bg:        darken(@brand-primary, 5%);
+@dropdown-link-active-bg:        lighten(@brand-primary,10%);
 
 @dropdown-link-color:            @white;
 @dropdown-link-hover-color:      @white;
