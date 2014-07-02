@@ -41,6 +41,7 @@ function whats_post_type(){
             'capability_type' => 'post',
             'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail'),
             'description' => "A 'whats' post is a blurb for the Whats Happening page.",
+            'taxonomies' => array('category'),
     );
     register_post_type('whats-happening', $args);
 }
@@ -73,6 +74,7 @@ function community_post_type(){
             'capability_type' => 'post',
             'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail'),
             'description' => "A 'community' post is a blurb for the Community Info page.",
+            'taxonomies' => array('category'),
     );
     register_post_type('community-info', $args);
 }
@@ -103,6 +105,7 @@ function concert_post_type(){
             'capability_type' => 'post',
             'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail'),
             'description' => "A 'concert' post is a listing for the Concert page.",
+            'taxonomies' => array('category'),
     );
     register_post_type('concert', $args);
 }
@@ -205,18 +208,27 @@ add_action('publish_post', 'save_concert_attributes');
 
 function save_whats_attributes(){
     global $post;
-    update_post_meta($post->ID, "whats_date", $_POST["whats_date"]);
-    update_post_meta($post->ID, "whats_fulldate", $_POST["whats_fulldate"]);
+    if($post->post_type == 'whats-happening'){
+        update_post_meta($post->ID, "whats_date", $_POST["whats_date"]);
+        update_post_meta($post->ID, "whats_fulldate", $_POST["whats_fulldate"]);
+        wp_set_object_terms($post->ID, 'whats-happening', 'category', false);
+    }
 }
 function save_community_attributes(){
     global $post;
-    update_post_meta($post->ID, "community_date", $_POST["community_date"]);
-    update_post_meta($post->ID, "community_fulldate", $_POST["community_fulldate"]);
+    if($post->post_type == 'community-info'){
+        update_post_meta($post->ID, "community_date", $_POST["community_date"]);
+        update_post_meta($post->ID, "community_fulldate", $_POST["community_fulldate"]);
+        wp_set_object_terms($post->ID, 'community-info', 'category', false);
+    }
 }
 function save_concert_attributes(){
     global $post;
-    update_post_meta($post->ID, "concert_date", $_POST["concert_date"]);
-    update_post_meta($post->ID, "concert_fulldate", $_POST["concert_fulldate"]);
+    if($post->post_type == 'concert'){
+        update_post_meta($post->ID, "concert_date", $_POST["concert_date"]);
+        update_post_meta($post->ID, "concert_fulldate", $_POST["concert_fulldate"]);
+        wp_set_object_terms($post->ID, 'concert', 'category', false);
+    }
 }
 
 //add taxonomy
