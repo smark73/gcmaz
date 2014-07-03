@@ -223,20 +223,3 @@ foreach($pages as $pinfo){
 /*
  * END 
  */
-
-/* 
- * START get Custom Post Types to show up in Feed
- */
-add_filter('request', 'add_cpt_to_feed');
-
-function add_cpt_to_feed($vars){
-    // our list of custom post types
-    $cpt_list = array('whats-happening', 'community-info', 'concert');
-    if(isset($vars['feed']) && !isset($vars['post_type'])){
-        $vars['post_type'] = $cpt_list;
-    }
-    return $vars;
-}
-/* 
- * END
- */
