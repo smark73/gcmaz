@@ -228,12 +228,18 @@ foreach($pages as $pinfo){
 function fields_in_feed($content) {  
     if(is_feed()) {  
         $post_id = get_the_ID();  
-        $output = "<span class='red' style='font-size:1.3em'>";
-        $output .= get_post_meta($post_id, "whats_fulldate", true);
-        //$output .= get_post_meta($post_id, "concert_fulldate", true);
-        //$output .= get_post_meta($post_id, "community_fulldate", true);
-        $output .= '</span';
-        $content = $content.$output;
+        $wdate = get_post_meta($post_id, "whats_fulldate", true);
+        $condate = get_post_meta($post_id, "concert_fulldate", true);
+        $comdate = get_post_meta($post_id, "community_fulldate", true);
+        if(isset($wdate) && $wdate !== ''){
+            $content .= "<span class='red listdate'>$wdate</span>";
+        }
+        if(isset($condate) && $condate !== ''){
+            $content .= "<span class='red listdate'>$condate</span>";
+        }
+        if(isset($comdate) && $comdate !== ''){
+            $content .= "<span class='red listdate'>$comdate</span>";
+        }
     }  
     return $content;  
 }  
