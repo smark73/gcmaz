@@ -223,3 +223,18 @@ foreach($pages as $pinfo){
 /*
  * END 
  */
+
+/*  ADD Custom Fields to Feeds */
+function fields_in_feed($content) {  
+    if(is_feed()) {  
+        $post_id = get_the_ID();  
+        $output = "<span class='red' style='font-size:1.3em'>";
+        $output .= get_post_meta($post_id, "whats_fulldate", true);
+        //$output .= get_post_meta($post_id, "concert_fulldate", true);
+        //$output .= get_post_meta($post_id, "community_fulldate", true);
+        $output .= '</span';
+        $content = $content.$output;
+    }  
+    return $content;  
+}  
+add_filter('the_content','fields_in_feed');
