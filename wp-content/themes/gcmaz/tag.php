@@ -46,12 +46,4 @@
         <?php endif;?>
     </section>
         
-    <section class="indx-bnr-wrap row ">
-        <article class="indx-bnr col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <?php echo adrotate_group(4); ?>
-        </article>
-        <article class="indx-bnr col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <?php echo adrotate_group(5); ?>
-        </article>
-    </section>
 </div>
