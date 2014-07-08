@@ -27,9 +27,9 @@ Template Name: News Template
                        </div>
                     <?php endif;?>
                     <div class="archv-info col-md-9 col-sm-8 col-xs-12">
-                    <span class="archv-date pull-right red">
-                        <?php //$cdate = get_post_custom_values('concert_date'); echo $cdate[0];?>
-                    </span>
+                        <span class="archv-date pull-right red">
+                            <?php //$cdate = get_post_custom_values('concert_date'); echo $cdate[0];?>
+                        </span>
                         <?php get_template_part('templates/content', get_post_format());?>
                     </div>
                     <div class="clearfix">
