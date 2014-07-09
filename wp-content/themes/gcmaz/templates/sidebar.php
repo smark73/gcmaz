@@ -1,7 +1,11 @@
 <?php
+//get the category & parent category to see if it's a news post so we can display the 'news' sidebar
+$the_category = get_the_category($post->ID);
+$news_cat_id = get_cat_ID("News");
+
 if (is_page_template('template-splash.php')){
     dynamic_sidebar('sidebar-splash');
-}elseif(is_page_template('template-news.php')){
+}elseif(is_page_template('template-news.php') || $the_category[0]->cat_name == "News" || $the_category[0]->category_parent == $news_cat_id){
     dynamic_sidebar('sidebar-news');
 }elseif($post->post_title == 'Home'){
     dynamic_sidebar('sidebar-homepage');
