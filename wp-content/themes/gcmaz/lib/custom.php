@@ -232,15 +232,16 @@ function fields_in_feed($content) {
         $condate = get_post_meta($post_id, "concert_fulldate", true);
         $comdate = get_post_meta($post_id, "community_fulldate", true);
         if(isset($wdate) && $wdate !== ''){
-            $content .= "<span class='red listdate'>$wdate</span>";
+            $list_date = "<span class='red listdate'>$wdate</span>";
         }
         if(isset($condate) && $condate !== ''){
-            $content .= "<span class='red listdate'>$condate</span>";
+            $list_date = "<span class='red listdate'>$condate</span>";
         }
         if(isset($comdate) && $comdate !== ''){
-            $content .= "<span class='red listdate'>$comdate</span>";
+            $list_date = "<span class='red listdate'>$comdate</span>";
         }
-    }  
-    return $content;  
+    }
+    $content_plus = $list_date . $content;
+    return $content_plus;  
 }  
 add_filter('the_content','fields_in_feed');
