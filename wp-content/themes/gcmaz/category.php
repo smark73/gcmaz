@@ -1,5 +1,5 @@
 <div class="in-cnt-wrp row">
-    <section class="boxy row">
+    <section class="row">
         <div class="rbn-hdg">
             <?php get_template_part('templates/page', 'header'); ?>
         </div>
@@ -13,15 +13,19 @@
         
             <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
                 <section class="archv-pg-lstng row">
-                    <?php
-                        if(has_post_thumbnail()){
-                            the_post_thumbnail('thumbnail pull-left');
-                        }
-                        get_template_part('templates/content', get_post_format());
-                    ?>
-                    <div class="clearfix">
-                        <hr class="archv-pg-hr">
+                    <?php if(has_post_thumbnail()) : ?>
+                        <div class="archv-thmb col-md-3 col-sm-4 hidden-xs">
+                            <?php the_post_thumbnail('thumbnail'); ?>
+                        </div>
+                        <div class="centered visible-xs">
+                            <?php the_post_thumbnail('thumbnail');?>
+                       </div>
+                    <?php endif; ?>
+                    <div class="archv-info col-md-9 col-sm-8 col-xs-12">
+                        <?php get_template_part('templates/content', get_post_format());?>
                     </div>
+                    <div class="clearfix"></div>
+                    <hr class="archv-pg-hr">
                 </section>
             <?php endwhile;?>
         
