@@ -32,9 +32,8 @@ Template Name: News Template
                         </span>
                         <?php get_template_part('templates/content', get_post_format());?>
                     </div>
-                    <div class="clearfix">
-                        <hr class="archv-pg-hr">
-                    </div>
+                    <div class="clearfix"></div>
+                    <hr class="archv-pg-hr">
                 </section>
             <?php endwhile;?>
         
