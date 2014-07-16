@@ -20,10 +20,14 @@
                         <div class="centered visible-xs">
                             <?php the_post_thumbnail('thumbnail');?>
                        </div>
+                        <div class="archv-info col-md-9 col-sm-8 col-xs-12">
+                            <?php get_template_part('templates/content', get_post_format());?>
+                        </div>
+                    <?php else : ?>
+                        <div class="archv-info col-md-12 col-sm-12 col-xs-12">
+                            <?php get_template_part('templates/content', get_post_format());?>
+                        </div>
                     <?php endif; ?>
-                    <div class="archv-info col-md-9 col-sm-8 col-xs-12">
-                        <?php get_template_part('templates/content', get_post_format());?>
-                    </div>
                     <div class="clearfix"></div>
                     <hr class="archv-pg-hr">
                 </section>

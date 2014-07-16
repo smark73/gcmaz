@@ -5,12 +5,14 @@ Template Name: News Template
 ?>
 <div class="in-cnt-wrp row">
     <section class="row">
-        <div class="rbn-hdg">
-            <span class="centered txtshdw gen-hdr">Northern Arizona News</span>
+        <div class="centered rbn-hdg">
+            <div class="page-header">
+                <h4 class="txtshdw">Northern Arizona News</h4>
+            </div>
         </div>
         <?php $query = new WP_Query(array(
             'category_name' => 'news',
-            'posts_per_archive_page' => '3',
+            //'posts_per_archive_page' => '3',
             'order' => 'DESC',
             ));
         ?>
@@ -25,13 +27,20 @@ Template Name: News Template
                         <div class="centered visible-xs">
                             <?php the_post_thumbnail('thumbnail');?>
                        </div>
-                    <?php endif;?>
-                    <div class="archv-info col-md-9 col-sm-8 col-xs-12">
-                        <span class="archv-date pull-right red">
-                            <?php //$cdate = get_post_custom_values('concert_date'); echo $cdate[0];?>
-                        </span>
-                        <?php get_template_part('templates/content', get_post_format());?>
-                    </div>
+                        <div class="archv-info col-md-9 col-sm-8 col-xs-12">
+                            <span class="archv-date pull-right red">
+                                <?php //$cdate = get_post_custom_values('concert_date'); echo $cdate[0];?>
+                            </span>
+                            <?php get_template_part('templates/content', get_post_format());?>
+                        </div>
+                    <?php else : ?>
+                        <div class="archv-info col-md-12 col-sm-12 col-xs-12">
+                            <span class="archv-date pull-right red">
+                                <?php //$cdate = get_post_custom_values('concert_date'); echo $cdate[0];?>
+                            </span>
+                            <?php get_template_part('templates/content', get_post_format());?>
+                        </div>
+                    <?php endif; ?>
                     <div class="clearfix"></div>
                     <hr class="archv-pg-hr">
                 </section>
