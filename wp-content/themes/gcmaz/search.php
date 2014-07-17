@@ -1,8 +1,5 @@
 <div class="in-cnt-wrp row">
-    <div class="centered rbn-hdg">
-        <h4>Search Results</h4>
-    </div>
-    <div class="search-hdr">
+    <div class="centered rbn-hdg search-hdr">
         <?php get_template_part('templates/page', 'header'); ?>
     </div>
     <article>
