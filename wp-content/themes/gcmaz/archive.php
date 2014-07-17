@@ -7,14 +7,11 @@
             <?php while (have_posts()) : the_post(); ?>
                 <section class="archv-pg-lstng row">
                     <?php if(has_post_thumbnail()) : ?>
-                        <div class="archv-thmb col-md-3 col-sm-4 hidden-xs">
-                            <?php the_post_thumbnail('thumbnail'); ?>
-                        </div>
-                        <div class="centered visible-xs">
-                            <?php the_post_thumbnail('thumbnail');?>
-                       </div>
-                        <div class="archv-info col-md-9 col-sm-8 col-xs-12">
+                        <div class="archv-info col-md-10 col-sm-9 col-xs-12">
                             <?php get_template_part('templates/content', get_post_format());?>
+                        </div>
+                        <div class="archv-thmb col-md-2 col-sm-3 hidden-xs">
+                            <?php the_post_thumbnail('thumbnail'); ?>
                         </div>
                     <?php else : ?>
                         <div class="archv-info col-md-12 col-sm-12 col-xs-12">
