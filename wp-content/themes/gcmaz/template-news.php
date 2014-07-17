@@ -12,7 +12,7 @@ Template Name: News Template
         </div>
         <?php $query = new WP_Query(array(
             'category_name' => 'news',
-            //'posts_per_archive_page' => '3',
+            'posts_per_archive_page' => '10',
             'order' => 'DESC',
             ));
         ?>
@@ -22,19 +22,15 @@ Template Name: News Template
                 <section class="archv-pg-lstng row">
                     <?php if(has_post_thumbnail()) : ?>
                         <div class="archv-info col-md-10 col-sm-9 col-xs-12">
-                            <span class="archv-date pull-right red">
-                                <?php //$cdate = get_post_custom_values('concert_date'); echo $cdate[0];?>
-                            </span>
                             <?php get_template_part('templates/content', get_post_format());?>
                         </div>
                         <div class="archv-thmb col-md-2 col-sm-3 hidden-xs">
-                            <?php the_post_thumbnail('thumbnail');?>
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                <?php the_post_thumbnail('thumbnail');?>
+                            </a>
                         </div>
                     <?php else : ?>
                         <div class="archv-info col-md-12 col-sm-12 col-xs-12">
-                            <span class="archv-date pull-right red">
-                                <?php //$cdate = get_post_custom_values('concert_date'); echo $cdate[0];?>
-                            </span>
                             <?php get_template_part('templates/content', get_post_format());?>
                         </div>
                     <?php endif; ?>

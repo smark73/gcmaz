@@ -18,7 +18,9 @@
                             <?php get_template_part('templates/content', get_post_format());?>
                         </div>
                         <div class="archv-thmb col-md-2 col-sm-3 hidden-xs">
-                            <?php the_post_thumbnail('thumbnail'); ?>
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                <?php the_post_thumbnail('thumbnail'); ?>
+                            </a>
                         </div>
                     <?php else : ?>
                         <div class="archv-info col-md-12 col-sm-12 col-xs-12">
