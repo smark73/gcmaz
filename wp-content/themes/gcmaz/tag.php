@@ -7,6 +7,8 @@
             $the_tag = get_query_var('tag');
             $the_query = new WP_Query(array(
                 'tag' => $the_tag,
+                'posts_per_page' => get_option('posts_per_page'),
+                'paged' => $paged,
             ));
         ?>
         <?php if($the_query->have_posts()) : ?>
@@ -35,8 +37,8 @@
             <?php if ($the_query->max_num_pages > 1) : ?>
               <nav class="post-nav">
                 <ul class="pager">
-                  <li class="previous"><?php next_posts_link(__('&larr; Older posts', 'roots')); ?></li>
-                  <li class="next"><?php previous_posts_link(__('Newer posts &rarr;', 'roots')); ?></li>
+                  <li class="previous"><?php next_posts_link(__('&laquo; Older posts', 'roots')); ?></li>
+                  <li class="next"><?php previous_posts_link(__('Newer posts &raquo;', 'roots')); ?></li>
                 </ul>
               </nav>
             <?php endif; ?>
