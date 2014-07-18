@@ -10,15 +10,17 @@ Template Name: News Template
                 <h4 class="txtshdw">Northern Arizona News</h4>
             </div>
         </div>
-        <?php $query = new WP_Query(array(
+        <?php $the_query = new WP_Query(array(
             'category_name' => 'news',
-            'posts_per_archive_page' => '10',
+            //'posts_per_archive_page' => '10',
             'order' => 'DESC',
+            'posts_per_page' => get_option('posts_per_page'),
+            'paged' => $paged,
             ));
         ?>
-        <?php if($query->have_posts()) : ?>
+        <?php if($the_query->have_posts()) : ?>
         
-            <?php while($query->have_posts()) : $query->the_post(); ?>
+            <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
                 <section class="archv-pg-lstng row">
                     <?php if(has_post_thumbnail()) : ?>
                         <div class="archv-info col-md-10 col-sm-9 col-xs-12">
@@ -39,11 +41,11 @@ Template Name: News Template
                 </section>
             <?php endwhile;?>
         
-            <?php if ($query->max_num_pages > 1) : ?>
+            <?php if ($the_query->max_num_pages > 1) : ?>
               <nav class="post-nav">
                 <ul class="pager">
-                  <li class="previous"><?php next_posts_link(__('&larr; Older posts', 'roots')); ?></li>
-                  <li class="next"><?php previous_posts_link(__('Newer posts &rarr;', 'roots')); ?></li>
+                  <li class="previous"><?php next_posts_link(__('&laquo; Older posts', 'roots')); ?></li>
+                  <li class="next"><?php previous_posts_link(__('Newer posts &raquo;', 'roots')); ?></li>
                 </ul>
               </nav>
             <?php endif; ?>
