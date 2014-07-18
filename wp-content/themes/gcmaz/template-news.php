@@ -6,13 +6,11 @@ Template Name: News Template
 <div class="in-cnt-wrp row">
     <section class="row">
         <div class="centered rbn-hdg">
-            <div class="page-header">
-                <h4 class="txtshdw">Northern Arizona News</h4>
-            </div>
+            <?php get_template_part('templates/page', 'header'); ?>
         </div>
         <?php $the_query = new WP_Query(array(
             'category_name' => 'news',
-            //'posts_per_archive_page' => '10',
+            //'posts_per_archive_page' => '1',
             'order' => 'DESC',
             'posts_per_page' => get_option('posts_per_page'),
             'paged' => $paged,

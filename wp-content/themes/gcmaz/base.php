@@ -21,7 +21,7 @@
         <div class="row row1">
             <section class="col-md-4">
                 <a href="/" >
-                    <img class="centered logo" alt="Great Circle Media of Arizona" src="/media/logo-gcmaz.png" style="max-width:120px;height:auto;padding-top:1%"/>
+                    <img class="centered logo" alt="Great Circle Media of Arizona" src="/media/logo-gcmaz.png" style="max-width:120px;height:auto;padding-top:3%"/>
                 </a>
             </section>
             <section class="col-md-8">
