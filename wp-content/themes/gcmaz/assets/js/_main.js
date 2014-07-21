@@ -5,7 +5,7 @@ var GcmazSite = {
   // All pages
   common: {
     init: function() {
-        
+
         // ****  START PAGE TAKEOVER
         // page takeover header shrink from 250 to 100
         // hdr wraps hdr1 and hdr2

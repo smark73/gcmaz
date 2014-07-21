@@ -15,6 +15,7 @@
         
             <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
                 <section class="archv-pg-lstng row">
+                    <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
                     <?php if(has_post_thumbnail()) : ?>
                         <div class="archv-info col-md-10 col-sm-9 col-xs-12">
                             <?php get_template_part('templates/content', get_post_format());?>
