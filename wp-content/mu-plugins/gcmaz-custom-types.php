@@ -12,6 +12,7 @@ Author URI: http://www.gcmaz.com/
 add_action('init', 'whats_post_type');
 add_action('init', 'community_post_type');
 add_action('init', 'concert_post_type');
+add_action('init', 'splash_post_type');
 
 // custom post types
 function whats_post_type(){
@@ -108,6 +109,37 @@ function concert_post_type(){
             'taxonomies' => array('category'),
     );
     register_post_type('concert', $args);
+}
+function splash_post_type(){
+    $args = array(
+            'labels' => array(
+                'name' => __("Splash Posts"),
+                'singular_name' => __('Splash Post'),
+                'menu_name' => __('Splash Post'),
+                'all_items' => __('See All Splash Posts'),
+                'add_new' => __('Add New Splash Post'),
+                'add_new_item' => __('Add New Splash Post'),
+                'edit' => __('Edit'),
+                'edit_item' => __('Edit Post'),
+                'new_item' => __('New Post'),
+                'view' => __('View Post'),
+                'view_item' => __('View Post'),
+                'search_items' => __('Search Splash Posts'),
+                'not_found' => __('No Splash Posts'),
+                'not_found_in_trash' => __('No Splash posts in the trash'),
+            ),
+            'hierarchichal' => false,
+            'public' => true,
+            'menu_position' => 5,
+            'menu_icon' => plugins_url( 'icon_gcmaz.png', __FILE__ ),
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'info'),
+            'capability_type' => 'post',
+            'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail'),
+            'description' => "A 'splash' post is a splash page.",
+            'taxonomies' => array('category'),
+    );
+    register_post_type('splash-post', $args);
 }
 
 //place custom fields on admin screen
@@ -234,32 +266,48 @@ function concert_fields (){
 add_action('save_post', 'save_whats_attributes');
 add_action('save_post', 'save_community_attributes');
 add_action('save_post', 'save_concert_attributes');
+add_action('save_post', 'save_splash_attributes');
 add_action('publish_post', 'save_whats_attributes');
 add_action('publish_post', 'save_community_attributes');
 add_action('publish_post', 'save_concert_attributes');
+add_action('publish_post', 'save_splash_attributes');
 
+//save custom fields and set specific category
 function save_whats_attributes(){
     global $post;
     if($post->post_type == 'whats-happening'){
+        //custom fields
         update_post_meta($post->ID, "whats_date", $_POST["whats_date"]);
         update_post_meta($post->ID, "whats_fulldate", $_POST["whats_fulldate"]);
+        //category
         wp_set_object_terms($post->ID, 'whats-happening', 'category', false);
     }
 }
 function save_community_attributes(){
     global $post;
     if($post->post_type == 'community-info'){
+        //custom fields
         update_post_meta($post->ID, "community_date", $_POST["community_date"]);
         update_post_meta($post->ID, "community_fulldate", $_POST["community_fulldate"]);
+        //category
         wp_set_object_terms($post->ID, 'community-info', 'category', false);
     }
 }
 function save_concert_attributes(){
     global $post;
     if($post->post_type == 'concert'){
+        //custom fields
         update_post_meta($post->ID, "concert_date", $_POST["concert_date"]);
         update_post_meta($post->ID, "concert_fulldate", $_POST["concert_fulldate"]);
+        //category
         wp_set_object_terms($post->ID, 'concert', 'category', false);
+    }
+}
+function save_splash_attributes(){
+    global $post;
+    if($post->post_type == 'splash-post'){
+        //category
+        wp_set_object_terms($post->ID, 'info', 'category', false);
     }
 }
 
