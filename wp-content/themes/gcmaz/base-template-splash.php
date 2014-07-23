@@ -18,29 +18,10 @@
   ?>
     
   <div class="innerbg wrap container" role="document">
-        <div class="row row1">
-            <section class="col-md-4">
-                <a href="/" >
-                    <img class="size-full wp-image-31 centered logo" alt="Great Circle Media of Arizona" src="/media/logo-gcmaz.png"/>
-                </a>
-            </section>
-            <section class="col-md-8">
-                <?php  get_template_part('templates/exp-leaderboard'); ?>
-                <?php  // get_template_part('templates/listen-live'); ?>
-            </section>
-        </div>
-        <div class="content row">
-          <div class="main <?php echo roots_main_class(); ?>" role="main">
+        <div class="content row splash">
+            <div class="main col-sm-12 col-md-12" role="main">
                 <?php include roots_template_path(); ?>
-          </div><!-- /.main -->
-          <?php if (roots_display_sidebar()) : ?>
-            <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
-                <?php //(wrapped in php comment to hide)<div class="hidden-xs studio-sponsor">?>
-                    <?php //echo adrotate_group(14);?>
-                <?php //</div>?>
-              <?php include roots_sidebar_path(); ?>
-            </aside><!-- /.sidebar -->
-          <?php endif; ?>
+            </div><!-- /.main -->
         </div><!-- /.content -->
 </div><!-- /.wrap -->
   <?php get_template_part('templates/footer'); ?>
