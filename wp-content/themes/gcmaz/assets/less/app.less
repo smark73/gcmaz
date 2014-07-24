@@ -82,6 +82,18 @@ h5 {color:@red;font-weight:600;}
 /* Gallery Shortcode */
 .gallery-row { padding: 15px 0; }
 
+//limit size of gallery images
+.gallery-row .thumbnail,
+.gallery-row img{max-width:200px;margin:auto}
+
+// add responsiveness to images
+.thumbnail img,
+.img-thumbnail img,
+.attachment-full{
+    .img-responsive;
+}
+
+
 // inner content wrapper in pages
 .in-cnt-wrp{background:#fff;width:90%;margin:auto;border-bottom:5px solid rgba(0,0,0,.2)}
 .in-cnt-wrp article, .in-cnt-wrp .pg-content {margin:20px;background:#fff;max-width:95%}
