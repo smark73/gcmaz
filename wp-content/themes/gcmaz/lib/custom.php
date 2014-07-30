@@ -245,3 +245,19 @@ function fields_in_feed($content) {
     return $content_plus;  
 }  
 add_filter('the_content','fields_in_feed');
+
+/*
+ * START - retrieve our session var to ...
+ *      a) get referring url
+ */
+/*function register_session($ses_name = 'gcmaz', $lifetime = 600){
+    if(!session_id()){
+        session_set_cookie_params($lifetime, '/', '.gcmaz.com');
+        session_name($ses_name);
+        session_start();
+    } else {
+        //have an existing session
+        $ref_domain = $_SESSION['startDomain'];
+    }
+}
+add_action('init', 'register_session');*/
