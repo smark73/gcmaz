@@ -93,6 +93,24 @@ h5 {color:@red;font-weight:600;}
     .img-responsive;
 }
 
+// START BUTTON add our own btn-red class
+.btn-red {
+    background-color: hsl(0, 100%, 36%) !important;
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e00000", endColorstr="#b70000");
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#e00000), to(#b70000));
+    background-image: -moz-linear-gradient(top, #e00000, #b70000);
+    background-image: -ms-linear-gradient(top, #e00000, #b70000);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e00000), color-stop(100%, #b70000));
+    background-image: -webkit-linear-gradient(top, #e00000, #b70000);
+    background-image: -o-linear-gradient(top, #e00000, #b70000);
+    background-image: linear-gradient(#e00000, #b70000);
+    border-color: #b70000 #b70000 hsl(0, 100%, 34%);
+    color: #fff !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.13);
+    -webkit-font-smoothing: antialiased;
+}
+// END button-red class
 
 // inner content wrapper in pages
 .in-cnt-wrp{background:#fff;width:90%;margin:auto;border-bottom:5px solid rgba(0,0,0,.2)}
@@ -100,6 +118,7 @@ h5 {color:@red;font-weight:600;}
 
 /**** Listen Live ****/
 .listen{text-decoration:none !important}
+.listen-btn{display:inline-block}
 .studio-sponsor a img{width:100%;height:auto;max-width:150px;max-height:100px;}
 /******end listen live button*********/
 
