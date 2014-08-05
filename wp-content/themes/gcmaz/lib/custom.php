@@ -225,7 +225,7 @@ foreach($pages as $pinfo){
  */
 
 /*  ADD Custom Fields to Feeds */
-function fields_in_feed($content) {  
+/*function fields_in_feed($content) {  
     if(is_feed()) {  
         $post_id = get_the_ID();  
         $wdate = get_post_meta($post_id, "whats_fulldate", true);
@@ -244,7 +244,7 @@ function fields_in_feed($content) {
     $content_plus = $list_date . $content;
     return $content_plus;  
 }  
-add_filter('the_content','fields_in_feed');
+add_filter('the_content','fields_in_feed');*/
 
 /*
  * START - retrieve our session var to ...
