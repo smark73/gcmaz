@@ -11,7 +11,7 @@ Template Name: News Template
         <?php $the_query = new WP_Query(array(
             'category_name' => 'news',
             //'posts_per_archive_page' => '1',
-            'order' => 'DESC',
+            //'order' => 'DESC',
             'posts_per_page' => get_option('posts_per_page'),
             'paged' => $paged,
             ));
