@@ -76,7 +76,25 @@ var GcmazSite = {
   // Home page
   home: {
     init: function() {
-      // JS here
+        // listen live stream window
+        $('#kaffBtn').click(function(){
+              window.open('http://player.tritondigital.com/8051', 'KAFFFM', 'width=800,height=600');
+        });
+        $('#kmgnBtn').click(function(){
+              window.open('http://player.tritondigital.com/8061', 'KMGNFM', 'width=800,height=600');
+        });
+        $('#kaffamBtn').click(function(){
+              window.open('http://player.tritondigital.com/8041', 'KAFFAM', 'width=800,height=600');
+        });
+        $('#kfszBtn').click(function(){
+              window.open('http://player.tritondigital.com/14981', 'KFSZFM', 'width=800,height=600');
+        });
+        $('#ktmgBtn').click(function(){
+            window.open('http://player.tritondigital.com/8071', 'KTMGFM', 'width=800,height=600');
+        });
+        $('#knotBtn').click(function(){
+            window.open('http://player.tritondigital.com/14991', 'KNOTAM', 'width=800,height=600');
+        });
     }
   },
   // About page
