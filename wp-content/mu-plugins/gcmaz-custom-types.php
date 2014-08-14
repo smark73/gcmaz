@@ -280,7 +280,7 @@ function save_whats_attributes(){
         update_post_meta($post->ID, "whats_date", $_POST["whats_date"]);
         update_post_meta($post->ID, "whats_fulldate", $_POST["whats_fulldate"]);
         //category
-        wp_set_object_terms($post->ID, 'whats-happening', 'category', false);
+        wp_set_object_terms($post->ID, 'whats-happening', 'category', true);
     }
 }
 function save_community_attributes(){
@@ -290,7 +290,7 @@ function save_community_attributes(){
         update_post_meta($post->ID, "community_date", $_POST["community_date"]);
         update_post_meta($post->ID, "community_fulldate", $_POST["community_fulldate"]);
         //category
-        wp_set_object_terms($post->ID, 'community-info', 'category', false);
+        wp_set_object_terms($post->ID, 'community-info', 'category', true);
     }
 }
 function save_concert_attributes(){
@@ -300,43 +300,43 @@ function save_concert_attributes(){
         update_post_meta($post->ID, "concert_date", $_POST["concert_date"]);
         update_post_meta($post->ID, "concert_fulldate", $_POST["concert_fulldate"]);
         //category
-        wp_set_object_terms($post->ID, 'concert', 'category', false);
+        wp_set_object_terms($post->ID, 'concert', 'category', true);
     }
 }
 function save_splash_attributes(){
     global $post;
     if($post->post_type == 'splash-post'){
         //category
-        wp_set_object_terms($post->ID, 'info', 'category', false);
+        wp_set_object_terms($post->ID, 'info', 'category', true);
     }
 }
 
 //add taxonomy
-add_action('init', 'create_location_taxonomy', 0);
+/*add_action('init', 'create_station_taxonomy', 0);
 
-function create_location_taxonomy(){
+function create_station_taxonomy(){
     $loc_labels = array(
-        'name' => 'Location',
-        'singular_name' => 'location',
-        'search_items' => 'Search location',
-        'popular_items' => 'Popular locations',
-        'all_items' => 'All locations',
+        'name' => 'Station',
+        'singular_name' => 'Station',
+        'search_items' => 'Search station',
+        'popular_items' => 'Popular stations',
+        'all_items' => 'All stations',
         'parent_item' => null,
         'parent_item_colon' => null,
-        'edit_item' => 'Edit location',
-        'update_item' => 'Update location',
-        'add_new_item' => 'Add new location',
-        'new_item_name' => 'New location name',
-        'separate_items_with_commas' => 'Separate locations with commas',
-        'add_or_remove_items' => 'Add or remove locations',
-        'choose_from_most_used' => 'Choose from common locations',
-        'menu_name' => 'Locations',
+        'edit_item' => 'Edit station',
+        'update_item' => 'Update station',
+        'add_new_item' => 'Add new station',
+        'new_item_name' => 'New station name',
+        'separate_items_with_commas' => 'Separate stations with commas',
+        'add_or_remove_items' => 'Add or remove stations',
+        'choose_from_most_used' => 'Choose from common stations',
+        'menu_name' => 'Stations',
     );
     register_taxonomy('locations', array('whats-happening', 'community-info', 'concert'), array(
         'hierarchical' => false,
         'labels' => $loc_labels,
         'query_var' => true,
         'update_count_callback' => '_update_post_term_count',
-        'rewrite' => array('slug' => 'locations')
+        'rewrite' => array('slug' => 'station')
     ));
-}
+}*/

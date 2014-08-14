@@ -56,7 +56,7 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 	 *                          of RSS updates within the update period. Default '1'.
 	 */
 	?>
-	<sy:updateFrequency><?php echo apply_filters( 'rss_update_frequency', $frequency ); ?></sy:updateFrequency>
+	<sy:updateFrequency><?php echo apply_filters( 'rss_update_frequency', $frequency ); ?></sy:updateFrequency>   
 	<?php
 	/**
 	 * Fires at the end of the RSS2 Feed Header.
@@ -64,8 +64,19 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 	 * @since 2.0.0
 	 */
 	do_action( 'rss2_head');
-
-	while( have_posts()) : the_post();
+        
+              // query the Whats Happening category
+              $the_query = new WP_Query(array(
+                'post_type' => 'whats-happening',
+                //'orderby' => 'meta_value',
+                //'meta_key' => 'whats_fulldate',
+                //'order' => 'ASC',
+                //'posts_per_page' => get_option('posts_per_page'),
+                //'paged' => $paged,
+                //'cat' => '23',
+               ));
+            
+	while($the_query->have_posts()) : the_post();
 	?>
         
               <?php
@@ -77,21 +88,22 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
                 if(isset($date1[0])){
                     $expDate = $date1[0];
                     $expDate .= "11111111 ";
-                    print_r($expDate);
+                    //print_r($expDate);
                 }elseif(isset($date2[0])){
                     $expDate = $date2[0];
                     $expDate .= "22222222 ";
-                    print_r($expDate);
+                    //print_r($expDate);
                 }elseif(isset($date3[0])){
                     $expDate = $date3[0];
                     $expDate .= "3333333333 ";
-                    print_r($expDate);
+                    //print_r($expDate);
                 }else{
-                    $expDate[0] = null;
-                    $expDate[0] .= "NULL ";
-                    print_r($expDate);
+                    $expDate = null;
+                    $expDate .= "NULL ";
+                    //print_r($expDate);
                 }
-                print_r($expDate);
+                echo $expDate . "---------------";
+                //print_r($expDate);
                 //if(($expDate[0] == null) || (strtotime($expDate[0])) >= (strtotime('now'))) :
               ?>
         
