@@ -64,6 +64,7 @@ function roots_display_sidebar() {
      */
     array(
       'template-no-sidebar.php',
+      'template-nau.php',
       //'template-splash.php', (not in template anymore)
     )
   );
