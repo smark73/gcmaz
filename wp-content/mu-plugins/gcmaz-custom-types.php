@@ -266,11 +266,11 @@ function concert_fields (){
 add_action('save_post', 'save_whats_attributes');
 add_action('save_post', 'save_community_attributes');
 add_action('save_post', 'save_concert_attributes');
-add_action('save_post', 'save_splash_attributes');
+//add_action('save_post', 'save_splash_attributes');
 add_action('publish_post', 'save_whats_attributes');
 add_action('publish_post', 'save_community_attributes');
 add_action('publish_post', 'save_concert_attributes');
-add_action('publish_post', 'save_splash_attributes');
+//add_action('publish_post', 'save_splash_attributes');
 
 //save custom fields and set specific category
 function save_whats_attributes(){
@@ -309,33 +309,3 @@ function save_concert_attributes(){
         wp_set_object_terms($post->ID, 'concert', 'category', true);
     }
 }
-
-//add taxonomy
-/*add_action('init', 'create_station_taxonomy', 0);
-
-function create_station_taxonomy(){
-    $loc_labels = array(
-        'name' => 'Station',
-        'singular_name' => 'Station',
-        'search_items' => 'Search station',
-        'popular_items' => 'Popular stations',
-        'all_items' => 'All stations',
-        'parent_item' => null,
-        'parent_item_colon' => null,
-        'edit_item' => 'Edit station',
-        'update_item' => 'Update station',
-        'add_new_item' => 'Add new station',
-        'new_item_name' => 'New station name',
-        'separate_items_with_commas' => 'Separate stations with commas',
-        'add_or_remove_items' => 'Add or remove stations',
-        'choose_from_most_used' => 'Choose from common stations',
-        'menu_name' => 'Stations',
-    );
-    register_taxonomy('locations', array('whats-happening', 'community-info', 'concert'), array(
-        'hierarchical' => false,
-        'labels' => $loc_labels,
-        'query_var' => true,
-        'update_count_callback' => '_update_post_term_count',
-        'rewrite' => array('slug' => 'station')
-    ));
-}*/
