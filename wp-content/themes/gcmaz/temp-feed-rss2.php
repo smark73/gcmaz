@@ -68,8 +68,8 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
               // query the Whats Happening category
               $the_query = new WP_Query(array(
                 'post_type' => 'whats-happening',
-                //'orderby' => 'meta_value',
-                //'meta_key' => 'whats_fulldate',
+                'orderby' => 'meta_value',
+                'meta_key' => 'whats_fulldate',
                 //'order' => 'ASC',
                 //'posts_per_page' => get_option('posts_per_page'),
                 //'paged' => $paged,
@@ -82,30 +82,31 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
               <?php
                 // check our date - don't feed past date events
                 //returns an array
-                $date1 = get_post_custom_values('whats_date');
-                $date2 = get_post_custom_values('community_date');
-                $date3 = get_post_custom_values('concert_date');
-                if(isset($date1[0])){
+                $expDate = get_post_custom_values('whats_fulldate');
+                //$date2 = get_post_custom_values('community_date');
+                //$date3 = get_post_custom_values('concert_date');
+                /*if(isset($date1[0])){
                     $expDate = $date1[0];
-                    $expDate .= "11111111 ";
+                    //$expDate .= "11111111 ";
                     //print_r($expDate);
                 }elseif(isset($date2[0])){
                     $expDate = $date2[0];
-                    $expDate .= "22222222 ";
+                    //$expDate .= "22222222 ";
                     //print_r($expDate);
                 }elseif(isset($date3[0])){
                     $expDate = $date3[0];
-                    $expDate .= "3333333333 ";
+                    //$expDate .= "3333333333 ";
                     //print_r($expDate);
                 }else{
                     $expDate = null;
-                    $expDate .= "NULL ";
+                    //$expDate .= "NULL ";
                     //print_r($expDate);
-                }
-                echo $expDate . "---------------";
+                }*/
+                //echo $expDate . "---------------";
                 //print_r($expDate);
-                //if(($expDate[0] == null) || (strtotime($expDate[0])) >= (strtotime('now'))) :
               ?>
+        
+              <?php if(($expDate[0] == null) || (strtotime($expDate[0])) >= (strtotime('now'))) : ?>
         
 	<item>
 		<title><?php the_title_rss() ?></title>
@@ -155,7 +156,7 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 	?>
 	</item>
 
-              <?php //endif; ?>
+              <?php endif; ?>
 
 	<?php endwhile; ?>
 </channel>

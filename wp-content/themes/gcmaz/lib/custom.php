@@ -224,6 +224,20 @@ foreach($pages as $pinfo){
  * END 
  */
 
+add_action('after_setup_theme', 'whats_feeds_tpl');
+/*
+ * Register new Whats RSS template
+ */
+function whats_feeds_tpl(){
+    add_feed('whats', 'whats_feeds_render');
+}
+/*
+ * gcm feeds RSS template callback
+ */
+function whats_feeds_render(){
+    get_template_part('feed', 'whats');
+}
+
 /*  ADD Custom Fields to Feeds */
 /*function fields_in_feed($content) {  
     if(is_feed()) {  
