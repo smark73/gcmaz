@@ -1,6 +1,6 @@
 <?php
 /**
- * Whats RSS template.
+ * Community RSS template.
  * 
  * @package GCMAZ
  */
@@ -29,9 +29,9 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 
   <!-- RSS feed defaults -->
 	<channel>
-		<title>What's Happening Near You</title>
+		<title>Northern Arizona Community Info</title>
 		<link><?php bloginfo_rss( 'url' ) ?></link>
-		<description>Northern Arizona Events and Happenings - Great Circle Media</description>
+		<description>Northern Arizona Community Info - Great Circle Media</description>
 		<lastBuildDate><?php echo mysql2date( 'D, d M Y H:i:s +0000', get_lastpostmodified( 'GMT' ), false ); ?></lastBuildDate>
 		<language><?php bloginfo_rss( 'language' ); ?></language>
 		<sy:updatePeriod><?php echo apply_filters( 'rss_update_period', $duration ); ?></sy:updatePeriod>
@@ -41,11 +41,11 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 		<?php do_action( 'rss2_head' ); ?>
 		
                             <?php
-                                // query the Whats Happening category
+                                // query the Community Info category
                                 $the_query = new WP_Query(array(
-                                  'post_type' => 'whats-happening',
+                                  'post_type' => 'community-info',
                                   'orderby' => 'meta_value',
-                                  'meta_key' => 'whats_fulldate',
+                                  'meta_key' => 'community_fulldate',
                                   'order' => 'ASC',
                                  ));
                             ?>
@@ -53,14 +53,14 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 		<?php while( $the_query->have_posts()) : $the_query->the_post(); ?>
                                 <?php
                                     // check custom date to see if its past date
-                                    $expDate = get_post_custom_values('whats_fulldate');
+                                    $expDate = get_post_custom_values('community_fulldate');
                                     if(($expDate[0] == null) || (strtotime($expDate[0])) >= (strtotime('now'))) :
                                 ?>
                                 <?php
                                     // get pertinent data and attach it to content variable
                                     $content = get_the_content_feed('rss2');
                                     
-                                    $eDate = get_post_custom_values('whats_date');
+                                    $eDate = get_post_custom_values('community_date');
                                     $eventDate = $eDate[0];
                                     $content = '<span class="archv-date pull-right red">' . $eventDate . '</span>' . $content;
                                     

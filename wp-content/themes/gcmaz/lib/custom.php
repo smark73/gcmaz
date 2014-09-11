@@ -224,12 +224,15 @@ foreach($pages as $pinfo){
  * END 
  */
 
-add_action('after_setup_theme', 'whats_feeds_tpl');
 /*
- * Register new Whats RSS template
+ * Register new  RSS templates
  */
-function whats_feeds_tpl(){
+add_action('after_setup_theme', 'gcm_feeds_tpl');
+
+function gcm_feeds_tpl(){
     add_feed('whats', 'whats_feeds_render');
+    add_feed('concerts', 'concerts_feeds_render');
+    add_feed('community', 'community_feeds_render');
 }
 /*
  * gcm feeds RSS template callback
@@ -237,41 +240,9 @@ function whats_feeds_tpl(){
 function whats_feeds_render(){
     get_template_part('feed', 'whats');
 }
-
-/*  ADD Custom Fields to Feeds */
-/*function fields_in_feed($content) {  
-    if(is_feed()) {  
-        $post_id = get_the_ID();  
-        $wdate = get_post_meta($post_id, "whats_fulldate", true);
-        $condate = get_post_meta($post_id, "concert_fulldate", true);
-        $comdate = get_post_meta($post_id, "community_fulldate", true);
-        if(isset($wdate) && $wdate !== ''){
-            $list_date = "<span class='red listdate'>$wdate</span>";
-        }
-        if(isset($condate) && $condate !== ''){
-            $list_date = "<span class='red listdate'>$condate</span>";
-        }
-        if(isset($comdate) && $comdate !== ''){
-            $list_date = "<span class='red listdate'>$comdate</span>";
-        }
-    }
-    $content_plus = $list_date . $content;
-    return $content_plus;  
-}  
-add_filter('the_content','fields_in_feed');*/
-
-/*
- * START - retrieve our session var to ...
- *      a) get referring url
- */
-/*function register_session($ses_name = 'gcmaz', $lifetime = 600){
-    if(!session_id()){
-        session_set_cookie_params($lifetime, '/', '.gcmaz.com');
-        session_name($ses_name);
-        session_start();
-    } else {
-        //have an existing session
-        $ref_domain = $_SESSION['startDomain'];
-    }
+function concerts_feeds_render(){
+    get_template_part('feed', 'concerts');
 }
-add_action('init', 'register_session');*/
+function community_feeds_render(){
+    get_template_part('feed', 'community');
+}
