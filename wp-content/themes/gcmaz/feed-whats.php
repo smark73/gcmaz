@@ -46,6 +46,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                   'post_type' => 'whats-happening',
                                   'orderby' => 'meta_value',
                                   'meta_key' => 'whats_fulldate',
+                                  'order' => 'ASC',
                                  ));
                             ?>
                             <!-- Start loop -->
