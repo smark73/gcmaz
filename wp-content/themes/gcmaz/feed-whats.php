@@ -91,8 +91,6 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                                                         <content:encoded><![CDATA[<?php the_excerpt_rss(); ?>]]></content:encoded>
                                                                 <?php endif; ?>
                                                         <?php endif; ?>
-                                                                        
-				<pubDate><?php echo mysql2date( 'D, d M Y H:i:s +0000', get_post_time( 'Y-m-d H:i:s', true ), false ); ?></pubDate>
 
 			</item>
                             
