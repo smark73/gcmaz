@@ -78,7 +78,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 				<link><?php the_permalink_rss(); ?></link>
 				<guid isPermaLink="false"><?php the_guid(); ?></guid>
 				<author><?php the_author(); ?></author>
-                                		<guid isPermaLink="false"><?php the_guid(); ?></guid>
+                                		<?php the_category_rss('rss2') ?>
                                                         
                                                         <?php if (get_option('rss_use_excerpt')) : ?>
                                                                         <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
