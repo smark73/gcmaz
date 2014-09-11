@@ -32,7 +32,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 		<title>What's Happening Near You</title>
 		<link><?php bloginfo_rss( 'url' ) ?></link>
 		<description>Northern Arizona Events and Happenings - Great Circle Media</description>
-		<lastBuildDate><?php echo mysql2date( 'D, d M Y H:i:s +0000', get_lastpostmodified( 'GMT' ), false ); ?></lastBuildDate>
+		<lastBuildDate></lastBuildDate>
 		<language><?php bloginfo_rss( 'language' ); ?></language>
 		<sy:updatePeriod><?php echo apply_filters( 'rss_update_period', $duration ); ?></sy:updatePeriod>
 		<sy:updateFrequency><?php echo apply_filters( 'rss_update_frequency', $frequency ); ?></sy:updateFrequency>
