@@ -15,7 +15,7 @@ if($post->post_title == 'Home'){
 
 // since groupnum is populated from above, lets echo necessary html to display it
 if($groupnum !== null){
-    if(substr(adrotate_group($groupnum), 0, 2) != "<a"){
+    if(substr(adrotate_group($groupnum), 0, 5) == "<span" || substr(adrotate_group($groupnum), 0, 2) == "<!"){
         // (test to see if it returned an <a tag ... if not, it must be an error message)        
         // no ads in our group or error retrieving them
         // see adrotate-output.php for list of errors
