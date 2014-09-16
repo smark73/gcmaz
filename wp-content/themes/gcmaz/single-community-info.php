@@ -1,7 +1,7 @@
 <div class="in-cnt-wrp row">
     <div class="centered rbn-hdg">
         <div class="page-header">
-            <h4 class="txtshdw"><a href='/community-info/' style='color:#fff;text-decoration:none;padding-top:5px;display:block;'>« Northern Arizona Community Info</a></h4>
+            <h4 class="txtshdw">Northern Arizona Community Info</h4>
         </div>
     </div>
     <?php while (have_posts()) : the_post(); ?>

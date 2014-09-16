@@ -1,7 +1,7 @@
 <div class="in-cnt-wrp row">
     <div class="centered rbn-hdg">
         <div class="page-header">
-            <h4 class="txtshdw"><a href='/concerts/' style='color:#fff;text-decoration:none;padding-top:5px;display:block;'>« Concerts Near You</a></h4>
+            <h4 class="txtshdw">Concerts Near You</h4>
         </div>
     </div>
     <?php while (have_posts()) : the_post(); ?>
