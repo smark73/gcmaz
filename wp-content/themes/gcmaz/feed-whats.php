@@ -54,7 +54,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                   'orderby' => 'meta_value',
                                   'meta_key' => 'whats_fulldate',
                                   'order' => 'ASC',
-                                  'offset' => '0',
+                                  //'offset' => '0',
                                   'posts_per_page' => '9999',
                                   'meta_query' => array(
                                       'relation' => 'OR',
@@ -76,9 +76,9 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                             <!-- Start loop -->
 		<?php while( $the_query->have_posts()) : $the_query->the_post(); ?>
                                 <?php
-                                    // check custom date to see if its past date
-                                    //$expDate = get_post_custom_values('whats_fulldate');
-                                    //if(($expDate[0] == null) || (strtotime($expDate[0])) >= (strtotime('now'))) :
+                                    // double check custom date to see if its past date
+                                    $expDate = get_post_custom_values('whats_fulldate');
+                                    if(($expDate[0] == null) || (strtotime($expDate[0])) >= (strtotime('now'))) :
                                 ?>
                                 <?php
                                     // get pertinent data and attach it to content variable
@@ -118,7 +118,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 
 			</item>
                             
-                                <?php //endif; ?>
+                                <?php endif; ?>
 		<?php endwhile; ?>
                             <?php
                                 // restore the global post object
