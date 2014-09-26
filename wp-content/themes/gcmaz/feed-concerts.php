@@ -48,11 +48,14 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                 $d = date('Ymd');
 
                                 // query the Concert category
+                                //  -- note 'offset' and 'posts_per_page' known to solve issue of some posts not showing up
                                 $the_query = new WP_Query(array(
                                   'post_type' => 'concert',
                                   'orderby' => 'meta_value',
                                   'meta_key' => 'concert_fulldate',
                                   'order' => 'ASC',
+                                  'offset' => '0',
+                                  'posts_per_page' => '9999',
                                   'meta_query' => array(
                                       'relation' => 'OR',
                                       array(
