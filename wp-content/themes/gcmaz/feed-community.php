@@ -41,20 +41,41 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 		<?php do_action( 'rss2_head' ); ?>
 		
                             <?php
-                                // query the Community Info category
+                                //store the global post object temporarily and restore it after while loop
+                                $temp_post = $post;
+                                
+                                // get today
+                                $d = date('Ymd');
+
+                                // query the Community category
                                 $the_query = new WP_Query(array(
                                   'post_type' => 'community-info',
                                   'orderby' => 'meta_value',
                                   'meta_key' => 'community_fulldate',
                                   'order' => 'ASC',
+                                  'meta_query' => array(
+                                      'relation' => 'OR',
+                                      array(
+                                          'key' => 'community_fulldate',
+                                          'value' => '',
+                                          'type' => 'date',
+                                          'compare' => '=',
+                                      ),
+                                      array(
+                                          'key' => 'community_fulldate',
+                                          'value' => $d,
+                                          'type' => 'date',
+                                          'compare' => '>=',
+                                      ),
+                                  ),
                                  ));
                             ?>
                             <!-- Start loop -->
 		<?php while( $the_query->have_posts()) : $the_query->the_post(); ?>
                                 <?php
                                     // check custom date to see if its past date
-                                    $expDate = get_post_custom_values('community_fulldate');
-                                    if(($expDate[0] == null) || (strtotime($expDate[0])) >= (strtotime('now'))) :
+                                    //$expDate = get_post_custom_values('community_fulldate');
+                                    //if(($expDate[0] == null) || (strtotime($expDate[0])) >= (strtotime('now'))) :
                                 ?>
                                 <?php
                                     // get pertinent data and attach it to content variable
@@ -94,7 +115,11 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 
 			</item>
                             
-                                <?php endif; ?>
+                                <?php //endif; ?>
 		<?php endwhile; ?>
+                            <?php
+                                // restore the global post object
+                                $post = $temp_post;
+                            ?>
 	</channel>
 </rss>

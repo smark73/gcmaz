@@ -184,13 +184,13 @@ function whats_fields (){
     <script>
         jQuery(document).ready(function(){
             //load hiddenfield with stored data if exists
-            jQuery('#whats_fulldate').datepicker({dateFormat:'yy-mm-dd'});
-            var parsedDate = jQuery.datepicker.parseDate('yy-mm-dd', '<?php echo $whats_fulldate;?>');
+            jQuery('#whats_fulldate').datepicker({dateFormat:'yymmdd'});
+            var parsedDate = jQuery.datepicker.parseDate('yymmdd', '<?php echo $whats_fulldate;?>');
             jQuery('#whats_fulldate').datepicker('setDate', parsedDate);
             //set values when use datepicker
             jQuery('#whats_date').datepicker({
                 dateFormat : 'D, M d',
-                altFormat: 'yy-mm-dd',
+                altFormat: 'yymmdd',
                 altField: '#whats_fulldate'
             });
         });
@@ -216,13 +216,13 @@ function community_fields (){
     <script>
         jQuery(document).ready(function(){
             //load hiddenfield with stored data if exists
-            jQuery('#community_fulldate').datepicker({dateFormat:'yy-mm-dd'});
-            var parsedDate = jQuery.datepicker.parseDate('yy-mm-dd', '<?php echo $community_fulldate;?>');
+            jQuery('#community_fulldate').datepicker({dateFormat:'yymmdd'});
+            var parsedDate = jQuery.datepicker.parseDate('yymmdd', '<?php echo $community_fulldate;?>');
             jQuery('#community_fulldate').datepicker('setDate', parsedDate);
             //set values when use datepicker
             jQuery('#community_date').datepicker({
                 dateFormat : 'D, M d',
-                altFormat: 'yy-mm-dd',
+                altFormat: 'yymmdd',
                 altField: '#community_fulldate'
             });
         });
@@ -248,13 +248,13 @@ function concert_fields (){
     <script>
         jQuery(document).ready(function(){
             //load hiddenfield with stored data if exists
-            jQuery('#concert_fulldate').datepicker({dateFormat:'yy-mm-dd'});
-            var parsedDate = jQuery.datepicker.parseDate('yy-mm-dd', '<?php echo $concert_fulldate;?>');
+            jQuery('#concert_fulldate').datepicker({dateFormat:'yymmdd'});
+            var parsedDate = jQuery.datepicker.parseDate('yymmdd', '<?php echo $concert_fulldate;?>');
             jQuery('#concert_fulldate').datepicker('setDate', parsedDate);
             //set values when use datepicker
             jQuery('#concert_date').datepicker({
                 dateFormat : 'D, M d',
-                altFormat: 'yy-mm-dd',
+                altFormat: 'yymmdd',
                 altField: '#concert_fulldate'
             });
         });
