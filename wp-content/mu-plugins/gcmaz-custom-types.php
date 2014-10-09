@@ -13,6 +13,7 @@ add_action('init', 'whats_post_type');
 add_action('init', 'community_post_type');
 add_action('init', 'concert_post_type');
 add_action('init', 'splash_post_type');
+add_action('init', 'station_post_type');
 
 // custom post types
 function whats_post_type(){
@@ -21,8 +22,8 @@ function whats_post_type(){
                 'name' => __("What's Happening in Northern Arizona"),
                 'singular_name' => __('Whats Post'),
                 'menu_name' => __('Whats Post'),
-                'all_items' => __('See All Posts'),
-                'add_new' => __('Add New Post'),
+                'all_items' => __('See All'),
+                'add_new' => __('Add New'),
                 'add_new_item' => __('Add New Whats Post'),
                 'edit' => __('Edit'),
                 'edit_item' => __('Edit Post'),
@@ -52,8 +53,8 @@ function community_post_type(){
                 'name' => __('Northern Arizona Community Info'),
                 'singular_name' => __('Community Post'),
                 'menu_name' => __('Community Post'),
-                'all_items' => __('See All Posts'),
-                'add_new' => __('Add New Post'),
+                'all_items' => __('See All'),
+                'add_new' => __('Add New'),
                 'add_new_item' => __('Add New Community Post'),
                 'edit' => __('Edit'),
                 'edit_item' => __('Edit Post'),
@@ -85,8 +86,8 @@ function concert_post_type(){
                 'name' => __('Concerts Near You'),
                 'singular_name' => __('Concert Post'),
                 'menu_name' => __('Concert Post'),
-                'all_items' => __('See All Concerts'),
-                'add_new' => __('Add New Concert'),
+                'all_items' => __('See All'),
+                'add_new' => __('Add New'),
                 'add_new_item' => __('Add New Concert'),
                 'edit' => __('Edit'),
                 'edit_item' => __('Edit Post'),
@@ -113,20 +114,20 @@ function concert_post_type(){
 function splash_post_type(){
     $args = array(
             'labels' => array(
-                'name' => __("Splash Posts"),
-                'singular_name' => __('Splash Post'),
-                'menu_name' => __('Splash Post'),
-                'all_items' => __('See All Splash Posts'),
-                'add_new' => __('Add New Splash Post'),
-                'add_new_item' => __('Add New Splash Post'),
+                'name' => __("Splash or Contest"),
+                'singular_name' => __('Splash or Contest'),
+                'menu_name' => __('Splash / Contest'),
+                'all_items' => __('See All'),
+                'add_new' => __('Add New'),
+                'add_new_item' => __('Add New Post'),
                 'edit' => __('Edit'),
                 'edit_item' => __('Edit Post'),
                 'new_item' => __('New Post'),
                 'view' => __('View Post'),
                 'view_item' => __('View Post'),
-                'search_items' => __('Search Splash Posts'),
-                'not_found' => __('No Splash Posts'),
-                'not_found_in_trash' => __('No Splash posts in the trash'),
+                'search_items' => __('Search Posts'),
+                'not_found' => __('No Posts'),
+                'not_found_in_trash' => __('No posts in the trash'),
             ),
             'hierarchichal' => false,
             'public' => true,
@@ -136,11 +137,43 @@ function splash_post_type(){
             'rewrite' => array('slug' => 'info'),
             'capability_type' => 'post',
             'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields'),
-            'description' => "A 'splash' post is a splash page.",
+            'description' => "For Splash and Contest info pages.",
             'taxonomies' => array('category'),
     );
     register_post_type('splash-post', $args);
 }
+function station_post_type(){
+    $args = array(
+            'labels' => array(
+                'name' => __("Jobs, Media Kits, and other Station info"),
+                'singular_name' => __('Station Post'),
+                'menu_name' => __('Station Post'),
+                'all_items' => __('See All'),
+                'add_new' => __('Add New'),
+                'add_new_item' => __('Add New Post'),
+                'edit' => __('Edit'),
+                'edit_item' => __('Edit Post'),
+                'new_item' => __('New Post'),
+                'view' => __('View Post'),
+                'view_item' => __('View Post'),
+                'search_items' => __('Search Station Posts'),
+                'not_found' => __('No Station Posts'),
+                'not_found_in_trash' => __('No Station posts in the trash'),
+            ),
+            'hierarchichal' => false,
+            'public' => true,
+            'menu_position' => 3,
+            'menu_icon' => plugins_url( 'icon_gcmaz.png', __FILE__ ),
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'station-info'),
+            'capability_type' => 'post',
+            'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields'),
+            'description' => "Job postings, Media Kits, and other Station related info that duplicates across sites.",
+            'taxonomies' => array('category'),
+    );
+    register_post_type('station-content', $args);
+}
+
 
 //place custom fields on admin screen
 add_action( 'admin_init', 'add_whats_box' );

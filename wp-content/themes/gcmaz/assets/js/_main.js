@@ -9,9 +9,9 @@ var GcmazSite = {
         // ****  START PAGE TAKEOVER
         // page takeover header shrink from 250 to 100
         // hdr wraps hdr1 and hdr2
-        var $tkohdr = $(document).find('.takeover-hdr');
-        var $tkohdr1 = $(document).find('.takeover-hdr1');
-        var $tkohdr2 = $(document).find('.takeover-hdr2');
+        var $tkohdr = jQuery(document).find('.takeover-hdr');
+        var $tkohdr1 = jQuery(document).find('.takeover-hdr1');
+        var $tkohdr2 = jQuery(document).find('.takeover-hdr2');
         
         //create the object to store hdr vars
         function Tko($tkohdr, $tkohdr1, $tkohdr2){
@@ -29,7 +29,7 @@ var GcmazSite = {
         t.set_h(p);
         
         //window resize funx
-        $(window).resize(function(){
+        jQuery(window).resize(function(){
             //set timer cuz window.resize needs to wait to get final heights
             function resizedw(){
                 //reset percentage then height
@@ -42,7 +42,7 @@ var GcmazSite = {
         });
 
         //hover funx
-        $(function(){
+        jQuery(function(){
            t.tkohdr2.delay(10000).animate({ height:0, bottom:0, marginTop:0},
             function(){
                 t.tkohdr.mouseover(function(){
@@ -56,8 +56,8 @@ var GcmazSite = {
         // **** END PAGE TAKEOVER
         
         //****  START exp leaderboard banner 
-        var $exp = $(document).find('.expldrbrd');
-        $(function(){
+        var $exp = jQuery(document).find('.expldrbrd');
+        jQuery(function(){
             $exp.delay(10000).animate({ height:20, bottom:0}, function(){
                 //show hide funx
                 $exp.mouseover(function(){
@@ -77,22 +77,22 @@ var GcmazSite = {
   home: {
     init: function() {
         // listen live stream window
-        $('#kaffBtn').click(function(){
+        jQuery('#kaffBtn').click(function(){
               window.open('http://player.tritondigital.com/8051', 'KAFFFM', 'width=800,height=600');
         });
-        $('#kmgnBtn').click(function(){
+        jQuery('#kmgnBtn').click(function(){
               window.open('http://player.tritondigital.com/8061', 'KMGNFM', 'width=800,height=600');
         });
-        $('#kaffamBtn').click(function(){
+        jQuery('#kaffamBtn').click(function(){
               window.open('http://player.tritondigital.com/8041', 'KAFFAM', 'width=800,height=600');
         });
-        $('#kfszBtn').click(function(){
+        jQuery('#kfszBtn').click(function(){
               window.open('http://player.tritondigital.com/14981', 'KFSZFM', 'width=800,height=600');
         });
-        $('#ktmgBtn').click(function(){
+        jQuery('#ktmgBtn').click(function(){
             window.open('http://player.tritondigital.com/8071', 'KTMGFM', 'width=800,height=600');
         });
-        $('#knotBtn').click(function(){
+        jQuery('#knotBtn').click(function(){
             window.open('http://player.tritondigital.com/14991', 'KNOTAM', 'width=800,height=600');
         });
     }
@@ -117,7 +117,7 @@ var UTIL = {
 
     UTIL.fire('common');
 
-    $.each(document.body.className.replace(/-/g, '_').split(/\s+/),function(i,classnm) {
+    jQuery.each(document.body.className.replace(/-/g, '_').split(/\s+/),function(i,classnm) {
       UTIL.fire(classnm);
     });
 
@@ -125,4 +125,4 @@ var UTIL = {
   }
 };
 
-$(document).ready(UTIL.loadEvents);
+jQuery(document).ready(UTIL.loadEvents);
