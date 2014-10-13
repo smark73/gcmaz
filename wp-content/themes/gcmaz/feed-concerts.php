@@ -48,37 +48,33 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                 $d = date('Ymd');
 
                                 // query the Concert category
-                                //  -- note 'offset' and 'posts_per_page' known to solve issue of some posts not showing up
-                                $the_query = new WP_Query(array(
-                                  'post_type' => 'concert',
-                                  'orderby' => 'meta_value',
-                                  'meta_key' => 'concert_fulldate',
-                                  'order' => 'ASC',
-                                  //'offset' => '0',
-                                  'posts_per_page' => '9999',
-                                  'meta_query' => array(
-                                      'relation' => 'OR',
-                                      array(
-                                          'key' => 'concert_fulldate',
-                                          'value' => '',
-                                          'type' => 'date',
-                                          'compare' => '=',
-                                      ),
-                                      array(
-                                          'key' => 'concert_fulldate',
-                                          'value' => $d,
-                                          'type' => 'date',
-                                          'compare' => '>=',
-                                      ),
-                                  ),
-                                 ));
+                                //  check if fulldate has a value of 20000101 (Jan 1, 2000) which is default given to non-dated items
+                                //  compare to todays date
+                                //  -- note 'posts_per_page' known to solve issue of some posts not showing up
+                                $args = array(
+                                    'post_type' => 'concert',
+                                    'meta_key' => 'concert_fulldate',
+                                    'posts_per_page' => '999',
+                                    'orderby' => 'meta_value',
+                                    'order' => 'ASC',
+                                    'meta_query' => array(
+                                        array(
+                                            'key' => 'concert_fulldate',
+                                            'value' => array('20000101', $d),
+                                            'type' => 'date',
+                                            'compare' => '>=',
+                                        ),
+                                    ),
+                                  );
+                                
+                                $the_query = new WP_Query($args);
                             ?>
                             <!-- Start loop -->
 		<?php while( $the_query->have_posts()) : $the_query->the_post(); ?>
                                 <?php
                                     // double check custom date to see if its past date
                                     $expDate = get_post_custom_values('concert_fulldate');
-                                    if(($expDate[0] == null) || (strtotime($expDate[0])) >= (strtotime('now'))) :
+                                    if(($expDate[0] == '20000101') || (strtotime($expDate[0])) >= (strtotime('now'))) :
                                 ?>
                                 <?php
                                     // get pertinent data and attach it to content variable

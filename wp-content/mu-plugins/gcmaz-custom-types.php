@@ -207,6 +207,9 @@ function whats_fields (){
     }
     if(isset($custom['whats_fulldate'][0])){
         $whats_fulldate = $custom['whats_fulldate'][0];
+    } else {
+        //give it a date from long ago to position it a top
+        $whats_fulldate = '20000101';
     }
     ?>
     <p>
@@ -239,6 +242,9 @@ function community_fields (){
     }
     if(isset($custom['community_fulldate'][0])){
         $community_fulldate = $custom['community_fulldate'][0];
+    } else {
+        //give it a date from long ago to position it a top
+        $whats_fulldate = '20000101';
     }
     ?>
     <p>
@@ -271,6 +277,9 @@ function concert_fields (){
     }
     if(isset($custom['concert_fulldate'][0])){
         $concert_fulldate = $custom['concert_fulldate'][0];
+    } else {
+        //give it a date from long ago to position it a top
+        $whats_fulldate = '20000101';
     }
     ?>
     <p>
