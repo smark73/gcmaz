@@ -82,7 +82,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                     
                                     $eDate = get_post_custom_values('whats_date');
                                     $eventDate = $eDate[0];
-                                    $content = '<span class="archv-date pull-right red">' . $eventDate . '</span>' . $content;
+                                    $content = '<span class="listdate pull-right red">' . $eventDate . '</span>' . $content;
                                     
                                     if(has_post_thumbnail()) {
                                         $postimages = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' );
