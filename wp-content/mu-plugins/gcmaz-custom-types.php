@@ -145,9 +145,9 @@ function splash_post_type(){
 function station_post_type(){
     $args = array(
             'labels' => array(
-                'name' => __("Jobs, Media Kits, and other Station info"),
-                'singular_name' => __('Station Post'),
-                'menu_name' => __('Station Post'),
+                'name' => __("Jobs, Media Kits, and other Station content"),
+                'singular_name' => __('Station Content'),
+                'menu_name' => __('Station Content'),
                 'all_items' => __('See All'),
                 'add_new' => __('Add New'),
                 'add_new_item' => __('Add New Post'),
@@ -162,13 +162,13 @@ function station_post_type(){
             ),
             'hierarchichal' => false,
             'public' => true,
-            'menu_position' => 3,
+            'menu_position' => 20,
             'menu_icon' => plugins_url( 'icon_gcmaz.png', __FILE__ ),
             'has_archive' => true,
-            'rewrite' => array('slug' => 'station-info'),
+            'rewrite' => array('slug' => 'station-info', 'feeds' => true),
             'capability_type' => 'post',
             'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields'),
-            'description' => "Job postings, Media Kits, and other Station related info that duplicates across sites.",
+            'description' => "Job postings, Media Kits, and other Station related content that duplicates across sites.",
             'taxonomies' => array('category'),
     );
     register_post_type('station-content', $args);
