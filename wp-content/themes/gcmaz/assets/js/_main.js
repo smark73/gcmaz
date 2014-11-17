@@ -77,7 +77,7 @@ var GcmazSite = {
   home: {
     init: function() {
         // listen live stream window
-        /*jQuery('#kaffBtn').click(function(){
+        jQuery('#kaffBtn').click(function(){
               window.open('http://player.tritondigital.com/8051', 'KAFFFM', 'width=800,height=600');
         });
         jQuery('#kmgnBtn').click(function(){
@@ -94,7 +94,7 @@ var GcmazSite = {
         });
         jQuery('#knotBtn').click(function(){
             window.open('http://player.tritondigital.com/14991', 'KNOTAM', 'width=800,height=600');
-        });*/
+        });
     }
   },
   // About page
