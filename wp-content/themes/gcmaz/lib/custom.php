@@ -65,6 +65,32 @@ if($ptko_settings['ptko_toggle'] == 1){
 }
 
 /*
+ * Register new  RSS templates
+ */
+add_action('after_setup_theme', 'gcm_feeds_tpl');
+
+function gcm_feeds_tpl(){
+    add_feed('whats', 'whats_feeds_render');
+    add_feed('concerts', 'concerts_feeds_render');
+    add_feed('community', 'community_feeds_render');
+}
+/*
+ * gcm feeds RSS template callback
+ */
+function whats_feeds_render(){
+    get_template_part('feed', 'whats');
+}
+function concerts_feeds_render(){
+    get_template_part('feed', 'concerts');
+}
+function community_feeds_render(){
+    get_template_part('feed', 'community');
+}
+
+
+/*
+ * Deactivated - only needed during setup
+ * 
  * START Create pages programatically
  * @returns -1 if the post was never created, -2 if a post with the same title exists, or the ID of the post if successful.
  * 
@@ -88,6 +114,7 @@ if($ptko_settings['ptko_toggle'] == 1){
  *   - oldies media kit
  * thank you - form redirect
  */
+/*
 $pages = array(
     $page_contact = array(
         'page_id' => -1,
@@ -219,30 +246,7 @@ foreach($pages as $pinfo){
     
     add_filter('after_setup_theme', $programatically_create_pages($page_id, $slug, $author_id, $title, $tpl));
 }
-
+*/
 /*
- * END 
+ * END auto create pages
  */
-
-/*
- * Register new  RSS templates
- */
-add_action('after_setup_theme', 'gcm_feeds_tpl');
-
-function gcm_feeds_tpl(){
-    add_feed('whats', 'whats_feeds_render');
-    add_feed('concerts', 'concerts_feeds_render');
-    add_feed('community', 'community_feeds_render');
-}
-/*
- * gcm feeds RSS template callback
- */
-function whats_feeds_render(){
-    get_template_part('feed', 'whats');
-}
-function concerts_feeds_render(){
-    get_template_part('feed', 'concerts');
-}
-function community_feeds_render(){
-    get_template_part('feed', 'community');
-}
