@@ -41,7 +41,7 @@ function whats_post_type(){
             'has_archive' => true,
             'rewrite' => array('slug' => 'whats-happening'),
             'capability_type' => 'post',
-            'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields'),
+            'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields', 'publicize'),
             'description' => "A 'whats' post is a blurb for the Whats Happening page.",
             'taxonomies' => array('category'),
     );
@@ -74,7 +74,7 @@ function community_post_type(){
             'has_archive' => true,
             'rewrite' => array('slug' => 'community-info'),
             'capability_type' => 'post',
-            'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields'),
+            'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields', 'publicize'),
             'description' => "A 'community' post is a blurb for the Community Info page.",
             'taxonomies' => array('category'),
     );
@@ -105,7 +105,7 @@ function concert_post_type(){
             'has_archive' => true,
             'rewrite' => array('slug' => 'concerts'),
             'capability_type' => 'post',
-            'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields'),
+            'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields', 'publicize'),
             'description' => "A 'concert' post is a listing for the Concert page.",
             'taxonomies' => array('category'),
     );
