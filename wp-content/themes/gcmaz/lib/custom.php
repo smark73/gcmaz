@@ -32,6 +32,15 @@ function my_admin_title($admin_title, $title){
     return get_bloginfo('name') . ' &bull; ' . $title;
 }
 
+/* SET DEFAULT FOR JETPACK PUBLICIZE BASED ON USER */
+// auto publish posts for Dave Zorn to KAFF News facebook page
+// Dave id = 3
+$current_user = wp_get_current_user();
+if($current_user->ID != 3 && $current_user->user_firstname != 'Dave'){
+    // set auto post to unchecked
+    add_filter( 'publicize_checkbox_default', '__return_false' );
+}
+
 // PAGE TAKE OVER FUNCTIONS CALLED BY ADMIN OPTIONS
 // get the ptko options array
 $ptko_settings = get_option('ptko_settings');
