@@ -244,7 +244,7 @@ function community_fields (){
         $community_fulldate = $custom['community_fulldate'][0];
     } else {
         //give it a date from long ago to position it a top
-        $whats_fulldate = '20000101';
+        $community_fulldate = '20000101';
     }
     ?>
     <p>
@@ -279,7 +279,7 @@ function concert_fields (){
         $concert_fulldate = $custom['concert_fulldate'][0];
     } else {
         //give it a date from long ago to position it a top
-        $whats_fulldate = '20000101';
+        $concert_fulldate = '20000101';
     }
     ?>
     <p>
