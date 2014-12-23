@@ -32,6 +32,17 @@ function my_admin_title($admin_title, $title){
     return get_bloginfo('name') . ' &bull; ' . $title;
 }
 
+// make archives include custom post types
+function namespace_add_custom_types( $query ) {
+    if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+        $query->set( 'post_type', array(
+            'post', 'nav_menu_item', 'whats-happening', 'concert', 'community-info', 'splash-post',
+        ));
+        return $query;
+    }
+}
+add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
+
 /* JetPack Publicize custom on/off chosen in Settings/GCMAZ */
 // get current user id and compare it against stored id's in our gcmaz_publicize option value
 $current_user = wp_get_current_user();
