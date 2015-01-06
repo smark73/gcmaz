@@ -3,6 +3,7 @@
         <ul class="ftr-links-list centered">
             <li><span class="glyphicon glyphicon-home"></span><a href="/">Home</a></li>
             <li><span class="glyphicon glyphicon-earphone"></span><a href="/contact-great-circle-media">Contact Us</a></li>
+            <li><span class="glyphicon glyphicon-th-large"></span><a href="/category/news/">KAFF News</a></li>
         </ul>
         <br/><br/>
     </section>
