@@ -1,7 +1,7 @@
 <div class="in-cnt-wrp row">
     <?php while (have_posts()) : the_post(); ?>
         <div class="centered rbn-hdg">
-            <span class="txtshdw hdr-cat-links"><?php the_category(' | '); ?></span>
+            <span class="txtshdw hdr-cat-links"><?php the_category('  |  '); ?></span>
         </div>
         <article class="entry-content">
             <h3 class="story-hdr"><?php the_title(); ?></h3>

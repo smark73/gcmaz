@@ -58,6 +58,7 @@ h5 {color:@red;font-weight:600;}
 .red-bg{background:@red}
 .blue-bg{background:@blue}
 .white-bg{background:@white}
+.blue-gray-lt{background:@blue-gray-lt}
 .opacity (@opacity: 0.5){
     -webkit-opacity: @opacity;
     -moz-opacity: @opacity;
@@ -162,15 +163,17 @@ h5 {color:@red;font-weight:600;}
 div.rbn-hdg{
     position:relative;
     clear:both;
-    padding-top:0;
-    margin:0 0 10px -10px;
+    //padding-top:0;
+    //margin:0 0 10px -10px;
+    padding:0;
+    margin:0 auto;
     text-shadow:1px 1px 1px rgba(0,0,0,0.5);
     z-index:5;
     background:@red;
     border:1px solid transparent; //necessary to display properly
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    //-webkit-border-radius: 4px;
+    //-moz-border-radius: 4px;
+    //border-radius: 4px;
 }
 
 // non page-header headers like index news
@@ -182,6 +185,7 @@ div.rbn-hdg{
 
 //following hdr-cat-links
 .story-hdr{margin-bottom:30px;color:@blue;}
+
 
 /****** forms ********/
 .form-gen{}
@@ -203,7 +207,16 @@ div.archv-thmb img{margin:20px auto 0}
 div.archv-info{margin:0;padding:2% 0}
 div.archv-info article{margin:auto}
 span.archv-date{margin-top:20px;margin-right:10px;font-weight:400;color:@gray;font-size:0.8em;}
+
+// News  styles
 p.news-date{margin:10px 0 -15px 10px;padding:0;font-weight:400;color:@gray;font-size:0.8em;}
+p.featured-news-date{margin:2% 0 -5px 10px;padding:0;font-weight:400;color:@gray;font-size:0.8em;}
+.news-featured-section{background:@neutral-tan-lt;width:100%;margin:auto;padding:3px 0 5px}
+.news-featured{padding:0;margin:0 auto}
+.news-featured article{width:100%;margin:auto}
+.news-featured-ftr{color:@light-blue;font-weight:600;font-size:0.8em;padding:7px 0 7px 20px;text-align:left}
+.news-featured-ftr a{display:block;color:@light-blue}
+
 /*
 div.archv-thmb {margin:0;padding:0;position:relative;z-index:5;}
 div.archv-thmb img{text-align:left;margin-top:20px;}
