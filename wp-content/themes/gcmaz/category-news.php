@@ -10,13 +10,13 @@
         
         <section class="col-md-6 news-featured">
             <article>
-                <?php $featured_news_query = new WP_Query(array(
+                <?php $featured_query = new WP_Query(array(
                     'category_name' => 'featured',
                     'posts_per_page' => 1,
                     ));
                 ?>
-                <?php if($featured_news_query->have_posts()) : ?>
-                    <?php while($featured_news_query->have_posts()) : $featured_news_query->the_post(); ?>
+                <?php if($featured_query->have_posts()) : ?>
+                    <?php while($featured_query->have_posts()) : $featured_query->the_post(); ?>
                         <?php
                             /*store id in temp var */
                             $temp_featured_ids[0] = $post->ID ;
