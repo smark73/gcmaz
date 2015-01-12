@@ -54,6 +54,14 @@ if( !in_array($current_user->ID, $gcmaz_settings['gcmaz_publicize']) ){
     //print_r($gcmaz_settings['gcmaz_publicize']);
 }
 
+/* remove JetPack sharing buttons from excerpts */
+add_action( 'init', 'gcmaz_remove_filters_func' );
+
+function gcmaz_remove_filters_func() {
+     remove_filter( 'the_excerpt', 'sharing_display', 19 );
+}
+
+
 // PAGE TAKE OVER FUNCTIONS CALLED BY ADMIN OPTIONS
 // get the ptko options array
 $ptko_settings = get_option('ptko_settings');
