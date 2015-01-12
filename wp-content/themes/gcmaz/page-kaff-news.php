@@ -24,7 +24,7 @@
                             <section class="archv-pg-lstng row">
                                 <?php if(has_post_thumbnail()) : ?>
                                     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                                        <?php the_post_thumbnail('thumbnail img-responsive');?>
+                                        <?php the_post_thumbnail('thumbnail img-responsive ftrd-img');?>
                                     </a>
                                 <?php endif; ?>
                                 <p class="featured-news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
@@ -60,7 +60,7 @@
                         <section class="archv-pg-lstng row">
                             <?php if(has_post_thumbnail()) : ?>
                                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                                    <?php the_post_thumbnail('thumbnail img-responsive');?>
+                                    <?php the_post_thumbnail('thumbnail img-responsive ftrd-img');?>
                                 </a>
                             <?php endif; ?>
                             <p class="featured-news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
