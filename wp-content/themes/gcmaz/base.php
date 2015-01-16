@@ -19,15 +19,7 @@
     
   <div class="innerbg wrap container" role="document">
         <div class="row row1">
-            <section class="col-md-4">
-                <a href="/" >
-                    <img class="centered logo" alt="Great Circle Media of Arizona" src="/media/logo-gcmaz.png" style="max-width:120px;height:auto;padding-top:3%"/>
-                </a>
-            </section>
-            <section class="col-md-8">
-                <?php  get_template_part('templates/exp-leaderboard'); ?>
-                <img src="/media/news-station-logos.jpg" class="news-station-logos centered img-responsive" alt="Northern Arizona News" />
-            </section>
+            <?php get_template_part('templates/logo');?>
         </div>
         <div class="content row">
           <div class="main <?php echo roots_main_class(); ?>" role="main">
