@@ -27,8 +27,8 @@
                                         <?php the_post_thumbnail('thumbnail img-responsive ftrd-img');?>
                                     </a>
                                 <?php endif; ?>
-                                <p class="featured-news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
                                 <?php get_template_part('templates/content', get_post_format());?>
+                                <p class="featured-news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
                                 <hr class="archv-pg-hr">
                             </section>
                     <?php endwhile;?>
@@ -41,6 +41,13 @@
                         <?php _e('Sorry, no results were found.', 'roots'); ?>
                     </div>
                 <?php endif;?>
+                <div class="centered news-featured-ftr">
+                    <?php
+                        $cat_featured_id = get_cat_ID('Featured');
+                        $cat_featured_link = get_category_link( $cat_featured_id );
+                    ?>
+                    <a href="<?php echo esc_url( $cat_featured_link );?>">More Featured Stories &raquo;</a>
+                </div>
             </article>
         </section>
         
@@ -63,8 +70,8 @@
                                     <?php the_post_thumbnail('thumbnail img-responsive ftrd-img');?>
                                 </a>
                             <?php endif; ?>
-                            <p class="featured-news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
                             <?php get_template_part('templates/content', get_post_format());?>
+                            <p class="featured-news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
                             <hr class="archv-pg-hr">
                         </section>
                     <?php endwhile;?>
