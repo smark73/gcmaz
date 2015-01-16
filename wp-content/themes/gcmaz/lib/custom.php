@@ -139,6 +139,13 @@ function add_source_meta_tags(){
 }
 add_action('wp_head', 'add_source_meta_tags', 2);
 
+/* Update Tag Cloud font sizes */
+add_filter('widget_tag_cloud_args','set_tag_cloud_sizes');
+function set_tag_cloud_sizes($args) {
+    $args['smallest'] = 8;
+    $args['largest'] = 18;
+return $args; }
+
 /*
  * Deactivated - only needed during setup
  * 
