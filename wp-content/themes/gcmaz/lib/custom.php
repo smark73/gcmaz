@@ -94,6 +94,7 @@ if($ptko_settings['ptko_toggle'] == 1){
     }
 }
 
+
 /*
  * Register new  RSS templates
  */
@@ -117,6 +118,7 @@ function community_feeds_render(){
     get_template_part('feed', 'community');
 }
 
+
 /*
  * META Tags
  * google wants souce attributes for original content news and content that is shared 
@@ -139,12 +141,40 @@ function add_source_meta_tags(){
 }
 add_action('wp_head', 'add_source_meta_tags', 2);
 
+
+
 /* Update Tag Cloud font sizes */
 add_filter('widget_tag_cloud_args','set_tag_cloud_sizes');
 function set_tag_cloud_sizes($args) {
     $args['smallest'] = 8;
     $args['largest'] = 18;
 return $args; }
+
+
+
+/*  dynamically provide either the gcmaz or kaff news logo based on page */
+function check_current_category_for_news(){
+    // Get the news category id by slug
+    $newsCategory = get_category_by_slug('news');
+    $news_cat_id = $newsCategory->term_id;
+
+    // get child categories of news
+    $cat_args = array('child_of' => $news_cat_id);
+    $news_cat_children = get_categories($cat_args);
+
+    //get the children cats ids
+    $news_cats = array();
+    $i = 0;
+    foreach($news_cat_children as $news_cat_child){
+        $news_cats[$i] = $news_cat_child->cat_ID;
+        $i += 1;
+    }
+
+    //add children and parent together in array
+    array_push($news_cats, $news_cat_id);
+    //print_r($news_cats);
+    return($news_cats);
+}
 
 /*
  * Deactivated - only needed during setup

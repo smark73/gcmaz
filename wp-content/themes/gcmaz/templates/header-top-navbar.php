@@ -14,6 +14,7 @@
           wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav'));
         endif;
       ?>
+      <?php get_template_part('templates/navbar-icons'); ?>
     </nav>
   </div>
 </header>
