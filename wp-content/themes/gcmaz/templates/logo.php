@@ -31,7 +31,8 @@
 
 <?php 
     //news or child categories = KAFF News logo
-    elseif( in_category( check_current_category_for_news() ) ) : ?>
+    // contact and about KAFF News
+    elseif( in_category( check_current_category_for_news() ) || $post->post_name == 'about-kaff-news' || $post->post_name == 'contact-kaff-news') : ?>
 
             <section class="col-md-4">
                 <a href="/kaff-news/" >
