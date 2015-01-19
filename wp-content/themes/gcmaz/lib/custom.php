@@ -176,6 +176,15 @@ function check_current_category_for_news(){
     return($news_cats);
 }
 
+
+function gcmaz_user_contactmethods($contactmethods){
+    $contactmethods['twitter'] = 'Twitter';
+    $contactmethods['facebook'] = 'Facebook';
+    $contactmethods['googleplus'] = 'Google+';
+    return $contactmethods;
+}
+add_filter('user_contactmethods', 'gcmaz_user_contactmethods', 10, 1);
+
 /*
  * Deactivated - only needed during setup
  * 
