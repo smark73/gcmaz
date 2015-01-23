@@ -11,6 +11,7 @@ function roots_setup() {
     'primary_navigation' => __('Primary Navigation', 'roots'),
     //'sidebar_navigation' => __('Sidebar Menu', 'roots'),
     'adv-info_navigation' => __('Advertising Menu', 'roots'),
+    'news_navigation' => __('KAFF News Nav', 'roots'),
   ));
 
   // Add post thumbnails (http://codex.wordpress.org/Post_Thumbnails)

@@ -26,7 +26,8 @@
             </section>
             <section class="col-md-8">
                 <?php  get_template_part('templates/exp-leaderboard'); ?>
-                <img src="/media/news-station-logos.jpg" class="news-station-logos centered img-responsive" alt="Northern Arizona News" />
+                <img src="/media/news-station-logos.jpg" class="news-station-logos centered img-responsive hidden-sm hidden-xs " alt="KAFF News of Northern Arizona" />
+                <?php  get_template_part('templates/news-nav'); ?>
             </section>
 
 <?php 
@@ -41,6 +42,7 @@
             </section>
             <section class="col-md-8">
                 <?php  get_template_part('templates/exp-leaderboard'); ?>
+                <?php  get_template_part('templates/news-nav'); ?>
             </section>
 
 <?php

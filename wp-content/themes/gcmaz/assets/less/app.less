@@ -124,8 +124,8 @@ h5 {color:@red;font-weight:600;}
 // END button-red class
 
 // inner content wrapper in pages
-.in-cnt-wrp{background:#fff;width:90%;margin:auto;border-bottom:5px solid rgba(0,0,0,.2)}
-.in-cnt-wrp article, .in-cnt-wrp .pg-content {margin:20px;background:#fff;max-width:95%}
+.in-cnt-wrp{background:#fff;width:100%;margin:auto;border-bottom:5px solid rgba(0,0,0,.2)}
+.in-cnt-wrp article, .in-cnt-wrp .pg-content {margin:20px auto;background:#fff;max-width:95%}
 
 /**** Listen Live ****/
 .listen{text-decoration:none !important}
@@ -170,7 +170,7 @@ div.rbn-hdg{
     text-shadow:1px 1px 1px rgba(0,0,0,0.5);
     z-index:5;
     background:@red;
-    border:1px solid transparent; //necessary to display properly
+    border:1px solid white; //necessary to display properly
     //-webkit-border-radius: 4px;
     //-moz-border-radius: 4px;
     //border-radius: 4px;
@@ -310,6 +310,9 @@ button.search-submit:hover, button.search-submit:active{color:@white;background:
    Navigation
    ========================================================================== */
 
+.navbar-fixed-top { top: 0px; }
+// see media queries for more navbar fixed top styles
+
 /* navigation open new window */
 .glyphicon-new-window{font-size:0.8em;margin-left:5px;color:rgba(255,255,255,0.5)}
 .navbar-icons{ float:right;}
@@ -319,13 +322,11 @@ a.icon-fb:hover{background:#3b589c;}
 a.icon-tw:hover{background:#1ab2e8;}
 
 /************ NAV tabs *************/
-// used in advertising info pgs
-.nav-tabs {
-    li a { color:@white;}
-    background: fade(@blue,50%);
-}
+// Advertising Info Nav
 .advinfo .nav-tabs {
-    // modified from .nav-tabs in navs.less
+  // modified from .nav-tabs in navs.less
+  li a { color:@white;}
+  background: fade(@blue,50%);
   font-size:0.9em;
   > li {
     > a {
@@ -341,8 +342,33 @@ a.icon-tw:hover{background:#1ab2e8;}
   }
 }
 
-.navbar-fixed-top { top: 0px; }
-// see media queries for more navbar fixed top styles
+// News Nav
+.news-top-nav{margin-top:25px}
+.news-top-nav .nav-tabs {
+    // modified from .nav-tabs in navs.less
+    li a { color:@light-blue;}
+    font-size:1em;
+    font-weight:400;
+    text-shadow:1px 1px 1px rgba(0,0,0,.2);
+    > li {
+      > a {
+        height: @line-height-computed * 2;
+      }
+
+      // Active state, and it's :hover to override normal :hover
+      &.active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: darken(@neutral-tan,40%);
+            background-color: @neutral-tan-lt;
+            cursor: default;
+          }
+      } 
+    }
+}
+
+
 
 /************ SIDEBAR NAV*************/
 /*ul.sidebar-nav{ border: 1px solid transparent; border-radius: @navbar-border-radius;width:100%}
@@ -483,7 +509,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 @media (min-width: @screen-lg) {
     //.innerbg {background-image: url(/media/bg-top.jpg);}
-    img.logo{max-width:300px}
+    img.logo{max-width:250px}
     .news-station-logos{padding:3% 0 5%}
     //.listenlive{margin-top:7%}
     //.listenlive-txt{font-size:1.6em}
