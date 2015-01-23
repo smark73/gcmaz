@@ -57,7 +57,11 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
  */
 function roots_nav_menu_css_class($classes, $item) {
   $slug = sanitize_title($item->title);
-  $classes = preg_replace('/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', 'active', $classes);
+    // next line commented out
+    // the class 'active' gets repeated on all parent categories and thus breaks the menu - active tabs aren't clickable
+    // so quick fix is to get rid of it
+    //$classes = preg_replace('/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', 'active', $classes);
+  $classes = preg_replace('/(current(-menu-|[-_]page[-_])(item|parent|ancestor))/', '', $classes);
   $classes = preg_replace('/^((menu|page)[-_\w+]+)+/', '', $classes);
 
   $classes[] = 'menu-' . $slug;
