@@ -3,7 +3,7 @@
         <?php
             // reg screen sizes
             if (has_nav_menu('news_navigation')) :
-                wp_nav_menu(array('theme_location' => 'news_navigation', 'menu_class' => 'nav nav-tabs nav-justified'));
+                wp_nav_menu(array('theme_location' => 'news_navigation', 'menu_class' => 'nav nav-tabs nav-justified news-nav'));
             endif;
         ?>
     </div>
@@ -11,7 +11,7 @@
         <?php
             // sm screen sizes dont give justified class to prevent vertical menu
             if (has_nav_menu('news_navigation')) :
-                wp_nav_menu(array('theme_location' => 'news_navigation', 'menu_class' => 'nav nav-tabs'));
+                wp_nav_menu(array('theme_location' => 'news_navigation', 'menu_class' => 'nav nav-tabs news-nav'));
             endif;
         ?>
     </div>
