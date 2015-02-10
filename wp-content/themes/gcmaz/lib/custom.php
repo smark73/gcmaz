@@ -119,29 +119,6 @@ function community_feeds_render(){
 }
 
 
-/*
- * META Tags
- * google wants souce attributes for original content news and content that is shared 
- * to prevent being hurt by their 'content farms' attacks need to add some meta tags
- * 
- *      <meta name=”original-source” content=”http://www.somedomain.com/article1.html”>
- *      <meta name=”syndication-source” content=”http://www.somedomain.com/article1.html”>
- *      <link rel="canonical" href="http://blog.example.com/dresses/green-dresses-are-awesome" />
- * 
- */
-function add_source_meta_tags(){
-    global $post;
-    //print_r($post);
-    if( is_single($post->ID) ){
-        $plink = get_permalink($post->ID);
-        echo '<meta name="original-source" content="' . $plink . '" >';
-        echo '<meta name="syndication-source" content="' . $plink . '" >';
-        echo '<meta name="canonical" content="' . $plink . '" >';
-    }
-}
-add_action('wp_head', 'add_source_meta_tags', 2);
-
-
 
 /* Update Tag Cloud font sizes */
 add_filter('widget_tag_cloud_args','set_tag_cloud_sizes');
