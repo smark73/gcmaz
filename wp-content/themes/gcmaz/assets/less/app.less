@@ -346,12 +346,20 @@ a.icon-tw:hover{background:#1ab2e8;}
 .news-top-nav{margin-top:25px}
 .news-top-nav .news-nav{
     // modified from .nav-tabs in navs.less
-    li a { color:darken(@neutral-tan-dk,15%);}
+    li a {
+        color:darken(@gray-light,18%);
+        border:0;
+      &:hover{
+          border:0;
+          //background-color: fade(@light-blue,80%);
+          background-color: darken(@neutral-tan-lt,5%);
+      }
+    }
     font-size:1em;
     font-weight:400;
-    text-shadow:1px 1px 1px rgba(0,0,0,.2);
-    background-color: @neutral-tan-lt;
-    
+    text-shadow:1px 1px 1px rgba(0,0,0,.1);
+    //background-color: fade(@light-blue,90%);
+    background-color: darken(@neutral-tan-lt,2%);
 }
 
 
