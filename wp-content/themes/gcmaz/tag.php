@@ -1,6 +1,6 @@
 <div class="in-cnt-wrp row">
-    <section class="row">
-        <div class="rbn-hdg">
+    <section>
+        <div class="centered rbn-hdg">
             <?php get_template_part('templates/page', 'header'); ?>
         </div>
         <?php

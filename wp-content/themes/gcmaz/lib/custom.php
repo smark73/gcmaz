@@ -168,7 +168,7 @@ add_filter('user_contactmethods', 'gcmaz_user_contactmethods', 10, 1);
  */
 add_action('wp_head', 'google_fonts');
 function google_fonts(){
-    echo "<link href='//fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>";
+    echo "<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>";
 }
 
 
