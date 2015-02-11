@@ -1,6 +1,6 @@
 <div class="in-cnt-wrp row">
-    <section class="row">
-        <div class="rbn-hdg">
+    <section>
+        <div class="centered rbn-hdg">
             <div class="page-header">
             <h4>Information About The Author</h4>
             </div>

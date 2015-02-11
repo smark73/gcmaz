@@ -3,14 +3,15 @@
         <?php get_template_part('templates/page', 'header'); ?>
     </div>
     
-    <?php $the_query = new WP_Query(array(
-        'post_type' => 'concert',
-        'orderby' => 'meta_value',
-        'meta_key' => 'concert_fulldate',
-        'order' => 'ASC',
-        'posts_per_page' => 100,
-        'paged' => $paged,
-        ));
+    <?php
+        $the_query = new WP_Query(array(
+            'post_type' => 'concert',
+            'orderby' => 'meta_value',
+            'meta_key' => 'concert_fulldate',
+            'order' => 'ASC',
+            'posts_per_page' => 100,
+            'paged' => $paged,
+            ));
     ?>
     
     <?php if($the_query->have_posts()) : ?>
