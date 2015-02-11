@@ -1,5 +1,5 @@
 <?php 
-    /* this checks the page and determines which logo (top row) to display */
+    /* this checks the page and determines which top row/logo to display */
 
     // home page = gcmaz logo
     if( is_front_page() ) : ?>

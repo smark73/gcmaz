@@ -48,6 +48,7 @@ h5 {color:@red;font-weight:600;}
 /******** FONTS *************/
 .unica{font-family: 'Unica One', cursive;}
 .lifesavers{font-family: 'Life Savers', cursive; }
+.bree{font-family: 'Bree Serif', serif;}
 
 /******** COLORS ********/
 .yellow{color:#ffcc00}
@@ -160,24 +161,25 @@ h5 {color:@red;font-weight:600;}
 //.instgm-hshtg{font-size:0.75em;font-weight:500;}
 
 /****** RIBBON HEADINGS **********/
+
 div.rbn-hdg{
     position:relative;
     clear:both;
-    //padding-top:0;
-    //margin:0 0 10px -10px;
     padding:0;
     margin:0 auto;
     text-shadow:1px 1px 1px rgba(0,0,0,0.5);
     z-index:5;
     background:@red;
-    border:1px solid white; //necessary to display properly
-    //-webkit-border-radius: 4px;
-    //-moz-border-radius: 4px;
-    //border-radius: 4px;
+    border:1px solid transparent; //necessary to display properly
+    font-family: 'Bree Serif', serif;
 }
 
 // non page-header headers like index news
-.rbn-hdg span.gen-hdr{margin:5px auto;font-size:1.2em;color:#fff}
+.rbn-hdg span.gen-hdr{
+    margin:5px auto;
+    font-size:1.2em;
+    color:#fff;
+}
 
 // ribbon hdngs that contain category links instead of hdrs
 .hdr-cat-links {}
@@ -343,7 +345,14 @@ a.icon-tw:hover{background:#1ab2e8;}
 }
 
 // News Nav
-.news-top-nav{margin-top:25px}
+.news-top-nav{
+    margin-top:25px;
+    background-color: @neutral-tan;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-top-left-radius: 3px;
+}
 .news-top-nav .news-nav{
     // modified from .nav-tabs in navs.less
     li a {
@@ -352,14 +361,11 @@ a.icon-tw:hover{background:#1ab2e8;}
       &:hover{
           border:0;
           //background-color: fade(@light-blue,80%);
-          background-color: darken(@neutral-tan-lt,5%);
+          background-color: fade(@white,35%);
       }
     }
     font-size:1em;
-    font-weight:400;
-    text-shadow:1px 1px 1px rgba(0,0,0,.1);
-    //background-color: fade(@light-blue,90%);
-    background-color: darken(@neutral-tan-lt,2%);
+    font-family: 'Bree Serif', serif;
 }
 
 
@@ -379,7 +385,7 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
    Posts
    ========================================================================== */
 
-.hentry header { }
+
 .hentry time { }
 .hentry .byline { }
 .hentry .entry-content { }
@@ -387,7 +393,9 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
 .entry-content div.fb-like {margin:10px}
 .entry-summary {margin:auto}
 .entry-content a img, .entry-content img {margin:10px;max-height:500px}
-.entry-title{}
+.hentry header,
+.entry-title,
+.story-hdr{ font-family: 'Bree Serif', serif; }
 
 .post-credit{
     text-align:right;

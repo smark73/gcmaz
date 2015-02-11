@@ -19,7 +19,7 @@
     
   <div class="innerbg wrap container" role="document">
         <div class="row row1">
-            <?php get_template_part('templates/logo');?>
+            <?php get_template_part('templates/row-top');?>
         </div>
         <div class="content row">
           <div class="main <?php echo roots_main_class(); ?>" role="main">
