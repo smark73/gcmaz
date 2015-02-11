@@ -281,9 +281,29 @@ a.wthrcty:hover{text-decoration:none;color:#fff}
     the first one is default sidebar widget style
     the rest override indivual widgets
 */
-.sidebar .widget {margin:10px 0;padding:10px 0;/*border-left:1px solid lighten(@light-blue,40%);*/border-bottom:2px solid lighten(@light-blue,40%);border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;}
+.sidebar .widget {
+    margin:10px 0;
+    padding:10px 0;
+    border-bottom: 10px solid @neutral-tan-lt;
+    //border-bottom:2px solid lighten(@light-blue,40%);
+    //border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+}
 .sidebar .text-2, .sidebar .widget_text {}
-.sidebar div.widget-inner h5 {color:@white;font-size:0.9em;font-weight:700;padding:5px;margin:0 5px;text-shadow: 1px 1px 1px rgba(0,0,0,.2);background:@light-blue;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px}
+.sidebar div.widget-inner h5 {
+    color:darken(@gray-light,18%);
+    font-size:0.9em;
+    font-weight:500;
+    font-family: 'Bree Serif', serif;
+    padding:5px;
+    margin:0 5px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+    //background:@light-blue;
+    border-radius:2px;
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px
+}
 
 /* menu lists */
 .widget .widget-inner ul {padding-left:15px}
@@ -292,7 +312,7 @@ a.wthrcty:hover{text-decoration:none;color:#fff}
 .widget .widget-inner ul li a:hover{text-decoration:none;background:@blue-gray-lt}
 
 /*  search input style */
-.sidebar .search-2, .sidebar .widget_search {margin:5px auto 10px;padding:0}
+.sidebar .search-2, .sidebar .widget_search {margin:5px auto 10px;padding:0;border:0}
 input.search-field{color:@gray;border:1px solid fade(@gray-light,40%);background:fade(@gray-light,10%)}
 button.search-submit{background:lighten(@gray-light,10%);color:@white;border:1px solid fade(@gray-light,40%)}
 button.search-submit:hover, button.search-submit:active{color:@white;background:lighten(@gray-light,15%);border:1px solid fade(@gray-light,40%)}
