@@ -43,7 +43,8 @@ img {width:auto;height:auto}
 .txtshdw{text-shadow:1px 1px 1px rgba(0,0,0,0.3)}
 .undrln{text-decoration:underline}
 .bold{font-weight:700}
-h5 {color:@red;font-weight:600;}
+
+//h5 {color:@red;font-weight:600;}
 
 /******** FONTS *************/
 .unica{font-family: 'Unica One', cursive;}
@@ -56,6 +57,7 @@ h5 {color:@red;font-weight:600;}
 .blue {color:@blue}
 .white{color:@white}
 .black{color:@black}
+.gray{color:@gray}
 .red-bg{background:@red}
 .blue-bg{background:@blue}
 .white-bg{background:@white}
@@ -171,8 +173,9 @@ div.rbn-hdg{
     z-index:5;
     background:@red;
     border:1px solid transparent; //necessary to display properly
-    //font-family: 'Bree Serif', serif;
 }
+
+.rbn-hdg h4 { font-family: 'Bree Serif', serif; }
 
 // non page-header headers like index news
 .rbn-hdg span.gen-hdr{
@@ -225,31 +228,25 @@ p.featured-news-date{margin:2% 0 -5px 10px;padding:0;font-weight:400;color:@gray
 .news-featured-ftr{color:@light-blue;font-weight:600;font-size:0.8em;padding:7px 0 7px 20px;text-align:left;background:@neutral-tan}
 .news-featured-ftr a{display:block;color:@light-blue}
 .news-featured .ftrd-img {max-height:150px;}
+.rbn-news{
+    position:relative;
+    clear:both;
+    padding:0;
+    margin:2% auto 0;
+    z-index:5;
+    background:@blue;
+    border:1px solid transparent; //necessary to display properly
+}
+.rbn-news h5{
+    padding:1%;
+    margin:0 auto;
+    font-family: 'Bree Serif', serif;
+}
 
 // Author page styles
 ul.author-recent-posts{list-style-type:none;line-height: 1.6em;padding-left:0}
 div.author-details div.row{margin-top:1%;margin-bottom:1%;}
 
-/*
-div.archv-thmb {margin:0;padding:0;position:relative;z-index:5;}
-div.archv-thmb img{text-align:left;margin-top:20px;}
-div.archv-thmb:before{
-    content:" ";
-    background:url('/media/ribbon.png');
-    display:block;
-    width:10px;
-    height:10px;
-    position:absolute;
-    bottom:0;
-    left:0;
-    margin-left:-20px;
-    margin-bottom:-10px;
-    z-index:-1;
-}
-div.archv-info{margin:0;padding:2% 0;}
-div.archv-info article{margin:auto;}
-span.archv-date{margin-right:10px;font-weight:400}
-*/
 
 /******** single pages ***********/
 .info-img{padding:10px;max-width:100%}
@@ -368,7 +365,8 @@ a.icon-tw:hover{background:#1ab2e8;}
 // News Nav
 .news-top-nav{
     margin-top:25px;
-    background-color: @neutral-tan;
+    margin-bottom:1px;
+    background-color: @light-blue;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
     -webkit-border-top-right-radius: 3px;
@@ -377,12 +375,13 @@ a.icon-tw:hover{background:#1ab2e8;}
 .news-top-nav .news-nav{
     // modified from .nav-tabs in navs.less
     li a {
-        color:darken(@gray-light,18%);
+        color:@white; //darken(@gray-light,18%);
         border:0;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
       &:hover{
           border:0;
           //background-color: fade(@light-blue,80%);
-          background-color: fade(@white,35%);
+          background-color: fade(@white,30%);
       }
     }
     font-size:1em;

@@ -96,7 +96,10 @@
         
     </div>
     
-    <section class="row">
+    <section>
+        <div class="centered rbn-news">
+            <h5>Latest News Stories</h5>
+        </div>
         <?php $the_query = new WP_Query(array(
             'category_name' => 'news',
             'posts_per_archive_page' => '5',
