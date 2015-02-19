@@ -154,6 +154,7 @@ function check_current_category_for_news(){
 }
 
 
+/*  Add more contact details for WP users in profile */
 function gcmaz_user_contactmethods($contactmethods){
     $contactmethods['twitter'] = 'Twitter';
     $contactmethods['facebook'] = 'Facebook';
