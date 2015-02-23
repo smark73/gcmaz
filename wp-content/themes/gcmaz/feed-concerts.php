@@ -71,49 +71,54 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                             ?>
                             <!-- Start loop -->
 		<?php while( $the_query->have_posts()) : $the_query->the_post(); ?>
-                                <?php
-                                    // double check custom date to see if its past date
-                                    $expDate = get_post_custom_values('concert_fulldate');
-                                    if(($expDate[0] == '20000101') || (strtotime($expDate[0])) >= (strtotime('now'))) :
-                                ?>
-                                <?php
-                                    // get pertinent data and attach it to content variable
-                                    $content = get_the_content_feed('rss2');
-                                    
-                                    $eDate = get_post_custom_values('concert_date');
-                                    $eventDate = $eDate[0];
-                                    $content = '<span class="listdate pull-right red">' . $eventDate . '</span>' . $content;
-                                    
-                                    if(has_post_thumbnail()) {
-                                        $postimages = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' );
-                                        $postimage = $postimages[0];
-                                        $imgTag = '<img src="' . $postimage . '" class="feed-img" align="left"/>';
-                                        $content = $imgTag . $content;
-                                    }
-
-                                ?>
-
-			<item>
-				<title><?php the_title_rss(); ?></title>
-				<link><?php the_permalink_rss(); ?></link>
-				<guid isPermaLink="false"><?php the_guid(); ?></guid>
-				<author><?php the_author(); ?></author>
-                                		<?php the_category_rss('rss2') ?>
-                                                        
-                                                        <?php if (get_option('rss_use_excerpt')) : ?>
-                                                                        <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
-                                                        <?php else : ?>
-                                                                        <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
-
-                                                                <?php if ( strlen( $content ) > 0 ) : ?>
-                                                                        <content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
-                                                                <?php else : ?>
-                                                                        <content:encoded><![CDATA[<?php the_excerpt_rss(); ?>]]></content:encoded>
-                                                                <?php endif; ?>
-                                                        <?php endif; ?>
-
-			</item>
                             
+                                <?php
+                                    // check if in "Hide Post" category
+                                    if( !in_category( array( 'hide-post', 'Hide Post' ) ) ) :
+                                ?>
+
+                                    <?php
+                                        // double check custom date to see if its past date
+                                        $expDate = get_post_custom_values('concert_fulldate');
+                                        if(($expDate[0] == '20000101') || (strtotime($expDate[0])) >= (strtotime('now'))) :
+                                    ?>
+                            
+                                        <?php
+                                            // get pertinent data and attach it to content variable
+                                            $content = get_the_content_feed('rss2');
+
+                                            $eDate = get_post_custom_values('concert_date');
+                                            $eventDate = $eDate[0];
+                                            $content = '<span class="listdate pull-right red">' . $eventDate . '</span>' . $content;
+
+                                            if(has_post_thumbnail()) {
+                                                $postimages = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' );
+                                                $postimage = $postimages[0];
+                                                $imgTag = '<img src="' . $postimage . '" class="feed-img" align="left"/>';
+                                                $content = $imgTag . $content;
+                                            }
+
+                                        ?>
+
+                                        <item>
+                                            <title><?php the_title_rss(); ?></title>
+                                            <link><?php the_permalink_rss(); ?></link>
+                                            <guid isPermaLink="false"><?php the_guid(); ?></guid>
+                                            <author><?php the_author(); ?></author>
+                                            <?php the_category_rss('rss2') ?>
+                                            <?php if (get_option('rss_use_excerpt')) : ?>
+                                                    <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
+                                            <?php else : ?>
+                                                    <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
+                                                    <?php if ( strlen( $content ) > 0 ) : ?>
+                                                            <content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
+                                                    <?php else : ?>
+                                                            <content:encoded><![CDATA[<?php the_excerpt_rss(); ?>]]></content:encoded>
+                                                    <?php endif; ?>
+                                            <?php endif; ?>
+                                        </item>
+                            
+                                    <?php endif; ?>
                                 <?php endif; ?>
 		<?php endwhile; ?>
                             <?php
