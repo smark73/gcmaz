@@ -174,6 +174,29 @@ function google_fonts(){
 
 
 /*
+ * Custom fn to display featured image in posts *with* the caption if it has one
+ */
+function featured_image_in_post( ) {
+    global $post;
+    $thumbnail_id = get_post_thumbnail_id($post->ID);
+    $thumbnail_details = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+    $thumbnail_src = wp_get_attachment_image_src( $thumbnail_id, 'category-thumb' );
+    $thumbnail_width = $thumbnail_src[1];
+
+    if ($thumbnail_src && isset($thumbnail_src[0])) {
+        echo '<div class="featured-image">';
+        the_post_thumbnail( 'large', array( 'class'=>'img-responsive' ) );
+        if ( !empty( $thumbnail_details[0]->post_excerpt ) ) {
+            echo '<p class="featured-image-caption">';
+            echo $thumbnail_details[0]->post_excerpt;
+            echo '</p>';
+        }
+        echo '</div>';
+    }
+}
+
+
+/*
  * Deactivated - only needed during setup
  * 
  * START Create pages programatically
