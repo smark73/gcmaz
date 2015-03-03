@@ -3,16 +3,28 @@
 // each ad is assigned to a group(s)
 // pages are assigned a group below (and in the plugin), which is how we tell the page which ads we want to display
 
-$c = get_the_category();
 global $post;
+
+$array_of_news_cats = check_current_category_for_news();
+$c = get_the_category();
+
 if(!empty( $post )){
     if($post->post_title == 'Home'){
         //home page
         $groupnum = 10;
-    } else if (($c[0]->cat_ID == 3) || ($c[0]->category_parent == 3)){
+    } else if ( !empty( $c ) ){
         //check if the category or parent category is News
+        // convert to array
+        $c_array = object_to_array($c);
+        //print_r($c);
+        if( in_array( $c_array[0]['term_id'], $array_of_news_cats ) ){ 
+            $groupnum = 16;
+        }
+    } else if( $post->post_name == 'kaff-news' ) {
+        // check if were on the kaff news main page
         $groupnum = 16;
     }
+    //print_r($groupnum);
 
     // since groupnum is populated from above, lets echo necessary html to display it
    if(!empty( $groupnum )){

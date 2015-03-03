@@ -153,6 +153,27 @@ function check_current_category_for_news(){
     return($news_cats);
 }
 
+/*
+ * Fn to convert Objects of stdClass to Arrays
+ */
+function object_to_array($object_to_array) {
+    if (is_object($object_to_array)) {
+        // Gets the properties of the given object
+        // with get_object_vars function
+        $object_to_array = get_object_vars($object_to_array);
+    }
+    if (is_array($object_to_array)) {
+        /*
+        * Return array converted to object
+        * Using __FUNCTION__ (Magic constant)
+        * for recursive call
+        */
+        return array_map(__FUNCTION__, $object_to_array);
+    } else {
+        // Return array
+        return $object_to_array;
+    }
+}
 
 /*  Add more contact details for WP users in profile */
 function gcmaz_user_contactmethods($contactmethods){

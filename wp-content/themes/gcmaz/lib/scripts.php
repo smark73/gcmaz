@@ -20,7 +20,7 @@ function roots_scripts() {
   if (!is_admin() && current_theme_supports('jquery-cdn')) {
     wp_deregister_script('jquery');
     wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js', false, null, false);
-    add_filter('script_loader_src', 'roots_jquery_local_fallback', 11, 2);
+    add_filter('script_loader_src', 'roots_jquery_local_fallback', 10, 2);
   }
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
