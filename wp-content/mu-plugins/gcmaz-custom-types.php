@@ -190,38 +190,46 @@ function add_concert_box(){
     add_meta_box('concert_info', 'Date', 'concert_fields', 'concert', 'normal', 'core');
 }
 
-// Enqueue Datepicker + jQuery UI CSS
+// Enqueue jquery UI (Datepicker) + jQuery UI CSS + jquery validate + datepicker validate
 function enqueue_dp_ui(){
-    wp_enqueue_script( 'jquery-ui-datepicker' );
-    wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/smoothness/jquery-ui.css', true);
+    //wp_enqueue_script('jquery-ui-datepicker');
+    //wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/smoothness/jquery-ui.css', true);
+    wp_enqueue_script( 'jquery-ui-custom', get_template_directory_uri() . '/assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.js');
+    wp_enqueue_style( 'jquery-ui-style', get_template_directory_uri() . '/assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css');
+    wp_enqueue_script('jquery-validate', get_template_directory_uri() . '/assets/js/jquery-validation-1.13.1/dist/jquery.validate.min.js');
+    wp_enqueue_script( 'jquery-ui-datepicker-validate', get_template_directory_uri() . '/assets/js/jquery.ui.datepicker.validation.package-1.0.1/jquery.ui.datepicker.validation.min.js');
 }
 add_action('admin_init', 'enqueue_dp_ui');
 
 //create custom fields 
 function whats_fields (){
     global $post;
-    $custom = get_post_custom($post->ID);
-    //load stored date & fulldate values if set
-    if(isset($custom['whats_date'][0])){
-        $whats_date = $custom['whats_date'][0];
-    }
-    if(isset($custom['whats_fulldate'][0])){
-        $whats_fulldate = $custom['whats_fulldate'][0];
-    } else {
-        //give it a date from long ago to position it a top
-        $whats_fulldate = '20000101';
+    if(!empty($post)){
+        $custom = get_post_custom($post->ID);
+        //load stored date & fulldate values if set
+        if(isset($custom['whats_date'][0])){
+            $whats_date = $custom['whats_date'][0];
+        } else {
+            $whats_date = '';
+        }
+        if(isset($custom['whats_fulldate'][0])){
+            $whats_fulldate = $custom['whats_fulldate'][0];
+        } else {
+            //give it a date from long ago to position it a top
+            $whats_fulldate = '20000101';
+        }
     }
     ?>
     <p>
-        <label>Date (leave blank for ongoing)</label><br />
-        <input size="45" name="whats_date" id="whats_date" value="<?php echo $whats_date; ?>" />
-        <input type="hidden" name="whats_fulldate" id="whats_fulldate"/>
+        <label>Date <span style="color:red"> MUST use the datepicker or leave empty</span></label><br />
+        <input size="45" name="whats_date" id="whats_date" class="dpDate" value="<?php echo $whats_date; ?>" />
+        <input type="hidden" name="whats_fulldate" id="whats_fulldate" class="dpDate"/>
     </p>
     <script>
         jQuery(document).ready(function(){
             //load hiddenfield with stored data if exists
-            jQuery('#whats_fulldate').datepicker({dateFormat:'yymmdd'});
             var parsedDate = jQuery.datepicker.parseDate('yymmdd', '<?php echo $whats_fulldate;?>');
+            jQuery('#whats_fulldate').datepicker({dateFormat:'yymmdd'});
             jQuery('#whats_fulldate').datepicker('setDate', parsedDate);
             //set values when use datepicker
             jQuery('#whats_date').datepicker({
@@ -229,34 +237,60 @@ function whats_fields (){
                 altFormat: 'yymmdd',
                 altField: '#whats_fulldate'
             });
+            // watch for setting null value in date and update the hidden field with null (doesnt want to do it automatically)
+            jQuery('#whats_date').change(function(){
+                var $temp_date = jQuery(this).val();
+                if($temp_date === '' || $temp_date === null){
+                    jQuery('#whats_fulldate').val('20000101');
+                }
+            });
+            jQuery('#post').validate({
+                errorPlacement: jQuery.datepicker.errorPlacement,
+                rules: {
+                    validDefaultDatepicker: {
+                        dpDate: true
+                    },
+                    validFormatDatepicker: {
+                        dpDate: true
+                    },
+                    messages: {
+                        validFormatDatepicker: 'Invalid Format Date',
+                        validDefaultDatepicker: 'Invalid Date'
+                    }
+                }
+            });
         });
     </script>
     <?php
 }
 function community_fields (){
     global $post;
-    $custom = get_post_custom($post->ID);
-    //load stored date & fulldate values if set
-    if(isset($custom['community_date'][0])){
-        $community_date = $custom['community_date'][0];
-    }
-    if(isset($custom['community_fulldate'][0])){
-        $community_fulldate = $custom['community_fulldate'][0];
-    } else {
-        //give it a date from long ago to position it a top
-        $community_fulldate = '20000101';
+    if(!empty($post)){
+        $custom = get_post_custom($post->ID);
+        //load stored date & fulldate values if set
+        if(isset($custom['community_date'][0])){
+            $community_date = $custom['community_date'][0];
+        } else {
+            $community_date = '';
+        }
+        if(isset($custom['community_fulldate'][0])){
+            $community_fulldate = $custom['community_fulldate'][0];
+        } else {
+            //give it a date from long ago to position it a top
+            $community_fulldate = '20000101';
+        }
     }
     ?>
     <p>
-        <label>Date (leave blank for ongoing)</label><br />
-        <input size="45" name="community_date" id="community_date" value="<?php echo $community_date; ?>" />
-        <input type="hidden" name="community_fulldate" id="community_fulldate"/>
+        <label>Date <span style="color:red"> MUST use the datepicker or leave empty</span></label><br />
+        <input size="45" name="community_date" id="community_date" class="dpDate" value="<?php echo $community_date; ?>" />
+        <input type="hidden" name="community_fulldate" class="dpDate" id="community_fulldate"/>
     </p>
     <script>
         jQuery(document).ready(function(){
             //load hiddenfield with stored data if exists
-            jQuery('#community_fulldate').datepicker({dateFormat:'yymmdd'});
             var parsedDate = jQuery.datepicker.parseDate('yymmdd', '<?php echo $community_fulldate;?>');
+            jQuery('#community_fulldate').datepicker({dateFormat:'yymmdd'});
             jQuery('#community_fulldate').datepicker('setDate', parsedDate);
             //set values when use datepicker
             jQuery('#community_date').datepicker({
@@ -264,40 +298,88 @@ function community_fields (){
                 altFormat: 'yymmdd',
                 altField: '#community_fulldate'
             });
+            // watch for setting null value in date and update the hidden field with null (doesnt want to do it automatically)
+            jQuery('#community_date').change(function(){
+                var $temp_date = jQuery(this).val();
+                if($temp_date === '' || $temp_date === null){
+                    jQuery('#community_fulldate').val('20000101');
+                }
+            });
+            jQuery('#post').validate({
+                errorPlacement: jQuery.datepicker.errorPlacement,
+                rules: {
+                    validDefaultDatepicker: {
+                        dpDate: true
+                    },
+                    validFormatDatepicker: {
+                        dpDate: true
+                    },
+                    messages: {
+                        validFormatDatepicker: 'Invalid Format Date',
+                        validDefaultDatepicker: 'Invalid Date'
+                    }
+                }
+            });
         });
     </script>
     <?php
 }
 function concert_fields (){
     global $post;
-    $custom = get_post_custom($post->ID);
-    //load stored date & fulldate values if set
-    if(isset($custom['concert_date'][0])){
-        $concert_date = $custom['concert_date'][0];
-    }
-    if(isset($custom['concert_fulldate'][0])){
-        $concert_fulldate = $custom['concert_fulldate'][0];
-    } else {
-        //give it a date from long ago to position it a top
-        $concert_fulldate = '20000101';
+    if(!empty($post)){
+        $custom = get_post_custom($post->ID);
+        //load stored date & fulldate values if set
+        if(isset($custom['concert_date'][0])){
+            $concert_date = $custom['concert_date'][0];
+        } else {
+            $concert_date = '';
+        }
+        if(isset($custom['concert_fulldate'][0])){
+            $concert_fulldate = $custom['concert_fulldate'][0];
+        } else {
+            //give it a date from long ago to position it a top
+            $concert_fulldate = '20000101';
+        }
     }
     ?>
     <p>
-        <label>Date (leave blank for ongoing)</label><br />
-        <input size="45" name="concert_date" id="concert_date" value="<?php echo $concert_date; ?>" />
-        <input type="hidden" name="concert_fulldate" id="concert_fulldate"/>
+        <label>Date <span style="color:red"> MUST use the datepicker or leave empty</span></label><br />
+        <input size="45" name="concert_date" id="concert_date" class="dpDate" value="<?php echo $concert_date; ?>" />
+        <input type="hidden" name="concert_fulldate" id="concert_fulldate" class="dpDate"/>
     </p>
     <script>
         jQuery(document).ready(function(){
             //load hiddenfield with stored data if exists
-            jQuery('#concert_fulldate').datepicker({dateFormat:'yymmdd'});
             var parsedDate = jQuery.datepicker.parseDate('yymmdd', '<?php echo $concert_fulldate;?>');
+            jQuery('#concert_fulldate').datepicker({dateFormat:'yymmdd'});
             jQuery('#concert_fulldate').datepicker('setDate', parsedDate);
             //set values when use datepicker
             jQuery('#concert_date').datepicker({
                 dateFormat : 'D, M d',
                 altFormat: 'yymmdd',
                 altField: '#concert_fulldate'
+            });
+            // watch for setting null value in date and update the hidden field with null (doesnt want to do it automatically)
+            jQuery('#concert_date').change(function(){
+                var $temp_date = jQuery(this).val();
+                if($temp_date === '' || $temp_date === null){
+                    jQuery('#concert_fulldate').val('20000101');
+                }
+            });
+            jQuery('#post').validate({
+                errorPlacement: jQuery.datepicker.errorPlacement,
+                rules: {
+                    validDefaultDatepicker: {
+                        dpDate: true
+                    },
+                    validFormatDatepicker: {
+                        dpDate: true
+                    },
+                    messages: {
+                        validFormatDatepicker: 'Invalid Format Date',
+                        validDefaultDatepicker: 'Invalid Date'
+                    }
+                }
             });
         });
     </script>
@@ -317,37 +399,43 @@ add_action('publish_post', 'save_concert_attributes');
 //save custom fields and set specific category
 function save_whats_attributes(){
     global $post;
-    if($post->post_type == 'whats-happening'){
-        //custom fields
-        $whats_date = sanitize_text_field($_POST['whats_date']);
-        $whats_fulldate = sanitize_text_field($_POST['whats_fulldate']);
-        update_post_meta($post->ID, "whats_date", $whats_date);
-        update_post_meta($post->ID, "whats_fulldate", $whats_fulldate);
-        //category
-        wp_set_object_terms($post->ID, 'whats-happening', 'category', true);
+    if(!empty($post)){
+        if($post->post_type == 'whats-happening'){
+            //custom fields
+            $whats_date = sanitize_text_field($_POST['whats_date']);
+            $whats_fulldate = sanitize_text_field($_POST['whats_fulldate']);
+            update_post_meta($post->ID, "whats_date", $whats_date);
+            update_post_meta($post->ID, "whats_fulldate", $whats_fulldate);
+            //category
+            wp_set_object_terms($post->ID, 'whats-happening', 'category', true);
+        }
     }
 }
 function save_community_attributes(){
     global $post;
-    if($post->post_type == 'community-info'){
-        //custom fields
-        $community_date = sanitize_text_field($_POST['community_date']);
-        $community_fulldate = sanitize_text_field($_POST['community_fulldate']);
-        update_post_meta($post->ID, "community_date", $community_date);
-        update_post_meta($post->ID, "community_fulldate", $community_fulldate);
-        //category
-        wp_set_object_terms($post->ID, 'community-info', 'category', true);
+    if(!empty($post)){
+        if($post->post_type == 'community-info'){
+            //custom fields
+            $community_date = sanitize_text_field($_POST['community_date']);
+            $community_fulldate = sanitize_text_field($_POST['community_fulldate']);
+            update_post_meta($post->ID, "community_date", $community_date);
+            update_post_meta($post->ID, "community_fulldate", $community_fulldate);
+            //category
+            wp_set_object_terms($post->ID, 'community-info', 'category', true);
+        }
     }
 }
 function save_concert_attributes(){
     global $post;
-    if($post->post_type == 'concert'){
-        //custom fields
-        $concert_date = sanitize_text_field($_POST['concert_date']);
-        $concert_fulldate = sanitize_text_field($_POST['concert_fulldate']);
-        update_post_meta($post->ID, "concert_date", $concert_date);
-        update_post_meta($post->ID, "concert_fulldate", $concert_fulldate);
-        //category
-        wp_set_object_terms($post->ID, 'concert', 'category', true);
+    if(!empty($post)){
+        if($post->post_type == 'concert'){
+            //custom fields
+            $concert_date = sanitize_text_field($_POST['concert_date']);
+            $concert_fulldate = sanitize_text_field($_POST['concert_fulldate']);
+            update_post_meta($post->ID, "concert_date", $concert_date);
+            update_post_meta($post->ID, "concert_fulldate", $concert_fulldate);
+            //category
+            wp_set_object_terms($post->ID, 'concert', 'category', true);
+        }
     }
 }
