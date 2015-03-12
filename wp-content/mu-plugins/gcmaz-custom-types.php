@@ -196,8 +196,8 @@ function enqueue_dp_ui(){
     //wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/smoothness/jquery-ui.css', true);
     wp_enqueue_script( 'jquery-ui-custom', get_template_directory_uri() . '/assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.js');
     wp_enqueue_style( 'jquery-ui-style', get_template_directory_uri() . '/assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css');
-    wp_enqueue_script('jquery-validate', get_template_directory_uri() . '/assets/js/jquery-validation-1.13.1/dist/jquery.validate.min.js');
-    wp_enqueue_script( 'jquery-ui-datepicker-validate', get_template_directory_uri() . '/assets/js/jquery.ui.datepicker.validation.package-1.0.1/jquery.ui.datepicker.validation.min.js');
+    //wp_enqueue_script('jquery-validate', get_template_directory_uri() . '/assets/js/jquery-validation-1.13.1/dist/jquery.validate.min.js');
+    //wp_enqueue_script( 'jquery-ui-datepicker-validate', get_template_directory_uri() . '/assets/js/jquery.ui.datepicker.validation.package-1.0.1/jquery.ui.datepicker.validation.min.js');
 }
 add_action('admin_init', 'enqueue_dp_ui');
 
@@ -244,21 +244,21 @@ function whats_fields (){
                     jQuery('#whats_fulldate').val('20000101');
                 }
             });
-            jQuery('#post').validate({
-                errorPlacement: jQuery.datepicker.errorPlacement,
-                rules: {
-                    validDefaultDatepicker: {
-                        dpDate: true
-                    },
-                    validFormatDatepicker: {
-                        dpDate: true
-                    },
-                    messages: {
-                        validFormatDatepicker: 'Invalid Format Date',
-                        validDefaultDatepicker: 'Invalid Date'
-                    }
-                }
-            });
+            //jQuery('#post').validate({
+                //errorPlacement: jQuery.datepicker.errorPlacement,
+                //rules: {
+                    //validDefaultDatepicker: {
+                        //dpDate: true
+                    //},
+                    //validFormatDatepicker: {
+                        //dpDate: true
+                    //},
+                    //messages: {
+                        //validFormatDatepicker: 'Invalid Format Date',
+                        //validDefaultDatepicker: 'Invalid Date'
+                    //}
+                //}
+            //});
         });
     </script>
     <?php
@@ -305,21 +305,21 @@ function community_fields (){
                     jQuery('#community_fulldate').val('20000101');
                 }
             });
-            jQuery('#post').validate({
-                errorPlacement: jQuery.datepicker.errorPlacement,
-                rules: {
-                    validDefaultDatepicker: {
-                        dpDate: true
-                    },
-                    validFormatDatepicker: {
-                        dpDate: true
-                    },
-                    messages: {
-                        validFormatDatepicker: 'Invalid Format Date',
-                        validDefaultDatepicker: 'Invalid Date'
-                    }
-                }
-            });
+            //jQuery('#post').validate({
+                //errorPlacement: jQuery.datepicker.errorPlacement,
+                //rules: {
+                    //validDefaultDatepicker: {
+                        //dpDate: true
+                    //},
+                    //validFormatDatepicker: {
+                        //dpDate: true
+                    //},
+                    //messages: {
+                        //validFormatDatepicker: 'Invalid Format Date',
+                        //validDefaultDatepicker: 'Invalid Date'
+                    //}
+                //}
+            //});
         });
     </script>
     <?php
@@ -366,21 +366,21 @@ function concert_fields (){
                     jQuery('#concert_fulldate').val('20000101');
                 }
             });
-            jQuery('#post').validate({
-                errorPlacement: jQuery.datepicker.errorPlacement,
-                rules: {
-                    validDefaultDatepicker: {
-                        dpDate: true
-                    },
-                    validFormatDatepicker: {
-                        dpDate: true
-                    },
-                    messages: {
-                        validFormatDatepicker: 'Invalid Format Date',
-                        validDefaultDatepicker: 'Invalid Date'
-                    }
-                }
-            });
+            //jQuery('#post').validate({
+                //errorPlacement: jQuery.datepicker.errorPlacement,
+                //rules: {
+                    //validDefaultDatepicker: {
+                        //dpDate: true
+                    //},
+                    //validFormatDatepicker: {
+                        //dpDate: true
+                    //},
+                    //messages: {
+                        //validFormatDatepicker: 'Invalid Format Date',
+                        //validDefaultDatepicker: 'Invalid Date'
+                    //}
+                //}
+            //});
         });
     </script>
     <?php
