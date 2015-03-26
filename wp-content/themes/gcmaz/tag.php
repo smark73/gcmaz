@@ -35,14 +35,12 @@
                 </section>
             <?php endwhile;?>
         
-            <?php if ($the_query->max_num_pages > 1) : ?>
-              <nav class="post-nav">
-                <ul class="pager">
-                  <li class="previous"><?php next_posts_link(__('&laquo; Older posts', 'roots')); ?></li>
-                  <li class="next"><?php previous_posts_link(__('Newer posts &raquo;', 'roots')); ?></li>
-                </ul>
-              </nav>
-            <?php endif; ?>
+            <?php if ( function_exists('base_pagination') ) { base_pagination(); } else if ( is_paged() ) { ?>
+                <div class="navigation clearfix">
+                    <div class="alignleft"><?php next_posts_link('&laquo; Previous Entries') ?></div>
+                    <div class="alignright"><?php previous_posts_link('Next Entries &raquo;') ?></div>
+                </div>
+            <?php } ?>
 
             <?php
                 /* Restore original Post Data */

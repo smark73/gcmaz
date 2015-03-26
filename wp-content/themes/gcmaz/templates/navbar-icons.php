@@ -1,7 +1,9 @@
 <?php
     // display KAFF News social icons on kaff news pages
+    global $post;
+    if( !empty( $post ) ) : ?>
 
-     if( $post->post_name == 'kaff-news' || in_category( check_current_category_for_news() ) ) : ?>
+    <?php if( $post->post_name == 'kaff-news' || in_category( check_current_category_for_news() ) ) : ?>
 
             <span class="navbar-icons">
                 <a href="https://www.facebook.com/NewsOnKAFF" target="_blank" class="icon-fb">
@@ -12,4 +14,5 @@
                 </a>
             </span>
 
+    <?php endif; ?>
 <?php endif; ?>
