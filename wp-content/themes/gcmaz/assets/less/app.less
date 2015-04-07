@@ -130,12 +130,6 @@ img {width:auto;height:auto}
 .in-cnt-wrp{background:#fff;width:100%;margin:auto;border-bottom:5px solid rgba(0,0,0,.2)}
 .in-cnt-wrp article, .in-cnt-wrp .pg-content {margin:20px auto;background:#fff;max-width:95%}
 
-/**** Listen Live ****/
-.listen{text-decoration:none !important}
-.listen-btn{display:inline-block !important}
-.studio-sponsor a img{width:100%;height:auto;max-width:150px;max-height:100px;}
-/******end listen live button*********/
-
 /*make facebook boxes responsive etc ******/
 .fb-like-box, .fb-like-box span, .fb-like-box span iframe[style] {width:100% !important;height:auto;border:0 !important;-webkit-border-radius:3px;border-radius:3px;padding:5px 0;margin:5px auto;}
 
@@ -211,8 +205,47 @@ div.rbn-hdg{
    ========================================================================== */
 
 /**** Front Page Splash ******/
-.stationsplash{
 
+/**** Listen Live ****/
+.listen{text-decoration:none !important;margin:10px auto 20px;display:block}
+.listen-btn{display:inline-block !important}
+
+
+#kaffLogo,
+#kmgnLogo,
+#kaffamLogo,
+#kfszLogo,
+#ktmgLogo,
+#knotLogo { margin-bottom:20px;}
+
+/********      FRONT PAGE ANIMATIONS  ****/
+
+#kaffBlock,
+#kmgnBlock,
+#kaffamBlock,
+#kfszBlock,
+#ktmgBlock,
+#knotBlock
+{
+    display:block;
+    margin:1% auto;
+    padding:1% 2%;
+}
+
+/*  Animate CSS Overrides -  override the defaults in /assets/css/animate  */
+#kaffBtn,
+#kmgnBtn,
+#kaffamBtn,
+#kfszBtn,
+#ktmgBtn,
+#knotBtn
+{
+    -webkit-animation-duration: 0.4s;
+    -webkit-animation-delay: 0;
+    -webkit-animation-iteration-count: 1;
+    animation-duration: 0.4s;
+    animation-delay: 0;
+    animation-iteration-count: 1;
 }
 
 
@@ -485,8 +518,7 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
 
 .content-info { }
 .pg-ftr{
-    background: @white;
-    border-top:5px solid #c00;
+    border-top:4px solid #c00;
     .glyphicon{color: @bright-red}
     li{list-style-type:none}
     ul{padding:0;margin:0}
@@ -501,15 +533,13 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
     a{color:@blue;text-shadow:1px 1px 1px rgba(0,0,0,0.1);font-weight:600;}
     a:hover{color:fade(@blue,80%);text-decoration:none}
     span{margin:0 5px}
-    ul{margin:auto;text-align:left;border-right: 2px solid fade(@blue,20%);}
+    ul{margin:auto;text-align:left;border-right:3px solid #f5f3f1;}
     li{line-height:2em;padding-left:5%}
     padding:2% 0;
     margin:0;
-    //background:lighten(@blue,10%);
     text-align:center;
     -webkit-border-radius:0 0 0 14px;
     border-radius:0 0 0 14px;
-    
     height:100%;
 }
 .ftr2{}
@@ -522,39 +552,7 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
 //.widget_recent_entries div ul li a{color:#a3aebf}
 
 
-/************************************
-    FRONT PAGE STATION BLOCK ANIMATIONS
-************************************/
 
-#kaffBlock,
-#kmgnBlock,
-#kaffamBlock,
-#kfszBlock,
-#ktmgBlock,
-#knotBlock
-{
-    display:block;
-    margin:1% auto;
-    padding:1% 2%;
-}
-
-/* 
-    Animate CSS Overrides -  override the defaults in /assets/css/animate
-*/
-#kaffBtn,
-#kmgnBtn,
-#kaffamBtn,
-#kfszBtn,
-#ktmgBtn,
-#knotBtn
-{
-    -webkit-animation-duration: 0.4s;
-    -webkit-animation-delay: 0;
-    -webkit-animation-iteration-count: 1;
-    animation-duration: 0.4s;
-    animation-delay: 0;
-    animation-iteration-count: 1;
-}
 
 // turn off Safari rounding corners
 textarea,

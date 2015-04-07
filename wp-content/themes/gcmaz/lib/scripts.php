@@ -11,7 +11,7 @@
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '79808e4f3e9095d26ddfc17220603ca3');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, 'b05aebefd73fa0ae99edc5456f71bc2c');
   wp_enqueue_style('nivo-slider', get_template_directory_uri() . '/assets/js/nivo-slider/nivo-slider.css', false, null);
 
   // jQuery is loaded using the same method from HTML5 Boilerplate:
