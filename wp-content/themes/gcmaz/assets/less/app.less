@@ -50,6 +50,7 @@ img {width:auto;height:auto}
 .unica{font-family: 'Unica One', cursive;}
 .lifesavers{font-family: 'Life Savers', cursive; }
 .bree{font-family: 'Bree Serif', serif;}
+.montserrat{font-family: 'Montserrat', sans-serif;}
 
 /******** COLORS ********/
 .yellow{color:#ffcc00}
@@ -373,6 +374,18 @@ button.search-submit:hover, button.search-submit:active{color:@white;background:
    Navigation
    ========================================================================== */
 
+.navbar {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight:700;
+    font-size:12px;
+}
+.navbar .dropdown-menu {
+    text-transform: capitalize;
+    font-weight:400;
+    font-size:12px;
+}
+
 .navbar-fixed-top { top: 0px; }
 // see media queries for more navbar fixed top styles
 
@@ -380,9 +393,10 @@ button.search-submit:hover, button.search-submit:active{color:@white;background:
 .glyphicon-new-window{font-size:0.8em;margin-left:5px;color:rgba(255,255,255,0.5)}
 .navbar-icons{ float:right;}
 .navbar-icons a img{border:0;text-decoration:none;}
-.navbar-icons a{ text-decoration:none;padding:0;margin:0;line-height:40px;height:40px;width:40px;display:inline-block;vertical-align:middle;text-align:center;}
+.navbar-icons a{ text-decoration:none;padding:0;margin:0;line-height:60px;height:60px;width:60px;display:inline-block;vertical-align:middle;text-align:center;}
 a.icon-fb:hover{background:#3b589c;}
 a.icon-tw:hover{background:#1ab2e8;}
+
 
 /************ NAV tabs *************/
 // Advertising Info Nav
@@ -558,7 +572,9 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
 textarea,
 input[type="text"],
 input[type="button"],
-input[type="submit"] {
+input[type="submit"],
+input.search-field,
+.search-field {
     -webkit-appearance: none;
     border-radius: 0;
     -webkit-border-radius:0;
@@ -577,9 +593,6 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 
 
-
-
-
 /* ==========================================================================
    Media Queries
    ========================================================================== */
@@ -593,7 +606,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     .indx-photo{display:none;visibility:hidden;height:0;width:0;}
     // fixed navbar
     body.admin-bar .navbar-fixed-top { top: 46px !important; }
-}
+} //End @media
 
 @media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
     img.logo{max-width:200px;margin-bottom:2%}
@@ -602,7 +615,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
     // fixed navbar
     body.admin-bar .navbar-fixed-top { top: 28px !important; }
-}
+} //End @media
 
 @media (min-width: @screen-md) and (max-width: @screen-md-max) {
     img.logo{max-width:250px}
@@ -611,7 +624,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
     // fixed navbar
     body.admin-bar .navbar-fixed-top { top: 28px !important; }
-}
+} //End @media
 
 @media (min-width: @screen-lg) {
     img.logo{max-width:250px}
@@ -620,4 +633,4 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
     // fixed navbar
     body.admin-bar .navbar-fixed-top { top: 28px !important; }
-}
+} //End @media
