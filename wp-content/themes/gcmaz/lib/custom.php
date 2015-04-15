@@ -186,11 +186,14 @@ add_filter('user_contactmethods', 'gcmaz_user_contactmethods', 10, 1);
 
 
 /*
- * Add google web font to page head
+ * Add Custom Code to Page Head
  */
-add_action('wp_head', 'google_fonts');
-function google_fonts(){
-    echo "<link href='//fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>";
+add_action('wp_head', 'gcmaz_add_to_head');
+function gcmaz_add_to_head(){
+    echo "<link href='//fonts.googleapis.com/css?family=Bree+Serif|Montserrat:400,700' rel='stylesheet' type='text/css'>";
+    if( is_front_page() ){
+        echo "<link type='text/css' rel='stylesheet' href='/assets/css/animate/animate.min.css'>";
+    }
 }
 
 
