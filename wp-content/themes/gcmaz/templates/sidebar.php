@@ -2,12 +2,12 @@
 //Need to give Advertise and its children a sidebar
 $adv_id = get_page_by_title("Advertise On Northern Arizona Radio");
 //print_r($adv_id->ID);
-
+   
 if(!empty( $post )){
     
     // need to keep is_search check first ... otherwise gets wrong sidebar as search info moves into post->info (a search for "concerts" calls the concerts sidebar)
     if( is_search() ) {
-        //echo "<div style='background:yellow'>search</div>";
+        echo "<div style='background:yellow'>search</div>";
         dynamic_sidebar('sidebar-primary');
         
     } elseif(is_front_page()){
@@ -35,5 +35,9 @@ if(!empty( $post )){
         dynamic_sidebar('sidebar-primary');
     }
 
+} else {
+    
+    dynamic_sidebar('sidebar-primary');
+    
 }
 ?>

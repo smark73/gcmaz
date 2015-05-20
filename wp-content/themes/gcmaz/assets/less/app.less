@@ -355,11 +355,10 @@ a.wthrcty:hover{text-decoration:none;color:#fff}
 
 /*  search input style */
 .sidebar .search-2, .sidebar .widget_search {margin:5px auto 10px;padding:0;border:0}
-input.search-field{color:@gray;border:1px solid fade(@gray-light,40%);background:fade(@gray-light,10%)}
+/*input.search-field{color:@gray;border:1px solid fade(@gray-light,40%);background:fade(@gray-light,10%)}
 button.search-submit{background:lighten(@gray-light,10%);color:@white;border:1px solid fade(@gray-light,40%)}
-button.search-submit:hover, button.search-submit:active{color:@white;background:lighten(@gray-light,15%);border:1px solid fade(@gray-light,40%)}
-// search results
-//.search-hdr h3, .search-hdr h4{color:@red;font-size:1em}
+button.search-submit:hover, button.search-submit:active{color:@white;background:lighten(@gray-light,15%);border:1px solid fade(@gray-light,40%)}*/
+
 
 .tagcloud {margin-left:10px}
 .tagcloud a{ padding:2px}
@@ -396,6 +395,46 @@ button.search-submit:hover, button.search-submit:active{color:@white;background:
 .navbar-icons a{ text-decoration:none;padding:0;margin:0;line-height:60px;height:60px;width:60px;display:inline-block;vertical-align:middle;text-align:center;}
 a.icon-fb:hover{background:#3b589c;}
 a.icon-tw:hover{background:#1ab2e8;}
+
+// Toggle search in navbar
+.navbar-search{
+    float:right;
+}
+.searchbox-nav{
+    clear:both;
+    display:block;
+    width:100%;
+    z-index:1000;
+    margin:2% auto;
+    padding:1%;
+    background:@brand-primary;
+}
+.searchbox-toggle{
+    display:block;
+    color:#4485f5;
+    font-size:18px;
+    cursor:pointer;
+    font-weight:700;
+}
+a.searchbox-toggle:hover{
+    color:#fff;
+}
+.searchbox-hide{
+    visibility:hidden;
+    display:none;
+    height:0;
+}
+.searchbox-show{
+    visibility:visible;
+    display:block;
+/*    height:50px;
+    width:400px;*/
+}
+input.search-field{color:@gray-dark;background:@white;border:1px solid @brand-primary;}
+button.search-submit{background:@red;color:@white;border:1px solid transparent;}
+button.search-submit:hover, button.search-submit:active{color:@white;background:lighten(@red,5%);border:1px solid transparent;}
+
+.search-results-page{min-height:450px;}
 
 
 /************ NAV tabs *************/

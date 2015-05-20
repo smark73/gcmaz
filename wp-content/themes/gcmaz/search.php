@@ -2,7 +2,7 @@
     <div class="centered rbn-hdg search-hdr">
         <?php get_template_part('templates/page', 'header'); ?>
     </div>
-    <article>
+    <article class="search-results-page">
         <?php if (!have_posts()) : ?>
           <div class="alert alert-warning">
             <?php _e('Sorry, no results were found.', 'roots'); ?>

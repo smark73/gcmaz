@@ -70,6 +70,17 @@ var GcmazSite = {
         });
         //***** END exp leaderboard
         
+        // toggle searchbox in navbar
+        
+        var $searchboxToggle = jQuery(document).find('.searchbox-toggle');
+        var $searchbox = jQuery(document).find('.searchbox-nav');
+        
+        jQuery(function(){
+            $searchboxToggle.click(function(){
+                $searchbox.toggleClass('searchbox-hide searchbox-show');
+            });
+        });
+        
     },
     finalize: function() { }
   },
