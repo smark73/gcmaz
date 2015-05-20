@@ -7,7 +7,7 @@ if(!empty( $post )){
     
     // need to keep is_search check first ... otherwise gets wrong sidebar as search info moves into post->info (a search for "concerts" calls the concerts sidebar)
     if( is_search() ) {
-        echo "<div style='background:yellow'>search</div>";
+        //echo "<div style='background:yellow'>search</div>";
         dynamic_sidebar('sidebar-primary');
         
     } elseif(is_front_page()){
