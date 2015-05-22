@@ -23,7 +23,6 @@
             </a>
         </div>
        <div class="searchbox-nav searchbox-hide">
-            <div class="clearfix"></div>
             <form role="search" method="get" class="search-form form-inline" action="<?php echo home_url('/'); ?>">
               <div class="input-group">
                 <input type="search" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="s" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> <?php bloginfo('name'); ?>">

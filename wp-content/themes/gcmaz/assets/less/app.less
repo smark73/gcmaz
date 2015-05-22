@@ -405,8 +405,8 @@ a.icon-tw:hover{background:#1ab2e8;}
     display:block;
     width:100%;
     z-index:1000;
-    margin:2% auto;
-    padding:1%;
+    margin:0;
+    padding:0;
     background:@brand-primary;
 }
 .searchbox-toggle{
@@ -420,16 +420,64 @@ a.searchbox-toggle:hover{
     color:#fff;
 }
 .searchbox-hide{
-    visibility:hidden;
-    display:none;
-    height:0;
+    -webkit-animation: searchbox-anim-rev 1s;
+    -moz-animation: searchbox-anim-rev 1s;
+    -o-animation: searchbox-anim-rev 1s;
+    animation: searchbox-anim-rev 1s;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
 }
 .searchbox-show{
-    visibility:visible;
-    display:block;
-/*    height:50px;
-    width:400px;*/
+    -webkit-animation: searchbox-anim 1s;
+    -moz-animation: searchbox-anim 1s;
+    -o-animation: searchbox-anim 1s;
+    animation: searchbox-anim 1s;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
 }
+
+@-webkit-keyframes searchbox-anim{
+    0% { opacitiy: 0; height: 0; }
+    100% { opacity: 1; height: 60px; }
+}
+@-moz-keyframes searchbox-anim{
+    0% { opacitiy: 0; height: 0; }
+    100% { opacity: 1; height: 60px; }
+}
+@-o-keyframes searchbox-anim{
+    0% { opacitiy: 0; height: 0; }
+    100% { opacity: 1; height: 60px; }
+}
+@keyframes searchbox-anim{
+    0% { opacitiy: 0; height: 0; }
+    100% { opacity: 1; height: 60px; }
+}
+
+@-webkit-keyframes searchbox-anim-rev{
+    0% { opacity: 1; height: 60px; }
+    100% { opacitiy: 0; height: 0; }
+}
+@-moz-keyframes searchbox-anim-rev{
+    0% { opacity: 1; height: 60px; }
+    100% { opacitiy: 0; height: 0; }
+}
+@-o-keyframes searchbox-anim-rev{
+    0% { opacity: 1; height: 60px; }
+    100% { opacitiy: 0; height: 0; }
+}
+@keyframes searchbox-anim-rev{
+    0% { opacity: 1; height: 60px; }
+    100% { opacitiy: 0; height: 0; }
+}
+
+
+
 input.search-field{color:@gray-dark;background:@white;border:1px solid fade(@brand-primary,35%);}
 button.search-submit{background:@red;color:@white;border:1px solid transparent;}
 button.search-submit:hover, button.search-submit:active{color:@white;background:lighten(@red,5%);border:1px solid transparent;}

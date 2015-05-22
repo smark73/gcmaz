@@ -75,9 +75,17 @@ var GcmazSite = {
         var $searchboxToggle = jQuery(document).find('.searchbox-toggle');
         var $searchbox = jQuery(document).find('.searchbox-nav');
         
+        $searchbox.hide();
+        
         jQuery(function(){
             $searchboxToggle.click(function(){
+                $searchbox.show();
                 $searchbox.toggleClass('searchbox-hide searchbox-show');
+                //$searchbox.toggle(function(){
+                    //$searchbox.animate({height:200},5000);
+                //}, function(){
+                    $searchbox.animate({height:0},5000);
+                //});
             });
         });
         
