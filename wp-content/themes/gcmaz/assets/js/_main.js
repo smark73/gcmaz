@@ -81,11 +81,6 @@ var GcmazSite = {
             $searchboxToggle.click(function(){
                 $searchbox.show();
                 $searchbox.toggleClass('searchbox-hide searchbox-show');
-                //$searchbox.toggle(function(){
-                    //$searchbox.animate({height:200},5000);
-                //}, function(){
-                    $searchbox.animate({height:0},5000);
-                //});
             });
         });
         
