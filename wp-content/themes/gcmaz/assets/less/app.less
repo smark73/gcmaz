@@ -404,11 +404,12 @@ a.icon-tw:hover{background:#1ab2e8;}
     clear:both;
     display:block;
     width:100%;
-    z-index:1000;
     margin:0;
     padding:0;
-
+    display:block;
+    text-align: center;
     background:@brand-primary;
+    position:relative;
 }
 .searchbox-toggle{
     display:block;
@@ -420,6 +421,13 @@ a.icon-tw:hover{background:#1ab2e8;}
 a.searchbox-toggle:hover{
     color:#fff;
 }
+.searchbox-nav .search-form{
+    width:90%;
+    margin:auto;
+    position:absolute;
+    bottom:10px;
+    right:30px;
+}
 .searchbox-hide{
     -webkit-animation: searchbox-anim-rev 1s;
     -moz-animation: searchbox-anim-rev 1s;
@@ -429,7 +437,8 @@ a.searchbox-toggle:hover{
     animation-duration: 0.2s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
-    animation-direction: alternate;
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
 }
 .searchbox-show{
     -webkit-animation: searchbox-anim 1s;
@@ -440,7 +449,9 @@ a.searchbox-toggle:hover{
     animation-duration: 0.2s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
-    animation-direction: alternate;
+    height:60px;
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
 }
 
 @-webkit-keyframes searchbox-anim{
