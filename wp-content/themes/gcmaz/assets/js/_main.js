@@ -71,16 +71,18 @@ var GcmazSite = {
         //***** END exp leaderboard
         
         // toggle searchbox in navbar
-        
         var $searchboxToggle = jQuery(document).find('.searchbox-toggle');
         var $searchbox = jQuery(document).find('.searchbox-nav');
+        var $searchform = jQuery(document).find('.search-form');
         
+        $searchform.addClass('hidden');
         $searchbox.hide();
         
         jQuery(function(){
             $searchboxToggle.click(function(){
                 $searchbox.show();
                 $searchbox.toggleClass('searchbox-hide searchbox-show');
+                $searchform.toggleClass('hidden show');
             });
         });
         
