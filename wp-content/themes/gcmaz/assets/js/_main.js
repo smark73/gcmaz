@@ -70,18 +70,25 @@ var GcmazSite = {
         });
         //***** END exp leaderboard
         
-        // toggle searchbox in navbar
-        var $searchboxToggle = jQuery(document).find('.searchbox-toggle');
-        var $searchbox = jQuery(document).find('.searchbox-nav');
-        var $searchform = jQuery(document).find('.searchbox-nav').children('.search-form');
         
-        $searchform.addClass('hidden');
-        $searchform.css({opacity:0});
-        $searchbox.hide();
-        
+        // START toggle searchbox in navbar
         jQuery(function(){
+            //store our targets in vars
+            var $searchboxToggle = jQuery(document).find('.searchbox-toggle');
+            var $searchbox = jQuery(document).find('.searchbox-nav');
+            var $searchform = jQuery(document).find('.searchbox-nav').children('.search-form');
+            
+            //init search-form styles and classes
+            $searchform.addClass('hidden');
+            $searchform.css({opacity:0});
+            $searchbox.hide();
+            
+            //toggle function
             $searchboxToggle.click(function(){
+                //searchbox-nav is hidden until first click (otherwise shows on slow page loads)
+                $searchbox.removeClass('hidden');
                 $searchbox.show();
+                //
                 $searchbox.toggleClass('searchbox-hide searchbox-show');
                 if(($searchform).hasClass('hidden')){
                     var searchformWait;
@@ -92,6 +99,7 @@ var GcmazSite = {
                 }
             });
         });
+        // END
         
     },
     finalize: function() { }
