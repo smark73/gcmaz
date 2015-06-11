@@ -120,62 +120,62 @@ var GcmazSite = {
         });
         
         // animatronix
-        var animationName = 'animated pulse';
-        var animationend = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        
-        function animateMe(thing){
-            jQuery(thing).addClass(animationName).one(animationend, function(){
-                jQuery(thing).removeClass(animationName);
-            });
-        }
-        
-        function Kaff(){
-            this.block = jQuery(document).find('#kaffBlock');
-            this.logo = jQuery(document).find('#kaffLogo');
-            this.btn = jQuery(document).find('#kaffBtn');
-            this.block.on('mouseenter', function(){animateMe(kaff.btn);});
-        }
-        var kaff = new Kaff();
-        
-        function Kmgn(){
-            this.block = jQuery(document).find('#kmgnBlock');
-            this.logo = jQuery(document).find('#kmgnLogo');
-            this.btn = jQuery(document).find('#kmgnBtn');
-            this.block.on('mouseenter', function(){animateMe(kmgn.btn);});
-        }
-        var kmgn = new Kmgn();
-        
-        function Kaffam(){
-            this.block = jQuery(document).find('#kaffamBlock');
-            this.logo = jQuery(document).find('#kaffamLogo');
-            this.btn = jQuery(document).find('#kaffamBtn');
-            this.block.on('mouseenter', function(){animateMe(kaffam.btn);});
-        }
-        var kaffam = new Kaffam();
-
-        function Kfsz(){
-            this.block = jQuery(document).find('#kfszBlock');
-            this.logo = jQuery(document).find('#kfszLogo');
-            this.btn = jQuery(document).find('#kfszBtn');
-            this.block.on('mouseenter', function(){animateMe(kfsz.btn);});
-        }
-        var kfsz = new Kfsz();
-
-        function Ktmg(){
-            this.block = jQuery(document).find('#ktmgBlock');
-            this.logo = jQuery(document).find('#ktmgLogo');
-            this.btn = jQuery(document).find('#ktmgBtn');
-            this.block.on('mouseenter', function(){animateMe(ktmg.btn);});
-        }
-        var ktmg = new Ktmg();
-        
-        function Knot(){
-            this.block = jQuery(document).find('#knotBlock');
-            this.logo = jQuery(document).find('#knotLogo');
-            this.btn = jQuery(document).find('#knotBtn');
-            this.block.on('mouseenter', function(){animateMe(knot.btn);});
-        }
-        var knot = new Knot();
+//        var animationName = 'animated pulse';
+//        var animationend = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+//        
+//        function animateMe(thing){
+//            jQuery(thing).addClass(animationName).one(animationend, function(){
+//                jQuery(thing).removeClass(animationName);
+//            });
+//        }
+//        
+//        function Kaff(){
+//            this.block = jQuery(document).find('#kaffBlock');
+//            this.logo = jQuery(document).find('#kaffLogo');
+//            this.btn = jQuery(document).find('#kaffBtn');
+//            this.block.on('mouseenter', function(){animateMe(kaff.btn);});
+//        }
+//        var kaff = new Kaff();
+//        
+//        function Kmgn(){
+//            this.block = jQuery(document).find('#kmgnBlock');
+//            this.logo = jQuery(document).find('#kmgnLogo');
+//            this.btn = jQuery(document).find('#kmgnBtn');
+//            this.block.on('mouseenter', function(){animateMe(kmgn.btn);});
+//        }
+//        var kmgn = new Kmgn();
+//        
+//        function Kaffam(){
+//            this.block = jQuery(document).find('#kaffamBlock');
+//            this.logo = jQuery(document).find('#kaffamLogo');
+//            this.btn = jQuery(document).find('#kaffamBtn');
+//            this.block.on('mouseenter', function(){animateMe(kaffam.btn);});
+//        }
+//        var kaffam = new Kaffam();
+//
+//        function Kfsz(){
+//            this.block = jQuery(document).find('#kfszBlock');
+//            this.logo = jQuery(document).find('#kfszLogo');
+//            this.btn = jQuery(document).find('#kfszBtn');
+//            this.block.on('mouseenter', function(){animateMe(kfsz.btn);});
+//        }
+//        var kfsz = new Kfsz();
+//
+//        function Ktmg(){
+//            this.block = jQuery(document).find('#ktmgBlock');
+//            this.logo = jQuery(document).find('#ktmgLogo');
+//            this.btn = jQuery(document).find('#ktmgBtn');
+//            this.block.on('mouseenter', function(){animateMe(ktmg.btn);});
+//        }
+//        var ktmg = new Ktmg();
+//        
+//        function Knot(){
+//            this.block = jQuery(document).find('#knotBlock');
+//            this.logo = jQuery(document).find('#knotLogo');
+//            this.btn = jQuery(document).find('#knotBtn');
+//            this.block.on('mouseenter', function(){animateMe(knot.btn);});
+//        }
+//        var knot = new Knot();
         
     }
   },
