@@ -5,7 +5,9 @@
             <li><span class="glyphicon glyphicon-earphone"></span><a href="/contact-great-circle-media">Contact Us</a></li>
             <li><span class="glyphicon glyphicon-th-large"></span><a href="/kaff-news/">KAFF News</a></li>
         </ul>
-        <br/><br/>
+        <div class="visible-sm visible-xs">
+            <?php dynamic_sidebar('sidebar-footer'); ?>
+        </div>
     </section>
     <section class="ftr2 col-md-6 col-lg-6 hidden-sm hidden-xs">
         <?php dynamic_sidebar('sidebar-footer'); ?>
