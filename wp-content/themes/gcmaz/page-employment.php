@@ -2,9 +2,18 @@
     <div class="centered rbn-hdg">
         <?php get_template_part('templates/page', 'header'); ?>
     </div>
-    <div class="col-md-6 col-sm-6">
+    <div class="col-md-12 col-sm-12">
         
-        <?php $the_query = new WP_Query(array(
+        <div style="margin:2% auto;">
+            <?php 
+                /* output content input from editor before getting our posts */
+                get_template_part('templates/content', 'page'); 
+            ?>
+        </div>
+        
+        <?php
+            //get station-content CPT's 
+            $the_query = new WP_Query(array(
             'post_type' => 'station-content',
             //'category_name' => 'employment',
             'posts_per_archive_page' => '100',
@@ -21,12 +30,10 @@
                         // check if in "Hide Post" category
                         if( in_category( array( 'employment' ) ) ) :
                     ?>
-                    <section class="archv-pg-lstng row">
-                        <div class="archv-info col-md-12 col-sm-12 col-xs-12">
-                            <?php get_template_part('templates/content', get_post_format());?>
-                        </div>
-                        <hr class="archv-pg-hr">
-                    </section>
+                            <a href="<?php the_permalink();?>" title="<?php the_title();?>">
+                                <h3 class="entry-title blue"><?php the_title(); ?></h3>
+                            </a>
+                        
                     <?php endif;?>
         
             <?php endwhile;?>

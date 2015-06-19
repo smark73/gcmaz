@@ -6,8 +6,7 @@
       <article <?php post_class('sngl-info'); ?>>
 
         <header>
-            <h3 class='blue'><?php the_title(); ?></h3>
-            <span class='red' style='font-size:1.3em'><?php $cdate = get_post_custom_values('concert_date'); echo $cdate[0]; ?></span>
+            <h3 class='entry-title blue'><?php the_title(); ?></h3>
         </header>
           
         <div class="entry-content">
@@ -15,7 +14,6 @@
         </div>
           
         <footer>
-
         </footer>
 
       </article>
