@@ -93,9 +93,9 @@ var GcmazSite = {
                 if(($searchform).hasClass('hidden')){
                     var searchformWait;
                     clearTimeout(searchformWait);
-                    searchformWait = setTimeout(function(){$searchform.toggleClass('hidden show').animate({opacity:1});} , 100);
+                    searchformWait = setTimeout(function(){$searchform.toggleClass('hidden visible').animate({opacity:1});} , 100);
                 } else {
-                    $searchform.animate({opacity:0}).toggleClass('hidden show');
+                    $searchform.animate({opacity:0}).toggleClass('hidden visible');
                 }
             });
         });
