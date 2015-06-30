@@ -9,7 +9,7 @@
             'orderby' => 'meta_value',
             'meta_key' => 'concert_fulldate',
             'order' => 'ASC',
-            'posts_per_page' => 100,
+            'posts_per_page' => 100000,
             'paged' => $paged,
             ));
     ?>
