@@ -48,6 +48,8 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                 $d = date('Ymd');
                                 
                                 // query the Whats Happening category
+                                // for position - use start date (whats_fulldate)
+                                // for kill date - use end date (whats_fullenddate)
                                 //  check if fulldate has a value of 20000101 (Jan 1, 2000) which is default given to non-dated items
                                 //  compare to todays date
                                 //  -- note 'posts_per_page' known to solve issue of some posts not showing up
@@ -78,8 +80,13 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                 ?>
                             
                                     <?php
-                                        // double check custom date to see if its past date
-                                        $expDate = get_post_custom_values('whats_fulldate');
+                                        // double check date to see if its past date
+                                        $expDate = get_post_custom_values('whats_fullenddate');
+                                        if (!$expDate[0]){
+                                            // if no end date set, use start date or default value
+                                            $expDate = get_post_custom_values('whats_fulldate');
+                                        }
+                                        
                                         if(($expDate[0] == '20000101') || (strtotime($expDate[0])) >= (strtotime('now'))) :
                                     ?>
 
@@ -87,8 +94,19 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                             // get pertinent data and attach it to content variable
                                             $content = get_the_content_feed('rss2');
 
-                                            $eDate = get_post_custom_values('whats_date');
-                                            $eventDate = $eDate[0];
+                                            $eStartDate = get_post_custom_values('whats_date');
+                                            $eEndDate = get_post_custom_values('whats_enddate');
+                                            
+                                            $eventStartDate = $eStartDate[0];
+                                            $eventEndDate = $eEndDate[0];
+                                            
+                                            if($eventEndDate){
+                                                //if we have an end date, add it
+                                                $eventDate = $eventStartDate . " - " . $eventEndDate;
+                                            } else {
+                                                $eventDate = $eventStartDate;
+                                            }
+                                            
                                             $content = '<span class="listdate pull-right red">' . $eventDate . '</span>' . $content;
 
                                             if(has_post_thumbnail()) {

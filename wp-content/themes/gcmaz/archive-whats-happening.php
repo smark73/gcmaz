@@ -27,7 +27,7 @@
                 // if no end date set, use start date or default value
                 $expDate = get_post_custom_values('whats_fulldate');
             }
-
+            
             if( ( $expDate[0] == '20000101' ) || ( strtotime($expDate[0]) ) >= ( strtotime('now') ) ) : ?>
                 <section class="archv-pg-lstng row">
                     <?php if(has_post_thumbnail()) : ?>
