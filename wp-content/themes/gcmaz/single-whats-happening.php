@@ -14,7 +14,16 @@
           </div>
         <header>
             <h3 class='blue'><?php the_title(); ?></h3>
-            <span class='red' style='font-size:1.3em'><?php $wdate = get_post_custom_values('whats_date'); echo $wdate[0]; ?></span>
+            <span class='red' style='font-size:1.3em'>
+                <?php
+                    $startdate = get_post_custom_values('whats_date');
+                    echo $startdate[0];
+                    $enddate = get_post_custom_values('whats_enddate');
+                    if($enddate[0]){
+                        echo " - " . $enddate[0];
+                    }
+                ?>
+            </span>
         </header>
         <div class="entry-content">
           <?php the_content(); ?>

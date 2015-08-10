@@ -9,13 +9,47 @@ Version: 1.0
 Author URI: http://www.gcmaz.com/
 */
 
+
+/*
+ * NOTES
+ * 
+ * whats_date --------\
+ * community_date --------- >   equals start date (D, M d)  ex. Sat, Aug 8
+ * concert_date -------/
+ * 
+ * whats_enddate ---------\
+ * community_enddate ---------- >  equals end date (D, M d) ex. Fri, Aug 7
+ * concert_enddate -------/
+ * 
+ * whats_fulldate ---------\
+ * community_fulldate --------- >  equals date used in comparison fn (yymmdd)  ex. 20150807
+ * concert_fulldate --------/
+ * 
+ * 
+ * 
+ * about "fulldate"
+ * ----------------
+ * it is compared against "todays" date in feeds to show or hide posts
+ * it gets it's value from:
+ * a)  end date if end date is populated
+ * b) if no end date, it is assigned the value of start date
+ * c) if neither end or start date have values (undated posts) it is given a default of 20000101 to position it at top of feed
+ * 
+ * 
+ */
+
+
+ /* ---------------------------------
+ *    CREATE CUSTOM POST TYPES
+ * ---------------------------------*/
+
 add_action('init', 'whats_post_type');
 add_action('init', 'community_post_type');
 add_action('init', 'concert_post_type');
 add_action('init', 'splash_post_type');
 add_action('init', 'station_post_type');
 
-// custom post types
+
 function whats_post_type(){
     $args = array(
             'labels' => array(
@@ -175,7 +209,11 @@ function station_post_type(){
 }
 
 
-//place custom fields on admin screen
+
+ /* ----------------------------------------------
+ *    PLACE CUSTOM FIELDS ON ADMIN SCREEN
+ * ---------------------------------------------*/
+
 add_action( 'admin_init', 'add_whats_box' );
 add_action('admin_init', 'add_community_box');
 add_action('admin_init', 'add_concert_box');
@@ -201,7 +239,14 @@ function enqueue_dp_ui(){
 }
 add_action('admin_init', 'enqueue_dp_ui');
 
-//create custom fields 
+
+ /* ---------------------------------
+ *    CREATE CUSTOM FIELDS
+ * ---------------------------------*/
+
+/*
+/* ---- WHATS HAPPENING ------
+*/
 function whats_fields (){
     global $post;
     if(!empty($post)){
@@ -212,57 +257,101 @@ function whats_fields (){
         } else {
             $whats_date = '';
         }
+        if(isset($custom['whats_enddate'][0])){
+            $whats_enddate = $custom['whats_enddate'][0];
+        } else {
+            $whats_enddate = '';
+        }
         if(isset($custom['whats_fulldate'][0])){
             $whats_fulldate = $custom['whats_fulldate'][0];
         } else {
             //give it a date from long ago to position it a top
             $whats_fulldate = '20000101';
         }
+        if(isset($custom['whats_fullenddate'][0])){
+            $whats_fullenddate = $custom['whats_fullenddate'][0];
+        } else {
+            $whats_fullenddate = '';
+        }
     }
     ?>
-    <p>
-        <label>Date <span style="color:red"> MUST use the datepicker or leave empty</span></label><br />
-        <input size="45" name="whats_date" id="whats_date" class="dpDate" value="<?php echo $whats_date; ?>" />
+    <div>
+        <p><span style="text-decoration:underline">Single day events</span> - enter in the first box and leave second empty</p>
+        <p><span style="text-decoration:underline">Multiple day events</span> - enter both start and end dates</p>
+        <p><span style="text-decoration:underline">Ongoing events (non-dated)</span> - leave both empty</p>
+        <label>Date (Start): </label>  <input size="15" name="whats_date" id="whats_date" class="dpDate" value="<?php echo $whats_date; ?>" readonly="true" /> 
+        &nbsp; &nbsp; &nbsp; 
+        <label>End Date (?) </label>  <input size="15" name="whats_enddate" id="whats_enddate" class="dpDate" value="<?php echo $whats_enddate; ?>" readonly="true" /> 
+        &nbsp; &nbsp; &nbsp; 
+        <button class="clear-event-dates" title="Clear Dates">Clear</button>
         <input type="hidden" name="whats_fulldate" id="whats_fulldate" class="dpDate"/>
-    </p>
+        <input type="hidden" name="whats_fullenddate" id="whats_fullenddate" class="dpDate"/>
+    </div>
     <script>
         jQuery(document).ready(function(){
-            //load hiddenfield with stored data if exists
-            var parsedDate = jQuery.datepicker.parseDate('yymmdd', '<?php echo $whats_fulldate;?>');
+            // clear dates button functions
+            jQuery('.clear-event-dates').on("click", function(event){
+                event.preventDefault();
+                 jQuery('#whats_date').datepicker('setDate', '');
+                 jQuery('#whats_enddate').datepicker('setDate', '');
+                 startDateChange();
+                 endDateChange();
+            });
+            
+            // datepicker
+            jQuery('#whats_date').datepicker({ dateFormat : 'D, M d' });
+            jQuery('#whats_enddate').datepicker({ dateFormat : 'D, M d' });
             jQuery('#whats_fulldate').datepicker({dateFormat:'yymmdd'});
-            jQuery('#whats_fulldate').datepicker('setDate', parsedDate);
-            //set values when use datepicker
-            jQuery('#whats_date').datepicker({
-                dateFormat : 'D, M d',
-                altFormat: 'yymmdd',
-                altField: '#whats_fulldate'
-            });
-            // watch for setting null value in date and update the hidden field with null (doesnt want to do it automatically)
-            jQuery('#whats_date').change(function(){
-                var $temp_date = jQuery(this).val();
-                if($temp_date === '' || $temp_date === null){
-                    jQuery('#whats_fulldate').val('20000101');
+            jQuery('#whats_fullenddate').datepicker({dateFormat:'yymmdd'});
+            
+            //ON LOAD
+            //load hiddenfields with stored data if exists
+            var checkWhatsFullDate = "<?php echo $whats_fulldate; ?>";
+            if(checkWhatsFullDate != '' || checkWhatsFullDate != null){
+                var parsedWhatsFullDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullDate);
+                jQuery('#whats_fulldate').datepicker('setDate', parsedWhatsFullDate);
+            }
+            var checkWhatsFullEndDate = "<?php echo $whats_fullenddate; ?>";
+            if(checkWhatsFullEndDate != '' || checkWhatsFullEndDate != null){
+                var parsedWhatsFullEndDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullEndDate);
+                jQuery('#whats_fullenddate').datepicker('setDate', parsedWhatsFullEndDate);
+            }
+            
+            // START DATE CHANGE
+            jQuery('#whats_date').change(startDateChange);
+            
+            function startDateChange() {
+                var $startDateVal = jQuery('#whats_date').val();
+                // changing the start date ?
+                if( $startDateVal == '' || $startDateVal == null || $startDateVal == undefined){
+                    // if set to null, set whats_fulldate to default & set endate to null
+                    jQuery('#whats_fulldate').datepicker('setDate', '20000101');
+                    jQuery('#whats_enddate').datepicker('setDate', '');
+                    jQuery('#whats_fullenddate').datepicker('setDate', '');
+                } else {
+                    var $endDateVal = jQuery('#whats_enddate').val();
+                    var parsedStartDate = jQuery.datepicker.parseDate('D, M d', $startDateVal);
+                    jQuery('#whats_fulldate').datepicker('setDate', parsedStartDate);
                 }
-            });
-            //jQuery('#post').validate({
-                //errorPlacement: jQuery.datepicker.errorPlacement,
-                //rules: {
-                    //validDefaultDatepicker: {
-                        //dpDate: true
-                    //},
-                    //validFormatDatepicker: {
-                        //dpDate: true
-                    //},
-                    //messages: {
-                        //validFormatDatepicker: 'Invalid Format Date',
-                        //validDefaultDatepicker: 'Invalid Date'
-                    //}
-                //}
-            //});
+            }
+            
+            // END DATE CHANGE
+            jQuery('#whats_enddate').change(endDateChange);
+            
+            function endDateChange() {
+                var $endDateVal = jQuery('#whats_enddate').val();
+                var parsedEndDate = jQuery.datepicker.parseDate('D, M d', $endDateVal);
+                jQuery('#whats_fullenddate').datepicker('setDate', parsedEndDate);
+            }
+
         });
     </script>
     <?php
 }
+
+/*
+/* ---- COMMUNITY INFO  ------
+*/
 function community_fields (){
     global $post;
     if(!empty($post)){
@@ -273,57 +362,101 @@ function community_fields (){
         } else {
             $community_date = '';
         }
+        if(isset($custom['community_enddate'][0])){
+            $community_enddate = $custom['community_enddate'][0];
+        } else {
+            $community_enddate = '';
+        }
         if(isset($custom['community_fulldate'][0])){
             $community_fulldate = $custom['community_fulldate'][0];
         } else {
             //give it a date from long ago to position it a top
             $community_fulldate = '20000101';
         }
+        if(isset($custom['community_fullenddate'][0])){
+            $community_fullenddate = $custom['community_fullenddate'][0];
+        } else {
+            $community_fullenddate = '';
+        }
     }
     ?>
-    <p>
-        <label>Date <span style="color:red"> MUST use the datepicker or leave empty</span></label><br />
-        <input size="45" name="community_date" id="community_date" class="dpDate" value="<?php echo $community_date; ?>" />
-        <input type="hidden" name="community_fulldate" class="dpDate" id="community_fulldate"/>
-    </p>
+    <div>
+        <p><span style="text-decoration:underline">Single day events</span> - enter in the first box and leave second empty</p>
+        <p><span style="text-decoration:underline">Multiple day events</span> - enter both start and end dates</p>
+        <p><span style="text-decoration:underline">Ongoing events (non-dated)</span> - leave both empty</p>
+        <label>Date (Start): </label>  <input size="15" name="community_date" id="community_date" class="dpDate" value="<?php echo $community_date; ?>" readonly="true" /> 
+        &nbsp; &nbsp; &nbsp; 
+        <label>End Date (?) </label>  <input size="15" name="community_enddate" id="community_enddate" class="dpDate" value="<?php echo $community_enddate; ?>" readonly="true" /> 
+        &nbsp; &nbsp; &nbsp; 
+        <button class="clear-event-dates" title="Clear Dates">Clear</button>
+        <input type="hidden" name="community_fulldate" id="community_fulldate" class="dpDate"/>
+        <input type="hidden" name="community_fullenddate" id="community_fullenddate" class="dpDate"/>
+    </div>
     <script>
         jQuery(document).ready(function(){
-            //load hiddenfield with stored data if exists
-            var parsedDate = jQuery.datepicker.parseDate('yymmdd', '<?php echo $community_fulldate;?>');
+            // clear dates button functions
+            jQuery('.clear-event-dates').on("click", function(event){
+                event.preventDefault();
+                 jQuery('#community_date').datepicker('setDate', '');
+                 jQuery('#community_enddate').datepicker('setDate', '');
+                 startDateChange();
+                 endDateChange();
+            });
+            
+            // datepicker
+            jQuery('#community_date').datepicker({ dateFormat : 'D, M d' });
+            jQuery('#community_enddate').datepicker({ dateFormat : 'D, M d' });
             jQuery('#community_fulldate').datepicker({dateFormat:'yymmdd'});
-            jQuery('#community_fulldate').datepicker('setDate', parsedDate);
-            //set values when use datepicker
-            jQuery('#community_date').datepicker({
-                dateFormat : 'D, M d',
-                altFormat: 'yymmdd',
-                altField: '#community_fulldate'
-            });
-            // watch for setting null value in date and update the hidden field with null (doesnt want to do it automatically)
-            jQuery('#community_date').change(function(){
-                var $temp_date = jQuery(this).val();
-                if($temp_date === '' || $temp_date === null){
-                    jQuery('#community_fulldate').val('20000101');
+            jQuery('#community_fullenddate').datepicker({dateFormat:'yymmdd'});
+            
+            //ON LOAD
+            //load hiddenfields with stored data if exists
+            var checkWhatsFullDate = "<?php echo $community_fulldate; ?>";
+            if(checkWhatsFullDate != '' || checkWhatsFullDate != null){
+                var parsedWhatsFullDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullDate);
+                jQuery('#community_fulldate').datepicker('setDate', parsedWhatsFullDate);
+            }
+            var checkWhatsFullEndDate = "<?php echo $community_fullenddate; ?>";
+            if(checkWhatsFullEndDate != '' || checkWhatsFullEndDate != null){
+                var parsedWhatsFullEndDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullEndDate);
+                jQuery('#community_fullenddate').datepicker('setDate', parsedWhatsFullEndDate);
+            }
+            
+            // START DATE CHANGE
+            jQuery('#community_date').change(startDateChange);
+            
+            function startDateChange() {
+                var $startDateVal = jQuery('#community_date').val();
+                // changing the start date ?
+                if( $startDateVal == '' || $startDateVal == null || $startDateVal == undefined){
+                    // if set to null, set community_fulldate to default & set endate to null
+                    jQuery('#community_fulldate').datepicker('setDate', '20000101');
+                    jQuery('#community_enddate').datepicker('setDate', '');
+                    jQuery('#community_fullenddate').datepicker('setDate', '');
+                } else {
+                    var $endDateVal = jQuery('#community_enddate').val();
+                    var parsedStartDate = jQuery.datepicker.parseDate('D, M d', $startDateVal);
+                    jQuery('#community_fulldate').datepicker('setDate', parsedStartDate);
                 }
-            });
-            //jQuery('#post').validate({
-                //errorPlacement: jQuery.datepicker.errorPlacement,
-                //rules: {
-                    //validDefaultDatepicker: {
-                        //dpDate: true
-                    //},
-                    //validFormatDatepicker: {
-                        //dpDate: true
-                    //},
-                    //messages: {
-                        //validFormatDatepicker: 'Invalid Format Date',
-                        //validDefaultDatepicker: 'Invalid Date'
-                    //}
-                //}
-            //});
+            }
+            
+            // END DATE CHANGE
+            jQuery('#community_enddate').change(endDateChange);
+            
+            function endDateChange() {
+                var $endDateVal = jQuery('#community_enddate').val();
+                var parsedEndDate = jQuery.datepicker.parseDate('D, M d', $endDateVal);
+                jQuery('#community_fullenddate').datepicker('setDate', parsedEndDate);
+            }
+
         });
     </script>
     <?php
 }
+
+/*
+/* ---- CONCERT ------
+*/
 function concert_fields (){
     global $post;
     if(!empty($post)){
@@ -334,59 +467,101 @@ function concert_fields (){
         } else {
             $concert_date = '';
         }
+        if(isset($custom['concert_enddate'][0])){
+            $concert_enddate = $custom['concert_enddate'][0];
+        } else {
+            $concert_enddate = '';
+        }
         if(isset($custom['concert_fulldate'][0])){
             $concert_fulldate = $custom['concert_fulldate'][0];
         } else {
             //give it a date from long ago to position it a top
             $concert_fulldate = '20000101';
         }
+        if(isset($custom['concert_fullenddate'][0])){
+            $concert_fullenddate = $custom['concert_fullenddate'][0];
+        } else {
+            $concert_fullenddate = '';
+        }
     }
     ?>
-    <p>
-        <label>Date <span style="color:red"> MUST use the datepicker or leave empty</span></label><br />
-        <input size="45" name="concert_date" id="concert_date" class="dpDate" value="<?php echo $concert_date; ?>" />
+    <div>
+        <p><span style="text-decoration:underline">Single day events</span> - enter in the first box and leave second empty</p>
+        <p><span style="text-decoration:underline">Multiple day events</span> - enter both start and end dates</p>
+        <p><span style="text-decoration:underline">Ongoing events (non-dated)</span> - leave both empty</p>
+        <label>Date (Start): </label>  <input size="15" name="concert_date" id="concert_date" class="dpDate" value="<?php echo $concert_date; ?>" readonly="true" /> 
+        &nbsp; &nbsp; &nbsp; 
+        <label>End Date (?) </label>  <input size="15" name="concert_enddate" id="concert_enddate" class="dpDate" value="<?php echo $concert_enddate; ?>" readonly="true" /> 
+        &nbsp; &nbsp; &nbsp; 
+        <button class="clear-event-dates" title="Clear Dates">Clear</button>
         <input type="hidden" name="concert_fulldate" id="concert_fulldate" class="dpDate"/>
-    </p>
+        <input type="hidden" name="concert_fullenddate" id="concert_fullenddate" class="dpDate"/>
+    </div>
     <script>
         jQuery(document).ready(function(){
-            //load hiddenfield with stored data if exists
-            var parsedDate = jQuery.datepicker.parseDate('yymmdd', '<?php echo $concert_fulldate;?>');
+            // clear dates button functions
+            jQuery('.clear-event-dates').on("click", function(event){
+                event.preventDefault();
+                 jQuery('#concert_date').datepicker('setDate', '');
+                 jQuery('#concert_enddate').datepicker('setDate', '');
+                 startDateChange();
+                 endDateChange();
+            });
+            
+            // datepicker
+            jQuery('#concert_date').datepicker({ dateFormat : 'D, M d' });
+            jQuery('#concert_enddate').datepicker({ dateFormat : 'D, M d' });
             jQuery('#concert_fulldate').datepicker({dateFormat:'yymmdd'});
-            jQuery('#concert_fulldate').datepicker('setDate', parsedDate);
-            //set values when use datepicker
-            jQuery('#concert_date').datepicker({
-                dateFormat : 'D, M d',
-                altFormat: 'yymmdd',
-                altField: '#concert_fulldate'
-            });
-            // watch for setting null value in date and update the hidden field with null (doesnt want to do it automatically)
-            jQuery('#concert_date').change(function(){
-                var $temp_date = jQuery(this).val();
-                if($temp_date === '' || $temp_date === null){
-                    jQuery('#concert_fulldate').val('20000101');
+            jQuery('#concert_fullenddate').datepicker({dateFormat:'yymmdd'});
+            
+            //ON LOAD
+            //load hiddenfields with stored data if exists
+            var checkWhatsFullDate = "<?php echo $concert_fulldate; ?>";
+            if(checkWhatsFullDate != '' || checkWhatsFullDate != null){
+                var parsedWhatsFullDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullDate);
+                jQuery('#concert_fulldate').datepicker('setDate', parsedWhatsFullDate);
+            }
+            var checkWhatsFullEndDate = "<?php echo $concert_fullenddate; ?>";
+            if(checkWhatsFullEndDate != '' || checkWhatsFullEndDate != null){
+                var parsedWhatsFullEndDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullEndDate);
+                jQuery('#concert_fullenddate').datepicker('setDate', parsedWhatsFullEndDate);
+            }
+            
+            // START DATE CHANGE
+            jQuery('#concert_date').change(startDateChange);
+            
+            function startDateChange() {
+                var $startDateVal = jQuery('#concert_date').val();
+                // changing the start date ?
+                if( $startDateVal == '' || $startDateVal == null || $startDateVal == undefined){
+                    // if set to null, set concert_fulldate to default & set endate to null
+                    jQuery('#concert_fulldate').datepicker('setDate', '20000101');
+                    jQuery('#concert_enddate').datepicker('setDate', '');
+                    jQuery('#concert_fullenddate').datepicker('setDate', '');
+                } else {
+                    var $endDateVal = jQuery('#concert_enddate').val();
+                    var parsedStartDate = jQuery.datepicker.parseDate('D, M d', $startDateVal);
+                    jQuery('#concert_fulldate').datepicker('setDate', parsedStartDate);
                 }
-            });
-            //jQuery('#post').validate({
-                //errorPlacement: jQuery.datepicker.errorPlacement,
-                //rules: {
-                    //validDefaultDatepicker: {
-                        //dpDate: true
-                    //},
-                    //validFormatDatepicker: {
-                        //dpDate: true
-                    //},
-                    //messages: {
-                        //validFormatDatepicker: 'Invalid Format Date',
-                        //validDefaultDatepicker: 'Invalid Date'
-                    //}
-                //}
-            //});
+            }
+            
+            // END DATE CHANGE
+            jQuery('#concert_enddate').change(endDateChange);
+            
+            function endDateChange() {
+                var $endDateVal = jQuery('#concert_enddate').val();
+                var parsedEndDate = jQuery.datepicker.parseDate('D, M d', $endDateVal);
+                jQuery('#concert_fullenddate').datepicker('setDate', parsedEndDate);
+            }
+
         });
     </script>
     <?php
 }
 
-// save action
+ /* ---------------------------------
+ *    SAVE ACTIONS
+ * ---------------------------------*/
 add_action('save_post', 'save_whats_attributes');
 add_action('save_post', 'save_community_attributes');
 add_action('save_post', 'save_concert_attributes');
@@ -404,8 +579,12 @@ function save_whats_attributes(){
             //custom fields
             $whats_date = sanitize_text_field($_POST['whats_date']);
             $whats_fulldate = sanitize_text_field($_POST['whats_fulldate']);
+            $whats_enddate = sanitize_text_field($_POST['whats_enddate']);
+            $whats_fullenddate = sanitize_text_field($_POST['whats_fullenddate']);
             update_post_meta($post->ID, "whats_date", $whats_date);
             update_post_meta($post->ID, "whats_fulldate", $whats_fulldate);
+            update_post_meta($post->ID, "whats_enddate", $whats_enddate);
+            update_post_meta($post->ID, "whats_fullenddate", $whats_fullenddate);
             //category
             wp_set_object_terms($post->ID, 'whats-happening', 'category', true);
         }
@@ -418,8 +597,12 @@ function save_community_attributes(){
             //custom fields
             $community_date = sanitize_text_field($_POST['community_date']);
             $community_fulldate = sanitize_text_field($_POST['community_fulldate']);
+            $community_enddate = sanitize_text_field($_POST['community_enddate']);
+            $community_fullenddate = sanitize_text_field($_POST['community_fullenddate']);
             update_post_meta($post->ID, "community_date", $community_date);
             update_post_meta($post->ID, "community_fulldate", $community_fulldate);
+            update_post_meta($post->ID, "community_enddate", $community_enddate);
+            update_post_meta($post->ID, "community_fullenddate", $community_fullenddate);
             //category
             wp_set_object_terms($post->ID, 'community-info', 'category', true);
         }
@@ -432,8 +615,12 @@ function save_concert_attributes(){
             //custom fields
             $concert_date = sanitize_text_field($_POST['concert_date']);
             $concert_fulldate = sanitize_text_field($_POST['concert_fulldate']);
+            $concert_enddate = sanitize_text_field($_POST['concert_enddate']);
+            $concert_fullenddate = sanitize_text_field($_POST['concert_fullenddate']);
             update_post_meta($post->ID, "concert_date", $concert_date);
             update_post_meta($post->ID, "concert_fulldate", $concert_fulldate);
+            update_post_meta($post->ID, "concert_enddate", $concert_enddate);
+            update_post_meta($post->ID, "concert_fullenddate", $concert_fullenddate);
             //category
             wp_set_object_terms($post->ID, 'concert', 'category', true);
         }

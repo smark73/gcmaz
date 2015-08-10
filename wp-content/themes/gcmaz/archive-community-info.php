@@ -19,9 +19,15 @@
         <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
     
             <?php
+            // for position - use start date (whats_fulldate)
+            // for kill date - use end date (whats_fullenddate)
             // check for past dated posts or non-dated posts (default date for undated posts is 20000101)
-            $expDate = get_post_custom_values('community_fulldate');
-
+            $expDate = get_post_custom_values('community_fullenddate');
+            if (!$expDate[0]){
+                // if no end date set, use start date or default value
+                $expDate = get_post_custom_values('community_fulldate');
+            }
+            
             if( ( $expDate[0] == '20000101' ) || ( strtotime($expDate[0]) ) >= ( strtotime('now') ) ) : ?>
                 <section class="archv-pg-lstng row">
                     <?php if(has_post_thumbnail()) : ?>
@@ -33,14 +39,32 @@
                        </div>
                        <div class="archv-info col-md-9 col-sm-8 col-xs-12">
                             <span class="archv-date pull-right red">
-                                <?php $cdate = get_post_custom_values('community_date'); echo $cdate[0];?>
+                                <?php
+                                    // echo date
+                                    $startdate = get_post_custom_values('community_date');
+                                    echo $startdate[0];
+                                    // if has end date, add it
+                                    $enddate = get_post_custom_values('community_enddate');
+                                    if($enddate[0]){
+                                        echo " - " . $enddate[0];
+                                    }
+                                 ?>
                             </span>
                             <?php get_template_part('templates/content', get_post_format());?>
                        </div>
                     <?php else : ?>
                         <div class="archv-info col-md-12 col-sm-12 col-xs-12">
                             <span class="archv-date pull-right red">
-                                <?php $cdate = get_post_custom_values('community_date'); echo $cdate[0];?>
+                                <?php
+                                    // echo date
+                                    $startdate = get_post_custom_values('community_date');
+                                    echo $startdate[0];
+                                    // if has end date, add it
+                                    $enddate = get_post_custom_values('community_enddate');
+                                    if($enddate[0]){
+                                        echo " - " . $enddate[0];
+                                    }
+                                 ?>
                             </span>
                             <?php get_template_part('templates/content', get_post_format());?>
                         </div>
