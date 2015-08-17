@@ -1,8 +1,26 @@
 <?php
-//Need to give Advertise and its children a sidebar
+global $post;
+
+// check if we're in News category
+$show_news_sidebar = false;
+$array_of_news_cats = check_current_category_for_news();
+$c = get_the_category();
+if( $c ){
+    //check if the category or parent category is News
+    // convert to array
+    $c_array = object_to_array($c);
+    if( $c_array[0]['term_id'] ){
+        //if set
+        if( in_array( $c_array[0]['term_id'], $array_of_news_cats ) ){
+            //if current cat is in news cats
+            $show_news_sidebar = true;
+        }
+    }
+}
+//give Advertise and its children the 'home' sidebar
 $adv_id = get_page_by_title("Advertise On Northern Arizona Radio");
 //print_r($adv_id->ID);
-   
+
 // need to keep is_search check first ... otherwise gets wrong sidebar as search info moves into post->info (a search for "concerts" calls the concerts sidebar)
 if( is_search() ) {
     //echo "<div style='background:yellow'>search</div>";
@@ -29,8 +47,12 @@ if( is_search() ) {
     // splash pages
     }elseif(is_page_template('template-splash.php')){
         dynamic_sidebar('sidebar-splash');
+
+    // News
+    } elseif($show_news_sidebar == true) {
+        dynamic_sidebar('sidebar-news');
         
-    // news etc get newsy sidebar
+    // etc 
     } else {
         dynamic_sidebar('sidebar-primary');
     }
