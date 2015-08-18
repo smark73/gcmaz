@@ -5,8 +5,13 @@
 
 global $post;
 
+// check if we're in News category
 $array_of_news_cats = check_current_category_for_news();
 $c = get_the_category();
+
+// check if were live or local
+$liveOrLocal = live_or_local();
+
 
 if( !empty( $post ) ){
     if( is_front_page() ){
@@ -22,12 +27,35 @@ if( !empty( $post ) ){
         // convert to array
         $c_array = object_to_array($c);
         //print_r($c);
-        if( in_array( $c_array[0]['term_id'], $array_of_news_cats ) ){ 
-            $groupnum = 16;
+        if( in_array( $c_array[0]['term_id'], $array_of_news_cats ) ){
+            if( $liveOrLocal == 'local' ){
+                // on .dev site
+                if ( is_category( "Flagstaff News" ) ){
+                    $groupnum = 20;
+                } elseif( is_category( "Prescott News" ) ){
+                    $groupnum = 21;
+                } else {
+                    $groupnum = 22;
+                }
+            } else {
+                //on .com site
+                if ( is_category( "Flagstaff News" ) ){
+                    $groupnum = 20;
+                } elseif( is_category( "Prescott News" ) ){
+                    $groupnum = 21;
+                } else {
+                    $groupnum = 16;
+                }
+            }
         }
     } elseif( $post->post_name == 'kaff-news' ) {
-        // check if were on the kaff news main page
-        $groupnum = 16;
+        if( $liveOrLocal == 'local' ){
+            // on .dev site
+            $groupnum = 22;
+        } else {
+            //on .com site
+            $groupnum = 16;
+        }
     }
     //print_r($groupnum);
 

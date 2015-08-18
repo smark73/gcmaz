@@ -45,12 +45,22 @@ if( is_search() ) {
         dynamic_sidebar('sidebar-weather');
         
     // splash pages
-    }elseif(is_page_template('template-splash.php')){
+    } elseif(is_page_template('template-splash.php')){
         dynamic_sidebar('sidebar-splash');
-
+        
     // News
-    } elseif($show_news_sidebar == true) {
+    } elseif( $post->post_name == 'kaff-news' ) {
+        // check if were on the kaff news main page
         dynamic_sidebar('sidebar-news');
+    } elseif($show_news_sidebar == true) {
+        // check if sub cat is Flagstaff, Prescott (or Sports)
+        if ( is_category( "Flagstaff News" ) ){
+            dynamic_sidebar('sidebar-news-flagstaff');
+        } elseif( is_category( "Prescott News" ) ){
+            dynamic_sidebar('sidebar-news-prescott');
+        } else {
+            dynamic_sidebar('sidebar-news');
+        }
         
     // etc 
     } else {
