@@ -54,9 +54,9 @@ if( is_search() ) {
         dynamic_sidebar('sidebar-news');
     } elseif($show_news_sidebar == true) {
         // check if sub cat is Flagstaff, Prescott (or Sports)
-        if ( is_category( "Flagstaff News" ) ){
+        if ( is_category( "Flagstaff News" ) || in_category( "Flagstaff News", $post->ID ) ){
             dynamic_sidebar('sidebar-news-flagstaff');
-        } elseif( is_category( "Prescott News" ) ){
+        } elseif( is_category( "Prescott News" ) || in_category( "Prescott News", $post->ID ) ){
             dynamic_sidebar('sidebar-news-prescott');
         } else {
             dynamic_sidebar('sidebar-news');

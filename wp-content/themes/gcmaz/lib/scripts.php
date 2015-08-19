@@ -59,7 +59,46 @@ function roots_google_analytics() { ?>
   e=o.createElement(i);r=o.getElementsByTagName(i)[0];
   e.src='//www.google-analytics.com/analytics.js';
   r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-  ga('create','<?php echo GOOGLE_ANALYTICS_ID; ?>');ga('send','pageview');
+  ga('create','<?php echo GOOGLE_ANALYTICS_ID; ?>');
+  <?php
+        // add tracking for KAFF News
+        // see if we're on KAFF News anywhere
+        global $post;
+        if( !empty( $post ) ){
+            
+            $array_of_news_cats = check_current_category_for_news();
+            $c = get_the_category();
+            $kaffNews = false;
+            if( $c ){
+                //check if the category or parent category is News
+                // convert to array
+                $c_array = object_to_array($c);
+                if( $c_array[0]['term_id'] ){
+                    //if set
+                    if( in_array( $c_array[0]['term_id'], $array_of_news_cats ) ){
+                        //if current cat is in news cats
+                        $kaffNews = true;
+                    }
+                }
+            }
+
+            if( $post->post_name == 'kaff-news' || $kaffNews == true) {
+                // set tracking for KAFF News
+                // first ALL
+                ?>ga('set', 'dimension1', 'All News');<?php
+                if ( is_category( "Prescott News" ) || in_category( "Prescott News", $post->ID ) ){
+                    // 2nd set trakcing if KAFF News - Prescott
+                    ?>ga('set', 'dimension2', 'Prescott News');<?php
+                }
+                if( is_category( "Flagstaff News" ) || in_category( "Flagstaff News", $post->ID ) ){
+                    // 3rd set tracking if KAFF News - Flagstaff
+                    ?>ga('set', 'dimension3', 'Flagstaff News');<?php
+                }
+            }
+            
+        }
+  ?>
+ga('send','pageview');
 </script>
 
 <?php }
