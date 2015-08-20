@@ -53,14 +53,20 @@ if( is_search() ) {
         // check if were on the kaff news main page
         dynamic_sidebar('sidebar-news');
     } elseif($show_news_sidebar == true) {
+        dynamic_sidebar('sidebar-news');
+        // BELOW NOT USED - Changed to 1 sidebar instead of separate sidebars (see widgets.php)
+        // changed - so can have banner for Pres AND Flag on post with both cat's
+        // use dynamic widgets plugin to control
+        // kept here in case changed back
+        // 
         // check if sub cat is Flagstaff, Prescott (or Sports)
-        if ( is_category( "Flagstaff News" ) || in_category( "Flagstaff News", $post->ID ) ){
-            dynamic_sidebar('sidebar-news-flagstaff');
-        } elseif( is_category( "Prescott News" ) || in_category( "Prescott News", $post->ID ) ){
-            dynamic_sidebar('sidebar-news-prescott');
-        } else {
-            dynamic_sidebar('sidebar-news');
-        }
+        //if ( is_category( "Flagstaff News" ) || in_category( "Flagstaff News", $post->ID ) ){
+            //dynamic_sidebar('sidebar-news-flagstaff');
+        //} elseif( is_category( "Prescott News" ) || in_category( "Prescott News", $post->ID ) ){
+            //dynamic_sidebar('sidebar-news-prescott');
+        //} else {
+            //dynamic_sidebar('sidebar-news');
+        //}
         
     // etc 
     } else {

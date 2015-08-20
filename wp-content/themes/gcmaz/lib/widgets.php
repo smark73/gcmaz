@@ -58,23 +58,28 @@ register_sidebar(array(
     'after_title'   => '</h5>',
   ));
 
-register_sidebar(array(
-    'name'          => __('Flagstaff News Sidebar', 'roots'),
-    'id'            => 'sidebar-news-flagstaff',
-    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
-    'after_widget'  => '</div></section>',
-    'before_title'  => '<h5>',
-    'after_title'   => '</h5>',
-  ));
+// NOT USED - (see sidebar.php)
+// was used to give separate sidebars for Flag, Pres
+// now use dynamic widgets plugin to control
+// this way, can have banner for Flag AND Pres on post with both cat's
+// 
+//register_sidebar(array(
+//    'name'          => __('Flagstaff News Sidebar', 'roots'),
+//    'id'            => 'sidebar-news-flagstaff',
+//    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
+//    'after_widget'  => '</div></section>',
+//    'before_title'  => '<h5>',
+//    'after_title'   => '</h5>',
+//  ));
 
-register_sidebar(array(
-    'name'          => __('Prescott News Sidebar', 'roots'),
-    'id'            => 'sidebar-news-prescott',
-    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
-    'after_widget'  => '</div></section>',
-    'before_title'  => '<h5>',
-    'after_title'   => '</h5>',
-  ));
+//register_sidebar(array(
+//    'name'          => __('Prescott News Sidebar', 'roots'),
+//    'id'            => 'sidebar-news-prescott',
+//    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
+//    'after_widget'  => '</div></section>',
+//    'before_title'  => '<h5>',
+//    'after_title'   => '</h5>',
+//  ));
 
   // Widgets
   register_widget('Roots_Vcard_Widget');
