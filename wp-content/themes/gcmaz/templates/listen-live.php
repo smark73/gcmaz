@@ -5,6 +5,14 @@
         </a>
     </div>
     <div class="strm-spnsr col-md-3 col-sm-3 col-xs-5">
-        <?php echo adrotate_group(15);?>
+        <?php
+            // first, check if adrotate plugin is even active
+            // detect plugin - front end use only
+            include_once( ABSPATH . 'wp-admin/includes/plugin.php');
+            // check for plugin by using plugin name
+            if( is_plugin_active( 'adrotate/adrotate.php' ) ){
+                echo adrotate_group(15);
+            }
+        ?>
     </div>
 </div>
