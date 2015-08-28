@@ -8,9 +8,9 @@
         if( is_front_page() ) : ?>
 
                 <section class="col-md-4">
-                    <a href="/" >
+<!--                    <a href="/" >
                         <img class="size-full wp-image-31 centered logo" alt="Great Circle Media of Arizona" src="/media/logo-gcmaz.png"/>
-                    </a>
+                    </a>-->
                 </section>
                 <section class="col-md-8">
                     <?php  get_template_part('templates/exp-leaderboard'); ?>
@@ -53,9 +53,9 @@
         else : ?>
 
                 <section class="col-md-4">
-                    <a href="/" >
+<!--                    <a href="/" >
                         <img class="size-full wp-image-31 centered logo" alt="Great Circle Media of Arizona" src="/media/logo-gcmaz.png" style="max-width:150px;height:auto;padding-top:3%"/>
-                    </a>
+                    </a>-->
                 </section>
                 <section class="col-md-8">
                     <?php  get_template_part('templates/exp-leaderboard'); ?>

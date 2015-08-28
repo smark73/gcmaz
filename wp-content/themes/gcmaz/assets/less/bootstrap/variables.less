@@ -171,17 +171,17 @@
 // Dropdowns
 // -------------------------
 
-@dropdown-bg:                    darken(@brand-primary, 5%);
-@dropdown-border:                darken(@brand-primary, 5%);
-@dropdown-fallback-border:       darken(@brand-primary, 5%);
-@dropdown-divider-bg:            darken(@brand-primary, 5%);
+@dropdown-bg:                       darken(@neutral-tan-lt, 5%);
+@dropdown-border:                darken(@neutral-tan-lt, 5%);
+@dropdown-fallback-border:       darken(@neutral-tan-lt, 5%);
+@dropdown-divider-bg:            darken(@neutral-tan-lt, 10%);
 
-@dropdown-link-active-color:     @white;
-@dropdown-link-active-bg:        lighten(@brand-primary,10%);
+@dropdown-link-active-color:     @red;
+@dropdown-link-active-bg:        lighten(@neutral-tan-lt,10%);
 
-@dropdown-link-color:            @white;
-@dropdown-link-hover-color:      @white;
-@dropdown-link-hover-bg:         @brand-primary;
+@dropdown-link-color:               darken(@neutral-tan-dk, 20%);
+@dropdown-link-hover-color:      darken(@neutral-tan-dk, 20%);
+@dropdown-link-hover-bg:         @neutral-tan-lt;
 
 @dropdown-link-disabled-color:   @gray-light;
 
@@ -247,21 +247,21 @@
 // -------------------------
 
 // Basics of a navbar
-@navbar-height:                    60px;
+@navbar-height:                    40px;
 @navbar-margin-bottom:             @line-height-computed;
-@navbar-default-color:             @white;
-@navbar-default-bg:                @brand-primary;
+@navbar-default-color:             @blue;
+@navbar-default-bg:                @neutral-tan-lt;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 
 // Navbar links
-@navbar-default-link-color:                  @white;
-@navbar-default-link-hover-color:        @white; //nochange
+@navbar-default-link-color:                  @blue;
+@navbar-default-link-hover-color:        @blue;
 @navbar-default-link-hover-bg:            darken(@navbar-default-bg, 2%);
-@navbar-default-link-active-color:        #6699ff;
-@navbar-default-link-active-bg:            @brand-primary;
+@navbar-default-link-active-color:        darken(@navbar-default-link-color, 5%);
+@navbar-default-link-active-bg:            darken(@neutral-tan-lt, 5%);
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
 
@@ -272,7 +272,7 @@
 
 // Navbar toggle (3 bars in TR)
 @navbar-default-toggle-hover-bg:           #ddd;
-@navbar-default-toggle-icon-bar-bg:       @white;
+@navbar-default-toggle-icon-bar-bg:       @blue;
 @navbar-default-toggle-border-color:      #ddd;
 
 

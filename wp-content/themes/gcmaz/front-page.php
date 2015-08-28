@@ -1,3 +1,5 @@
+<?php get_template_part('templates/content', 'page'); ?>
+
 <div class="row"><!-- front-page-->
 
             <div id="kaffBlock" class="row">

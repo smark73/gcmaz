@@ -79,24 +79,27 @@ var GcmazSite = {
             var $searchform = jQuery(document).find('.searchbox-nav').children('.search-form');
             
             //init search-form styles and classes
-            $searchform.addClass('hidden');
+            //$searchform.addClass('hidden');
             $searchform.css({opacity:0});
             $searchbox.hide();
             
             //toggle function
             $searchboxToggle.click(function(){
+                $searchboxToggle.hide();
                 //searchbox-nav is hidden until first click (otherwise shows on slow page loads)
                 $searchbox.removeClass('hidden');
                 $searchbox.show();
                 //
                 $searchbox.toggleClass('searchbox-hide searchbox-show');
-                if(($searchform).hasClass('hidden')){
+                //jQuery('.searchbox-toggle span').toggleClass('glyphicon-search glyphicon-remove');
+                
+                //if(($searchform).hasClass('hidden')){
                     var searchformWait;
                     clearTimeout(searchformWait);
-                    searchformWait = setTimeout(function(){$searchform.toggleClass('hidden visible').animate({opacity:1});} , 100);
-                } else {
-                    $searchform.animate({opacity:0}).toggleClass('hidden visible');
-                }
+                    searchformWait = setTimeout(function(){$searchform.toggleClass('hidden visible').animate({opacity:1});} , 10);
+                //} else {
+                    //$searchform.animate({opacity:0}).toggleClass('hidden visible');
+                //}
             });
         });
         // END

@@ -12,7 +12,7 @@ Version: 1.0
    Base
    ========================================================================== */
 /*max page width set in variables.less via the @container-lg-desktop */
-body {min-width:300px;margin-top:40px;padding-top:20px}
+body {min-width:320px;margin-top:40px;padding-top:20px}
 
 .innerbg{
     background:#ffffff;
@@ -21,6 +21,9 @@ body {min-width:300px;margin-top:40px;padding-top:20px}
     -webkit-border-radius:14px 14px 0 0;
     border-radius:14px 14px 0 0;
     z-index:0;
+    clear:both;
+    /* margin to push down otherwise hides under navbar */
+    margin-top:80px;
 }
 
 // *** PAGE TAKE OVER see custom.php for updated css from admin options
@@ -83,6 +86,27 @@ img {width:auto;height:auto}
    ========================================================================== */
 
 .banner { border:1px solid transparent}
+
+.header-wrap{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:110px;
+    background: @blue;
+    margin-bottom:100px;
+    padding-bottom:5px;
+    border-bottom:1px solid transparent;
+    display:block;
+    z-index:10000;
+}
+.pre-navbar {
+    /* row above navbar with logo, search, social */
+    height:70px;
+    max-height:70px;
+} 
+
+header{}
 
 
 /* ==========================================================================
@@ -401,36 +425,39 @@ a.icon-tw:hover{background:#1ab2e8;}
 // Toggle search in navbar
 .navbar-search{
     float:right;
+    z-index: 1000000;
 }
 .searchbox-nav{
     clear:both;
     display:block;
-    opacity:0;
-    width:100%;
     margin:0;
     padding:0;
-    display:block;
-    text-align: center;
-    background:@brand-primary;
-    position:relative;
+    display:inline-block;
+    text-align: right;
+    z-index: 1000000;
+    vertical-align: middle;
 }
 .searchbox-toggle{
-    display:block;
     color:#4485f5;
     font-size:18px;
     cursor:pointer;
     font-weight:700;
+    vertical-align: middle;
+    display:block;
+    z-index: 1000000;
 }
 a.searchbox-toggle:hover{
     color:#fff;
 }
 .searchbox-nav .search-form{
-    width:90%;
-    margin:auto;
-    position:absolute;
-    bottom:10px;
-    right:30px;
+    margin-top:15px;
+    vertical-align: middle;
+    z-index: 1000000;
 }
+.searchbox-nav .search-form .input-group{}
+.searchbox-nav .search-form .input-group input[type="search"]{}
+.searchbox-nav .search-form .input-group .input-group-btn{}
+
 .searchbox-hide{
     -webkit-animation: searchbox-anim-rev 1s;
     -moz-animation: searchbox-anim-rev 1s;
@@ -458,37 +485,37 @@ a.searchbox-toggle:hover{
 }
 
 @-webkit-keyframes searchbox-anim{
-    0% { opacity: 0; height: 0; }
-    100% { opacity: 1; height: 60px; }
+    0% { opacity: 0; width: 0; }
+    100% { opacity: 1; width: 220px; }
 }
 @-moz-keyframes searchbox-anim{
-    0% { opacity: 0; height: 0; }
-    100% { opacity: 1; height: 60px; }
+    0% { opacity: 0; width: 0; }
+    100% { opacity: 1; width: 220px; }
 }
 @-o-keyframes searchbox-anim{
-    0% { opacity: 0; height: 0; }
-    100% { opacity: 1; height: 60px; }
+    0% { opacity: 0; width: 0; }
+    100% { opacity: 1; width: 220px; }
 }
 @keyframes searchbox-anim{
-    0% { opacity: 0; height: 0; }
-    100% { opacity: 1; height: 60px; }
+    0% { opacity: 0; width: 0; }
+    100% { opacity: 1; width: 220px; }
 }
 
 @-webkit-keyframes searchbox-anim-rev{
-    0% { opacity: 1; height: 60px; }
-    100% { opacity: 0; height: 0; }
+    0% { opacity: 1; width: 220px; }
+    100% { opacity: 0; width: 0; }
 }
 @-moz-keyframes searchbox-anim-rev{
-    0% { opacity: 1; height: 60px; }
-    100% { opacity: 0; height: 0; }
+    0% { opacity: 1; width: 220px; }
+    100% { opacity: 0; width: 0; }
 }
 @-o-keyframes searchbox-anim-rev{
-    0% { opacity: 1; height: 60px; }
-    100% { opacity: 0; height: 0; }
+    0% { opacity: 1; width: 220px; }
+    100% { opacity: 0; width: 0; }
 }
 @keyframes searchbox-anim-rev{
-    0% { opacity: 1; height: 60px; }
-    100% { opacity: 0; height: 0; }
+    0% { opacity: 1; width: 220px; }
+    100% { opacity: 0; width: 0; }
 }
 
 
@@ -919,8 +946,15 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+@media (max-width: 500px){
+    img.logo-pre-navbar{display:none;visibility:hidden;width:0;}
+    .navbar-icons a.icon-fb, .navbar-icons a.icon-tw {width:30px;}
+    a.searchbox-toggle{font-size:14px;width:30px;}
+}
 @media (max-width: @screen-xs-max)  {
     img.logo{max-width:175px;margin-bottom:3%}
+    img.logo-pre-navbar{ /* logo */ margin-top:10px;width:120px;height:auto;z-index:0;}
+    .navbar-search{padding:0;margin-right:0;}
     .news-station-logos{padding:3% 0 1%}
     /* hide the following for xsmall screens */
     .sidebar .facebook-like-box-3,
@@ -934,6 +968,8 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
 
 @media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
     img.logo{max-width:200px;margin-bottom:2%}
+    img.logo-pre-navbar{ /* logo */ margin:5px 0 5px;}
+    .navbar-search{padding:0;margin-right:0;}
     .news-station-logos{padding:3% 0 1%}
     // enable navbar dropdowns on hover
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
@@ -945,6 +981,7 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
 
 @media (min-width: @screen-md) and (max-width: @screen-md-max) {
     img.logo{max-width:250px}
+    img.logo-pre-navbar{ /* logo */ margin:5px 0 5px 20px;}
     .news-station-logos{padding:3% 0 5%}
     // enable navbar dropdowns on hover
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
@@ -954,6 +991,7 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
 
 @media (min-width: @screen-lg) {
     img.logo{max-width:250px}
+    img.logo-pre-navbar{ /* logo */ margin:5px 0 5px 20px;}
     .news-station-logos{padding:3% 0 5%}
     // enable navbar dropdowns on hover
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
