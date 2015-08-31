@@ -2,7 +2,7 @@
     
     <div class="container pre-navbar">
         <a href="/" title="Great Circle Media">
-            <img src="/media/gcm-logo-white.png" width="143" height="60" alt="Great Circle Media" class="logo-pre-navbar"/>
+            <img src="/media/gcm-logo-white.png" alt="Great Circle Media" class="logo-pre-navbar"/>
         </a>
         
         <?php get_template_part('templates/navbar-icons'); ?>
