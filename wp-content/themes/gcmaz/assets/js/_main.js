@@ -111,24 +111,24 @@ var GcmazSite = {
   home: {
     init: function() {
         // listen live stream window
-        jQuery('#kaffBtn').click(function(){
-              window.open('http://player.tritondigital.com/8051', 'KAFFFM', 'width=800,height=600');
-        });
-        jQuery('#kmgnBtn').click(function(){
-              window.open('http://player.tritondigital.com/8061', 'KMGNFM', 'width=800,height=600');
-        });
-        jQuery('#kaffamBtn').click(function(){
-              window.open('http://player.tritondigital.com/8041', 'KAFFAM', 'width=800,height=600');
-        });
-        jQuery('#kfszBtn').click(function(){
-              window.open('http://player.tritondigital.com/14981', 'KFSZFM', 'width=800,height=600');
-        });
-        jQuery('#ktmgBtn').click(function(){
-            window.open('http://player.tritondigital.com/8071', 'KTMGFM', 'width=800,height=600');
-        });
-        jQuery('#knotBtn').click(function(){
-            window.open('http://player.tritondigital.com/14991', 'KNOTAM', 'width=800,height=600');
-        });
+        //jQuery('#kaffBtn').click(function(){
+              //window.open('http://player.listenlive.co/36581', 'KAFFFM', 'width=800,height=600');
+        //});
+        //jQuery('#kmgnBtn').click(function(){
+              //window.open('http://player.tritondigital.com/8061', 'KMGNFM', 'width=800,height=600');
+        //});
+        //jQuery('#kaffamBtn').click(function(){
+              //window.open('http://player.tritondigital.com/8041', 'KAFFAM', 'width=800,height=600');
+        //});
+        //jQuery('#kfszBtn').click(function(){
+              //window.open('http://player.tritondigital.com/14981', 'KFSZFM', 'width=800,height=600');
+        //});
+        //jQuery('#ktmgBtn').click(function(){
+            //window.open('http://player.tritondigital.com/8071', 'KTMGFM', 'width=800,height=600');
+        //});
+        //jQuery('#knotBtn').click(function(){
+            //window.open('http://player.tritondigital.com/14991', 'KNOTAM', 'width=800,height=600');
+        //});
         
         // animatronix
 //        var animationName = 'animated pulse';

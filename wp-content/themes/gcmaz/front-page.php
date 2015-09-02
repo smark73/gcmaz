@@ -1,6 +1,6 @@
 <?php get_template_part('templates/content', 'page'); ?>
 
-<div class="row"><!-- front-page-->
+<div class="row">
 
             <div id="kaffBlock" class="row">
                 <div class="col-md-3 col-sm-6 col-xs-6">
@@ -9,10 +9,10 @@
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <h4 class="blue">92.9 KAFF</h4>
                     <h5><span style="color: #464646;">Today's Best Country</span></h5>
-                    KAFF-FM |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KAFF Website" href="http://kaff.gcmaz.com"> Visit Website »</a>
+                    KAFF-FM |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KAFF Website" href="http://kaff.gcmaz.com"> Visit Website &raquo;</a>
                 </div>
                 <div class="col-md-3 col-sm-12 centered">                
-                    <a class="listen"><button id="kaffBtn" class="btn btn-red btn-block listen-btn" type="button">Listen Live »</button></a>
+                    <a id="kaffBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://player.listenlive.co/36581" target="_blank">Listen Live &raquo;</a>
                 </div>
             </div>
 
@@ -24,10 +24,10 @@
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <h4 class="blue">93.9 The Mountain</h4>
                     <h5><span style="color: #464646;">Rocks Northern Arizona</span></h5>
-                    KMGN |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KMGN Website" href="http://939themountain.gcmaz.com"> Visit Website »</a>
+                    KMGN |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KMGN Website" href="http://939themountain.gcmaz.com"> Visit Website &raquo;</a>
                 </div>
                 <div class="col-md-3 col-sm-12 centered">                
-                    <a class="listen"><button id="kmgnBtn" class="btn btn-red btn-block listen-btn" type="button">Listen Live »</button></a>
+                    <a id="kmgnBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://player.listenlive.co/36601" target="_blank">Listen Live &raquo;</a>
                 </div>
             </div>
     
@@ -39,10 +39,10 @@
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <h4 class="blue">Flagstaff Country 93-5 AM930</h4>
                     <h5><span style="color: #464646;">Classic Country</span></h5>
-                    KAFF-AM |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KAFF-AM Website" href="http://country935.gcmaz.com"> Visit Website »</a>
+                    KAFF-AM |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KAFF-AM Website" href="http://country935.gcmaz.com"> Visit Website &raquo;</a>
                 </div>
                 <div class="col-md-3 col-sm-12 centered">                
-                    <a class="listen"><button id="kaffamBtn" class="btn btn-red btn-block listen-btn" type="button">Listen Live »</button></a>
+                    <a id="kaffamBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://player.listenlive.co/36571" target="_blank">Listen Live &raquo;</a>
                 </div>
             </div>
     
@@ -54,10 +54,10 @@
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <h4 class="blue">Hits 106</h4>
                     <h5><span style="color: #464646;">All The Hits</span></h5>
-                    KFSZ |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KFSZ Website" href="http://hits106.gcmaz.com"> Visit Website »</a>
+                    KFSZ |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KFSZ Website" href="http://hits106.gcmaz.com"> Visit Website &raquo;</a>
                 </div>
                 <div class="col-md-3 col-sm-12 centered">                
-                    <a class="listen"><button id="kfszBtn" class="btn btn-red btn-block listen-btn" type="button">Listen Live »</button></a>
+                    <a id="kfszBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://player.listenlive.co/36591" target="_blank">Listen Live &raquo;</a>
                 </div>
             </div>
     
@@ -69,10 +69,10 @@
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <h4 class="blue">Magic 99.1</h4>
                     <h5><span style="color: #464646;">90's, 2k and Today!</span></h5>
-                    KTMG |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KTMG Website" href="http://magic991.gcmaz.com"> Visit Website »</a>
+                    KTMG |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KTMG Website" href="http://magic991.gcmaz.com"> Visit Website &raquo;</a>
                 </div>
                 <div class="col-md-3 col-sm-12 centered">                
-                    <a class="listen"><button id="ktmgBtn" class="btn btn-red btn-block listen-btn" type="button">Listen Live »</button></a>
+                    <a id="ktmgBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://player.listenlive.co/36621" target="_blank">Listen Live &raquo;</a>
                 </div>
             </div>
 
@@ -84,11 +84,11 @@
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <h4 class="blue">Fun Oldies 100.9 1450am</h4>
                     <h5><span style="color: #464646;">Cruisin Thru The 60's!</span></h5>
-                    KNOT |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KNOT Website" href="http://funoldies.gcmaz.com"> Visit Website »</a>
+                    KNOT |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KNOT Website" href="http://funoldies.gcmaz.com"> Visit Website &raquo;</a>
                 </div>
                 <div class="col-md-3 col-sm-12 centered">                
-                    <a class="listen"><button id="knotBtn" class="btn btn-red btn-block listen-btn" type="button">Listen Live »</button></a>
+                    <a id="knotBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://player.listenlive.co/36611" target="_blank">Listen Live &raquo;</a>
                 </div>
             </div>
 
-</div><!-- /front-page-->
+</div>
