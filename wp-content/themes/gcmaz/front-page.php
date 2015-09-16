@@ -90,5 +90,19 @@
                     <a id="knotBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://player.listenlive.co/36611" target="_blank">Listen Live &raquo;</a>
                 </div>
             </div>
+    
+            <div id="kzglBlock" class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <a href="http://eagle.gcmaz.com"><img id="kzglLogo" class="img-responsive" src="/media/kzgl-logo-on-white.jpg" alt="103.7 The Eagle" /></a>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="blue">103.7 The Eagle</h4>
+                    <h5><span style="color: #464646;">The Eagle Rocks!</span></h5>
+                    KZGL |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KZGL Website" href="http://eagle.gcmaz.com"> Visit Website &raquo;</a>
+                </div>
+                <div class="col-md-3 col-sm-12 centered">                
+                    <!--a id="kzglBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://player.listenlive.co/###" target="_blank">Listen Live &raquo;</a-->
+                </div>
+            </div>
 
 </div>
