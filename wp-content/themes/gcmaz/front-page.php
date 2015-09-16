@@ -93,7 +93,7 @@
     
             <div id="kzglBlock" class="row">
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                    <a href="http://eagle.gcmaz.com"><img id="kzglLogo" class="img-responsive" src="/media/kzgl-logo-on-white.jpg" alt="103.7 The Eagle" /></a>
+                    <a href="http://eagle.gcmaz.com"><img id="kzglLogo" class="img-responsive" src="/media/kzgl-logo-on-white.jpg" alt="103.7 The Eagle" style="max-height:100px;margin-left:10px;"/></a>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6">
                     <h4 class="blue">103.7 The Eagle</h4>
