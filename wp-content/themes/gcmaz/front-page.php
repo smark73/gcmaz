@@ -101,7 +101,7 @@
                     KZGL |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KZGL Website" href="http://eagle.gcmaz.com"> Visit Website &raquo;</a>
                 </div>
                 <div class="col-md-3 col-sm-12 centered">                
-                    <!--a id="kzglBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://player.listenlive.co/###" target="_blank">Listen Live &raquo;</a-->
+                    <a id="kzglBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://eagle.gcmaz.com/kzgl-stream-player/" target="_blank">Listen Live &raquo;</a>
                 </div>
             </div>
 
