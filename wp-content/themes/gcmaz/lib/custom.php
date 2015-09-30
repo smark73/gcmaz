@@ -260,6 +260,40 @@ function live_or_local(){
 }
 
 
+/*
+ * CUSTOMIZE THE Login Screen
+ * 
+ */
+// Use your own external URL logo link
+function gcmaz_url_login(){
+    return "http://gcmaz.com/";
+}
+add_filter('login_headerurl', 'gcmaz_url_login');
+
+// change logo
+function gcmaz_login_logo() { ?>
+    <style type="text/css">
+        #login{
+            margin:auto;
+            width:400px;
+        }
+        .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/all-logos-gcm.png);
+            width:400px;
+            height:120px;
+            background-size:contain;
+            background-position:center top;
+        }
+        #loginform{
+            width:350px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'gcmaz_login_logo' );
+
+// END
+
+
 /* disable ANNOYING sticky notices in admin (Yoast) */
 // possibly hides legit notices, so not using
 //remove_action( 'admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
