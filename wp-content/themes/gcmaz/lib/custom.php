@@ -260,7 +260,14 @@ function live_or_local(){
 }
 
 
+/* disable ANNOYING sticky notices in admin (Yoast) */
+remove_action( 'admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
+remove_action( 'all_admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
+
+
+
 // USE ONLY WHEN NEEDED
+/* find registered widgets */
 //global $wp_registered_widgets;
 //
 //function yoast_print_active_widgets() {
@@ -269,3 +276,7 @@ function live_or_local(){
 //}
 //add_action('init','yoast_print_active_widgets');
 
+/* use backtrace to trace errors */
+//var_dump(debug_backtrace());
+
+// END 
