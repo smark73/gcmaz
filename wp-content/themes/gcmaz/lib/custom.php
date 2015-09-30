@@ -261,8 +261,9 @@ function live_or_local(){
 
 
 /* disable ANNOYING sticky notices in admin (Yoast) */
-remove_action( 'admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
-remove_action( 'all_admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
+// possibly hides legit notices, so not using
+//remove_action( 'admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
+//remove_action( 'all_admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
 
 
 
