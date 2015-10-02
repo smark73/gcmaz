@@ -12,7 +12,7 @@ Version: 1.0
    Base
    ========================================================================== */
 /*max page width set in variables.less via the @container-lg-desktop */
-body {min-width:320px;margin-top:40px;padding-top:20px}
+body {min-width:320px;margin-top:0px;padding-top:0px}
 
 .innerbg{
     background:#ffffff;
@@ -88,7 +88,7 @@ img {width:auto;height:auto}
 .banner { border:1px solid transparent}
 
 .header-wrap{
-    position:fixed;
+    position:relative;
     top:0;
     left:0;
     right:0;
@@ -100,6 +100,7 @@ img {width:auto;height:auto}
 }
 .pre-navbar {
     /* row above navbar with logo, search, social */
+    position:relative;
     height:60px;
     max-height:60px;
     z-index: 10000;
@@ -107,6 +108,9 @@ img {width:auto;height:auto}
 
 header{}
 
+.wpadminbar{
+    display:block;
+}
 
 /* ==========================================================================
    COMMON elements that repeat on all/most pages
@@ -461,7 +465,7 @@ a.searchbox-toggle:hover{
     margin-top:15px;
     vertical-align: middle;
     z-index: 10000;
-    max-width:200px;
+    max-width:240px;
 }
 .searchbox-nav .search-form .input-group{}
 .searchbox-nav .search-form .input-group input[type="search"]{}
@@ -495,35 +499,35 @@ a.searchbox-toggle:hover{
 
 @-webkit-keyframes searchbox-anim{
     0% { opacity: 0; width: 0; }
-    100% { opacity: 1; width: 200px; }
+    100% { opacity: 1; width: 240px; }
 }
 @-moz-keyframes searchbox-anim{
     0% { opacity: 0; width: 0; }
-    100% { opacity: 1; width: 200px; }
+    100% { opacity: 1; width: 240px; }
 }
 @-o-keyframes searchbox-anim{
     0% { opacity: 0; width: 0; }
-    100% { opacity: 1; width: 200px; }
+    100% { opacity: 1; width: 240px; }
 }
 @keyframes searchbox-anim{
     0% { opacity: 0; width: 0; }
-    100% { opacity: 1; width: 200px; }
+    100% { opacity: 1; width: 240px; }
 }
 
 @-webkit-keyframes searchbox-anim-rev{
-    0% { opacity: 1; width: 200px; }
+    0% { opacity: 1; width: 240px; }
     100% { opacity: 0; width: 0; }
 }
 @-moz-keyframes searchbox-anim-rev{
-    0% { opacity: 1; width: 200px; }
+    0% { opacity: 1; width: 240px; }
     100% { opacity: 0; width: 0; }
 }
 @-o-keyframes searchbox-anim-rev{
-    0% { opacity: 1; width: 200px; }
+    0% { opacity: 1; width: 240px; }
     100% { opacity: 0; width: 0; }
 }
 @keyframes searchbox-anim-rev{
-    0% { opacity: 1; width: 200px; }
+    0% { opacity: 1; width: 240px; }
     100% { opacity: 0; width: 0; }
 }
 
