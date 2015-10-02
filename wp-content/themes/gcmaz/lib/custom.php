@@ -287,6 +287,27 @@ add_action( 'login_enqueue_scripts', 'gcmaz_login_logo' );
 // END
 
 
+/*
+ * CUSTOMIZE Dashboard
+ */
+add_action('wp_dashboard_setup', 'gcmaz_dashboard_widgets');
+
+function gcmaz_dashboard_widgets(){
+    global $wp_meta_boxes;
+    wp_add_dashboard_widget('gcmaz_welcome_widget', 'Great Circle Media User Account', 'gcmaz_welcome_text');
+    function gcmaz_welcome_text(){
+        echo '
+            <h2>About Your Account</h2>
+            <p>With your new account on Great Circle Media you will be notified first of upcoming contests and events!</p>
+            <p>We will never sell your information, it is safe with us!</p>
+        ';
+    }
+}
+
+// END
+
+
+
 /* disable ANNOYING sticky notices in admin (Yoast) */
 // possibly hides legit notices, so not using
 //remove_action( 'admin_notices', array( Yoast_Notification_Center::get(), 'display_notifications' ) );
