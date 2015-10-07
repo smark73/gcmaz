@@ -12,7 +12,7 @@ Version: 1.0
    Base
    ========================================================================== */
 /*max page width set in variables.less via the @container-lg-desktop */
-body {min-width:320px;margin-top:0px;padding-top:0px}
+body {min-width:320px;margin-top:0;padding-top:0}
 
 .innerbg{
     background:#ffffff;
@@ -22,16 +22,15 @@ body {min-width:320px;margin-top:0px;padding-top:0px}
     border-radius:14px 14px 0 0;
     z-index:0;
     clear:both;
-    /* margin to push down otherwise hides under navbar */
-    margin-top:80px;
+    margin-top:0;
 }
 
 // *** PAGE TAKE OVER see custom.php for updated css from admin options
-.takeover{width:100%}
+.takeover{width:100%;}
 .takeover-hdr1{width:100%;max-width:1000px;height:100px;overflow:hidden}
 .takeover-hdr2{width:100%;max-width:1000px;height:auto;overflow:hidden;}
 .takeover-hdr a, .takeover a img {}
-.takeover-hdr-wrap{margin-top:-20px}
+.takeover-hdr-wrap{margin-top:0;position:relative;}
 
 // *** EXP LEADERBOARD
 div.expldrbrd{display:block;overflow:hidden;margin:5px auto;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px}
@@ -976,7 +975,7 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
     .indx-social,
     .indx-photo{display:none;visibility:hidden;height:0;width:0;}
     // fixed navbar
-    body.admin-bar .navbar-fixed-top { top: 46px !important; }
+    //body.admin-bar .navbar-fixed-top { top: 46px !important; }
     .takeover-hdr-wrap{margin-top:-8px;}
     #kaffBlock,
     #kmgnBlock,
@@ -1000,7 +999,7 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
     // enable navbar dropdowns on hover
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
     // fixed navbar
-    body.admin-bar .navbar-fixed-top { top: 28px !important; }
+    //body.admin-bar .navbar-fixed-top { top: 28px !important; }
     //hide icons when navbar shrinks to "sm" prevent these from wrapping below menu items and breaking it
     //.navbar-icons{ line-height:0px;height:0px;width:0px;display:none;visibility:hidden}
 } //End @media
@@ -1012,7 +1011,7 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
     // enable navbar dropdowns on hover
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
     // fixed navbar
-    body.admin-bar .navbar-fixed-top { top: 28px !important; }
+    //body.admin-bar .navbar-fixed-top { top: 28px !important; }
 } //End @media
 
 @media (min-width: @screen-lg) {
@@ -1022,5 +1021,5 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
     // enable navbar dropdowns on hover
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
     // fixed navbar
-    body.admin-bar .navbar-fixed-top { top: 28px !important; }
+    //body.admin-bar .navbar-fixed-top { top: 28px !important; }
 } //End @media
