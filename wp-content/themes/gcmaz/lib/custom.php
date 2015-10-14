@@ -313,6 +313,19 @@ function gcmaz_dashboard_widgets(){
 
 // END
 
+/*
+ * GET Logged in User and Log out button
+ */
+function gcmaz_user_msg(){
+    if ( is_user_logged_in() ) {
+        $gcmaz_cur_user = wp_get_current_user();
+        echo "<div class='gcmaz-user-msg'>Hi <a href='" . bp_loggedin_user_domain() . "' class='loginout-link'>" . $gcmaz_cur_user->user_firstname . "</a><br/><a href='" . wp_logout_url() . "' class='loginout-link'>Logout</a></div>";
+    } else {
+        echo "<div class='gcmaz-user-msg'><a href='" . wp_login_url( get_permalink() ) . "' class='loginout-link'>Login</a></div>";
+    }
+}
+// END
+
 
 
 /* disable ANNOYING sticky notices in admin (Yoast) */

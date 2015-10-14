@@ -4,6 +4,10 @@
         <a href="/" title="Great Circle Media">
             <img src="/media/gcm-logo-white.png" alt="Great Circle Media" class="logo-pre-navbar"/>
         </a>
+        <?php
+            //display welcome and log out message
+            gcmaz_user_msg();
+        ?> 
         
         <?php get_template_part('templates/navbar-icons'); ?>
 
@@ -24,6 +28,8 @@
               <span class="glyphicon glyphicon-search"></span>
             </a>
         </div>
+        
+
 
 
 

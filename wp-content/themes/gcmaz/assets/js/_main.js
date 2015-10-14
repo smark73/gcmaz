@@ -104,6 +104,22 @@ var GcmazSite = {
         });
         // END
         
+        //****  START user message
+
+        jQuery(function(){
+            var $gcmazUserMsg = jQuery(document).find('.gcmaz-user-msg');
+            $gcmazUserMsg.animate({ height:20, bottom:0 }, function(){
+                //show hide funx
+                $gcmazUserMsg.mouseover(function(){
+                    $gcmazUserMsg.stop().animate({ height:40, bottom:40  });
+                });
+                $gcmazUserMsg.mouseout(function(){
+                    $gcmazUserMsg.stop().animate({ height:20, bottom:0  });
+                });
+            });
+        });
+        //***** END user
+        
     },
     finalize: function() { }
   },
