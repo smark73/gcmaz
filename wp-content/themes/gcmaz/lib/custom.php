@@ -317,15 +317,46 @@ function gcmaz_dashboard_widgets(){
  * GET Logged in User and Log out button
  */
 function gcmaz_user_msg(){
+    //require('./wp-blog-header.php');
     if ( is_user_logged_in() ) {
         $gcmaz_cur_user = wp_get_current_user();
-        echo "<div class='gcmaz-user-msg'>Hi <a href='" . bp_loggedin_user_domain() . "' class='loginout-link'>" . $gcmaz_cur_user->user_firstname . "</a><br/><a href='" . wp_logout_url() . "' class='loginout-link'>Logout</a></div>";
+        $gcmaz_user_name = $gcmaz_cur_user->user_firstname;
+        
+        //get user profile link (if buddypress active it's different)
+        include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+        if( is_plugin_active('buddypress/bp-loader.php')){
+            //buddypress
+            $gcmaz_login_link = bp_loggedin_user_domain();
+        } else {
+            //default wp
+            $gcmaz_login_link = get_edit_user_link( $gcmaz_cur_user->ID );
+        }
+        
+        echo "<div class='gcmaz-user-msg'>Hi <a href='" . $gcmaz_login_link . "' class='loginout-link'>" . $gcmaz_user_name . "</a><br/><a href='" . wp_logout_url() . "' class='loginout-link'>Logout</a></div>";
     } else {
         echo "<div class='gcmaz-user-msg'><a href='" . wp_login_url( get_permalink() ) . "' class='loginout-link'>Login</a></div>";
     }
 }
 // END
 
+
+/**
+* Gravity Forms Custom Activation Template
+* http://gravitywiz.com/customizing-gravity-forms-user-registration-activation-page
+*/
+add_action('wp', 'custom_maybe_activate_user', 9);
+function custom_maybe_activate_user() {
+
+    $template_path = STYLESHEETPATH . '/templates/gfur-activate-template/activate.php';
+    $is_activate_page = isset( $_GET['page'] ) && $_GET['page'] == 'gf_activation';
+
+    if( ! file_exists( $template_path ) || ! $is_activate_page  )
+        return;
+
+    require_once( $template_path );
+
+    exit();
+}
 
 
 /* disable ANNOYING sticky notices in admin (Yoast) */
