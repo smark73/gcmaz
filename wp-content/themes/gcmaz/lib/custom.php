@@ -354,6 +354,7 @@ function gcmaz_dashboard_widgets(){
             <a href="http://eagle.gcmaz.com"><img src="/media/kzgl-logo-on-white.jpg" alt="103.7 The Eagle" style="max-width:80px;padding:20px;" /></a>
             <a href="http://funoldies.gcmaz.com"><img src="/media/prescott-radio-oldies.jpg" alt="Prescott Radio - Fun Oldies 100.9 1450am" style="max-width:100px;padding:20px;" /></a>
             <a href="http://gcmaz.com/kaff-news"><img src="/media/kaff-news.png" alt="KAFF News" style="max-width:120px;padding:20px;" /></a>
+            <a href="http://gcmaz.com"><img src="/media/logo-gcmaz.png" alt="Great Circle Media" style="max-width:120px;padding:20px;" /></a>
         ';
     }
 }
