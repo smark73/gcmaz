@@ -107,16 +107,21 @@ var GcmazSite = {
         //****  START user message
 
         jQuery(function(){
+            var $gcmazUserLogout = jQuery(document).find('.logout-link');
             var $gcmazUserMsg = jQuery(document).find('.gcmaz-user-msg');
-            $gcmazUserMsg.animate({ height:20, bottom:0 }, function(){
+            $gcmazUserLogout.hide();
+            
+            //$gcmazUserLogout.animate({ width:0, left:0 }, function(){
                 //show hide funx
                 $gcmazUserMsg.mouseover(function(){
-                    $gcmazUserMsg.stop().animate({ height:40, bottom:40  });
+                    //$gcmazUserLogout.stop().animate({ width:0, left:0  });
+                    $gcmazUserLogout.show();
                 });
                 $gcmazUserMsg.mouseout(function(){
-                    $gcmazUserMsg.stop().animate({ height:20, bottom:0  });
+                    //$gcmazUserLogout.stop().animate({ width:0, left:0  });
+                    $gcmazUserLogout.hide();
                 });
-            });
+            //});
         });
         //***** END user
         

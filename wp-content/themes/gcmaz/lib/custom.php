@@ -306,9 +306,9 @@ function gcmaz_user_msg(){
             $gcmaz_login_link = get_edit_user_link( $gcmaz_cur_user->ID );
         }
         
-        echo "<div class='gcmaz-user-msg'>Hi <a href='" . $gcmaz_login_link . "' class='loginout-link'>" . $gcmaz_user_name . "</a><br/><a href='" . wp_logout_url() . "' class='loginout-link'>Logout</a></div>";
+        echo "<div class='gcmaz-user-msg'>Hi <a href='" . $gcmaz_login_link . "' class='user-msg-links'>" . $gcmaz_user_name . "</a><div class='logout-wrap'><a href='" . wp_logout_url() . "' class='user-msg-links logout-link'> <span class='vert-sep'>|</span> Logout</a></div></div>";
     } else {
-        echo "<div class='gcmaz-user-msg'><a href='" . wp_login_url( get_permalink() ) . "' class='loginout-link'>Login</a></div>";
+        echo "<div class='gcmaz-user-msg'><a href='" . wp_login_url( get_permalink() ) . "' class='user-msg-links'>Login</a></div>";
     }
 }
 // END

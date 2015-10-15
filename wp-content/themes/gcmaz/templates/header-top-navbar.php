@@ -4,10 +4,6 @@
         <a href="/" title="Great Circle Media">
             <img src="/media/gcm-logo-white.png" alt="Great Circle Media" class="logo-pre-navbar"/>
         </a>
-        <?php
-            //display welcome and log out message
-            gcmaz_user_msg();
-        ?> 
         
         <?php get_template_part('templates/navbar-icons'); ?>
 
@@ -51,6 +47,10 @@
                   wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav'));
                 endif;
               ?>
+              <?php
+                    //display welcome and log out message
+                    gcmaz_user_msg();
+              ?> 
             </nav>
         </div>
     </div>
