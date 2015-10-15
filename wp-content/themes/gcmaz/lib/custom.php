@@ -288,32 +288,6 @@ add_action( 'login_enqueue_scripts', 'gcmaz_login_logo' );
 
 
 /*
- * CUSTOMIZE Dashboard
- */
-add_action('wp_dashboard_setup', 'gcmaz_dashboard_widgets');
-
-function gcmaz_dashboard_widgets(){
-    global $wp_meta_boxes;
-    wp_add_dashboard_widget('gcmaz_welcome_widget', 'Great Circle Media User Account', 'gcmaz_welcome_text');
-    function gcmaz_welcome_text(){
-        echo '
-            <h2>About Your Account</h2>
-            <p>With your new account on Great Circle Media you will be notified first of upcoming contests and events!</p>
-            <a href="http://kaff.gcmaz.com"><img src="/media/flagstaff-radio-kaff-country.jpg" alt="Northern Arizona Radio - KAFF Country 92.9" style="max-width:120px;padding:20px;" /></a>
-            <a href="http://939themountain.gcmaz.com"><img src="/media/flagstaff-radio-the-mountain.jpg" alt="Northern Arizona Radio - 93.9 The Mountain" style="max-width:90px;padding:20px;" /></a>
-            <a href="http://magic991.gcmaz.com"><img src="/media/prescott-radio-magic.jpg" alt="Prescott Radio - Magic 99.1" style="max-width:120px;padding:20px;" /></a>
-            <a href="http://hits106.gcmaz.com"><img src="/media/flagstaff-radio-hits-106.jpg" alt="Flagstaff Radio - Hits 106" style="max-width:90px;padding:20px;" /></a>
-            <a href="http://country935.gcmaz.com"><img src="/media/flagstaff-radio-country-93-5.jpg" alt="Flagstaff Radio Country 93-5" style="max-width:90px;padding:20px;" /></a>
-            <a href="http://eagle.gcmaz.com"><img src="/media/kzgl-logo-on-white.jpg" alt="103.7 The Eagle" style="max-width:80px;padding:20px;" /></a>
-            <a href="http://funoldies.gcmaz.com"><img src="/media/prescott-radio-oldies.jpg" alt="Prescott Radio - Fun Oldies 100.9 1450am" style="max-width:100px;padding:20px;" /></a>
-            <a href="http://gcmaz.com/kaff-news"><img src="/media/kaff-news.png" alt="KAFF News" style="max-width:120px;padding:20px;" /></a>
-        ';
-    }
-}
-
-// END
-
-/*
  * GET Logged in User and Log out button
  */
 function gcmaz_user_msg(){
@@ -357,6 +331,33 @@ function custom_maybe_activate_user() {
 
     exit();
 }
+// END
+
+
+
+/*
+ * CUSTOMIZE Dashboard
+ */
+add_action('wp_dashboard_setup', 'gcmaz_dashboard_widgets');
+function gcmaz_dashboard_widgets(){
+    global $wp_meta_boxes;
+    wp_add_dashboard_widget('gcmaz_welcome_widget', 'Great Circle Media User Account', 'gcmaz_welcome_text');
+    function gcmaz_welcome_text(){
+        echo '
+            <h2>About The GCMAZ Dashboard</h2>
+            <p>This is the main dashboard that admins, editors, authors, and contributors use to input content for the following web entities.  That content includes News, Concerts, Whats Happening, Community Information, Splash and Contest Pages, and general GCM content.</p>
+            <a href="http://kaff.gcmaz.com"><img src="/media/flagstaff-radio-kaff-country.jpg" alt="Northern Arizona Radio - KAFF Country 92.9" style="max-width:120px;padding:20px;" /></a>
+            <a href="http://939themountain.gcmaz.com"><img src="/media/flagstaff-radio-the-mountain.jpg" alt="Northern Arizona Radio - 93.9 The Mountain" style="max-width:90px;padding:20px;" /></a>
+            <a href="http://magic991.gcmaz.com"><img src="/media/prescott-radio-magic.jpg" alt="Prescott Radio - Magic 99.1" style="max-width:120px;padding:20px;" /></a>
+            <a href="http://hits106.gcmaz.com"><img src="/media/flagstaff-radio-hits-106.jpg" alt="Flagstaff Radio - Hits 106" style="max-width:90px;padding:20px;" /></a>
+            <a href="http://country935.gcmaz.com"><img src="/media/flagstaff-radio-country-93-5.jpg" alt="Flagstaff Radio Country 93-5" style="max-width:90px;padding:20px;" /></a>
+            <a href="http://eagle.gcmaz.com"><img src="/media/kzgl-logo-on-white.jpg" alt="103.7 The Eagle" style="max-width:80px;padding:20px;" /></a>
+            <a href="http://funoldies.gcmaz.com"><img src="/media/prescott-radio-oldies.jpg" alt="Prescott Radio - Fun Oldies 100.9 1450am" style="max-width:100px;padding:20px;" /></a>
+            <a href="http://gcmaz.com/kaff-news"><img src="/media/kaff-news.png" alt="KAFF News" style="max-width:120px;padding:20px;" /></a>
+        ';
+    }
+}
+// END
 
 
 /* disable ANNOYING sticky notices in admin (Yoast) */
