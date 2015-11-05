@@ -216,7 +216,17 @@ var GcmazSite = {
     init: function() {
       // JS here
     }
+  },
+  
+    // calling specific pages examples
+    // Community page ->  community_info: {
+    // Song Requests ->  song_requests: {
+  nau_lumberjacks_football: {
+    init: function() {
+      $('#nauFlashModal').modal('show');
+    }
   }
+  
 };
 
 var UTIL = {
