@@ -223,7 +223,9 @@ var GcmazSite = {
     // Song Requests ->  song_requests: {
   nau_lumberjacks_football: {
     init: function() {
-      $('#nauFlashModal').modal('show');
+        jQuery(window).load(function(){
+          jQuery('#nauFlashModal').modal('show');
+        });
     }
   }
   
