@@ -219,9 +219,11 @@ var GcmazSite = {
   },
   
     // calling specific pages examples
-    // Community page ->  community_info: {
-    // Song Requests ->  song_requests: {
-  nau_lumberjacks_football: {
+    // Community page ->  community_info
+    // Song Requests ->  song_requests
+    // Template Home ->   page_template_template_home_php:
+  //NAU tpl -> page_template_template_nau: {
+  temp: {
     init: function() {
         jQuery(window).load(function(){
           jQuery('#nauFlashModal').modal('show');
