@@ -77,20 +77,6 @@
             </div>
 
     
-            <div id="knotBlock" class="row">
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <a href="http://funoldies.gcmaz.com"><img id="knotLogo" class="img-responsive" src="/media/prescott-radio-oldies.jpg" alt="Prescott Radio - Fun Oldies 100.9 1450am" /></a>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-6">
-                    <h4 class="blue">Fun Oldies 100.9 1450am</h4>
-                    <h5><span style="color: #464646;">Cruisin Thru The 60's!</span></h5>
-                    KNOT |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit KNOT Website" href="http://funoldies.gcmaz.com"> Visit Website &raquo;</a>
-                </div>
-                <div class="col-md-3 col-sm-12 centered">                
-                    <a id="knotBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://player.listenlive.co/36611" target="_blank">Listen Live &raquo;</a>
-                </div>
-            </div>
-    
             <div id="kzglBlock" class="row">
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <a href="http://eagle.gcmaz.com"><img id="kzglLogo" class="img-responsive" src="/media/kzgl-logo-on-white.jpg" alt="103.7 The Eagle" style="max-height:100px;margin-left:10px;"/></a>
@@ -105,4 +91,34 @@
                 </div>
             </div>
 
+    
+            <div id="e979Block" class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <a href="http://979theeagle.gcmaz.com"><img id="e979Logo" class="img-responsive" src="/media/97-9-logo.png" alt="97.9 The Eagle" style="max-height:100px;margin-left:10px;"/></a>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="blue">97.9 The Eagle</h4>
+                    <h5><span style="color: #464646;">The Eagle Rocks!</span></h5>
+                    97.9FM |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit 97.9 Website" href="http://979theeagle.gcmaz.com"> Visit Website &raquo;</a>
+                </div>
+                <div class="col-md-3 col-sm-12 centered">                
+                    <a id="e979Btn" class="btn btn-red btn-block listen-btn" type="button" href="http://979theeagle.gcmaz.com/stream-player/" target="_blank">Listen Live &raquo;</a>
+                </div>
+            </div>
+
+    
+            <div id="knotBlock" class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <a href="http://arizonashine.org"><img id="knotLogo" class="img-responsive" src="/media/az-shine-logo.png" alt="Arizona Shine" style="max-height:100px;margin-left:10px;"/></a>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h4 class="blue">Arizona Shine 103.9/1450</h4>
+                    <h5><span style="color: #464646;">Faith - Hope - Family</span></h5>
+                    97.9FM |<a style="color: #666; font-size: 0.9em; font-weight: 600;" title="Visit Arizona Shine Website" href="http://arizonashine.org"> Visit Website &raquo;</a>
+                </div>
+                <div class="col-md-3 col-sm-12 centered">                
+                    <a id="knotBtn" class="btn btn-red btn-block listen-btn" type="button" href="http://stream.arizonashine.org:8000/arizonashine.mp3.m3u" target="_blank">Listen Live &raquo;</a>
+                </div>
+            </div>    
+    
 </div>
