@@ -1,5 +1,5 @@
 <div class="row home-top">
-    <div class="col-md-4">
+    <div class="col-md-4 hidden-xs hidden-sm">
          <?php  echo do_shortcode("[adrotate group='22']"); ?>
         <?php  echo the_widget( 'WP_Widget_Recent_Posts', 'Recent Posts from KAFF News', 5); ?>
     </div>
