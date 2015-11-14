@@ -131,6 +131,14 @@ var GcmazSite = {
   // Home page
   home: {
     init: function() {
+        
+        jQuery('#kaffBlock').mouseover(function(){
+            window.alert('working on script anim on hover here');
+            var $bb = $('#kaffBlock').children('div.blockInfoBtn');
+            $bb.toggleClass('hidden visible');
+        });
+        
+        
         // listen live stream window
         //jQuery('#kaffBtn').click(function(){
               //window.open('http://player.listenlive.co/36581', 'KAFFFM', 'width=800,height=600');

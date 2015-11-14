@@ -1,6 +1,46 @@
 <?php get_template_part('templates/content', 'page'); ?>
 
 <div class="row">
+        <div class="row">
+            <div id="kaffBlock" class="col-md-4 col-sm-6" style="background:#2e4b9e;min-height:200px;">
+                <div class="logoBlock">
+                    <img id="kaffLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kaff-logo.png" alt="92.9 KAFF Country" class="img-responsive"/>
+                </div>
+                <div class="row blockInfoBtn hidden">
+                    &nbsp;
+                </div>
+            </div>
+            <div id="kmgnBlock" class="col-md-4 col-sm-6" style="background:#414142;min-height:200px;">
+                    <img id="kmgnLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kmgn-logo.png" alt="93-9 The Mountain" class="img-responsive"/>
+            </div>
+            <div id="kzglBlock" class="col-md-4 col-sm-6" style="background:#000000;min-height:200px;">
+                    <img id="kzglLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kzgl-logo.png" alt="103.7 The Eagle Rocks" class="img-responsive"/>
+            </div>
+
+            <div id="kfszBlock" class="col-md-4 col-sm-6" style="background:#35393c;min-height:200px;">
+                    <img id="kfszLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kfsz-logo.png" alt="Hits 106" class="img-responsive"/>
+            </div>
+            <div id="ktmgBlock" class="col-md-4 col-sm-6" style="background:#0f2357;min-height:200px;">
+                    <img id="ktmgLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/ktmg-logo.png" alt="Magic 99.1" class="img-responsive"/>
+            </div>
+            <div id="kaffamBlock" class="col-md-4 col-sm-6" style="background:#e40006;min-height:200px;">
+                    <img id="kaffamLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kaffam-logo.png" alt="Flagstaff Country 93-5" class="img-responsive"/>
+            </div>
+
+            <div id="e979Block" class="col-md-4 col-sm-6" style="background:#000000;min-height:200px;">
+                    <img id="e979Logo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/97-9-logo.png" alt="97.9 The Eagle Rocks" class="img-responsive"/>
+            </div>
+            <div id="knotBlock" class="col-md-4 col-sm-6" style="background:#fcfcfb;min-height:200px;">
+                    <img id="knotLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/az-shine-logo.png" alt="Arizona Shine" class="img-responsive"/>
+            </div>
+            <div id="kaffnewsBlock" class="col-md-4 col-sm-6" style="background:#f5f3f1;min-height:200px;">
+                    <img id="kaffnewsLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kaff-news-logo.png" alt="KAFF News of Northern Arizona" class="img-responsive"/>
+            </div>
+        </div>
+    
+</div>
+                
+<div class="row">
 
             <div id="kaffBlock" class="row">
                 <div class="col-md-3 col-sm-6 col-xs-6">

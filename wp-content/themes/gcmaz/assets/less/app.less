@@ -259,6 +259,9 @@ div.rbn-hdg{
 .listen-btn:active{margin-top:3px;margin-bottom:-1px;}
 
 
+/*********************************
+    TILED LOGOS on home - also see media queries 
+*********************************/
 #kaffLogo,
 #kmgnLogo,
 #kaffamLogo,
@@ -266,12 +269,13 @@ div.rbn-hdg{
 #ktmgLogo,
 #knotLogo,
 #kzglLogo,
-#e979Logo
+#e979Logo,
+#kaffnewsLogo
 {
-    margin-bottom:20px;
+    margin:30px auto;
+    max-width:200px;
+    max-height:130px;
 }
-
-/********      FRONT PAGE ANIMATIONS  ****/
 
 #kaffBlock,
 #kmgnBlock,
@@ -280,12 +284,92 @@ div.rbn-hdg{
 #ktmgBlock,
 #knotBlock,
 #kzglBlock,
-#e979Block
+#e979Block,
+#kaffnewsBlock
 {
-    display:block;
-    margin:1% auto 20px;
-    padding:1% 2%;
+    height:300px;
+    overflow:hidden;
+    position:relative;
 }
+
+.logoBlock{
+    padding:30px;
+}
+
+.blockInfoBtn{
+  width:100%;
+  height:40px;
+  position:absolute;
+  top:260px;
+  left:0px;
+  background:rgba(255,255,255,0.2);
+  margin:0;
+  padding:0;
+}
+
+.blockInfoBtnShow{
+    -webkit-animation: blockInfoOn 1s;
+    -moz-animation: blockInfoOn 1s;
+    -o-animation: blockInfoOn 1s;
+    animation: blockInfoOn 1s;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    opacity:1;
+}
+.blockInfoBtnHide{
+    -webkit-animation: blockInfoOff 1s;
+    -moz-animation: blockInfoOff 1s;
+    -o-animation: blockInfoOff 1s;
+    animation: blockInfoOff 1s;
+    animation-iteration-count: 1;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    opacity:0;
+}
+
+@-webkit-keyframes blockInfoOn{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes blockInfoOn{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-o-keyframes blockInfoOn{
+    0% { opacity: 0; }
+    100% { opacity: 1;  }
+}
+@keyframes blockInfoOn{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes blockInfoOff{
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@-moz-keyframes blockInfoOff{
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@-o-keyframes blockInfoOff{
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@keyframes blockInfoOff{
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/*  End  Tile logos on home */
+
 
 /*  Animate CSS Overrides -  override the defaults in /assets/css/animate  */
 #kaffBtn,
@@ -1002,11 +1086,23 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
     #kfszBlock,
     #ktmgBlock,
     #knotBlock,
-    #kzglBlock
+    #kzglBlock,
+    #e979Block,
+    #kaffnewsBlock
     {
-        display:block;
-        margin:1% auto 60px;
-        padding:1% 2%;
+        /* */
+    }
+    #kaffLogo,
+    #kmgnLogo,
+    #kaffamLogo,
+    #kfszLogo,
+    #ktmgLogo,
+    #knotLogo,
+    #kzglLogo,
+    #e979Logo,
+    #kaffnewsLogo
+    {
+        text-align:left;
     }
 } //End @media
 
