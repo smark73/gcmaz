@@ -132,10 +132,9 @@ var GcmazSite = {
   home: {
     init: function() {
         
-        jQuery('#kaffBlock').mouseover(function(){
-            window.alert('working on script anim on hover here');
-            var $bb = $('#kaffBlock').children('div.blockInfoBtn');
-            $bb.toggleClass('hidden visible');
+        jQuery('.stationTile').hover(function(){
+            var $blockBtn = jQuery(this).children('div.blockBtn');
+            $blockBtn.toggleClass('blockBtnShow blockBtnHide');
         });
         
         

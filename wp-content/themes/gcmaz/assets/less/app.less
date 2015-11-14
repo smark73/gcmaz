@@ -252,11 +252,9 @@ div.rbn-hdg{
 
 /**** Front Page Splash ******/
 
-/**** Listen Live ****/
-.listen{text-decoration:none !important;margin:10px auto 20px;display:block}
-.listen-btn{display:inline-block !important;border-bottom:3px solid rgba(0,0,0,.5);}
-.listen-btn:hover{border-bottom:1px solid rgba(0,0,0,.5);margin-top:2px}
-.listen-btn:active{margin-top:3px;margin-bottom:-1px;}
+.home-top{
+    margin:4% auto 4%;
+}
 
 
 /*********************************
@@ -270,48 +268,61 @@ div.rbn-hdg{
 #knotLogo,
 #kzglLogo,
 #e979Logo,
-#kaffnewsLogo
-{
+#kaffnewsLogo {
     margin:30px auto;
     max-width:200px;
     max-height:130px;
 }
+#kaffBlock {background:#2e4b9e}
+#kmgnBlock{background:#414142}
+#kaffamBlock{background:#e40006;}
+#kfszBlock{background:#35393c;}
+#ktmgBlock{background:#0f2357}
+#knotBlock{background:#fcfcfb;}
+#kzglBlock{background:#000000;}
+#e979Block{background:#000000;}
+#kaffnewsBlock{background:#f5f3f1;}
 
-#kaffBlock,
-#kmgnBlock,
-#kaffamBlock,
-#kfszBlock,
-#ktmgBlock,
-#knotBlock,
-#kzglBlock,
-#e979Block,
-#kaffnewsBlock
-{
+.stationTile {
     height:300px;
     overflow:hidden;
     position:relative;
 }
-
 .logoBlock{
     padding:30px;
 }
-
-.blockInfoBtn{
+.blockBtn{
   width:100%;
   height:40px;
   position:absolute;
   top:260px;
   left:0px;
-  background:rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.1);
   margin:0;
   padding:0;
 }
-
-.blockInfoBtnShow{
-    -webkit-animation: blockInfoOn 1s;
-    -moz-animation: blockInfoOn 1s;
-    -o-animation: blockInfoOn 1s;
-    animation: blockInfoOn 1s;
+.blockBtn a{
+    color:#fff;
+    text-decoration: none;
+    vertical-align: middle;
+    line-height:40px;
+    opacity:0.5;
+}
+.blockBtn a:hover{ opacity: 1 }
+.blockBtnWeb{
+    width:50%;
+    text-align:center;
+}
+.blockBtnListen{
+    width:50%;
+    text-align:center;
+}
+.blockBtnListen .glyphicon{font-size:1.4em;padding-left:10px;padding-bottom:7px;vertical-align:middle;}
+.blockBtnShow{
+    -webkit-animation: blockBtnOn 1s;
+    -moz-animation: blockBtnOn 1s;
+    -o-animation: blockBtnOn 1s;
+    animation: blockBtnOn 1s;
     animation-iteration-count: 1;
     animation-duration: 0.2s;
     animation-timing-function: ease-out;
@@ -320,11 +331,11 @@ div.rbn-hdg{
     -webkit-transform: translate3d(0,0,0);
     opacity:1;
 }
-.blockInfoBtnHide{
-    -webkit-animation: blockInfoOff 1s;
-    -moz-animation: blockInfoOff 1s;
-    -o-animation: blockInfoOff 1s;
-    animation: blockInfoOff 1s;
+.blockBtnHide{
+    -webkit-animation: blockBtnOff 1s;
+    -moz-animation: blockBtnOff 1s;
+    -o-animation: blockBtnOff 1s;
+    animation: blockBtnOff 1s;
     animation-iteration-count: 1;
     animation-duration: 0.2s;
     animation-timing-function: ease-out;
@@ -333,46 +344,49 @@ div.rbn-hdg{
     -webkit-transform: translate3d(0,0,0);
     opacity:0;
 }
-
-@-webkit-keyframes blockInfoOn{
+@-webkit-keyframes blockBtnOn{
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-@-moz-keyframes blockInfoOn{
+@-moz-keyframes blockBtnOn{
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-@-o-keyframes blockInfoOn{
+@-o-keyframes blockBtnOn{
     0% { opacity: 0; }
     100% { opacity: 1;  }
 }
-@keyframes blockInfoOn{
+@keyframes blockBtnOn{
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-
-@-webkit-keyframes blockInfoOff{
+@-webkit-keyframes blockBtnOff{
     0% { opacity: 1; }
     100% { opacity: 0; }
 }
-@-moz-keyframes blockInfoOff{
+@-moz-keyframes blockBtnOff{
     0% { opacity: 1; }
     100% { opacity: 0; }
 }
-@-o-keyframes blockInfoOff{
+@-o-keyframes blockBtnOff{
     0% { opacity: 1; }
     100% { opacity: 0; }
 }
-@keyframes blockInfoOff{
+@keyframes blockBtnOff{
     0% { opacity: 1; }
     100% { opacity: 0; }
 }
 
 /*  End  Tile logos on home */
 
+/**** Listen Live ****/
+/*.listen{text-decoration:none !important;margin:10px auto 20px;display:block}
+.listen-btn{display:inline-block !important;border-bottom:3px solid rgba(0,0,0,.5);}
+.listen-btn:hover{border-bottom:1px solid rgba(0,0,0,.5);margin-top:2px}
+.listen-btn:active{margin-top:3px;margin-bottom:-1px;}*/
 
 /*  Animate CSS Overrides -  override the defaults in /assets/css/animate  */
-#kaffBtn,
+/*#kaffBtn,
 #kmgnBtn,
 #kaffamBtn,
 #kfszBtn,
@@ -387,7 +401,7 @@ div.rbn-hdg{
     animation-duration: 0.4s;
     animation-delay: 0;
     animation-iteration-count: 1;
-}
+}*/
 
 
 .addy{padding:2%;font-size:1.2em;}
@@ -463,7 +477,7 @@ a.wthrcty:hover{text-decoration:none;color:#fff}
     the first one is default sidebar widget style
     the rest override indivual widgets
 */
-.sidebar .widget {
+.sidebar .widget, .widget_recent_entries {
     margin:10px 0;
     padding:10px 0;
     border-bottom: 10px solid @neutral-tan-lt;
@@ -489,7 +503,7 @@ a.wthrcty:hover{text-decoration:none;color:#fff}
 
 /* menu lists */
 .widget .widget-inner ul {padding-left:15px}
-.widget .widget-inner ul li {list-style-type: none}
+.widget .widget-inner ul li{list-style-type: none}
 .widget .widget-inner ul li a{color:@blue;padding:3px 0 3px 5px;display:block;margin-right:5px}
 .widget .widget-inner ul li a:hover{text-decoration:none;background:@blue-gray-lt}
 
@@ -508,6 +522,35 @@ button.search-submit:hover, button.search-submit:active{color:@white;background:
 .widget_adrotate_widgets img{width:100%;height:auto;max-width:300px;max-height:250px;margin:auto;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px}
 .widget_adrotate_widgets .widget-inner{ width:100%;margin:auto;padding:2% 0}
 
+/* Recent Posts widget on Home */
+//.widget_recent_entries div ul li a{color:#a3aebf}
+.widget_recent_entries ul {padding-left:15px}
+.widget_recent_entries ul li{list-style-type: none}
+.widget_recent_entries ul li a{color:@blue;padding:3px 0 3px 5px;display:block;margin-right:5px}
+.widget_recent_entries ul li a:hover{text-decoration:none;background:@blue-gray-lt}
+.widget_recent_entries {
+    margin:10px 0;
+    padding:10px 0;
+    border-bottom: 10px solid @neutral-tan-lt;
+    //border-bottom:2px solid lighten(@light-blue,40%);
+    //border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+}
+.widget_recent_entries {border:0}
+.widget_recent_entries h2 {
+    color:darken(@gray-light,18%);
+    font-size:0.9em;
+    font-weight:500;
+    font-family: 'Bree Serif', serif;
+    padding:5px;
+    margin:0 5px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.2);
+    //background:@light-blue;
+    border-radius:2px;
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px
+}
 
 /* ==========================================================================
    Navigation
@@ -806,11 +849,6 @@ ul.sidebar-nav li ul.dropdown-menu{background:rgba(255,255,255,1)}*/
     .copyright{color:@light-blue;font-size:10px;font-weight:bold;padding:0;margin:2px auto;}
     a.ftr-sm { padding:0; margin:2px auto; font-weight:bold; font-size:10px; text-decoration:none; color: @blue}
 }
-
-
-// recent posts link color
-//.widget_recent_entries div ul li a{color:#a3aebf}
-
 
 
 
