@@ -273,10 +273,13 @@ add_filter('login_headerurl', 'gcmaz_url_login');
 // change logo
 function gcmaz_login_logo() { ?>
     <style type="text/css">
+        #login{
+            width:500px;
+        }
         .login h1 a {
             background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/all-logos-gcm.png);
-            width:300px;
-            height:120px;
+            width:500px;
+            height:100px;
             background-size:contain;
             background-position:center top;
         }
