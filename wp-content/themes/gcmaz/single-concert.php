@@ -7,10 +7,24 @@
     <?php while (have_posts()) : the_post(); ?>
       <article <?php post_class('sngl-info'); ?>>
           <div class="pull-right hidden-xs hidden-sm">
-            <?php if(has_post_thumbnail()){ the_post_thumbnail('medium', array('class'=>'info-img'));}?>
+                <?php
+                    if(has_post_thumbnail()){
+                        $full_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+                        echo '<a href="' . $full_image_url[0] . '" target="_blank" title="' . the_title_attribute( 'echo=0' ) . '">';
+                        the_post_thumbnail('medium', array('class'=>'info-img'));
+                        echo '</a>';
+                    }
+                ?>
           </div>
           <div class="centered visible-xs visible-sm">
-              <?php if(has_post_thumbnail()){ the_post_thumbnail('medium', array('class'=>'info-img'));}?>
+                <?php
+                    if(has_post_thumbnail()){
+                        $full_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+                        echo '<a href="' . $full_image_url[0] . '" target="_blank" title="' . the_title_attribute( 'echo=0' ) . '">';
+                        the_post_thumbnail('medium', array('class'=>'info-img'));
+                        echo '</a>';
+                    }
+                ?>
           </div>
         <header>
             <h3 class='blue'><?php the_title(); ?></h3>

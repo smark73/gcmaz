@@ -136,7 +136,11 @@ var GcmazSite = {
             var $blockBtn = jQuery(this).children('div.blockBtn');
             $blockBtn.toggleClass('blockBtnShow blockBtnHide');
         });
-        
+
+        //jQuery('.blockBtnListen').mouseout(function(){
+                //var $spkrIcon = jQuery(this).children('span.glyphicon-volume-up');
+                //$spkrIcon.removeClass('animScaleUp');
+        //});
         
         // listen live stream window
         //jQuery('#kaffBtn').click(function(){
