@@ -137,10 +137,17 @@ var GcmazSite = {
             $blockBtn.toggleClass('blockBtnShow blockBtnHide');
         });
 
-        //jQuery('.blockBtnListen').mouseout(function(){
-                //var $spkrIcon = jQuery(this).children('span.glyphicon-volume-up');
-                //$spkrIcon.removeClass('animScaleUp');
-        //});
+        var $spkrIcon = jQuery(document).find('div.spkrIcon');
+        jQuery('.blockBtnListen').hover(function(){
+            $spkrIcon.stop().animate({ left: 7 }, 100);
+        }, function(){
+            $spkrIcon.stop().animate({ left: 0 });
+        });
+
+//        jQuery('.blockBtnListen').mouseout(function(){
+//            var $listenAnim = jQuery(this).children('a');
+//            $listenAnim.removeClass('flash');
+//        });
         
         // listen live stream window
         //jQuery('#kaffBtn').click(function(){
