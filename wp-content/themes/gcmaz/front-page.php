@@ -18,7 +18,7 @@
                         <a href="http://kaff.gcmaz.com" target="_blank">WEBSITE</a>
                     </div>
                     <div class="col-xs-6 blockBtnListen">
-                        <a href="http://player.listenlive.co/36581" target="_blank">LISTEN<div class="spkr-icon noflash"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        <a href="http://player.listenlive.co/36581" target="_blank">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <a href="http://939themountain.gcmaz.com" target="_blank">WEBSITE</a>
                     </div>
                     <div class="col-xs-6 blockBtnListen">
-                        <a href="http://player.listenlive.co/36601" target="_blank">LISTEN<div class="spkr-icon noflash"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        <a href="http://player.listenlive.co/36601" target="_blank">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                         <a href="http://eagle.gcmaz.com/" target="_blank">WEBSITE</a>
                     </div>
                     <div class="col-xs-6 blockBtnListen">
-                        <a href="http://eagle.gcmaz.com/kzgl-stream-player/" target="_blank">LISTEN<div class="spkr-icon noflash"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        <a href="http://eagle.gcmaz.com/kzgl-stream-player/" target="_blank">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                         <a href="http://hits106.gcmaz.com" target="_blank">WEBSITE</a>
                     </div>
                     <div class="col-xs-6 blockBtnListen">
-                        <a href="http://player.listenlive.co/36591" target="_blank">LISTEN<div class="spkr-icon noflash"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        <a href="http://player.listenlive.co/36591" target="_blank">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                         <a href="http://magic991.gcmaz.com" target="_blank">WEBSITE</a>
                     </div>
                     <div class="col-xs-6 blockBtnListen">
-                        <a href="http://player.listenlive.co/36621" target="_blank">LISTEN<div class="spkr-icon noflash"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        <a href="http://player.listenlive.co/36621" target="_blank">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                         <a href="http://country935.gcmaz.com" target="_blank">WEBSITE</a>
                     </div>
                     <div class="col-xs-6 blockBtnListen">
-                        <a href="http://player.listenlive.co/36571" target="_blank">LISTEN<div class="spkr-icon noflash"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        <a href="http://player.listenlive.co/36571" target="_blank">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                         <a href="http://979theeagle.gcmaz.com/" target="_blank">WEBSITE</a>
                     </div>
                     <div class="col-xs-6 blockBtnListen">
-                        <a href="http://979theeagle.gcmaz.com/stream-player/" target="_blank">LISTEN<div class="spkr-icon noflash"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        <a href="http://979theeagle.gcmaz.com/stream-player/" target="_blank">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                         <a href="http://arizonashine.org" target="_blank" style="color:#00416a;">WEBSITE</a>
                     </div>
                     <div class="col-xs-6 blockBtnListen">
-                        <a href="http://stream.arizonashine.org:8000/arizonashine.mp3.m3u" target="_blank" style="color:#00416a;">LISTEN<div class="spkr-icon noflash"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                        <a href="http://stream.arizonashine.org:8000/arizonashine.mp3.m3u" target="_blank" style="color:#00416a;">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
                     </div>
                 </div>
             </div>

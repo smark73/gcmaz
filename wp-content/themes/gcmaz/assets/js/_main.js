@@ -137,10 +137,13 @@ var GcmazSite = {
             $blockBtn.toggleClass('blockBtnShow blockBtnHide');
         });
 
+        var $spkrIcon = jQuery(document).find('div.spkrIcon');
         jQuery('.blockBtnListen').hover(function(){
-            var $listenAnim = jQuery(this).children('div.spkr-icon');
-            $listenAnim.toggleClass('flash noflash');
+            $spkrIcon.stop().animate({ left: 7 }, 100);
+        }, function(){
+            $spkrIcon.stop().animate({ left: 0 });
         });
+
 //        jQuery('.blockBtnListen').mouseout(function(){
 //            var $listenAnim = jQuery(this).children('a');
 //            $listenAnim.removeClass('flash');
