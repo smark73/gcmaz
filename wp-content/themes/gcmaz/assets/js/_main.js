@@ -131,6 +131,24 @@ var GcmazSite = {
   // Home page
   home: {
     init: function() {
+        
+        jQuery('.stationTile').hover(function(){
+            var $blockBtn = jQuery(this).children('div.blockBtn');
+            $blockBtn.toggleClass('blockBtnShow blockBtnHide');
+        });
+
+        var $spkrIcon = jQuery(document).find('div.spkrIcon');
+        jQuery('.blockBtnListen').hover(function(){
+            $spkrIcon.stop().animate({ left: 7 }, 100);
+        }, function(){
+            $spkrIcon.stop().animate({ left: 0 });
+        });
+
+//        jQuery('.blockBtnListen').mouseout(function(){
+//            var $listenAnim = jQuery(this).children('a');
+//            $listenAnim.removeClass('flash');
+//        });
+        
         // listen live stream window
         //jQuery('#kaffBtn').click(function(){
               //window.open('http://player.listenlive.co/36581', 'KAFFFM', 'width=800,height=600');
@@ -218,15 +236,18 @@ var GcmazSite = {
     }
   },
 
-// calling specific pages examples
-// Community page ->  community_info: {
-// Song Requests ->  song_requests: {
-  nau_lumberjacks_football: {
+    // calling specific pages examples
+    // Community page ->  community_info
+    // Song Requests ->  song_requests
+    // Template Home ->   page_template_template_home_php:
+  //NAU tpl -> page_template_template_nau: {
+  temp: {
     init: function() {
-      $('#nauFlashModal').modal('show');
+        jQuery(window).load(function(){
+          jQuery('#nauFlashModal').modal('show');
+        });
     }
   }
-
 };
 
 var UTIL = {
