@@ -11,11 +11,7 @@
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function roots_scripts() {
-<<<<<<< HEAD
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '09bbf0b0e50c393cbbe767a124d0ce8e');
-=======
   wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '520ba331da6d84b3577b66c9dbe07467');
->>>>>>> dev
   wp_enqueue_style('nivo-slider', get_template_directory_uri() . '/assets/js/nivo-slider/nivo-slider.css', false, null);
 
   // jQuery is loaded using the same method from HTML5 Boilerplate:
@@ -65,7 +61,8 @@ function roots_google_analytics() { ?>
   e.src='//www.google-analytics.com/analytics.js';
   r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
   ga('create','<?php echo GOOGLE_ANALYTICS_ID; ?>');
-  <?php
+
+<?php
         // add tracking for KAFF News
         // see if we're on KAFF News anywhere
         global $post;
