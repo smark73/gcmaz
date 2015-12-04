@@ -235,7 +235,7 @@ var GcmazSite = {
       // JS here
     }
   },
-
+  
     // calling specific pages examples
     // Community page ->  community_info
     // Song Requests ->  song_requests
@@ -248,6 +248,7 @@ var GcmazSite = {
         });
     }
   }
+
 };
 
 var UTIL = {

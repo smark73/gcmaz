@@ -29,7 +29,6 @@ function roots_scripts() {
 
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, null, false);
   wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, '5cc2d7179500600d586d051f144b8506', true);
-
   wp_enqueue_script('modernizr');
   wp_enqueue_script('jquery');
   wp_enqueue_script('roots_scripts');
@@ -61,8 +60,7 @@ function roots_google_analytics() { ?>
   e.src='//www.google-analytics.com/analytics.js';
   r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
   ga('create','<?php echo GOOGLE_ANALYTICS_ID; ?>');
-
-<?php
+  <?php
         // add tracking for KAFF News
         // see if we're on KAFF News anywhere
         global $post;
