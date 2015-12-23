@@ -27,7 +27,6 @@
                 </section>
                 <section class="col-md-8">
                     <?php //<img src="/media/news-station-logos.jpg" class="news-station-logos centered img-responsive hidden-sm hidden-xs " alt="KAFF News of Northern Arizona" />?>
-                    <br/><br/><br/>
                     <?php  get_template_part('templates/exp-leaderboard'); ?>
                     <?php  get_template_part('templates/news-nav'); ?>
                 </section>
