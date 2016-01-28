@@ -24,6 +24,10 @@ Author URI: http://www.gcmaz.com/
  * whats_fulldate ---------\
  * community_fulldate --------- >  equals date used in comparison fn (yymmdd)  ex. 20150807
  * concert_fulldate --------/
+
+ * whats_fullenddate ---------\
+ * community_fullenddate --------- >  equals date used in comparison fn (yymmdd)  ex. 20150807
+ * concert_fullenddate --------/
  * 
  * 
  * 
