@@ -22,7 +22,7 @@
 
                 <section class="col-md-4">
                     <a href="/kaff-news/" >
-                        <img class="centered logo" alt="KAFF News" src="/media/kaff-news.png" style="padding-top:3%"/>
+                        <img class="centered logo" alt="KAFF News" src="/media/kaff-news.png" style="max-width:120px;height:auto;padding-top:3%"/>
                     </a>
                 </section>
                 <section class="col-md-8">

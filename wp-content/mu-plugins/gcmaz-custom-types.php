@@ -315,12 +315,12 @@ function whats_fields (){
             //ON LOAD
             //load hiddenfields with stored data if exists
             var checkWhatsFullDate = "<?php echo $whats_fulldate; ?>";
-            if(checkWhatsFullDate != '' || checkWhatsFullDate != null){
+            if(checkWhatsFullDate !== '' || checkWhatsFullDate !== null){
                 var parsedWhatsFullDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullDate);
                 jQuery('#whats_fulldate').datepicker('setDate', parsedWhatsFullDate);
             }
             var checkWhatsFullEndDate = "<?php echo $whats_fullenddate; ?>";
-            if(checkWhatsFullEndDate != '' || checkWhatsFullEndDate != null){
+            if(checkWhatsFullEndDate !== '' || checkWhatsFullEndDate !== null){
                 var parsedWhatsFullEndDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullEndDate);
                 jQuery('#whats_fullenddate').datepicker('setDate', parsedWhatsFullEndDate);
             }
@@ -331,7 +331,7 @@ function whats_fields (){
             function startDateChange() {
                 var $startDateVal = jQuery('#whats_date').val();
                 // changing the start date ?
-                if( $startDateVal == '' || $startDateVal == null || $startDateVal == undefined){
+                if( $startDateVal === '' || $startDateVal === null || $startDateVal === undefined){
                     // if set to null, set whats_fulldate to default & set endate to null
                     jQuery('#whats_fulldate').datepicker('setDate', '20000101');
                     jQuery('#whats_enddate').datepicker('setDate', '');
@@ -423,12 +423,12 @@ function community_fields (){
             //ON LOAD
             //load hiddenfields with stored data if exists
             var checkWhatsFullDate = "<?php echo $community_fulldate; ?>";
-            if(checkWhatsFullDate != '' || checkWhatsFullDate != null){
+            if(checkWhatsFullDate !== '' || checkWhatsFullDate !== null){
                 var parsedWhatsFullDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullDate);
                 jQuery('#community_fulldate').datepicker('setDate', parsedWhatsFullDate);
             }
             var checkWhatsFullEndDate = "<?php echo $community_fullenddate; ?>";
-            if(checkWhatsFullEndDate != '' || checkWhatsFullEndDate != null){
+            if(checkWhatsFullEndDate !== '' || checkWhatsFullEndDate !== null){
                 var parsedWhatsFullEndDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullEndDate);
                 jQuery('#community_fullenddate').datepicker('setDate', parsedWhatsFullEndDate);
             }
@@ -439,7 +439,7 @@ function community_fields (){
             function startDateChange() {
                 var $startDateVal = jQuery('#community_date').val();
                 // changing the start date ?
-                if( $startDateVal == '' || $startDateVal == null || $startDateVal == undefined){
+                if( $startDateVal === '' || $startDateVal === null || $startDateVal === undefined){
                     // if set to null, set community_fulldate to default & set endate to null
                     jQuery('#community_fulldate').datepicker('setDate', '20000101');
                     jQuery('#community_enddate').datepicker('setDate', '');
@@ -531,12 +531,12 @@ function concert_fields (){
             //ON LOAD
             //load hiddenfields with stored data if exists
             var checkWhatsFullDate = "<?php echo $concert_fulldate; ?>";
-            if(checkWhatsFullDate != '' || checkWhatsFullDate != null){
+            if(checkWhatsFullDate !== '' || checkWhatsFullDate !== null){
                 var parsedWhatsFullDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullDate);
                 jQuery('#concert_fulldate').datepicker('setDate', parsedWhatsFullDate);
             }
             var checkWhatsFullEndDate = "<?php echo $concert_fullenddate; ?>";
-            if(checkWhatsFullEndDate != '' || checkWhatsFullEndDate != null){
+            if(checkWhatsFullEndDate !== '' || checkWhatsFullEndDate !== null){
                 var parsedWhatsFullEndDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullEndDate);
                 jQuery('#concert_fullenddate').datepicker('setDate', parsedWhatsFullEndDate);
             }
@@ -547,7 +547,7 @@ function concert_fields (){
             function startDateChange() {
                 var $startDateVal = jQuery('#concert_date').val();
                 // changing the start date ?
-                if( $startDateVal == '' || $startDateVal == null || $startDateVal == undefined){
+                if( $startDateVal === '' || $startDateVal === null || $startDateVal === undefined){
                     // if set to null, set concert_fulldate to default & set endate to null
                     jQuery('#concert_fulldate').datepicker('setDate', '20000101');
                     jQuery('#concert_enddate').datepicker('setDate', '');
