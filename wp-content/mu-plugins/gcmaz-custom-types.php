@@ -297,15 +297,7 @@ function whats_fields (){
     </div>
     <script>
         jQuery(document).ready(function(){
-            // clear dates button functions
-            jQuery('.clear-event-dates').on("click", function(event){
-                event.preventDefault();
-                 jQuery('#whats_date').datepicker('setDate', '');
-                 jQuery('#whats_enddate').datepicker('setDate', '');
-                 startDateChange();
-                 endDateChange();
-            });
-            
+
             // datepicker
             jQuery('#whats_date').datepicker({ dateFormat : 'D, M d yy' });
             jQuery('#whats_enddate').datepicker({ dateFormat : 'D, M d yy' });
@@ -326,8 +318,6 @@ function whats_fields (){
             }
             
             // START DATE CHANGE
-            jQuery('#whats_date').change(startDateChange);
-            
             function startDateChange() {
                 var $startDateVal = jQuery('#whats_date').val();
                 // changing the start date ?
@@ -342,15 +332,26 @@ function whats_fields (){
                     jQuery('#whats_fulldate').datepicker('setDate', parsedStartDate);
                 }
             }
+            jQuery('#whats_date').change(startDateChange);
             
+
             // END DATE CHANGE
-            jQuery('#whats_enddate').change(endDateChange);
-            
             function endDateChange() {
                 var $endDateVal = jQuery('#whats_enddate').val();
                 var parsedEndDate = jQuery.datepicker.parseDate('D, M d yy', $endDateVal);
                 jQuery('#whats_fullenddate').datepicker('setDate', parsedEndDate);
             }
+            jQuery('#whats_enddate').change(endDateChange);
+
+
+            // CLEAR DATES FUNCTION
+            jQuery('.clear-event-dates').on("click", function(event){
+                event.preventDefault();
+                 jQuery('#whats_date').datepicker('setDate', '');
+                 jQuery('#whats_enddate').datepicker('setDate', '');
+                 startDateChange();
+                 endDateChange();
+            });
 
         });
     </script>
@@ -405,14 +406,6 @@ function community_fields (){
     </div>
     <script>
         jQuery(document).ready(function(){
-            // clear dates button functions
-            jQuery('.clear-event-dates').on("click", function(event){
-                event.preventDefault();
-                 jQuery('#community_date').datepicker('setDate', '');
-                 jQuery('#community_enddate').datepicker('setDate', '');
-                 startDateChange();
-                 endDateChange();
-            });
             
             // datepicker
             jQuery('#community_date').datepicker({ dateFormat : 'D, M d yy' });
@@ -422,20 +415,18 @@ function community_fields (){
             
             //ON LOAD
             //load hiddenfields with stored data if exists
-            var checkWhatsFullDate = "<?php echo $community_fulldate; ?>";
-            if(checkWhatsFullDate !== '' || checkWhatsFullDate !== null){
-                var parsedWhatsFullDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullDate);
-                jQuery('#community_fulldate').datepicker('setDate', parsedWhatsFullDate);
+            var checkCommunityFullDate = "<?php echo $community_fulldate; ?>";
+            if(checkCommunityFullDate !== '' || checkCommunityFullDate !== null){
+                var parsedCommunityFullDate = jQuery.datepicker.parseDate('yymmdd', checkCommunityFullDate);
+                jQuery('#community_fulldate').datepicker('setDate', parsedCommunityFullDate);
             }
-            var checkWhatsFullEndDate = "<?php echo $community_fullenddate; ?>";
-            if(checkWhatsFullEndDate !== '' || checkWhatsFullEndDate !== null){
-                var parsedWhatsFullEndDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullEndDate);
-                jQuery('#community_fullenddate').datepicker('setDate', parsedWhatsFullEndDate);
+            var checkCommunityFullEndDate = "<?php echo $community_fullenddate; ?>";
+            if(checkCommunityFullEndDate !== '' || checkCommunityFullEndDate !== null){
+                var parsedCommunityFullEndDate = jQuery.datepicker.parseDate('yymmdd', checkCommunityFullEndDate);
+                jQuery('#community_fullenddate').datepicker('setDate', parsedCommunityFullEndDate);
             }
             
             // START DATE CHANGE
-            jQuery('#community_date').change(startDateChange);
-            
             function startDateChange() {
                 var $startDateVal = jQuery('#community_date').val();
                 // changing the start date ?
@@ -450,15 +441,25 @@ function community_fields (){
                     jQuery('#community_fulldate').datepicker('setDate', parsedStartDate);
                 }
             }
+            jQuery('#community_date').change(startDateChange);
             
             // END DATE CHANGE
-            jQuery('#community_enddate').change(endDateChange);
-            
             function endDateChange() {
                 var $endDateVal = jQuery('#community_enddate').val();
                 var parsedEndDate = jQuery.datepicker.parseDate('D, M d yy', $endDateVal);
                 jQuery('#community_fullenddate').datepicker('setDate', parsedEndDate);
             }
+            jQuery('#community_enddate').change(endDateChange);
+
+
+             //CLEAR DATES FUNCTION
+            jQuery('.clear-event-dates').on("click", function(event){
+                event.preventDefault();
+                 jQuery('#community_date').datepicker('setDate', '');
+                 jQuery('#community_enddate').datepicker('setDate', '');
+                 startDateChange();
+                 endDateChange();
+            });
 
         });
     </script>
@@ -513,14 +514,6 @@ function concert_fields (){
     </div>
     <script>
         jQuery(document).ready(function(){
-            // clear dates button functions
-            jQuery('.clear-event-dates').on("click", function(event){
-                event.preventDefault();
-                 jQuery('#concert_date').datepicker('setDate', '');
-                 jQuery('#concert_enddate').datepicker('setDate', '');
-                 startDateChange();
-                 endDateChange();
-            });
             
             // datepicker
             jQuery('#concert_date').datepicker({ dateFormat : 'D, M d yy' });
@@ -530,20 +523,18 @@ function concert_fields (){
             
             //ON LOAD
             //load hiddenfields with stored data if exists
-            var checkWhatsFullDate = "<?php echo $concert_fulldate; ?>";
-            if(checkWhatsFullDate !== '' || checkWhatsFullDate !== null){
-                var parsedWhatsFullDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullDate);
-                jQuery('#concert_fulldate').datepicker('setDate', parsedWhatsFullDate);
+            var checkConcertFullDate = "<?php echo $concert_fulldate; ?>";
+            if(checkConcertFullDate !== '' || checkConcertFullDate !== null){
+                var parsedConcertFullDate = jQuery.datepicker.parseDate('yymmdd', checkConcertFullDate);
+                jQuery('#concert_fulldate').datepicker('setDate', parsedConcertFullDate);
             }
-            var checkWhatsFullEndDate = "<?php echo $concert_fullenddate; ?>";
-            if(checkWhatsFullEndDate !== '' || checkWhatsFullEndDate !== null){
-                var parsedWhatsFullEndDate = jQuery.datepicker.parseDate('yymmdd', checkWhatsFullEndDate);
-                jQuery('#concert_fullenddate').datepicker('setDate', parsedWhatsFullEndDate);
+            var checkConcertFullEndDate = "<?php echo $concert_fullenddate; ?>";
+            if(checkConcertFullEndDate !== '' || checkConcertFullEndDate !== null){
+                var parsedConcertFullEndDate = jQuery.datepicker.parseDate('yymmdd', checkConcertFullEndDate);
+                jQuery('#concert_fullenddate').datepicker('setDate', parsedConcertFullEndDate);
             }
             
             // START DATE CHANGE
-            jQuery('#concert_date').change(startDateChange);
-            
             function startDateChange() {
                 var $startDateVal = jQuery('#concert_date').val();
                 // changing the start date ?
@@ -558,15 +549,25 @@ function concert_fields (){
                     jQuery('#concert_fulldate').datepicker('setDate', parsedStartDate);
                 }
             }
+            jQuery('#concert_date').change(startDateChange);
             
             // END DATE CHANGE
-            jQuery('#concert_enddate').change(endDateChange);
-            
             function endDateChange() {
                 var $endDateVal = jQuery('#concert_enddate').val();
                 var parsedEndDate = jQuery.datepicker.parseDate('D, M d yy', $endDateVal);
                 jQuery('#concert_fullenddate').datepicker('setDate', parsedEndDate);
             }
+            jQuery('#concert_enddate').change(endDateChange);
+
+
+            // CLEAR DATES FUNCTION
+            jQuery('.clear-event-dates').on("click", function(event){
+                event.preventDefault();
+                 jQuery('#concert_date').datepicker('setDate', '');
+                 jQuery('#concert_enddate').datepicker('setDate', '');
+                 startDateChange();
+                 endDateChange();
+            });
 
         });
     </script>
