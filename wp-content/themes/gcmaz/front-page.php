@@ -90,11 +90,11 @@
     
     <div id="kaffamBlock" class="stationTile col-md-4 col-sm-6">
         <div class="logoBlock">
-            <img id="kaffamLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kaffam-logo.png" alt="Flagstaff Country 93-5" class="img-responsive"/>
+            <img id="kaffamLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kaffam-logo.png" alt="KAFF Legends 93-5 AM930" class="img-responsive"/>
         </div>
-        <div class="row blockBtn blockBtnHide">
+        <div class="row blockBtn blockBtnDrk blockBtnHide">
             <div class="col-xs-6 blockBtnWeb">
-                <a href="http://country935.gcmaz.com" target="_blank">WEBSITE</a>
+                <a href="http://kafflegends.gcmaz.com" target="_blank">WEBSITE</a>
             </div>
             <div class="col-xs-6 blockBtnListen">
                 <a href="http://player.listenlive.co/36571" target="_blank">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
