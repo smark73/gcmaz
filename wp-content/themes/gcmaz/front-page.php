@@ -94,10 +94,10 @@
         </div>
         <div class="row blockBtn blockBtnDrk blockBtnHide">
             <div class="col-xs-6 blockBtnWeb">
-                <a href="http://kafflegends.gcmaz.com" target="_blank">WEBSITE</a>
+                <a href="http://kafflegends.gcmaz.com" target="_blank" style="color:#28231e;">WEBSITE</a>
             </div>
             <div class="col-xs-6 blockBtnListen">
-                <a href="http://player.listenlive.co/36571" target="_blank">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
+                <a href="http://player.listenlive.co/36571" target="_blank" style="color:#28231e;">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
             </div>
         </div>
     </div>
