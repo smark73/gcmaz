@@ -12,6 +12,9 @@ function bt_flush_rewrite_rules() {
      flush_rewrite_rules();
 }
 
+
+// ------- ADMIN --------------//
+
 // add more buttons to editor
 function add_more_buttons($buttons) {
  $buttons[] = 'hr';
@@ -31,6 +34,21 @@ add_filter('admin_title', 'my_admin_title', 10, 2);
 function my_admin_title($admin_title, $title){
     return get_bloginfo('name') . ' &bull; ' . $title;
 }
+
+// Enqueue jquery UI (Datepicker) + jQuery UI CSS + jquery validate + datepicker validate in ADMIN
+function enqueue_dp_ui(){
+    //wp_enqueue_script('jquery-ui-datepicker');
+    //wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/smoothness/jquery-ui.css', true);
+    wp_enqueue_script( 'jquery-ui-custom', get_template_directory_uri() . '/assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.js');
+    wp_register_style('jquery-ui-style', get_template_directory_uri() . '/assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css', false, '1.11.4');
+    wp_enqueue_style( 'jquery-ui-style' );
+    //wp_enqueue_script('jquery-validate', get_template_directory_uri() . '/assets/js/jquery-validation-1.13.1/dist/jquery.validate.min.js');
+    //wp_enqueue_script( 'jquery-ui-datepicker-validate', get_template_directory_uri() . '/assets/js/jquery.ui.datepicker.validation.package-1.0.1/jquery.ui.datepicker.validation.min.js');
+}
+add_action('admin_enqueue_scripts', 'enqueue_dp_ui');
+
+//---------- END ADMIN ---------------//
+
 
 // make archives include custom post types
 function namespace_add_custom_types( $query ) {
