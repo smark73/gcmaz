@@ -357,6 +357,18 @@ function custom_maybe_activate_user() {
 
 
 /*
+ * Restrict Meta Slider to admins
+*/
+function metaslider_permissions($capability) {
+    $capability = 'administrator';
+    return $capability;
+}
+add_filter( "metaslider_capability", "metaslider_permissions" );
+
+
+
+
+/*
  * CUSTOMIZE Dashboard
  */
 add_action('wp_dashboard_setup', 'gcmaz_dashboard_widgets');
