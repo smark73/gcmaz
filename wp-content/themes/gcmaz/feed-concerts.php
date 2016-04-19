@@ -8,7 +8,8 @@
 /**
  * Feed defaults.
  */
-header( 'Content-Type: ' . feed_content_type( 'rss-http' ) . '; charset=' . get_option( 'blog_charset' ), true );
+//header( 'Content-Type: ' . feed_content_type( 'rss-http' ) . '; charset=' . get_option( 'blog_charset' ), true );
+header( 'Content-Type: application/rss+xml' . '; charset=' . get_option( 'blog_charset' ), true );
 $frequency  = 1;        // Default '1'. The frequency of RSS updates within the update period.
 $duration   = 'hourly'; // Default 'hourly'. Accepts 'hourly', 'daily', 'weekly', 'monthly', 'yearly'.
 
