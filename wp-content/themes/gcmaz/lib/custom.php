@@ -7,8 +7,8 @@
  * Flush rewrite rules for custom post types
  * urls give a 404 otherwise
  */
-add_action( 'after_switch_theme', 'bt_flush_rewrite_rules' );
-function bt_flush_rewrite_rules() {
+add_action( 'after_switch_theme', 'theme_flush_rewrite_rules' );
+function theme_flush_rewrite_rules() {
      flush_rewrite_rules();
 }
 

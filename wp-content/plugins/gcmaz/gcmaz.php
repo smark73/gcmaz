@@ -9,6 +9,7 @@ Version: 1.0
 Author URI: 
 */
 
+
 // SETTINGS PAGE IN ADMIN
 class GCMAZ_Settings{
 
@@ -81,6 +82,7 @@ class GCMAZ_Settings{
                 array('')                                                      // array of arguments to pass to the callback
                 );
         // TuneGenie
+        /*
         add_settings_section(
                 'gcmaz-tunegenie-section',                            // ID used to identify this section and with which to register options
                 'TuneGenie URL:',                                          // Title to be displayed on the administration page
@@ -95,6 +97,7 @@ class GCMAZ_Settings{
                 'gcmaz-tunegenie-section',                        // name of the section this field belongs
                 array('')                                             // array of arguments to pass to the callback
                 );
+        */
         // JetPack Publicize
         add_settings_section(
                 'gcmaz-publicize-section',                            // ID used to identify this section and with which to register options
@@ -173,6 +176,7 @@ class GCMAZ_Settings{
     }
     
     // GCMAZ TuneGenie Section Description
+    /*
     public function gcmaz_tunegenie_section_callback(){
         echo 'Enter the link for this stations TuneGenie feed';
     }
@@ -185,6 +189,7 @@ class GCMAZ_Settings{
         }
         echo "<input type='textbox' name='gcmaz_settings[gcmaz_tunegenie]' id='gcmaz_settings[gcmaz_tunegenie]' value='$tg_link' size='50' />";
     }
+    */
     
     
     // called in register_gcmaz_setting -> register_setting
@@ -201,11 +206,13 @@ class GCMAZ_Settings{
         $output['gcmaz_publicize'] = array_filter($input['gcmaz_publicize'], 'is_numeric');
         
         //TuneGenie
+        /*
         if( !empty($input['gcmaz_tunegenie']) && !filter_var($input['gcmaz_tunegenie'], FILTER_VALIDATE_URL) ){
             add_settings_error('gcmaz_settings', 'invalid-url', 'URL is not valid');
         } else {
             $output['gcmaz_tunegenie'] = $input['gcmaz_tunegenie'];
         }
+        */
         
         return $output;
     }
