@@ -35,17 +35,24 @@ function my_admin_title($admin_title, $title){
     return get_bloginfo('name') . ' &bull; ' . $title;
 }
 
-// Enqueue jquery UI (Datepicker) + jQuery UI CSS + jquery validate + datepicker validate in ADMIN
-function enqueue_dp_ui(){
-    //wp_enqueue_script('jquery-ui-datepicker');
-    //wp_enqueue_style( 'jquery-ui-style', '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/smoothness/jquery-ui.css', true);
-    wp_enqueue_script( 'jquery-ui-custom', get_template_directory_uri() . '/assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.js');
-    wp_register_style('jquery-ui-style', get_template_directory_uri() . '/assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css', false, '1.11.4');
+//enqueue admin reqs
+function gcmaz_admin_reqs(){
+    //this fixes jquery ajax error related to datepicker
+    wp_register_script( 'admin-scripts', get_stylesheet_directory_uri() . '/assets/js/adminscripts.js' );
+    wp_enqueue_script( 'admin-scripts' );
+    //wp included datepicker
+    wp_enqueue_script( 'jquery-ui-datepicker', true );
+    // datepicker style
+    wp_register_style( 'jquery-ui-style', get_template_directory_uri() . '/assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css', false, '1.11.4' );
     wp_enqueue_style( 'jquery-ui-style' );
+    //custom datepicker
+    //wp_register_script( 'jquery-ui-custom', get_template_directory_uri() . '/assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.js');
+    //wp_enqueue_script( 'jquery-ui-custom' );
+    //validate
     //wp_enqueue_script('jquery-validate', get_template_directory_uri() . '/assets/js/jquery-validation-1.13.1/dist/jquery.validate.min.js');
     //wp_enqueue_script( 'jquery-ui-datepicker-validate', get_template_directory_uri() . '/assets/js/jquery.ui.datepicker.validation.package-1.0.1/jquery.ui.datepicker.validation.min.js');
 }
-add_action('admin_enqueue_scripts', 'enqueue_dp_ui');
+add_action('admin_enqueue_scripts', 'gcmaz_admin_reqs');
 
 //---------- END ADMIN ---------------//
 
