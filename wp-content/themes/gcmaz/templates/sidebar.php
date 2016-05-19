@@ -1,6 +1,6 @@
 <?php
 
-$debug_page = true;
+$debug_page = false;
 
 global $post;
 
