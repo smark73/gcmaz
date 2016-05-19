@@ -20,8 +20,10 @@ if( $c ){
         }
     }
 }
+
+// !!!! THIS BREAKS MANY "PRIMARY-SIDEBAR" (DEFAULTS) IF PAGE NAME CHANGES - SEE "advertising page and children" below
 //give Advertise and its children the 'home' sidebar
-$adv_id = get_page_by_title("Advertise On Northern Arizona Radio");
+//$adv_id = get_page_by_title("Advertise with Great Circle Media");
 //print_r($adv_id->ID);
 
 // need to keep is_search check first ... otherwise gets wrong sidebar as search info moves into post->info (a search for "concerts" calls the concerts sidebar)
@@ -44,13 +46,6 @@ if( is_search() ) {
     if(is_page(array('Contact Great Circle Media', 'thank-you', 'employment'))){
         if ($debug_page === true) {
             echo "<div style='visibility:hidden;display:none;height:0;'>contact, tx, employment</div>";
-        }
-        dynamic_sidebar('sidebar-homepage');
-        
-    // advertising page and children
-    } elseif(is_page('advertise-on-northern-arizona-radio') || $post->post_parent == $adv_id->ID){
-        if ($debug_page === true) {
-            echo "<div style='visibility:hidden;display:none;height:0;'>adv</div>";
         }
         dynamic_sidebar('sidebar-homepage');
         
@@ -96,7 +91,16 @@ if( is_search() ) {
         //} else {
             //dynamic_sidebar('sidebar-news');
         //}
-        
+
+
+    // advertising page and children
+    //} elseif(is_page('advertise-with-great-circle-media') || $post->post_parent == $adv_id->ID){
+        //if ($debug_page === true) {
+            //echo "<div style='visibility:hidden;display:none;height:0;'>adv</div>";
+        //}
+        //dynamic_sidebar('sidebar-homepage');
+
+
     // etc 
     } else {
         if ($debug_page === true) {
