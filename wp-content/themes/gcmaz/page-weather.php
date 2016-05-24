@@ -19,30 +19,34 @@
         <br/><br/>
     </div>
 </div>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/2.3.0/jquery.simpleWeather.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
+        var html = '';
         var $w = function($z,$woeid){
             $.simpleWeather({
-                zipcode: $z,
+                location: $z,
                 woeid: $woeid,
                 unit: 'f',
                 success: function(weather) {
                     html = '<h2>'+weather.city+', '+weather.region+'</h2>';
                     html += '<img style="float:left;" width="125px" src="'+weather.image+'">';
-                    html += '<p>'+weather.temp+'&deg; '+weather.units.temp+'<span>'+weather.currently+'</span></p>';
-                    html += '<a href="'+weather.link+'" target="_blank">View Forecast &raquo;</a>';
+                    html += '<p>'+weather.temp+'&deg; '+weather.units.temp+'</p>';
+                    html += '<p style="font-size:16px;color:#4765a0;">'+weather.currently+'<br/>';
+                    html += 'Wind '+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</p>';
+                    html += '<p><a href="'+weather.link+'" target="_blank" style="color:#4f91c5;margin-top:30px;">View Full Forecast &raquo;</a></p>';
+
                     $("#weather").html(html);
                 },
                 error: function(error) {
                     $("#weather").html('<p>'+error+'</p>');
                 }
             });
-        }
-        $w('86001', '12794772');
-        $('#flagstaff').click(function(){ $w('86001', '12794772'); return false; });
-        $('#prescott').click(function(){ $w('86301', '12794808'); return false; });
-        $('#sedona').click(function(){ $w('86336', '12794784'); return false; });
-        $('#gc').click(function(){ $w('86023', '12794831'); return false; });
+        };
+        $w('86001', '2404049');
+        $('#flagstaff').click(function(){ $w('86001', '2404049'); return false; });
+        $('#prescott').click(function(){ $w('86301', '2476440'); return false; });
+        $('#sedona').click(function(){ $w('86336', '2490551'); return false; });
+        $('#gc').click(function(){ $w('86023', '23506246'); return false; });
     });
 </script>
