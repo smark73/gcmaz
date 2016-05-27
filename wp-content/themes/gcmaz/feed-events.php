@@ -56,13 +56,13 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                 //  -- note 'posts_per_page' known to solve issue of some posts not showing up
                 $args = array(
                     'post_type' => 'gcmaz-event',
-                    'meta_key' => 'event_start_date',
+                    'meta_key' => 'event_start_date_comp',
                     'posts_per_page' => '999',
                     'orderby' => 'meta_value',
                     'order' => 'ASC',
                     'meta_query' => array(
                         array(
-                            'key' => 'event_start_date',
+                            'key' => 'event_start_date_comp',
                             'value' => array('20000101', $d),
                             'type' => 'date',
                             'compare' => '>=',
