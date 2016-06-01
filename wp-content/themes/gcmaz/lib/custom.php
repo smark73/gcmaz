@@ -447,8 +447,8 @@ function shorten_and_strip_html($string, $length){
     // Find out what the last displayed character is in the shortened string
     $lastchar = substr($desc, -1, 1);
 
-    // Check for existing "(more…)" from WP -> count 7 in from end, then fwd 5 "(more" to avoid the "…"
-    $check_more_tag = substr($desc, -7, 5);
+    // Check for existing "(more &hellip;)" from WP -  count 15 from end, then fwd 5, is it  "(more"
+    $check_more_tag = substr($desc, -15, 5);
  
     // If the last character is a period, an exclamation point, or a question 
     // mark, clear out the appended text.
