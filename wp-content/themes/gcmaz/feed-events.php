@@ -98,7 +98,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 
                             //$content = strip_tags( $content );
                             // shorten_and_strip_html( string, length )
-                            $content = shorten_and_strip_html( $content, '200' );
+                            $content = shorten_and_strip_html( $content, '350' );
 
 
                             $e_start_date = get_post_custom_values( 'event_start_date' );

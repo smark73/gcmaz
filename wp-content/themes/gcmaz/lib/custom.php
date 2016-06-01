@@ -439,7 +439,7 @@ function shorten($string, $length){
 
 function shorten_and_strip_html($string, $length){
     // By default, an ellipsis will be appended to the end of the text.
-    $suffix = '&hellip;';
+    $suffix = ' (more &hellip;)';
  
     // Convert 'smart' punctuation to 'dumb' punctuation, strip the HTML tags,
     // and convert all tabs and line-break characters to single spaces.
