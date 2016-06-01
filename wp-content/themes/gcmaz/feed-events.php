@@ -96,6 +96,8 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                             // get pertinent data and attach it to content variable
                             $content = get_the_content_feed( 'rss2' );
 
+                            $content = strip_tags( $content );
+
                             $e_start_date = get_post_custom_values( 'event_start_date' );
                             $e_end_date = get_post_custom_values( 'event_end_date' );
                             
