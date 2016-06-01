@@ -447,12 +447,15 @@ function shorten_and_strip_html($string, $length){
     // Find out what the last displayed character is in the shortened string
     $lastchar = substr($desc, -1, 1);
 
-    // Check for existing "(more&hellip;)" from WP - count from end -15 and -9, is it  "(more"
-    $check_more_tag = substr($desc, -15, -9);
+    // Check for existing "(more&hellip;)" from WP 
+    $more_tag = "(more&hellip;)";
+    if ( stripos( $desc, $more_tag ) !== false ){
+        $more_tag_exists = true;
+    }
  
     // If the last character is a period, an exclamation point, or a question 
     // mark, clear out the appended text.
-    if ( $lastchar == '.' || $lastchar == '!' || $lastchar == '?' || $check_more_tag == '(more' ){
+    if ( $lastchar == '.' || $lastchar == '!' || $lastchar == '?' || $check_more_tag == true ){
         $suffix='';
     }
  
