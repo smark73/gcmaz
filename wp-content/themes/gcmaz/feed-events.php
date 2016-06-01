@@ -1,6 +1,6 @@
 <?php
 /**
- * Concerts RSS template.
+ * Events Feed RSS template.
  * 
  * @package GCMAZ
  */
@@ -30,9 +30,9 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 
   <!-- RSS feed defaults -->
 	<channel>
-		<title>Concerts Near You</title>
+		<title>Local Event Listings</title>
 		<link><?php bloginfo_rss( 'url' ) ?></link>
-		<description>Concerts in Northern Arizona - Great Circle Media</description>
+		<description>Northern Arizona Events and Happenings - Great Circle Media</description>
 		<lastBuildDate><?php echo mysql2date( 'D, d M Y H:i:s +0000', get_lastpostmodified( 'GMT' ), false ); ?></lastBuildDate>
 		<language><?php bloginfo_rss( 'language' ); ?></language>
 		<sy:updatePeriod><?php echo apply_filters( 'rss_update_period', $duration ); ?></sy:updatePeriod>
@@ -47,22 +47,22 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                 
                 // get today
                 $d = date('Ymd');
-
-                // query the Concert category
-                // for position - use start date (concert_fulldate)
-                // for kill date - use end date (concert_fullenddate)
+                
+                // query the Event CPT
+                // for position - use start date
+                // for kill date - use end date
                 //  check if fulldate has a value of 20000101 (Jan 1, 2000) which is default given to non-dated items
                 //  compare to todays date
                 //  -- note 'posts_per_page' known to solve issue of some posts not showing up
                 $args = array(
-                    'post_type' => 'concert',
-                    'meta_key' => 'concert_fulldate',
+                    'post_type' => 'gcmaz-event',
+                    'meta_key' => 'event_start_date_comp',
                     'posts_per_page' => '999',
                     'orderby' => 'meta_value',
                     'order' => 'ASC',
                     'meta_query' => array(
                         array(
-                            'key' => 'concert_fulldate',
+                            'key' => 'event_start_date_comp',
                             'value' => array('20000101', $d),
                             'type' => 'date',
                             'compare' => '>=',
@@ -80,41 +80,43 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                     // check if in "Hide Post" category
                     if( !in_category( array( 'hide-post', 'Hide Post' ) ) ) :
                 ?>
-
+                            
                     <?php
-                        // double check custom date to see if its past date
-                        $expDate = get_post_custom_values('concert_fullenddate');
-                        if (!$expDate[0]){
+                        // double check date to see if its past date
+                        $expire_date = get_post_custom_values( 'event_end_date_comp' );
+                        if ( !$expire_date[0] ){
                             // if no end date set, use start date or default value
-                            $expDate = get_post_custom_values('concert_fulldate');
+                            $expire_date = get_post_custom_values( 'event_start_date_comp' );
                         }
                         
-                        if(($expDate[0] == '20000101') || (strtotime($expDate[0])) >= (strtotime('now'))) :
+                        if( ( $expire_date[0] == '20000101' ) || ( strtotime( $expire_date[0] ) ) >= ( strtotime( 'now' ) ) ) :
                     ?>
-            
+
                         <?php
                             // get pertinent data and attach it to content variable
-                            $content = get_the_content_feed('rss2');
+                            $content = get_the_content_feed( 'rss2' );
 
+                            //$content = strip_tags( $content );
                             // shorten_and_strip_html( string, length )
                             $content = shorten_and_strip_html( $content, '350' );
 
-                            $eStartDate = get_post_custom_values('concert_date');
-                            $eEndDate = get_post_custom_values('concert_enddate');
+
+                            $e_start_date = get_post_custom_values( 'event_start_date' );
+                            $e_end_date = get_post_custom_values( 'event_end_date' );
                             
-                            $eventStartDate = $eStartDate[0];
-                            $eventEndDate = $eEndDate[0];
+                            $event_start_date = $e_start_date[0];
+                            $event_end_date = $e_end_date[0];
                             
-                            if($eventEndDate){
+                            if( $event_end_date ){
                                 //if we have an end date, add it
-                                $eventDate = $eventStartDate . " - " . $eventEndDate;
+                                $event_date = $event_start_date . " - " . $event_end_date;
                             } else {
-                                $eventDate = $eventStartDate;
+                                $event_date = $event_start_date;
                             }
                             
-                            $content = '<span class="listdate pull-right red">' . $eventDate . '</span>' . $content;
+                            $content = '<span class="listdate pull-right red">' . $event_date . '</span>' . $content;
 
-                            if(has_post_thumbnail()) {
+                            if( has_post_thumbnail() ) {
                                 $postimages = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' );
                                 $postimage = $postimages[0];
                                 $imgTag = '<img src="' . $postimage . '" class="feed-img" align="left"/>';
@@ -129,18 +131,31 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                             <guid isPermaLink="false"><?php the_guid(); ?></guid>
                             <author><?php the_author_meta('user_email'); echo "("; the_author(); echo ")"; ?></author>
                             <?php the_category_rss('rss2') ?>
+
                             <?php if (get_option('rss_use_excerpt')) : ?>
-                                    <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
+                                <?php // set to use excerpts instead of content ?>
+                                <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
+
                             <?php else : ?>
-                                    <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
-                                    <?php if ( strlen( $content ) > 0 ) : ?>
-                                            <content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
-                                    <?php else : ?>
-                                            <content:encoded><![CDATA[<?php the_excerpt_rss(); ?>]]></content:encoded>
-                                    <?php endif; ?>
+
+                                <?php //using content ?>
+                                <?php //fill desc with excerpt ?>
+                                <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
+
+                                <?php if ( strlen( $content ) > 0 ) : ?>
+                                    <?php //the content to show, if exists ?>
+                                    <content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
+
+                                <?php else : ?>
+                                    <?php //if no content, use excerpt ?>
+                                    <content:encoded><![CDATA[<?php the_excerpt_rss(); ?>]]></content:encoded>
+
+                                <?php endif; ?>
+                                
                             <?php endif; ?>
+
                         </item>
-            
+
                     <?php endif; ?>
 
                 <?php endif; ?>
