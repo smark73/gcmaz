@@ -406,7 +406,7 @@ function gcmaz_dashboard_widgets(){
  */
 function shorten($string, $length){
     // By default, an ellipsis will be appended to the end of the text.
-    $suffix = '&hellip;';
+    $suffix = ' (more &hellip;)';
  
     // Convert 'smart' punctuation to 'dumb' punctuation, strip the HTML tags,
     // and convert all tabs and line-break characters to single spaces.
@@ -446,10 +446,15 @@ function shorten_and_strip_html($string, $length){
  
     // Find out what the last displayed character is in the shortened string
     $lastchar = substr($desc, -1, 1);
+
+    // Check for existing "(more…)" from WP -> count 7 in from end, then fwd 5 "(more" to avoid the "…"
+    $check_more_tag = substr($desc, -7, 5);
  
     // If the last character is a period, an exclamation point, or a question 
     // mark, clear out the appended text.
-    if ($lastchar == '.' || $lastchar == '!' || $lastchar == '?') $suffix='';
+    if ( $lastchar == '.' || $lastchar == '!' || $lastchar == '?' || $check_more_tag == '(more' ){
+        $suffix='';
+    }
  
     // Append the text.
     $desc .= $suffix;
