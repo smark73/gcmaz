@@ -129,6 +129,7 @@ function gcm_feeds_tpl(){
     add_feed('whats', 'whats_feeds_render');
     add_feed('concerts', 'concerts_feeds_render');
     add_feed('community', 'community_feeds_render');
+    add_feed('events', 'events_feed_render');
 }
 /*
  * gcm feeds RSS template callback
@@ -141,6 +142,9 @@ function concerts_feeds_render(){
 }
 function community_feeds_render(){
     get_template_part('feed', 'community');
+}
+function events_feed_render(){
+    get_template_part('feed', 'events');
 }
 
 
@@ -406,6 +410,7 @@ function gcmaz_dashboard_widgets(){
  */
 function shorten($string, $length){
     // By default, an ellipsis will be appended to the end of the text.
+
     $suffix = ' (more &hellip;)';
  
     // Convert 'smart' punctuation to 'dumb' punctuation, strip the HTML tags,
@@ -465,7 +470,6 @@ function shorten_and_strip_html($string, $length){
     // Send the new description back to the page.
     return $desc;
 }
-
 
 
 // USE ONLY WHEN NEEDED
