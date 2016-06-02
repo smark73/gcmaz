@@ -114,7 +114,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                 $event_date = $event_start_date;
                             }
                             
-                            $content = '<span class="listdate pull-right red">' . $event_date . '</span>' . $content;
+                            $content = '<span class="listdate red">' . $event_date . '</span>' . $content;
 
                             if( has_post_thumbnail() ) {
                                 $postimages = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' );
