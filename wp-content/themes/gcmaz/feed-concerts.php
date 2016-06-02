@@ -112,7 +112,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                                 $eventDate = $eventStartDate;
                             }
                             
-                            $content = '<p class="listdate red">' . $eventDate . '</p>' . $content;
+                            $content = '<p class="listdate red">' . $eventDate . '</p><br class="clearfix">' . $content;
 
                             if(has_post_thumbnail()) {
                                 $postimages = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' );
