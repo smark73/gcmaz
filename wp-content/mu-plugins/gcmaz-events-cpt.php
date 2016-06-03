@@ -56,7 +56,7 @@ function gcmaz_event_post_type(){
             ),
             'hierarchichal' => false,
             'public' => true,
-            'menu_position' => 5,
+            'menu_position' => 6,
             'menu_icon' => plugins_url( 'icon_gcmaz.png', __FILE__ ),
             'has_archive' => true,
             'rewrite' => array('slug' => 'events'),
