@@ -476,6 +476,8 @@ div.author-details div.row{margin-top:1%;margin-bottom:1%;}
 
 /******** single pages ***********/
 .info-img{padding:10px;max-width:100%}
+
+
 article.sngl-info{margin:auto}
 
 /****** weather *******/
@@ -1164,6 +1166,9 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
     img.logo-pre-navbar{display:none;visibility:hidden;width:0;}/*pre-navbar*/
     .navbar-icons a.icon-fb, .navbar-icons a.icon-tw {width:30px;}
     a.searchbox-toggle{font-size:14px;width:30px;}
+    a.event-img-link { text-align: center; margin:auto; width:100%; display:block; }
+    article.type-gcmaz-event header,
+    article.type-gcmaz-event span.red { text-align: center;margin:auto;}
 }
 @media (max-width: @screen-xs-max)  {
     img.logo{max-width:175px;margin-bottom:3%}/*row1*/
@@ -1203,6 +1208,9 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
     {
         text-align:left;
     }
+    a.event-img-link { text-align: center; margin:auto; width:100%; display:block;}
+    article.type-gcmaz-event header,
+    article.type-gcmaz-event span.red { text-align: center;margin:auto;}
 } //End @media
 
 @media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
@@ -1216,6 +1224,9 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
     //body.admin-bar .navbar-fixed-top { top: 28px !important; }
     //hide icons when navbar shrinks to "sm" prevent these from wrapping below menu items and breaking it
     //.navbar-icons{ line-height:0px;height:0px;width:0px;display:none;visibility:hidden}
+    a.event-img-link { text-align: center; margin:auto; width:100%; display:block; }
+    article.type-gcmaz-event header,
+    article.type-gcmaz-event span.red { text-align: center;margin:auto;}
 } //End @media
 
 @media (min-width: @screen-md) and (max-width: @screen-md-max) {
@@ -1226,6 +1237,7 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
     // fixed navbar
     //body.admin-bar .navbar-fixed-top { top: 28px !important; }
+    a.event-img-link { float:right;}
 } //End @media
 
 @media (min-width: @screen-lg) {
@@ -1236,4 +1248,5 @@ textarea.ginput_container input, textarea.ginput_container select, textarea.ginp
     ul.nav li.dropdown:hover > ul.dropdown-menu {display: block;}
     // fixed navbar
     //body.admin-bar .navbar-fixed-top { top: 28px !important; }
+    a.event-img-link { float:right;}
 } //End @media
