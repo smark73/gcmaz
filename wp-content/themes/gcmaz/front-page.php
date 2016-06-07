@@ -20,7 +20,7 @@
 <div class="row">
     <div id="kaffBlock" class="stationTile col-md-4 col-sm-6">
         <div class="logoBlock">
-            <img id="kaffLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kaff-logo.png" alt="92.9 KAFF Country" class="img-responsive"/>
+            <img id="kaffLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/929_KAFF_tagged_sm.png" alt="92.9 KAFF Country" class="img-responsive"/>
         </div>
         <div class="row blockBtn blockBtnHide">
             <div class="col-xs-6 blockBtnWeb">
