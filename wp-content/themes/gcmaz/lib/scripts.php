@@ -101,6 +101,6 @@ ga('send','pageview');
 </script>
 
 <?php }
-if (GOOGLE_ANALYTICS_ID && !current_user_can('manage_options')) {
+if (GOOGLE_ANALYTICS_ID) {
   add_action('wp_footer', 'roots_google_analytics', 20);
 }
