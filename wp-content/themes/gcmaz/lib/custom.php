@@ -68,23 +68,29 @@ function namespace_add_custom_types( $query ) {
 }
 add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
 
+
+
 /* JetPack Publicize custom on/off chosen in Settings/GCMAZ */
 // get current user id and compare it against stored id's in our gcmaz_publicize option value
-$current_user = wp_get_current_user();
-$gcmaz_settings = get_option('gcmaz_settings');
-if( !in_array($current_user->ID, $gcmaz_settings['gcmaz_publicize']) ){
-    // set auto post to unchecked
-    add_filter( 'publicize_checkbox_default', '__return_false' );
-    //echo "<script> alert('Booo');</script>";
-    //print_r($gcmaz_settings['gcmaz_publicize']);
+function disable_jetpack_pub_via_settings(){
+    $current_user = wp_get_current_user();
+    $gcmaz_settings = get_option('gcmaz_settings');
+    if( !in_array($current_user->ID, $gcmaz_settings['gcmaz_publicize']) ){
+        // set auto post to unchecked
+        add_filter( 'publicize_checkbox_default', '__return_false' );
+        //echo "<script> alert('Booo');</script>";
+        //print_r($gcmaz_settings['gcmaz_publicize']);
+    }
 }
+add_action('after_setup_theme', 'disable_jetpack_pub_via_settings');
 
 /* remove JetPack sharing buttons from excerpts */
-add_action( 'init', 'gcmaz_remove_filters_func' );
-
 function gcmaz_remove_filters_func() {
      remove_filter( 'the_excerpt', 'sharing_display', 19 );
 }
+add_action( 'init', 'gcmaz_remove_filters_func' );
+
+
 
 
 // PAGE TAKE OVER FUNCTIONS CALLED BY ADMIN OPTIONS
@@ -123,14 +129,13 @@ if($ptko_settings['ptko_toggle'] == 1){
 /*
  * Register new  RSS templates
  */
-add_action('after_setup_theme', 'gcm_feeds_tpl');
-
 function gcm_feeds_tpl(){
     add_feed('whats', 'whats_feeds_render');
     add_feed('concerts', 'concerts_feeds_render');
     add_feed('community', 'community_feeds_render');
     add_feed('events', 'events_feed_render');
 }
+add_action('after_setup_theme', 'gcm_feeds_tpl');
 /*
  * gcm feeds RSS template callback
  */
