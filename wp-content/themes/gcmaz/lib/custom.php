@@ -394,16 +394,16 @@ function gcmaz_dashboard_widgets(){
     function gcmaz_welcome_text(){
         echo '
             <h2>About The GCMAZ Dashboard</h2>
-            <p>This is the main dashboard that admins, editors, authors, and contributors use to input content for the following web entities.  That content includes News, Concerts, Whats Happening, Community Information, Splash and Contest Pages, and general GCM content.</p>
-            <a href="http://kaff.gcmaz.com"><img src="/media/flagstaff-radio-kaff-country.jpg" alt="Northern Arizona Radio - KAFF Country 92.9" style="max-width:120px;padding:20px;" /></a>
-            <a href="http://939themountain.gcmaz.com"><img src="/media/flagstaff-radio-the-mountain.jpg" alt="Northern Arizona Radio - 93.9 The Mountain" style="max-width:90px;padding:20px;" /></a>
-            <a href="http://magic991.gcmaz.com"><img src="/media/prescott-radio-magic.jpg" alt="Prescott Radio - Magic 99.1" style="max-width:120px;padding:20px;" /></a>
-            <a href="http://hits106.gcmaz.com"><img src="/media/flagstaff-radio-hits-106.jpg" alt="Flagstaff Radio - Hits 106" style="max-width:90px;padding:20px;" /></a>
-            <a href="http://country935.gcmaz.com"><img src="/media/flagstaff-radio-country-93-5.jpg" alt="Flagstaff Radio Country 93-5" style="max-width:90px;padding:20px;" /></a>
-            <a href="http://eagle.gcmaz.com"><img src="/media/kzgl-logo-on-white.jpg" alt="103.7 The Eagle" style="max-width:80px;padding:20px;" /></a>
-            <a href="http://funoldies.gcmaz.com"><img src="/media/prescott-radio-oldies.jpg" alt="Prescott Radio - Fun Oldies 100.9 1450am" style="max-width:100px;padding:20px;" /></a>
-            <a href="http://gcmaz.com/kaff-news"><img src="/media/kaff-news.png" alt="KAFF News" style="max-width:120px;padding:20px;" /></a>
-            <a href="http://gcmaz.com"><img src="/media/logo-gcmaz.png" alt="Great Circle Media" style="max-width:120px;padding:20px;" /></a>
+            <p>This is the main dashboard that admins, editors, authors, and contributors use to input content for the following web entities.  That content includes KAFF News, Concerts, Whats Happening, Community Information, Splash and Contest Pages, and general GCM content.</p>
+            <a href="//kaff.gcmaz.com"><img src="' . get_template_directory_uri(). '/assets/img/kaff-logo.png" alt="92.9 KAFF Country" style="max-width:120px;padding:20px;" /></a>
+            <a href="//939themountain.gcmaz.com"><img src="' . get_template_directory_uri(). '/assets/img/kmgn-logo.png" alt="93.9 The Mountain" style="max-width:90px;padding:20px;" /></a>
+            <a href="//magic991.gcmaz.com"><img src="' . get_template_directory_uri(). '/assets/img/ktmg-logo.png" alt="Magic 99.1" style="max-width:120px;padding:20px;" /></a>
+            <a href="//hits106.gcmaz.com"><img src="' . get_template_directory_uri(). '/assets/img/kfsz-logo.png" alt="Hits 106" style="max-width:90px;padding:20px;" /></a>
+            <a href="//kafflegends.gcmaz.com"><img src="' . get_template_directory_uri(). '/assets/img/kaffam-logo.png" alt="KAFF Country Legends" style="max-width:120px;padding:20px;" /></a>
+            <a href="//eagle.gcmaz.com"><img src="' . get_template_directory_uri(). '/assets/img/kzgl-logo-black.png" alt="103.7 The Eagle" style="max-width:80px;padding:20px;" /></a>
+            <a href="//979theeagle.gcmaz.com"><img src="' . get_template_directory_uri(). '/assets/img/97-9-logo-black.png" alt="97.9 The Eagle" style="max-width:80px;padding:20px;" /></a>
+            <a href="//gcmaz.com/kaff-news"><img src="' . get_template_directory_uri(). '/assets/img/kaff-news-logo.png" alt="KAFF News" style="max-width:120px;padding:20px;" /></a>
+            <a href="//gcmaz.com"><img src="' . get_template_directory_uri(). '/assets/img/logo-gcmaz.png" alt="Great Circle Media" style="max-width:120px;padding:20px;" /></a>
         ';
     }
 }
@@ -415,6 +415,7 @@ function change_news_post_label() {
     global $menu;
     global $submenu;
     $menu[5][0] = 'KAFF News';
+    $menu[5][6] = '../wp-content/mu-plugins/icon_gcmaz.png';
     $submenu['edit.php'][5][0] = 'See All News';
     $submenu['edit.php'][10][0] = 'Add News Post';
     $submenu['edit.php'][16][0] = 'News Tags';
