@@ -308,12 +308,12 @@ add_filter('login_headerurl', 'gcmaz_url_login');
 function gcmaz_login_logo() { ?>
     <style type="text/css">
         #login{
-            width:500px;
+            width:400px !important;
         }
         .login h1 a {
             background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/img/all-logos-gcm.png);
-            width:500px;
-            height:100px;
+            width:400px !important;
+            height: 83px;
             background-size:contain;
             background-position:center top;
         }
