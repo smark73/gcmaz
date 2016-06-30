@@ -300,7 +300,7 @@ function live_or_local(){
  */
 // Use your own external URL logo link
 function gcmaz_url_login(){
-    return "http://gcmaz.com/";
+    return "https://gcmaz.com/";
 }
 add_filter('login_headerurl', 'gcmaz_url_login');
 
@@ -319,7 +319,8 @@ function gcmaz_login_logo() { ?>
         }
     </style>
 <?php }
-add_action( 'login_enqueue_scripts', 'gcmaz_login_logo' );
+//add_action( 'login_enqueue_scripts', 'gcmaz_login_logo' );
+add_action( 'login_head', 'gcmaz_login_logo' );
 
 // END
 
