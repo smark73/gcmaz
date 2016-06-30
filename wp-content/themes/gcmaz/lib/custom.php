@@ -316,6 +316,7 @@ function gcmaz_login_logo() { ?>
             height: 83px;
             background-size:contain;
             background-position:center top;
+            margin-left: -25px;
         }
     </style>
 <?php }
