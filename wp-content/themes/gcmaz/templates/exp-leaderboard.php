@@ -72,10 +72,8 @@ if( is_plugin_active( 'adrotate/adrotate.php' ) ){
                 // no ads in our group or error retrieving them
                 // see adrotate-output.php for list of errors
             } else {
-                echo '<div class="hidden-xs expldrbrd centered">';
+                echo '<div class="col-xs-12 expldrbrd centered">';
                      echo adrotate_group($groupnum);
-                echo '</div><div class="col-xs-12 hidden-sm hidden-md hidden-lg centered">';
-                    echo adrotate_group($groupnum);
                 echo '</div>';
             }
         } 

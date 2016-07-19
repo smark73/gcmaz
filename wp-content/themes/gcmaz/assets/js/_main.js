@@ -42,32 +42,32 @@ var GcmazSite = {
         });
 
         //hover funx
-        jQuery(function(){
-           t.tkohdr2.delay(10000).animate({ height:0, bottom:0, marginTop:0},
-            function(){
-                t.tkohdr.mouseover(function(){
-                    t.tkohdr2.stop().animate({ height: t.h2, bottom: t.h2, marginTop:0});
-                });
-                t.tkohdr.mouseout(function(){
-                    t.tkohdr2.stop().animate({ height:0, bottom:0, marginTop:0});
-                });
-            });
-        });
+        // jQuery(function(){
+        //    t.tkohdr2.delay(10000).animate({ height:0, bottom:0, marginTop:0},
+        //     function(){
+        //         t.tkohdr.mouseover(function(){
+        //             t.tkohdr2.stop().animate({ height: t.h2, bottom: t.h2, marginTop:0});
+        //         });
+        //         t.tkohdr.mouseout(function(){
+        //             t.tkohdr2.stop().animate({ height:0, bottom:0, marginTop:0});
+        //         });
+        //     });
+        // });
         // **** END PAGE TAKEOVER
         
         //****  START exp leaderboard banner 
-        var $exp = jQuery(document).find('.expldrbrd');
-        jQuery(function(){
-            $exp.delay(10000).animate({ height:20, bottom:0}, function(){
-                //show hide funx
-                $exp.mouseover(function(){
-                    $exp.stop().animate({ height:150, bottom:150});
-                });
-                $exp.mouseout(function(){
-                    $exp.stop().animate({ height:18, bottom:0});
-                });
-            });
-        });
+        // var $exp = jQuery(document).find('.expldrbrd');
+        // jQuery(function(){
+        //     $exp.delay(10000).animate({ height:20, bottom:0}, function(){
+        //         //show hide funx
+        //         $exp.mouseover(function(){
+        //             $exp.stop().animate({ height:150, bottom:150});
+        //         });
+        //         $exp.mouseout(function(){
+        //             $exp.stop().animate({ height:18, bottom:0});
+        //         });
+        //     });
+        // });
         //***** END exp leaderboard
         
         
