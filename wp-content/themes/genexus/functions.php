@@ -657,6 +657,23 @@ function featured_image_in_post( ) {
 
 
 
+/**********************************************************/
+// CHANGE EXCERPT [...] TO LINK
+/**
+ * Filter the "read more" excerpt string link to the post.
+ *
+ * @param string $more "Read more" excerpt string.
+ * @return string (Maybe) modified "read more" excerpt string.
+ */
+function wpdocs_excerpt_more( $more ) {
+    return sprintf( '<a class="read-more" href="%1$s">%2$s</a>',
+        get_permalink( get_the_ID() ),
+        __( 'Full Story', 'textdomain' )
+    );
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+
 
 /**********************************************************/
 // FUNCTIONS CALLED THROUGHOUT SITE

@@ -28,7 +28,7 @@
 
 $news-menu-bg-color: $neutral-tan;
 $news-menu-bg-color-hover: $neutral-tan;
-$news-menu-text-color: $gunmetal-lt;
+$news-menu-text-color: $gunmetal;
 $news-menu-text-color-hover: $blue;
 $news-menu-bg-color-underline: $neutral-tan-dk;
 $news-menu-border-color: $news-menu-bg-color;
@@ -49,14 +49,6 @@ nav.nav-secondary {
 	.genesis-nav-menu {
 
 		.news-sections-hdr{
-
-			.news-menu-icon {
-				.fa {
-					color: $neutral-tan-dk;
-					vertical-align: middle;
-					font-size: 1.2em;
-				}
-			}
 
 			@extend %bree;
 			//position: relative;

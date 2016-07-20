@@ -1,5 +1,7 @@
 //KAFF NEWS
 
+
+// FEATURED SECTION
 .news-featured-section{
 
 	@include row();
@@ -8,6 +10,80 @@
 	//@include flex-direction(row);
 	//@include justify-content(flex-start);
 
+	.featured-article {
+
+		@include span-columns(6);
+
+		.news-post {
+
+			a.news-post-title{
+
+				@extend %bree;
+				padding: 5px 0 0;
+				margin: 5px auto;
+				font-size: 1em;
+				color: $gunmetal-dk;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			.news-post-content{
+
+				p {
+					font-size: .8em;
+				}
+			}
+
+			a.ftr-img {
+
+				img {
+					max-width: 100%;
+					height: auto;
+					max-height: 200px;
+					margin: auto;
+				}
+
+				text-align: center;
+				margin: auto;
+				display:block;
+			}
+
+			.news-date {
+				margin: 0;
+				padding:0;
+				color: $gray;
+				font-size: .7em;
+			}
+
+			hr{
+				width:90%;
+				margin:10px auto 20px;
+			}
+
+			padding: 20px;
+		}
+
+		.news-featured-ftr {
+
+			a {
+				display: block;
+				color: $neutral-tan-dk;
+			}
+
+			color: $neutral-tan-dk;
+			font-weight: 600;
+			font-size: .8em;
+			padding: 7px 0 7px 20px;
+			text-align: left;
+			background: lighten($neutral-tan, 3%);
+		}
+
+		background: $color-white;
+
+	}
+
 	background: $neutral-tan;
 	margin: auto;
 	padding: 10px;
@@ -15,91 +91,118 @@
 }
 
 
-.featured-article {
+// LATEST NEWS STORIES SECTION
+.news-latest-section {
 
-	@include span-columns(6);
-
-	.news-post {
-
-		p.news-post-title{
-
-			@extend %bree;
-			padding: 5px 0 0;
-			margin: 5px auto;
-			font-size: 1em;
-			color: $gunmetal-dk;
-		}
-
-		.news-post-content{
-
-			p {
-				font-size: .8em;
-			}
-		}
-
-		a.ftr-img {
-
-			img {
-				max-width: 100%;
-				height: auto;
-				max-height: 200px;
-				margin: auto;
-			}
-
-			text-align: center;
-			margin: auto;
-			display:block;
-		}
-
-		hr{
-			width:90%;
-			margin:10px auto 20px;
-		}
-
-		padding: 20px;
-	}
-
-	.news-featured-ftr {
-
-		a {
-			display: block;
-			color: $neutral-tan-dk;
-		}
-
-		color: $neutral-tan-dk;
-		font-weight: 600;
-		font-size: .8em;
-		padding: 7px 0 7px 20px;
-		text-align: left;
-		background: lighten($neutral-tan, 3%);
-	}
-
-	background: $color-white;
-
-}
-
-
-.news-story-listing{
 	@include row();
 
-	a {
-		display:block;
+	.news-latest-hdr{
+		h1, h2, h3, h5, h5, h6, h7{
+			@extend %bree;
+			margin: 20px auto;
+			text-align: center;
+			padding: 12px 0;
+			color: $color-whitesmoke;
+		}
+
+		width: 100%;
+		background: $blue;
+
 	}
 
-	hr{
-		width:90%;
-		margin:10px auto 20px;
+	// general listing - no image
+	.news-listing {
+
+		.news-date {
+			margin: 0;
+			padding:0;
+			color: $gray;
+			font-size: .6em;
+		}
+
+		.latest-posts-text {
+
+			// no img
+			@include span-columns(12);
+
+			a.news-post-title {
+				@extend %bree;
+				padding: 5px 0 0;
+				margin: 5px auto;
+				//font-size: .8em;
+				color: $gunmetal-dk;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			// target excerpt p
+			p:nth-child(2){
+				font-size: .8em;
+				color: $gray;
+			}
+
+			.read-more {
+				font-size: .9em;
+				color: $blue;
+				margin-left: 5px;
+				padding: 2px;
+				//text-decoration: underline;
+				//border-bottom: 2px solid darken($neutral-blue-lt, 5%);
+				border-left: 2px solid darken($neutral-blue-lt, 5%);
+				border-right: 2px solid darken($neutral-blue-lt, 5%);
+				&:hover{
+					background-color: $neutral-blue-lt;
+				}
+			}
+
+		}
+
+		padding: 0 15px;
+
 	}
 
-	padding: 20px;
+
+	// listing has image
+	.news-listing.has-img {
+
+		.latest-posts-text {
+			// has img
+			@include span-columns(10);
+			@include omega();
+
+			@include media($sm-screen){
+				@include span-columns(8);
+				@include omega();
+			}
+		}
+
+		.latest-posts-img {
+			// has img
+			@include span-columns(2);
+			@include omega();
+
+			@include media($sm-screen){
+				@include span-columns(4);
+				@include omega();
+			}
+
+			a {
+				img {
+					max-width: 100%;
+					height: auto;
+				}
+			}
+
+			text-align: right;
+		}
+	}
+
+	padding: 2%;
+
 }
 
 
-.news-date {
-	margin: 2% 0 -5px 10px;
-	padding: 0;
-	font-weight: 400;
-	color: $gray;
-	font-size: 0.8em;
-}
+
 

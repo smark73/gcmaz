@@ -29,7 +29,6 @@ function page_loop(){
                     if( $hp_query->have_posts() ){
                         while ( $hp_query->have_posts() ) {
                             $hp_query->the_post();
-                            //global $post;
                             the_content();
                         }
                     }
