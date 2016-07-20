@@ -1,0 +1,26 @@
+/* ## Site Containers
+--------------------------------------------- */
+
+body {
+	background: $color-whitesmoke;
+}
+
+.wrap {
+
+	@include outer-container;
+	
+}
+
+.site-inner {
+
+	@include outer-container;
+
+
+	.content,
+	.sidebar {
+		//padding: 2%;
+	}
+
+	clear: both;
+	//padding-top: 20px;
+}

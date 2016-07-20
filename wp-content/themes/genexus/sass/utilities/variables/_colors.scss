@@ -1,0 +1,198 @@
+// Color Variables
+
+// ************************************************************
+// COLORS
+// ************************************************************
+// From Bourbon
+$color-alto: #ddd;
+$color-black: #000;
+$color-cod-gray: #111;
+$color-dove-gray: #666;
+$color-dusty-gray: #999;
+$color-gallery: #eee;
+$color-mandy: #e5554e;
+$color-mine-shaft: #333;
+$color-silver-chalice: #aaa;
+$color-silver: #ccc;
+$color-thunderbird: #c3251d;
+$color-white: #fff;
+$color-whitesmoke: #f5f5f5;
+
+// From BS
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+// Ours
+$blue:			 	#3853a4; // default gcm blue
+$light-blue:		#4589ff;
+$med-blue:			#2e6fdd;
+$dark-blue:			#203062;
+$red:				#c00;
+$bright-red: 		#f33;
+$yellow:			#ff0;
+$neutral-tan: 		#e6e4df;
+$neutral-tan-lt:	#f5f3f1;
+$neutral-tan-dk:	#a9a39a;
+$neutral-blue-lt:	#edeff9;
+$gunmetal:			#353a44;
+$gunmetal-lt:		#575e6b;
+$gunmetal-dk:		#191c22;
+
+// Station Colors
+$kaff-red: #ea2328;
+$kaff-blue: #2e4a9d;
+$kmgn-orange: #f69222;
+$kmgn-gray: #414143;
+$eagle-yellow: #f5eb1a;
+$kfsz-blue: #0055a5;
+$kfsz-gray: #35393c;
+$ktmg-yellow: #fede11;
+$ktmg-blue: #2f67b2;
+$ktmg-lt-blue: #3399ff;
+$kaffam-blue: #434777;
+$kaffam-red: #ba383a;
+$kaffam-white: #eee8e8;
+$shine-orange: #f8b423;
+$shine-blue: #0e426a;
+
+
+// From BS
+$brand-primary:         $blue !default;
+$brand-success:         $red !default;
+$brand-info:            $blue !default;
+$brand-warning:         $yellow !default;
+$brand-danger:          $yellow !default;
+
+
+// some classes may be hardcoded in old pages
+.light-blue { color: $light-blue; }
+.bright-red { color: $bright-red; }
+.white { color: $color-white; }
+.black { color: $color-black; }
+.neutral-tan { color: $neutral-tan; }
+.neutral-tan-lt { color: $neutral-tan-lt; }
+.neutral-tan-dk { color: $neutral-tan-dk; }
+.neutral-blue-lt { color: $neutral-blue-lt; }
+
+
+
+
+// *****************************************************************
+// MENU COLORS
+// ****************************************************************
+
+// Init Defaults (override below);
+$default-menu-text-color: $color-whitesmoke; //$gray-dark !default;
+$default-submenu-text-color: $color-whitesmoke; //$gray !default;
+$default-menu-text-color-hover: $bright-red !default;
+$default-menu-bg-color: $gunmetal; //$gray-dark; //$neutral-tan !default;
+$default-menu-bg-color-underline: $red !default;
+
+
+// TEXT
+
+// **** Regular Menu
+// Defaults
+$menu-text-color: $default-menu-text-color;
+$menu-text-sub-color: $default-submenu-text-color;
+// Hover
+$menu-text-color-hover: $default-menu-text-color-hover;
+
+// **** Mobile Menu
+// Defaults
+$sliding-panel-color: $default-menu-text-color;
+// submenu items
+$sliding-panel-sub-color: $default-submenu-text-color;
+// Hover
+$sliding-panel-color-hover: $default-menu-text-color-hover;
+
+
+
+// BACKGROUND
+
+// **** Regular Menu
+// Defaults
+$menu-bg-color: $default-menu-bg-color;
+$menu-bg-color-hover: darken($menu-bg-color, 5%);
+$menu-bg-color-underline: $default-menu-bg-color-underline;
+// Hover
+// Focus
+
+// **** Mobile
+$sliding-panel-background: darken($default-menu-bg-color, 10%);
+// Hover
+$sliding-panel-background-hover: darken($sliding-panel-background, 3%);
+// Focus
+//$sliding-panel-background-focus: lighten($sliding-panel-background, 5%);
+
+
+
+// CURRENT ITEM
+
+// **** Regular Menu
+$cur-menu-item: $red;
+//$cur-menu-border-left: $red;
+
+// **** Mobile Menu
+
+
+
+// BORDERS
+
+// **** Regular
+$menu-border-color: darken($menu-bg-color, 5%);
+// **** Mobile
+$sliding-panel-border-color: darken($sliding-panel-background, 5%);
+
+
+
+// TOGGLE BTN
+$menu-toggle-color: $red;
+
+
+
+
+
+
+// ********************************************************************
+// SITE HEADER
+// ********************************************************************
+
+// .site-header has ...
+   // @include background-image(url('images/pg-hdr.png'), linear-gradient($site-hdr-grad-top, $site-hdr-grad-btm 100%));
+
+// to customize
+// create pg-hdr.png and put in /images dir
+// change colors for bg gradient
+
+$site-hdr-grad-top: $dark-blue;
+$site-hdr-grad-btm: $light-blue; //darken($neutral-tan, 5%);
+
+
+// WIDGET AREA (HDR-NAVICONS)
+$hdr-nav-icons-color: $color-white;
+$hdr-nav-icons-bg-color: $red;
+
+
+// ********************************************************************
+// SITE FOOTER
+// ********************************************************************
+
+// background
+$site-ftr-grad-top: $blue;
+$site-ftr-grad-btm: $light-blue;
+
+// fonts
+$ftr-text: $neutral-tan;
+$ftr-text-hover: $color-white;
+
+
+
+// ********************************************************************
+// WIDGETS
+// ********************************************************************
+$widget-title-color: #6b6b6b;
