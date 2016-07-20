@@ -43,69 +43,85 @@ nav.nav-secondary {
 		//@include span-columns(12);
 	//}
 
-	@include row(table);
-	@include columns(5);
+	//@include row(table);
+	//@include columns(6);
 
 	.genesis-nav-menu {
 
-		clear: both;
+		.news-sections-hdr{
+
+			.news-menu-icon {
+				.fa {
+					color: $neutral-tan-dk;
+					vertical-align: middle;
+					font-size: 1.2em;
+				}
+			}
+
+			@extend %bree;
+			//position: relative;
+			display: inline-block;
+			float:left;
+			border-right: 2px solid darken($neutral-tan, 10%);
+			font-size: 1.2rem;
+			text-align: center;
+			width: 120px;
+			height: 100%;
+			line-height: 70px;
+			vertical-align: middle;
+			color: $gunmetal;
+
+			@include media($sm-screen){
+				@include hidden();
+			}
+
+		}
+
 		font-size: 18px;
 		font-size: 1.8rem;
 		line-height: 1;
 		//background: $news-menu-bg-color;
 		//background: linear-gradient(to bottom, $news-menu-bg-color 92%, darken($news-menu-bg-color, 7%) 93%);
+
 	}
 
 	.genesis-nav-menu .menu-item {
 
-		@include span-columns(1 of 5);
-		@include omega();
-
 		display: inline-block;
 		text-align: center;
 		margin: auto;
-		@include linear-gradient(to bottom, $news-menu-bg-color, darken($news-menu-bg-color, 8%) 100%);
+
+		// @include media($sm-screen){
+		// 	@include span-columns(1 of 5);
+		// 	@include omega();
+		// }
+		// @include media($xs-screen){
+		// 	@include span-columns(1 of 5);
+		// 	@include omega();
+		// }
+		
 	}
 
 	.genesis-nav-menu a {
 		color: $news-menu-text-color;
 		text-decoration: none;
 		display: block;
-		padding: 30px 20px;
+		padding: 26px 20px;
 		position: relative;
-		font-size: 1.2em;
 		font-weight: 600;
 		@extend %montserrat;
 
-		.news-menu-icon {
-			position: absolute;
-			top: 0;
-			right: 0;
-			//float:right;
-			//background: darken($neutral-tan, 2%);
-			border-right:2px solid $neutral-tan;
-			width:50px;
-			height:100%;
-			text-align: center;
-			line-height: 80px;
-			vertical-align: middle;
-
-			.fa {
-				color: darken($neutral-tan, 11%);
-				vertical-align: middle;
-				font-size: 1.2em;
-			}
-
-			@include media($sm-screen){
-				@include hidden();
-			}
-		}
-
 		@include media($sm-screen){
+			padding: 26px 15px;
 			font-size: .9em;
+			text-align: center;
+			margin:auto;
 		}
 		@include media($xs-screen){
+			padding: 26px 10px;
 			font-size: .7em;
+			text-align: center;
+			margin:auto;
 		}
 
 	}
@@ -201,7 +217,8 @@ nav.nav-secondary {
 	}
 
 
-	margin-bottom: 20px;
-
+	margin: 0 auto 20px;
+	@include linear-gradient(to bottom, $news-menu-bg-color, darken($news-menu-bg-color, 8%) 100%);
 
 }
+

@@ -346,9 +346,11 @@ function kaff_news_mods() {
             function create_kaff_news_menu(){
 
                 // start creating html
-                $menu_list = '<nav class="nav-secondary kaff-news-menu">';
+                $menu_list = '';
+                $menu_list .= '<nav class="nav-secondary kaff-news-menu">';
                 $menu_list .= '<div class="wrap">';
                 $menu_list .= '<ul class="menu genesis-nav-menu menu-secondary">';
+                $menu_list .= '<li class="news-sections-hdr">SECTIONS <i class="fa fa-chevron-right"></i></li>';
 
                 // get the kaff news menu object and items
                 $locations = get_nav_menu_locations();
@@ -358,7 +360,7 @@ function kaff_news_mods() {
                 // cycle through items and add arrow
                 foreach( $menu_items as $menu_item ){
                     $menu_list .= '<li class="menu-item">';
-                    $menu_list .= '<a href="' . $menu_item->url . '" itemprop="url"><span itemprop="name">' . $menu_item->title . '</span><div class="news-menu-icon"><i class="fa fa-chevron-right"></i></div></a>';
+                    $menu_list .= '<a href="' . $menu_item->url . '" itemprop="url"><span itemprop="name">' . $menu_item->title . '</span></a>';
                     $menu_list .= '</li>';
                 }
 
@@ -373,6 +375,7 @@ function kaff_news_mods() {
 
             //add_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_subnav', 5 );
             add_action( 'genesis_before_content_sidebar_wrap', 'create_kaff_news_menu', 5 );
+            //add_action( 'genesis_before_sidebar_widget_area', 'create_kaff_news_menu', 5 );
 
 
 

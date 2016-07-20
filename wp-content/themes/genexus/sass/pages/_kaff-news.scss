@@ -3,10 +3,10 @@
 .news-featured-section{
 
 	@include row();
-	@include align-items(stretch);
-	@include display(flex);
-	@include flex-direction(row);
-	@include justify-content(flex-start);
+	//@include align-items(stretch);
+	//@include display(flex);
+	//@include flex-direction(row);
+	//@include justify-content(flex-start);
 
 	background: $neutral-tan;
 	margin: auto;
