@@ -19,7 +19,7 @@ function page_loop() {
 
 	<div class="news-featured-section">
         
-        <section class="news-featured">
+        <section class="featured-article">
             <article>
                 <?php $featured_query = new WP_Query(array(
                     'category_name' => 'featured',
@@ -32,23 +32,26 @@ function page_loop() {
                             /*store id in temp var */
                             $temp_featured_ids[0] = $post->ID ;
                         ?>
-                            <section class="news-story-listing">
+                            <section class="news-post">
                                 <?php if(has_post_thumbnail()) : ?>
-                                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="ftr-img">
                                         <?php the_post_thumbnail('thumbnail img-responsive');?>
                                     </a>
                                 <?php endif; ?>
                                 <?php
                                     //get_template_part('templates/content', get_post_format());
-                                    //the_content();
+                                    //$content = $post->post_content;
+                                    //echo $content;
                                     //the_excerpt();
 
-                                    $content = $post->post_content;
-                                    echo $content;
+                                    the_title( '<p class="news-post-title">', '</p>' );
+                                    echo '<div class="news-post-content">';
+                                    the_content();
+                                    echo '</div>';
 
                                 ?>
                                 <hr>
-                                <p class="featured-news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
+                                <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
                             </section>
                     <?php endwhile;?>
                     <?php
@@ -73,7 +76,7 @@ function page_loop() {
             </article>
         </section>
         
-        <section class="news-featured">
+        <section class="featured-article">
             <article>
                 <?php $sports_query = new WP_Query(array(
                     'category_name' => 'sports',
@@ -86,23 +89,26 @@ function page_loop() {
                             /*store id in temp var */ 
                             $temp_featured_ids[1] = $post->ID ;
                         ?>
-                        <section class="news-story-listing">
+                        <section class="news-post">
                             <?php if(has_post_thumbnail()) : ?>
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="ftr-img">
                                     <?php the_post_thumbnail('thumbnail img-responsive');?>
                                 </a>
                             <?php endif; ?>
                             <?php
                                     //get_template_part('templates/content', get_post_format());
-                                    //the_content();
+                                    //$content = $post->post_content;
+                                    //echo $content;
                                     //the_excerpt();
 
-                                    $content = $post->post_content;
-                                    echo $content;
+                                    the_title( '<p class="news-post-title">', '</p>' );
+                                    echo '<div class="news-post-content">';
+                                    the_content();
+                                    echo '</div>';
 
                             ?>
                             <hr>
-                            <p class="featured-news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
+                            <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
                             
                         </section>
                     <?php endwhile;?>
