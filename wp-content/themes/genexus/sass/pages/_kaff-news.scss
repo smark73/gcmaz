@@ -158,14 +158,15 @@
 				font-size: .9em;
 				color: $blue;
 				margin-left: 5px;
-				padding: 2px;
-				border-left: 2px solid darken($neutral-blue-lt, 5%);
-				border-right: 2px solid darken($neutral-blue-lt, 5%);
+				padding: 2px 4px;
+				border-left: 2px solid transparentize($light-blue, .5);
+				border-right: 2px solid transparentize($light-blue, .5);
+				background: $neutral-blue-lt;
 
 				&:hover {
-					background-color: $neutral-blue-lt;
+					background-color: transparentize($light-blue, .8);
 				}
-				
+
 			}
 
 		}
@@ -236,11 +237,12 @@
           background: $widget-title-bg;
           display: block;
           color: $widget-title-color;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
           vertical-align: middle;
           padding: 10px 10px 10px 20px;
           margin-bottom: 0;
-          border-top: 2px solid $red;
-          border-bottom: 2px solid $red;
+          border-top: 2px solid $blue;
+          border-bottom: 2px solid $blue;
 
          }
 
@@ -259,28 +261,34 @@
         			color: $color-alto;
         			display: block;
         			padding-left: 10px;
+        			font-size: .9em;
         		}
 
       			&:hover {
       				background: transparentize($color-white, .9);
       			}
 
-      			padding: 7px;
+      			padding: 5px;
       			margin: 0;
-        		border-left: 2px solid transparentize($color-white, .9);
-        		border-right: 2px solid transparentize($gunmetal, .8);
+        		//border-left: 2px solid transparentize($color-white, .9);
+        		//border-right: 2px solid transparentize($gunmetal, .8);
 
         	}
 
-					@include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
-					background-position: center center;
-					background-size: cover;
-					background-repeat: no-repeat;
+					// @include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
+					// background-position: center center;
+					// background-size: cover;
+					// background-repeat: no-repeat;
+					padding-top: 10px;
 
         }
 
 				padding: 10px;
-				background: $gunmetal;
+				//background: $neutral-tan-dk;//transparentize($gunmetal-lt, .5);
+				@include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
+				background-position: center center;
+				background-size: cover;
+				background-repeat: no-repeat;
 
 			}
 
@@ -288,8 +296,9 @@
 
 		}
 
-	background: $neutral-tan;
-	padding: 10px;
+	@include background(linear-gradient(transparentize($neutral-tan, .2), transparentize($neutral-tan, .5)));
+
+	padding: 7px;
 
 	}
 

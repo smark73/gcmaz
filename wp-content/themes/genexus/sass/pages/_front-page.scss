@@ -44,12 +44,14 @@
 
             float:left;
             margin-left: 20px;
+            color: $widget-title-color;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
           }
 
           .news-hdr-arrow {
             width:52px;
             height:52px;
-            background: transparentize($color-white, .9);
+            background: transparentize($blue, .85);
             float:right;
             text-align: center;
             color: $neutral-tan-dk;
@@ -57,22 +59,13 @@
 
           width:100%;
           height: 54px;
-          //background: $red;
-          //display:block;
-          //color: $color-whitesmoke;
-          //vertical-align: middle;
           line-height: 50px;
-
-          background: $gunmetal-dk; //transparentize($gunmetal, .9);
+          background: $widget-title-bg;
           display: block;
           color: $neutral-tan;
           vertical-align: middle;
-          //padding: 10px;
-          //border-top: 2px solid transparentize($neutral-tan, .8);
-          //border-bottom: 2px solid transparentize($neutral-tan, .8);
-          border-top: 2px solid $red;
-          border-bottom: 2px solid $red;
-          text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+          border-top: 2px solid $blue;
+          border-bottom: 2px solid $blue;
 
         }
 
@@ -92,10 +85,10 @@
                 //background: $blue-gray-lt;
                 color: $color-white;
                 background: transparentize($color-white, .9);
-                &::after {
-                  color: $red;
-                  content: ' ►';
-                }
+                //&::after {
+                  //color: $red;
+                  //content: ' ►';
+                //}
               }
 
               @extend %montserrat;
@@ -120,14 +113,11 @@
 
         }
 
-        //border-left: 11px solid $gunmetal-dk;
-        //background: $gray-dark;//$neutral-tan;
         text-align: left;
-        //box-shadow: 0 10px 14px -5px rgba(0, 0, 0, .21);
-        @include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
+        //@include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
+        //background-position: center center;
+        //background-size: cover;
+        //background-repeat: no-repeat;
 
 
         @include media($md-screen){
@@ -137,9 +127,12 @@
 
       }
 
-    //@include background(linear-gradient(135deg, transparentize($gray-light, .8), transparentize($gray-light, .5) 100%));
-    @include background(transparentize($color-black, .8));
-    padding: 10px;
+    //@include background(transparentize($color-black, .8));
+    @include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 12px;
     margin: auto;
     text-align: center;
 
@@ -149,14 +142,14 @@
 
   }
 
-  .widget {
+  //.widget {
     //border-bottom: 5px solid $neutral-tan-lt;
 
-    .widgettitle {
-      background: $neutral-tan-lt;
-    }
+    //.widgettitle {
+      //background: $neutral-tan-lt;
+    //}
 
-  }
+  //}
 
   padding: 40px 10px;
   @include background(linear-gradient(darken($gunmetal, 5%), $blue 100%));

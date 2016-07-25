@@ -197,8 +197,8 @@ $ftr-text-hover: $color-white;
 // ********************************************************************
 
 // title
-$widget-title-color: $neutral-tan;
-$widget-title-bg: $gunmetal-dk;
+$widget-title-color: lighten($light-blue, 5%);
+$widget-title-bg: transparentize($dark-blue, .8);
 
 // widget
 $widget-grad-top: $dark-blue;

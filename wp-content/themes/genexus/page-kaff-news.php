@@ -148,49 +148,31 @@ function page_loop() {
                 
                 <?php
                     // check if id is stored in our temp array of featured id's - dont display post if it is
-                    if( !in_array($post->ID, $temp_featured_ids ) ) :
+                    if( !in_array( $post->ID, $temp_featured_ids ) ) :
                 ?>
 
-                    <?php if(has_post_thumbnail()) : ?>
-        
-                        <section class="news-listing has-img">
-                            <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
+                    <section class="news-listing <?php if(has_post_thumbnail()){echo 'has-img';} ?> ">
+                        <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
 
-                                <div class="latest-posts-text">
-                                    <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="news-post-title">
-                                        <?php the_title(); ?>
-                                    </a>
-                                    <?php the_excerpt(); ?>
-                                </div>
+                            <div class="latest-posts-text">
+                                <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="news-post-title">
+                                    <?php the_title(); ?>
+                                </a>
+                                <?php the_excerpt(); ?>
+                            </div>
+
+                            <?php if(has_post_thumbnail()) : ?>
                                 <div class="latest-posts-img">
                                     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                                         <?php the_post_thumbnail('thumbnail');?>
                                     </a>
                                 </div>
+                            <?php endif; ?>
 
-                            <div class="clearfix"></div>
-                            <hr>
+                        <div class="clearfix"></div>
+                        <hr>
 
-                        </section>
-
-                    <?php else : ?>
-
-                        <section class="news-listing">
-                            <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
-
-                                <div class="latest-posts-text">
-                                    <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="news-post-title">
-                                        <?php the_title(); ?>
-                                    </a>
-                                    <?php the_excerpt(); ?>
-                                </div>
-
-                            <div class="clearfix"></div>
-                            <hr>
-
-                        </section>
-        
-                    <?php endif; ?>
+                    </section>
 
                 <?php endif; ?>
         

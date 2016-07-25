@@ -1,0 +1,107 @@
+// Archive Pages
+
+// .archive class on body tag on archive pages
+.archive {}
+
+
+// LATEST NEWS STORIES SECTION
+.archive-page {
+
+	@include row();
+
+	// general listing - no image
+	.archive-listing {
+
+		.archive-listing-text {
+
+			// no img
+			@include span-columns(12);
+
+			a.archive-listing-title {
+				@extend %bree;
+				padding: 5px 0 0;
+				margin: 5px auto;
+				color: $blue;
+				font-size: 1.2em;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			.listing-date {
+				@extend %montserrat;
+				clear:both;
+				margin: 0;
+				padding:0;
+				color: $gunmetal;
+				font-size: .9em;
+				font-weight: 600;
+			}
+
+			// target excerpt p
+			p:nth-child(3){
+				font-size: .8em;
+				color: $gray;
+			}
+
+			.read-more {
+				font-size: .9em;
+				color: $blue;
+				margin-left: 5px;
+				padding: 2px 4px;
+				border-left: 2px solid transparentize($light-blue, .5);
+				border-right: 2px solid transparentize($light-blue, .5);
+				background: $neutral-blue-lt;
+
+				&:hover {
+					background-color: transparentize($light-blue, .8);
+				}
+
+			}
+
+		}
+
+		padding: 0 15px;
+
+	}
+
+
+	// listing has image
+	.archive-listing.has-img {
+
+		.archive-listing-text {
+			// has img
+			@include span-columns(10);
+			@include omega();
+
+			@include media($sm-screen){
+				@include span-columns(8);
+				@include omega();
+			}
+		}
+
+		.archive-listing-image {
+			// has img
+			@include span-columns(2);
+			@include omega();
+
+			@include media($sm-screen){
+				@include span-columns(4);
+				@include omega();
+			}
+
+			a {
+				img {
+					max-width: 100%;
+					height: auto;
+				}
+			}
+
+			text-align: right;
+		}
+	}
+
+	padding: 2%;
+
+}
