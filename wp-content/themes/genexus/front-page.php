@@ -41,7 +41,7 @@ function page_loop(){
 
                     <a href="/kaff-news" class="kaff-news-link">
                         <div class="news-headlines-hdr">
-                            <div class="news-hdr-txt bree">
+                            <div class="news-hdr-txt">
                                 KAFF News <span class="red">Posts</span>
                             </div>
                             <div class="news-hdr-arrow">
@@ -53,7 +53,7 @@ function page_loop(){
 
                     <?php
                         //save WP post object
-                        $save_post = $post;
+                        $saved_post = $post;
 
                         $featured_query = new WP_Query(array(
                             'category_name' => 'featured',
@@ -71,7 +71,7 @@ function page_loop(){
 
                         <?php
                             // restore WP post object
-                            $post = $save_post;
+                            $post = $saved_post;
                         ?>
 
                     <?php else: ?>

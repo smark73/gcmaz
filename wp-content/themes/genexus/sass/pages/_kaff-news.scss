@@ -159,13 +159,13 @@
 				color: $blue;
 				margin-left: 5px;
 				padding: 2px;
-				//text-decoration: underline;
-				//border-bottom: 2px solid darken($neutral-blue-lt, 5%);
 				border-left: 2px solid darken($neutral-blue-lt, 5%);
 				border-right: 2px solid darken($neutral-blue-lt, 5%);
-				&:hover{
+
+				&:hover {
 					background-color: $neutral-blue-lt;
 				}
+				
 			}
 
 		}
@@ -231,18 +231,18 @@
         .widget-title {
 
         	@extend %bree;
-        	font-weight: 400;
-          width: 100%;
-          background: transparentize($gunmetal, .9);
-          display: block;
-          color: $neutral-tan;
-          vertical-align: middle;
-          padding: 10px;
-          border-top: 2px solid transparentize($neutral-tan, .8);
-          border-bottom: 2px solid transparentize($neutral-tan, .8);
-          text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
 
-        }
+          width: 100%;
+          background: $widget-title-bg;
+          display: block;
+          color: $widget-title-color;
+          vertical-align: middle;
+          padding: 10px 10px 10px 20px;
+          margin-bottom: 0;
+          border-top: 2px solid $red;
+          border-bottom: 2px solid $red;
+
+         }
 
         ul {
 
@@ -250,35 +250,37 @@
 
         		a {
 
+        			@extend %montserrat;
+
         			&:hover {
         				color: $color-whitesmoke;
         			}
 
         			color: $color-alto;
         			display: block;
+        			padding-left: 10px;
         		}
 
       			&:hover {
       				background: transparentize($color-white, .9);
       			}
 
-      			padding: 5px 0 5px 10px;
+      			padding: 7px;
+      			margin: 0;
         		border-left: 2px solid transparentize($color-white, .9);
         		border-right: 2px solid transparentize($gunmetal, .8);
-        		background: transparentize($color-white, .95);
+
         	}
 
-        	//background: transparentize($color-white, .95);
-        	//@include background(linear-gradient(transparentize($color-white, .95), transparentize($color-white, 1)));
+					@include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
+					background-position: center center;
+					background-size: cover;
+					background-repeat: no-repeat;
 
         }
 
-				//background: $gunmetal;
-				@include background-image(url('images/widget-bg.png'), linear-gradient($site-hdr-grad-top, $site-hdr-grad-btm 100%));
-				background-position: center center;
-				background-size: cover;
-				background-repeat: no-repeat;
-				//@include background(linear-gradient(transparentize($gunmetal, .1), transparentize($blue, .5)));
+				padding: 10px;
+				background: $gunmetal;
 
 			}
 
@@ -287,10 +289,10 @@
 		}
 
 	background: $neutral-tan;
+	padding: 10px;
 
 	}
 
 }
-
 
 

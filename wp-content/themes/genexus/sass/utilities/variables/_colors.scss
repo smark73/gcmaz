@@ -195,4 +195,12 @@ $ftr-text-hover: $color-white;
 // ********************************************************************
 // WIDGETS
 // ********************************************************************
-$widget-title-color: #6b6b6b;
+
+// title
+$widget-title-color: $neutral-tan;
+$widget-title-bg: $gunmetal-dk;
+
+// widget
+$widget-grad-top: $dark-blue;
+$widget-grad-btm: $light-blue;
+

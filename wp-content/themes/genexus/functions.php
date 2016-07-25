@@ -13,6 +13,7 @@
 
 // build PTO plugin
 // custom jetpack publicize fn
+// KAFF News GA custom scripts (See roots scripts.php)
 
 
 
@@ -145,12 +146,42 @@ unregister_sidebar( 'sidebar' );
 unregister_sidebar( 'sidebar-alt' );
 
 
+// Register Our Sidebars
 //kaff news sidebar
 genesis_register_sidebar( array(
-    'id' => 'kaff-news-sidebar',
+    'id' => 'sidebar-news',
     'name' => 'KAFF News Sidebar',
     'description' => 'KAFF News Sidebar',
 ));
+
+// local pages (community/whats/concerts) sidebar
+genesis_register_sidebar( array(
+    'id' => 'sidebar-local',
+    'name' => 'Local Pages Sidebar',
+    'description' => 'Local Pages Sidebar',
+));
+
+// primary (common) sidebar
+genesis_register_sidebar( array(
+    'id' => 'sidebar-primary',
+    'name' => 'Primary Sidebar',
+    'description' => 'Primary Sidebar',
+));
+
+// Home sidebar
+genesis_register_sidebar( array(
+    'id' => 'sidebar-homepage',
+    'name' => 'Home Page Sidebar',
+    'description' => 'Home Page Sidebar',
+));
+
+// Splash sidebar
+genesis_register_sidebar( array(
+    'id' => 'sidebar-splash',
+    'name' => 'Splash Sidebar',
+    'description' => 'Splash Pages Sidebar',
+));
+
 
 
 //* Reduce the secondary navigation menu to one level depth
@@ -553,6 +584,18 @@ add_action( 'init', 'register_mobile_menu' );
 
 
 
+/**********************************************************/
+// SIDEBARS
+// customize sidebar based on category/page/etc
+function genexus_custom_sidebar() {
+
+    get_template_part( 'templates/sidebars' );
+
+}
+add_action( 'genesis_before_sidebar_widget_area', 'genexus_custom_sidebar' );
+
+
+
 
 
 /**********************************************************/
@@ -691,6 +734,8 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 function custom_body_class( $classes ){
     if (is_page( 'kaff-news' )){
         $classes[] = 'kaff-news';
+    } elseif ( check_current_category_for_news() ) {
+        $classes[] = 'kaff-news';
     }
     return $classes;
 }
@@ -712,7 +757,7 @@ function live_or_local(){
 
 
 // Check current category for News
-//  dynamically provide either the genexus or kaff news logo based on page
+//  dynamically provide either the main or kaff news logo based on page
 function check_current_category_for_news(){
     // Get the news category id by slug
     $newsCategory = get_category_by_slug('news');
