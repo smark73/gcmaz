@@ -21,77 +21,25 @@ function page_loop() {
         
         <section class="featured-article">
             <article>
+
                 <?php $featured_query = new WP_Query(array(
                     'category_name' => 'featured',
                     'posts_per_page' => 1,
                     ));
                 ?>
+
                 <?php if($featured_query->have_posts()) : ?>
+
                     <?php while($featured_query->have_posts()) : $featured_query->the_post(); ?>
+
                         <?php
                             /*store id in temp var */
                             $temp_featured_ids[0] = $post->ID ;
                         ?>
-                            <section class="news-post">
-                                <?php if(has_post_thumbnail()) : ?>
-                                    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="ftr-img">
-                                        <?php the_post_thumbnail('thumbnail img-responsive');?>
-                                    </a>
-                                <?php endif; ?>
-
-                                <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="news-post-title">
-                                    <?php the_title(); ?>
-                                </a>
-
-                                <?php
-                                    //the_title( '<p class="news-post-title">', '</p>' );
-                                    echo '<div class="news-post-content">';
-                                    the_content();
-                                    echo '</div>';
-                                ?>
-                                <hr>
-                                <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
-                            </section>
-                    <?php endwhile;?>
-                    <?php
-                        /* Restore original Post Data */
-                        wp_reset_postdata();
-                    ?>
-
-                <?php else: ?>
-                    <div class="alert alert-warning">
-                        <?php _e('Sorry, no results were found.', 'roots'); ?>
-                    </div>
-                <?php endif;?>
-
-                <div class="centered news-featured-ftr">
-                    <?php
-                        $cat_featured_id = get_cat_ID('Featured');
-                        $cat_featured_link = get_category_link( $cat_featured_id );
-                    ?>
-                    <a href="<?php echo esc_url( $cat_featured_link );?>">More Featured Stories &raquo;</a>
-                </div>
-
-            </article>
-        </section>
-        
-        <section class="featured-article">
-            <article>
-                <?php $sports_query = new WP_Query(array(
-                    'category_name' => 'sports',
-                    'posts_per_page' => 1,
-                    ));
-                ?>
-                <?php if($sports_query->have_posts()) : ?>
-                    <?php while($sports_query->have_posts()) : $sports_query->the_post(); ?>
-                        <?php
-                            /*store id in temp var */ 
-                            $temp_featured_ids[1] = $post->ID ;
-                        ?>
                         <section class="news-post">
                             <?php if(has_post_thumbnail()) : ?>
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="ftr-img">
-                                    <?php the_post_thumbnail('thumbnail img-responsive');?>
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="img-link">
+                                    <?php the_post_thumbnail('medium featured-image'); ?>
                                 </a>
                             <?php endif; ?>
 
@@ -107,25 +55,73 @@ function page_loop() {
                             ?>
                             <hr>
                             <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
-                            
                         </section>
                     <?php endwhile;?>
+
                     <?php
                         /* Restore original Post Data */
                         wp_reset_postdata();
                     ?>
+
                 <?php else: ?>
                     <div class="alert alert-warning">
                         <?php _e('Sorry, no results were found.', 'roots'); ?>
                     </div>
                 <?php endif;?>
-                <div class="centered news-featured-ftr">
+
+            </article>
+        </section>
+        
+        <section class="featured-article">
+            <article>
+
+                <?php $sports_query = new WP_Query(array(
+                    'category_name' => 'sports',
+                    'posts_per_page' => 1,
+                    ));
+                ?>
+
+                <?php if($sports_query->have_posts()) : ?>
+
+                    <?php while($sports_query->have_posts()) : $sports_query->the_post(); ?>
+                    
+                        <?php
+                            /*store id in temp var */ 
+                            $temp_featured_ids[1] = $post->ID ;
+                        ?>
+                        <section class="news-post">
+                            <?php if(has_post_thumbnail()) : ?>
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="img-link">
+                                    <?php the_post_thumbnail('medium featured-image'); ?>
+                                </a>
+                            <?php endif; ?>
+
+                            <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="news-post-title">
+                                <?php the_title(); ?>
+                            </a>
+
+                            <?php
+                                //the_title( '<p class="news-post-title">', '</p>' );
+                                echo '<div class="news-post-content">';
+                                the_content();
+                                echo '</div>';
+                            ?>
+                            <hr>
+                            <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
+                        </section>
+                    <?php endwhile;?>
+
                     <?php
-                        $cat_sp_id = get_cat_ID('Sports News');
-                        $cat_sp_link = get_category_link( $cat_sp_id );
+                        /* Restore original Post Data */
+                        wp_reset_postdata();
                     ?>
-                    <a href="<?php echo esc_url( $cat_sp_link );?>">More Local Sports News &raquo;</a>
-                </div>
+
+                <?php else: ?>
+                    <div class="alert alert-warning">
+                        <?php _e('Sorry, no results were found.', 'roots'); ?>
+                    </div>
+                <?php endif;?>
+
             </article>
         </section>
         

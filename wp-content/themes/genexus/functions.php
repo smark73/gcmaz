@@ -12,6 +12,7 @@
 // NEED TO DO
 
 // build PTO plugin
+// custom jetpack publicize fn
 
 
 
@@ -633,9 +634,9 @@ function base_pagination() {
 
 
 /**********************************************************/
-// FEATURED IMAGE
-//Custom fn to display featured image in posts *with* the caption if it has one
- 
+// FEATURED IMAGES
+
+//Display featured image in posts *with* the caption if it has one
 function featured_image_in_post( ) {
     global $post;
     $thumbnail_id = get_post_thumbnail_id($post->ID);
@@ -655,6 +656,13 @@ function featured_image_in_post( ) {
     }
 }
 
+
+// Remove dimensions from featured images in posts
+function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
+    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+    return $html;
+}
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
 
 
 /**********************************************************/
@@ -677,6 +685,18 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 /**********************************************************/
 // FUNCTIONS CALLED THROUGHOUT SITE
+
+
+// ADD CUSTOM BODY CLASSES
+function custom_body_class( $classes ){
+    if (is_page( 'kaff-news' )){
+        $classes[] = 'kaff-news';
+    }
+    return $classes;
+}
+add_filter('body_class', 'custom_body_class');
+
+
 
 // Live or Dev (.vag)
 //check if  on DEV or LIVE site
@@ -761,7 +781,7 @@ function cust_jetpack_pub_fn(){
 function gcmaz_remove_filters_func() {
      remove_filter( 'the_excerpt', 'sharing_display', 19 );
 }
-//add_action( 'init', 'gcmaz_remove_filters_func' );
+add_action( 'init', 'gcmaz_remove_filters_func' );
 
 
 
