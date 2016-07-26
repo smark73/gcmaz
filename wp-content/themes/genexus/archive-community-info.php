@@ -14,14 +14,14 @@ function page_loop() {
     ?>
 
     <div class="archive-description taxonomy-archive-description taxonomy-description">
-        <h1 class="entry-title" itemprop="headline">Local Events and Information</h1>
+        <h1 class="entry-title" itemprop="headline">Community Information</h1>
     </div>
         
     <div class="entry archive-page">
 
         <?php
             $the_query = new WP_Query( array(
-                'post_type' => 'gcmaz-event',
+                'post_type' => 'community-info',
                 'orderby' => 'meta_value',
                 'meta_key' => 'event_start_date_comp',
                 'order' => 'ASC',

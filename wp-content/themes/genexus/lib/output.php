@@ -10,7 +10,7 @@
  * @link    http://www.studiopress.com/
  */
 
-add_action( 'wp_enqueue_scripts', 'genesis_sample_css' );
+//add_action( 'wp_enqueue_scripts', 'genesis_sample_css' );
 /**
 * Checks the settings for the link color color, accent color, and header
 * If any of these value are set the appropriate CSS is output

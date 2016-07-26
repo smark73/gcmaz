@@ -65,7 +65,7 @@
     // (checks and displays KAFF News social icons on kaff news pages)
     if( !empty( $post ) ){
 
-        if( $post->post_name == 'kaff-news' || in_category( check_current_category_for_news() ) ) {
+        if( $post->post_name == 'kaff-news' || in_category( get_news_cats() ) ) {
         ?>
         
             <a href="https://www.facebook.com/NewsOnKAFF" target="_blank" class="icon-fb" title="KAFF News Facebook">

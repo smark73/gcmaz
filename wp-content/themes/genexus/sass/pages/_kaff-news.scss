@@ -24,7 +24,7 @@
 				padding: 5px 0 0;
 				margin: 10px auto 5px;
 				display: block;
-				font-size: 1em;
+				font-size: 1.2em;
 				color: $gunmetal-dk;
 
 				&:hover {
@@ -216,92 +216,5 @@
 }
 
 
-
-
-// cust class added to body
-.kaff-news {
-
-
-	.sidebar {
-
-		.widget-area {
-
-			.widget {
-
-        //hdr
-        .widget-title {
-
-        	@extend %bree;
-
-          width: 100%;
-          background: $widget-title-bg;
-          display: block;
-          color: $widget-title-color;
-          text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
-          vertical-align: middle;
-          padding: 10px 10px 10px 20px;
-          margin-bottom: 0;
-          border-top: 2px solid $blue;
-          border-bottom: 2px solid $blue;
-
-         }
-
-        ul {
-
-        	li {
-
-        		a {
-
-        			@extend %montserrat;
-
-        			&:hover {
-        				color: $color-whitesmoke;
-        			}
-
-        			color: $color-alto;
-        			display: block;
-        			padding-left: 10px;
-        			font-size: .9em;
-        		}
-
-      			&:hover {
-      				background: transparentize($color-white, .9);
-      			}
-
-      			padding: 5px;
-      			margin: 0;
-        		//border-left: 2px solid transparentize($color-white, .9);
-        		//border-right: 2px solid transparentize($gunmetal, .8);
-
-        	}
-
-					// @include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
-					// background-position: center center;
-					// background-size: cover;
-					// background-repeat: no-repeat;
-					padding-top: 10px;
-
-        }
-
-				padding: 10px;
-				//background: $neutral-tan-dk;//transparentize($gunmetal-lt, .5);
-				@include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
-				background-position: center center;
-				background-size: cover;
-				background-repeat: no-repeat;
-
-			}
-
-			padding: 10px;
-
-		}
-
-	@include background(linear-gradient(transparentize($neutral-tan, .2), transparentize($neutral-tan, .5)));
-
-	padding: 7px;
-
-	}
-
-}
 
 

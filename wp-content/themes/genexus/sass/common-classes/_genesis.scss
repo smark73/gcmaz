@@ -8,11 +8,11 @@
 .after-entry,
 .archive-description,
 .author-box {
-	background-color: #fff;
+	background-color: transparentize($color-white, .8);
 	font-size: 16px;
 	font-size: 1.6rem;
-	margin-bottom: 40px;
-	padding: 40px;
+	margin-bottom: 0;
+	padding: 30px 40px;
 }
 
 .author-box-title {

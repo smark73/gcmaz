@@ -37,7 +37,7 @@ function genesis_sample_customizer_get_default_accent_color() {
 	return '#c3251d';
 }
 
-add_action( 'customize_register', 'genesis_sample_customizer_register' );
+//add_action( 'customize_register', 'genesis_sample_customizer_register' );
 /**
  * Register settings and controls with the Customizer.
  *

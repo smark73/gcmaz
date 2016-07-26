@@ -9,6 +9,14 @@
 
 	@include row();
 
+	.entry-title{
+		margin: 20px 0 30px 16px;
+
+		@include media($sm-screen){
+			font-size: 1.4em;
+		}
+	}
+
 	// general listing - no image
 	.archive-listing {
 

@@ -355,10 +355,24 @@ function kaff_news_mods() {
 
     global $post;
 
+    $array_of_kaff_news_pages = array(
+        'kaff-news',
+        'about-kaff-news',
+        'contact-kaff-news',
+    );
+
     //if post object not populated, throws error, check if in KAFF News
     if( !empty( $post ) ) {
 
-        if( $post->post_name === 'kaff-news' || in_category( check_current_category_for_news() ) || $post->post_name == 'about-kaff-news' || $post->post_name == 'contact-kaff-news' ) {
+        if( in_array( $post->post_name, $array_of_kaff_news_pages ) || in_category( get_news_cats() ) ) {
+
+            // add kaff-news class to body tag
+            function kaffnews_body_class( $classes ){
+                $classes[] = 'kaff-news';
+                return $classes;
+            }
+            add_filter('body_class', 'kaffnews_body_class');
+
 
             // change logo (site-title)
             remove_action( 'genesis_site_title', 'genexus_site_title' );
@@ -411,10 +425,13 @@ function kaff_news_mods() {
 
 
 
-            function kaff_news_sidebar() {
-                genesis_widget_area( 'kaff-news-sidebar' );
-            }
-            add_action( 'genesis_before_sidebar_widget_area', 'kaff_news_sidebar' );
+            //function kaff_news_sidebar() {
+                //genesis_widget_area( 'kaff-news-sidebar', array(
+                    //'before' => '<div class="kaff-news-sidebar">',
+                    //'after' => '</div>',
+                //) );
+            //}
+            //add_action( 'genesis_before_sidebar_widget_area', 'kaff_news_sidebar' );
             
         }
     }
@@ -669,7 +686,7 @@ function base_pagination() {
     if ( $paginate_links ) {
         echo '<div class="pagination">';
         echo $paginate_links;
-        echo '</div><!--// end .pagination -->';
+        echo '</div>';
     }
 }
 
@@ -700,12 +717,17 @@ function featured_image_in_post( ) {
 }
 
 
+
+
 // Remove dimensions from featured images in posts
 function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
     $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
     return $html;
 }
 add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
+
+
+
 
 
 /**********************************************************/
@@ -726,138 +748,33 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 
 
-/**********************************************************/
-// FUNCTIONS CALLED THROUGHOUT SITE
-
-
-// ADD CUSTOM BODY CLASSES
-function custom_body_class( $classes ){
-    if (is_page( 'kaff-news' )){
-        $classes[] = 'kaff-news';
-    } elseif ( check_current_category_for_news() ) {
-        $classes[] = 'kaff-news';
-    }
-    return $classes;
-}
-add_filter('body_class', 'custom_body_class');
-
-
-
-// Live or Dev (.vag)
-//check if  on DEV or LIVE site
-function live_or_local(){
-    if( strpos( $_SERVER['HTTP_HOST'], '.vag') !== false ){
-        //on .vag site
-        $liveOrLocal = 'local';
-    } else {
-        $liveOrLocal = 'live';
-    }
-    return $liveOrLocal;
-}
-
-
-// Check current category for News
-//  dynamically provide either the main or kaff news logo based on page
-function check_current_category_for_news(){
-    // Get the news category id by slug
-    $newsCategory = get_category_by_slug('news');
-    $news_cat_id = $newsCategory->term_id;
-
-    // get child categories of news
-    $cat_args = array('child_of' => $news_cat_id);
-    $news_cat_children = get_categories($cat_args);
-
-    //get the children cats ids
-    $news_cats = array();
-    $i = 0;
-    foreach($news_cat_children as $news_cat_child){
-        $news_cats[$i] = $news_cat_child->cat_ID;
-        $i += 1;
-    }
-
-    //add children and parent together in array
-    array_push($news_cats, $news_cat_id);
-    //print_r($news_cats);
-    return($news_cats);
-}
-
-// Convert Object to Array
-// Fn to convert Objects of stdClass to Arrays
-function object_to_array($object_to_array) {
-    if (is_object($object_to_array)) {
-        // Gets the properties of the given object
-        // with get_object_vars function
-        $object_to_array = get_object_vars($object_to_array);
-    }
-    if (is_array($object_to_array)) {
-        /*
-        * Return array converted to object
-        * Using __FUNCTION__ (Magic constant)
-        * for recursive call
-        */
-        return array_map(__FUNCTION__, $object_to_array);
-    } else {
-        // Return array
-        return $object_to_array;
-    }
-}
-
-/***************** END FUNCTIONS ************************************
-
 
 /**********************************************************/
-// JETPACK TWEAKS
-/* JetPack Publicize custom on/off chosen in Settings/GCMAZ */
-// get current user id and compare it against stored id's in our gcmaz_publicize option value
-function cust_jetpack_pub_fn(){
-	$current_user = wp_get_current_user();
-	$gcmaz_settings = get_option( 'gcmaz_settings' );
-	if( !in_array( $current_user->ID, $gcmaz_settings['gcmaz_publicize'] ) ){
-	    // set auto post to unchecked
-	    add_filter( 'publicize_checkbox_default', '__return_false' );
-	    //echo "<script> alert('Booo');</script>";
-	    //print_r($gcmaz_settings['gcmaz_publicize']);
-	}	
+// FEED TEMPLATES
+
+function gcm_feeds_tpl(){
+    add_feed('whats', 'whats_feeds_render');
+    add_feed('concerts', 'concerts_feeds_render');
+    add_feed('community', 'community_feeds_render');
+    add_feed('events', 'events_feed_render');
 }
-//add_action( 'after_setup_theme', 'cust_jetpack_pub_fn');
-
-
-/* remove JetPack sharing buttons from excerpts */
-function gcmaz_remove_filters_func() {
-     remove_filter( 'the_excerpt', 'sharing_display', 19 );
+add_action('after_setup_theme', 'gcm_feeds_tpl');
+/*
+ * gcm feeds RSS template callback
+ */
+function whats_feeds_render(){
+    get_template_part('feed', 'whats');
 }
-add_action( 'init', 'gcmaz_remove_filters_func' );
-
-
-
-/**********************************************************/
-// GRAVITY FORMS
-// Gravity Forms Custom Activation Template
-// http://gravitywiz.com/customizing-gravity-forms-user-registration-activation-page
-function custom_maybe_activate_user() {
-
-    $template_path = STYLESHEETPATH . '/gfur-activate-template/activate.php';
-    $is_activate_page = isset( $_GET['page'] ) && $_GET['page'] == 'gf_activation';
-
-    if( ! file_exists( $template_path ) || ! $is_activate_page  )
-        return;
-
-    require_once( $template_path );
-
-    exit();
+function concerts_feeds_render(){
+    get_template_part('feed', 'concerts');
 }
-add_action('wp', 'custom_maybe_activate_user', 9);
-
-
-
-/**********************************************************/
-// META SLIDER
-// Restrict Meta Slider to admins
-function metaslider_permissions($capability) {
-    $capability = 'administrator';
-    return $capability;
+function community_feeds_render(){
+    get_template_part('feed', 'community');
 }
-add_filter( "metaslider_capability", "metaslider_permissions" );
+function events_feed_render(){
+    get_template_part('feed', 'events');
+}
+
 
 
 /**********************************************************/
@@ -884,3 +801,215 @@ function sp_breadcrumb_args( $args ) {
     $args['labels']['404'] = 'Not found: '; // Genesis 1.5 and later
 return $args;
 }
+
+
+
+
+
+/**********************************************************/
+// START FUNCTIONS CALLED THROUGHOUT SITE
+/**********************************************************/
+
+// Live or Dev (.vag)
+//check if  on DEV or LIVE site
+function live_or_local(){
+    if( strpos( $_SERVER['HTTP_HOST'], '.vag') !== false ){
+        //on .vag site
+        $liveOrLocal = 'local';
+    } else {
+        $liveOrLocal = 'live';
+    }
+    return $liveOrLocal;
+}
+
+
+
+
+//  Returns News categories
+function get_news_cats(){
+
+    // Get the news category id by slug
+    $newsCategory = get_category_by_slug('news');
+    $news_cat_id = $newsCategory->term_id;
+
+    // get child categories of news
+    $cat_args = array('child_of' => $news_cat_id);
+    $news_cat_children = get_categories($cat_args);
+
+    //get the children cats ids
+    $news_cats = array();
+    $i = 0;
+    foreach($news_cat_children as $news_cat_child){
+        $news_cats[$i] = $news_cat_child->cat_ID;
+        $i += 1;
+    }
+
+    //add children and parent together in array
+    array_push($news_cats, $news_cat_id);
+    //print_r($news_cats);
+    return $news_cats;
+
+}
+
+
+// Convert Object to Array
+// Fn to convert Objects of stdClass to Arrays
+function object_to_array($object_to_array) {
+    if (is_object($object_to_array)) {
+        // Gets the properties of the given object
+        // with get_object_vars function
+        $object_to_array = get_object_vars($object_to_array);
+    }
+    if (is_array($object_to_array)) {
+        /*
+        * Return array converted to object
+        * Using __FUNCTION__ (Magic constant)
+        * for recursive call
+        */
+        return array_map(__FUNCTION__, $object_to_array);
+    } else {
+        // Return array
+        return $object_to_array;
+    }
+}
+
+
+/*
+ * SimplePie function to shorten feed 
+ */
+function shorten($string, $length){
+    // By default, an ellipsis will be appended to the end of the text.
+
+    $suffix = ' (more &hellip;)';
+ 
+    // Convert 'smart' punctuation to 'dumb' punctuation, strip the HTML tags,
+    // and convert all tabs and line-break characters to single spaces.
+    //$short_desc = trim(str_replace(array("\r","\n", "\t"), ' ', strip_tags($string)));
+    // STACY mod - don't strip html !
+    $short_desc = trim(str_replace(array("\r","\n", "\t" ), ' ', $string));
+ 
+    // Cut the string to the requested length, and strip any extraneous spaces 
+    // from the beginning and end.
+    $desc = trim(mb_substr($short_desc, 0, $length));
+ 
+    // Find out what the last displayed character is in the shortened string
+    $lastchar = substr($desc, -1, 1);
+ 
+    // If the last character is a period, an exclamation point, or a question 
+    // mark, clear out the appended text.
+    if ($lastchar == '.' || $lastchar == '!' || $lastchar == '?') $suffix='';
+ 
+    // Append the text.
+    $desc .= $suffix;
+ 
+    // Send the new description back to the page.
+    return $desc;
+}
+
+function shorten_and_strip_html($string, $length){
+    // By default, an ellipsis will be appended to the end of the text.
+    $suffix = ' (more &hellip;)';
+ 
+    // Convert 'smart' punctuation to 'dumb' punctuation, strip the HTML tags,
+    // and convert all tabs and line-break characters to single spaces.
+    $short_desc = trim(str_replace(array("\r","\n", "\t"), ' ', strip_tags($string)));
+ 
+    // Cut the string to the requested length, and strip any extraneous spaces 
+    // from the beginning and end.
+    $desc = trim(mb_substr($short_desc, 0, $length));
+ 
+    // Find out what the last displayed character is in the shortened string
+    $lastchar = substr($desc, -1, 1);
+
+    // Check for existing "(more&hellip;)" from WP 
+    $more_tag = "(more&hellip;)";
+    if ( stripos( $desc, $more_tag ) !== false ){
+        $more_tag_exists = true;
+    }
+ 
+    // If the last character is a period, an exclamation point, or a question 
+    // mark, clear out the appended text.
+    if ( $lastchar == '.' || $lastchar == '!' || $lastchar == '?' || $more_tag_exists == true ){
+        $suffix='';
+    }
+ 
+    // Append the text.
+    $desc .= $suffix;
+ 
+    // Send the new description back to the page.
+    return $desc;
+}
+
+
+/**********************************************************/
+//  END FUNCTIONS
+/**********************************************************/
+
+
+
+
+
+
+/**********************************************************/
+//  START PLUGIN TWEAKS
+/**********************************************************/
+
+// JETPACK TWEAKS
+/* JetPack Publicize custom on/off chosen in Settings/GCMAZ */
+// get current user id and compare it against stored id's in our gcmaz_publicize option value
+function cust_jetpack_pub_fn(){
+    $current_user = wp_get_current_user();
+    $gcmaz_settings = get_option( 'gcmaz_settings' );
+    if( !in_array( $current_user->ID, $gcmaz_settings['gcmaz_publicize'] ) ){
+        // set auto post to unchecked
+        add_filter( 'publicize_checkbox_default', '__return_false' );
+        //echo "<script> alert('Booo');</script>";
+        //print_r($gcmaz_settings['gcmaz_publicize']);
+    }   
+}
+//add_action( 'after_setup_theme', 'cust_jetpack_pub_fn');
+
+
+/* remove JetPack sharing buttons from excerpts */
+function gcmaz_remove_filters_func() {
+     remove_filter( 'the_excerpt', 'sharing_display', 19 );
+}
+add_action( 'init', 'gcmaz_remove_filters_func' );
+
+
+
+
+/**********************************************************/
+// GRAVITY FORMS
+// Gravity Forms Custom Activation Template
+// http://gravitywiz.com/customizing-gravity-forms-user-registration-activation-page
+function custom_maybe_activate_user() {
+
+    $template_path = STYLESHEETPATH . '/gfur-activate-template/activate.php';
+    $is_activate_page = isset( $_GET['page'] ) && $_GET['page'] == 'gf_activation';
+
+    if( ! file_exists( $template_path ) || ! $is_activate_page  )
+        return;
+
+    require_once( $template_path );
+
+    exit();
+}
+add_action('wp', 'custom_maybe_activate_user', 9);
+
+
+
+
+/**********************************************************/
+// META SLIDER
+// Restrict Meta Slider to admins
+function metaslider_permissions($capability) {
+    $capability = 'administrator';
+    return $capability;
+}
+add_filter( "metaslider_capability", "metaslider_permissions" );
+
+
+/**********************************************************/
+//  END PLUGIN TWEAKS
+/**********************************************************/

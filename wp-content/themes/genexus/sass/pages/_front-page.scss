@@ -51,10 +51,10 @@
           .news-hdr-arrow {
             width:52px;
             height:52px;
-            background: transparentize($blue, .85);
+            background: transparentize($color-white, .9);
             float:right;
             text-align: center;
-            color: $neutral-tan-dk;
+            color: $neutral-blue-lt;
           }
 
           width:100%;
@@ -62,10 +62,10 @@
           line-height: 50px;
           background: $widget-title-bg;
           display: block;
-          color: $neutral-tan;
+          color: $widget-title-color;
           vertical-align: middle;
-          border-top: 2px solid $blue;
-          border-bottom: 2px solid $blue;
+          border-top: 2px solid $widget-title-border;
+          border-bottom: 2px solid $widget-title-border;
 
         }
 
@@ -82,9 +82,7 @@
 
             a {
               &:hover {
-                //background: $blue-gray-lt;
-                color: $color-white;
-                background: transparentize($color-white, .9);
+                color: $widget-list-link-hover;
                 //&::after {
                   //color: $red;
                   //content: ' ►';
@@ -92,11 +90,15 @@
               }
 
               @extend %montserrat;
-              color: $color-whitesmoke; //$gray;
+              color: lighten($light-blue, 10%);
               letter-spacing: -.5px;
               padding: 5px 0 5px 15px;
               display: block;
 
+            }
+
+            &:hover {
+              background: $widget-list-link-bg-hover;
             }
 
             //border-bottom: 1px solid $gray;
@@ -128,7 +130,7 @@
       }
 
     //@include background(transparentize($color-black, .8));
-    @include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
+    @include background-image(url('images/widget-bg.png'), linear-gradient($light-blue, transparentize($light-blue, .8)));
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;

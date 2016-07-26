@@ -37,6 +37,7 @@ $yellow:			#ff0;
 $neutral-tan: 		#e6e4df;
 $neutral-tan-lt:	#f5f3f1;
 $neutral-tan-dk:	#a9a39a;
+$neutral-tan-dkr:	#726c63;
 $neutral-blue-lt:	#edeff9;
 $gunmetal:			#353a44;
 $gunmetal-lt:		#575e6b;
@@ -192,15 +193,32 @@ $ftr-text-hover: $color-white;
 
 
 
+
+// ********************************************************************
+// SIDEBAR
+// ********************************************************************
+
+$sidebar-grad-top: darken($dark-blue, 5%);
+$sidebar-grad-btm: lighten($dark-blue, 2%);
+
+
+
 // ********************************************************************
 // WIDGETS
 // ********************************************************************
 
 // title
-$widget-title-color: lighten($light-blue, 5%);
-$widget-title-bg: transparentize($dark-blue, .8);
+$widget-title-color: $neutral-tan-lt;
+$widget-title-bg: linear-gradient(to bottom, transparentize($neutral-tan-dk, .6), transparentize($neutral-tan-dk, .8));
+
+$widget-title-border: $neutral-blue-lt;
 
 // widget
-$widget-grad-top: $dark-blue;
-$widget-grad-btm: $light-blue;
+$widget-grad-top: $light-blue;
+$widget-grad-btm: transparentize($light-blue, .8);
 
+
+//widget ul li a
+$widget-list-link: lighten($light-blue, 10%);
+$widget-list-link-hover: $color-white;
+$widget-list-link-bg-hover: transparentize($color-black, .9);

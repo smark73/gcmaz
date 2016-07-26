@@ -1,7 +1,10 @@
 
 .alert,
 .alert-warning {
-	border: 1px solid $red;
+	//border: 1px solid $red;
+	background: transparentize($red, .9);
 	color: $red;
+	padding: 20px;
+	margin: auto;
 }
 
