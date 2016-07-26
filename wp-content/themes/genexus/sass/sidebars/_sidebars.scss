@@ -21,7 +21,7 @@
         text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
         vertical-align: middle;
         padding: 10px 10px 10px 20px;
-        margin-bottom: 0;
+        margin-bottom: 10px;
         border-top: 2px solid $widget-title-border;
         border-bottom: 2px solid $widget-title-border;
 
@@ -60,7 +60,6 @@
   				// background-position: center center;
   				// background-size: cover;
   				// background-repeat: no-repeat;
-  				padding-top: 10px;
 
       }
 
@@ -70,6 +69,8 @@
   			background-position: center center;
   			background-size: cover;
   			background-repeat: no-repeat;
+        color: $neutral-tan-lt;
+        border-bottom: 1px solid $widget-grad-top;
 
 		}
 

@@ -182,6 +182,13 @@ genesis_register_sidebar( array(
     'description' => 'Splash Pages Sidebar',
 ));
 
+// Landing page template sidebar
+genesis_register_sidebar( array(
+    'id' => 'sidebar-landing-page',
+    'name' => 'Landing Page Sidebar',
+    'description' => 'Landing Pages Sidebar',
+));
+
 
 
 //* Reduce the secondary navigation menu to one level depth
