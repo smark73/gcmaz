@@ -26,7 +26,8 @@
                 if(has_post_thumbnail()){
                     $full_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
                     echo '<a href="' . $full_image_url[0] . '" target="_blank" title="' . the_title_attribute( 'echo=0' ) . '" class="event-img-link">';
-                        the_post_thumbnail('medium', array('class'=>'info-img'));
+                        echo get_the_post_thumbnail( $post->ID, 'full info-img' );
+                        //the_post_thumbnail('full', array('class'=>'info-img centered img-responsive'));
                     echo '</a>';
                 }
             ?>
