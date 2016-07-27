@@ -39,7 +39,7 @@ add_action('init', 'gcmaz_event_post_type');
 function gcmaz_event_post_type(){
     $args = array(
             'labels' => array(
-                'name' => __("Posts for all stations 'HAPPENINGS', 'CONCERTS', 'INFO' listings"),
+                'name' => __("Events"),
                 'singular_name' => __('Event/Info Post'),
                 'menu_name' => __('EVENTS & INFO'),
                 'all_items' => __('See All'),
