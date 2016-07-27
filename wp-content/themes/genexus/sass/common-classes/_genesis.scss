@@ -2,7 +2,23 @@
 --------------------------------------------- */
 
 .breadcrumb {
-	margin-bottom: 20px;
+
+	.breadcrumb-link-wrap {
+
+		a {
+			color: $neutral-tan-dk;
+			&:hover {
+				color: $blue;
+				text-decoration: underline;
+			}
+			padding: 2px 6px;
+		}
+	}
+	font-size: .8em;
+	color: $neutral-tan-dk;
+	margin: 0 auto;
+	padding: 10px 0 10px 20px;
+	background: transparentize($neutral-tan, .5);
 }
 
 .after-entry,
@@ -24,4 +40,20 @@
 .archive-description p:last-child,
 .author-box p:last-child {
 	margin-bottom: 0;
+}
+
+.read-more {
+	font-size: .9em;
+	color: $blue;
+	margin-left: 5px;
+	padding: 0 4px;
+	border-left: 1px solid transparentize($light-blue, .5);
+	border-right: 1px solid transparentize($light-blue, .5);
+	background: $neutral-blue-lt;
+	word-break: keep-all;
+	display: inline-block;
+
+	&:hover {
+		background-color: transparentize($light-blue, .8);
+	}
 }

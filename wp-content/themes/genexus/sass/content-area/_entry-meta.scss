@@ -16,12 +16,43 @@ p.entry-meta {
 	padding-top: 24px;
 }
 
-.entry-categories,
-.entry-tags {
+.entry-categories {
 	display: block;
 }
 
 .entry-comments-link::before {
 	content: "\2014";
 	margin: 0 6px 0 2px;
+}
+
+.entry-tags {
+
+	ul {
+
+		span {
+			font-size: .8em;
+			display: inline-block;
+			color: $gunmetal-lt;
+		}
+
+		li {
+
+			a {
+				font-size: .8em;
+				color: $neutral-tan-dk;
+				padding: 3px 5px;
+				margin: 0 5px;
+				background: $neutral-tan-lt;
+
+				&:hover {
+					color: $neutral-tan-dkr;
+					background: $neutral-tan;
+				}
+			}
+
+			display: inline-block;
+
+		}
+	}
+
 }

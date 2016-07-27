@@ -100,7 +100,7 @@ function page_loop() {
         <?php else: ?>
 
             <div class="alert alert-warning">
-                <?php _e('Sorry, no results were found.', 'roots'); ?>
+                <?php _e('Sorry, no results were found.'); ?>
             </div>
 
         <?php endif;?>

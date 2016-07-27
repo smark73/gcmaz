@@ -309,10 +309,6 @@ function namespace_add_custom_types( $query ) {
 /**********************************************************/
 // CUSTOMIZE OUR HEADER
 
-
-
-
-
 function genexus_site_title (){
     //====== GCMAZ (DEFAULT) HDR ======//
     ?>
@@ -353,7 +349,8 @@ add_action( 'genesis_header_right', 'genexus_header_right' );
 
 
 /**********************************************************/
-// KAFF NEWS MODS 
+// START KAFF NEWS MODS 
+/**********************************************************/
 // check if news pages/category/etc
 // -- change site-title
 // -- add news menu 
@@ -428,20 +425,8 @@ function kaff_news_mods() {
                 //print_r($menu_items);
                 echo $menu_list;
             }
-
-            //add_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_subnav', 5 );
             add_action( 'genesis_before_content_sidebar_wrap', 'create_kaff_news_menu', 5 );
-            //add_action( 'genesis_before_sidebar_widget_area', 'create_kaff_news_menu', 5 );
 
-
-
-            //function kaff_news_sidebar() {
-                //genesis_widget_area( 'kaff-news-sidebar', array(
-                    //'before' => '<div class="kaff-news-sidebar">',
-                    //'after' => '</div>',
-                //) );
-            //}
-            //add_action( 'genesis_before_sidebar_widget_area', 'kaff_news_sidebar' );
             
         }
     }
@@ -508,31 +493,60 @@ add_action( 'admin_menu', 'change_news_post_label' );
 add_action( 'init', 'change_news_post_object' );
 
 
+//  Returns News categories
+function get_news_cats(){
 
-// end KAFF News Mods
+    // Get the news category id by slug
+    $newsCategory = get_category_by_slug('news');
+    $news_cat_id = $newsCategory->term_id;
+
+    // get child categories of news
+    $cat_args = array('child_of' => $news_cat_id);
+    $news_cat_children = get_categories($cat_args);
+
+    //get the children cats ids
+    $news_cats = array();
+    $i = 0;
+    foreach($news_cat_children as $news_cat_child){
+        $news_cats[$i] = $news_cat_child->cat_ID;
+        $i += 1;
+    }
+
+    //add children and parent together in array
+    array_push($news_cats, $news_cat_id);
+    //print_r($news_cats);
+    return $news_cats;
+
+}
+
+// Check if in KAFF News
+function check_if_in_news() {
+
+    global $post;
+    $array_of_news_cats = get_news_cats();
+    $c = get_the_category();
+    if( $c ){
+        //check if the category or parent category is News
+        // convert to array
+        $c_array = object_to_array($c);
+        if( $c_array[0]['term_id'] ){
+            //print_r($c_array[0]['term_id']);
+            //if set
+            if( in_array( $c_array[0]['term_id'], $array_of_news_cats ) ){
+                //if current cat is in news cats
+                return true;
+            }
+        }
+    }
+}
+add_action( 'wp', 'check_if_in_news');
+
+
+
+/**********************************************************/
+// END KAFF NEWS MODS 
 /**********************************************************/
 
-
-// custom header
-//function custom_header() {
-    //global $post;
-    //if( $post->post_name === 'kaff-news' || in_category( check_current_category_for_news() ) || $post->post_name == 'about-kaff-news' || $post->post_name == 'contact-kaff-news' ) {
-        //remove default page header
-        //remove_action( 'genesis_header', 'genesis_do_header' );
-        //function custom_do_header(){
-            //? >
-            //<div class="title-area">
-                //< ?php //===== LOGO ===== ? >
-                //<div class="hdr-nav-logo">
-                    //<a href="/kaff-news"><img src="< ?php echo get_stylesheet_directory_uri();? >/images/kaff-news-logo.png"></a>
-                //</div>
-            //</div>
-            //< ?php
-        //}
-        //add_action( 'genesis_header', 'custom_do_header' );
-    //}
-//}
-//add_action( 'wp', 'custom_header' );
 
 
 
@@ -709,12 +723,12 @@ function base_pagination() {
 //Display featured image in posts *with* the caption if it has one
 function featured_image_in_post( ) {
     global $post;
-    $thumbnail_id = get_post_thumbnail_id($post->ID);
-    $thumbnail_details = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+    $thumbnail_id = get_post_thumbnail_id( $post->ID );
+    $thumbnail_details = get_posts( array( 'p' => $thumbnail_id, 'post_type' => 'attachment' ) );
     $thumbnail_src = wp_get_attachment_image_src( $thumbnail_id, 'category-thumb' );
     $thumbnail_width = $thumbnail_src[1];
 
-    if ($thumbnail_src && isset($thumbnail_src[0])) {
+    if ( $thumbnail_src && isset( $thumbnail_src[0] ) ) {
         echo '<div class="featured-image">';
         the_post_thumbnail( 'large', array( 'class'=>'img-responsive' ) );
         if ( !empty( $thumbnail_details[0]->post_excerpt ) ) {
@@ -790,7 +804,6 @@ function events_feed_render(){
 /**********************************************************/
 // BREADCRUMBS
 //* Modify breadcrumb arguments.
-add_filter( 'genesis_breadcrumb_args', 'sp_breadcrumb_args' );
 function sp_breadcrumb_args( $args ) {
     $args['home'] = 'Home';
     $args['sep'] = ' / ';
@@ -811,7 +824,7 @@ function sp_breadcrumb_args( $args ) {
     $args['labels']['404'] = 'Not found: '; // Genesis 1.5 and later
 return $args;
 }
-
+add_filter( 'genesis_breadcrumb_args', 'sp_breadcrumb_args' );
 
 
 
@@ -832,34 +845,6 @@ function live_or_local(){
     return $liveOrLocal;
 }
 
-
-
-
-//  Returns News categories
-function get_news_cats(){
-
-    // Get the news category id by slug
-    $newsCategory = get_category_by_slug('news');
-    $news_cat_id = $newsCategory->term_id;
-
-    // get child categories of news
-    $cat_args = array('child_of' => $news_cat_id);
-    $news_cat_children = get_categories($cat_args);
-
-    //get the children cats ids
-    $news_cats = array();
-    $i = 0;
-    foreach($news_cat_children as $news_cat_child){
-        $news_cats[$i] = $news_cat_child->cat_ID;
-        $i += 1;
-    }
-
-    //add children and parent together in array
-    array_push($news_cats, $news_cat_id);
-    //print_r($news_cats);
-    return $news_cats;
-
-}
 
 
 // Convert Object to Array

@@ -4,22 +4,8 @@ $debug_sidebar = false;
 
 global $post;
 
-$show_news_sidebar = false;
-
-$array_of_news_cats = get_news_cats();
-$c = get_the_category();
-if( $c ){
-    //check if the category or parent category is News
-    // convert to array
-    $c_array = object_to_array($c);
-    if( $c_array[0]['term_id'] ){
-        //print_r($c_array[0]['term_id']);
-        //if set
-        if( in_array( $c_array[0]['term_id'], $array_of_news_cats ) ){
-            //if current cat is in news cats
-            $show_news_sidebar = true;
-        }
-    }
+if ( check_if_in_news() === true ) {
+    $show_news_sidebar = true;
 }
 
 
