@@ -12,6 +12,11 @@
 	//@include flex-direction(row);
 	//@include justify-content(flex-start);
 
+
+	.featured-slider{
+		margin-bottom: 20px;
+	}
+
 	.featured-article {
 
 		@include span-columns(6);
@@ -96,7 +101,7 @@
 
 	background: $neutral-tan;
 	margin: auto;
-	padding: 10px;
+	padding: 20px;
 
 }
 
@@ -154,21 +159,6 @@
 				color: $gray;
 			}
 
-			.read-more {
-				font-size: .9em;
-				color: $blue;
-				margin-left: 5px;
-				padding: 2px 4px;
-				border-left: 2px solid transparentize($light-blue, .5);
-				border-right: 2px solid transparentize($light-blue, .5);
-				background: $neutral-blue-lt;
-
-				&:hover {
-					background-color: transparentize($light-blue, .8);
-				}
-
-			}
-
 		}
 
 		padding: 0 15px;
@@ -217,4 +207,18 @@
 
 
 
+.read-more {
+	font-size: .9em;
+	color: $blue;
+	margin-left: 5px;
+	padding: 0 4px;
+	border-left: 1px solid transparentize($light-blue, .5);
+	border-right: 1px solid transparentize($light-blue, .5);
+	background: $neutral-blue-lt;
+	word-break: keep-all;
+	display: inline-block;
 
+	&:hover {
+		background-color: transparentize($light-blue, .8);
+	}
+}

@@ -1,0 +1,23 @@
+// Employment page
+
+
+.employment-page {
+
+	//target the_content p
+	p:nth-child(1) {
+		padding: 0 20px;
+	}
+
+	.employment-listing {
+
+		a {
+			padding: 5px 10px;
+			font-size: 1.2em;
+			color: $blue;
+		}
+
+		padding: 10px;
+
+	}
+
+}

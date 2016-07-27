@@ -30,7 +30,7 @@ var GenexusSite = {
                 $searchNav.click(function() {
                     var $button;
                     $button = $(this);
-                    var $sBar = $(document).find('.searchbar');
+                    var $sBar = $(document).find('.header-widget-area .searchbar');
                     var $sForm = $sBar.children('.searchbar-form');
                     $sBar.removeClass('hide-me');
                     $sForm.removeClass('hide-me');

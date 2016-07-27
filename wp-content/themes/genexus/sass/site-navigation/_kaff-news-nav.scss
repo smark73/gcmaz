@@ -59,7 +59,7 @@ nav.nav-secondary {
 			text-align: center;
 			width: 120px;
 			height: 100%;
-			line-height: 70px;
+			line-height: 65px;
 			vertical-align: middle;
 			color: $gunmetal;
 
@@ -98,20 +98,20 @@ nav.nav-secondary {
 		color: $news-menu-text-color;
 		text-decoration: none;
 		display: block;
-		padding: 26px 20px;
+		padding: 24px 20px;
 		position: relative;
 		font-weight: 600;
 		font-size: 1em;
 		@extend %montserrat;
 
 		@include media($sm-screen){
-			padding: 26px 12px;
+			padding: 24px 12px;
 			font-size: .9em;
 			text-align: center;
 			margin:auto;
 		}
 		@include media($xs-screen){
-			padding: 26px 7px;
+			padding: 24px 7px;
 			font-size: .7em;
 			text-align: center;
 			margin:auto;
@@ -210,7 +210,7 @@ nav.nav-secondary {
 	}
 
 
-	margin: 0 auto 20px;
+	margin: 0 auto;
 	@include linear-gradient(to bottom, $news-menu-bg-color, darken($news-menu-bg-color, 8%) 100%);
 
 }

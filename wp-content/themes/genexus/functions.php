@@ -40,6 +40,8 @@ define( 'CHILD_THEME_VERSION', '2.1.2' );
 
 
 
+
+
 /**********************************************************/
 //* Enqueue Scripts and Styles
 
@@ -88,8 +90,11 @@ add_action( 'admin_enqueue_scripts', 'genexus_admin_reqs');
 
 
 
+
+
+
 /**********************************************************/
-// Add Genesis Supports and Tweaks
+// Add Genesis Supports
 
 //* Add HTML5 markup structure
 add_theme_support( 'html5', array( 'caption', 'comment-form', 'comment-list', 'gallery', 'search-form' ) );
@@ -124,10 +129,12 @@ add_image_size( 'featured-image', 680, 400, TRUE );
 //* Rename primary and secondary navigation menus
 add_theme_support( 'genesis-menus' , array( 'primary' => __( 'Primary Menu', 'genesis-sample' ), 'secondary' => __( 'KAFF News Menu', 'genesis-sample' ) ) );
 
-//* Hide the secondary navigation menu (unless on KAFF News, then it shows)
-remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 
 
+
+
+/**********************************************************/
+// Genesis Layout Adjustments
 
 /** Unregister site layouts */
 //genesis_unregister_layout( 'sidebar-content' );
@@ -144,6 +151,21 @@ remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 //unregister_sidebar( 'header-right' );
 unregister_sidebar( 'sidebar' );
 unregister_sidebar( 'sidebar-alt' );
+
+
+//* Hide the secondary navigation menu (unless on KAFF News, then it shows)
+remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+
+//move prim menu above hdr
+//remove_action( 'genesis_after_header', 'genesis_do_nav' );
+//add_action( 'genesis_before_header', 'genesis_do_nav' );
+
+// logo or text (chosen in theme customization)
+// -- replaced with ours genexus_site_title
+remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
+
+// tagline
+remove_action( 'genesis_site_description', 'genesis_seo_site_description');
 
 
 // Register Our Sidebars
@@ -190,7 +212,6 @@ genesis_register_sidebar( array(
 ));
 
 
-
 //* Reduce the secondary navigation menu to one level depth
 function genesis_sample_secondary_menu_args( $args ) {
 	if ( 'secondary' != $args['theme_location'] ) {
@@ -200,7 +221,6 @@ function genesis_sample_secondary_menu_args( $args ) {
 	return $args;
 }
 add_filter( 'wp_nav_menu_args', 'genesis_sample_secondary_menu_args' );
-
 
 
 // Tell WP to use our Superfish JS arguments instead of defaults
@@ -215,6 +235,8 @@ function prefix_superfish_args_url( $url ) {
     return get_stylesheet_directory_uri() . '/js/superfish-args.min.js';
 }
 add_filter( 'genesis_superfish_args_url', 'prefix_superfish_args_url' );
+
+
 
 
 
@@ -265,13 +287,6 @@ function genexus_meta_info(){
 }
 //add_action('wp_head', 'genexus_meta_info');
 
-//add animate to front page
-function genexus_add_to_head(){
-    if( is_front_page() ){
-        echo "<link type='text/css' rel='stylesheet' href='/wp-content/themes/genexus/assets/styles/animate/animate.min.css'>";
-	}
-}
-//add_action('wp_head', 'genexus_add_to_head');
 
 
 
@@ -293,20 +308,8 @@ function namespace_add_custom_types( $query ) {
 
 /**********************************************************/
 // CUSTOMIZE OUR HEADER
-//remove_action( 'genesis_header', 'genesis_header_markup_open', 5 );
-//remove_action( 'genesis_header', 'genesis_do_header' );
-//remove_action( 'genesis_header', 'genesis_header_markup_close', 15 );
 
-//move prim menu above hdr
-//remove_action( 'genesis_after_header', 'genesis_do_nav' );
-//add_action( 'genesis_before_header', 'genesis_do_nav' );
 
-// logo or text (chosen in theme customization)
-// -- replaced with ours genexus_site_title
-remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
-
-// tagline
-//remove_action( 'genesis_site_description', 'genesis_seo_site_description');
 
 
 

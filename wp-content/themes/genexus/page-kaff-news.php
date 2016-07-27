@@ -18,6 +18,12 @@ function page_loop() {
 	?>
 
 	<div class="news-featured-section">
+
+        <div class="featured-slider">
+
+            <?php echo do_shortcode('[metaslider id=653]'); ?>
+
+        </div>
         
         <section class="featured-article">
             <article>
@@ -38,9 +44,13 @@ function page_loop() {
                         ?>
                         <section class="news-post">
                             <?php if(has_post_thumbnail()) : ?>
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="img-link">
-                                    <?php the_post_thumbnail('medium featured-image'); ?>
+
+                                <?php //get img src, echo as bg of link ?>
+                                <?php $img_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );?>
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="img-link" style="background-image:url('<?php echo $img_src[0];?>'); background-position: center center; background-size: cover;">
+                                    <?php //the_post_thumbnail('medium featured-image'); ?>
                                 </a>
+
                             <?php endif; ?>
 
                             <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="news-post-title">
@@ -50,11 +60,10 @@ function page_loop() {
                             <?php
                                 //the_title( '<p class="news-post-title">', '</p>' );
                                 echo '<div class="news-post-content">';
-                                the_content();
+                                //the_content();
+                                the_excerpt();
                                 echo '</div>';
                             ?>
-                            <hr>
-                            <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
                         </section>
                     <?php endwhile;?>
 
@@ -91,9 +100,13 @@ function page_loop() {
                         ?>
                         <section class="news-post">
                             <?php if(has_post_thumbnail()) : ?>
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="img-link">
-                                    <?php the_post_thumbnail('medium featured-image'); ?>
+
+                                <?php //get img src, echo as bg of link ?>
+                                <?php $img_src = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );?>
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="img-link" style="background-image:url('<?php echo $img_src[0];?>'); background-position: center center; background-size: cover;">
+                                    <?php //the_post_thumbnail('medium featured-image'); ?>
                                 </a>
+
                             <?php endif; ?>
 
                             <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="news-post-title">
@@ -103,11 +116,10 @@ function page_loop() {
                             <?php
                                 //the_title( '<p class="news-post-title">', '</p>' );
                                 echo '<div class="news-post-content">';
-                                the_content();
+                                //the_content();
+                                the_excerpt();
                                 echo '</div>';
                             ?>
-                            <hr>
-                            <p class="news-date"><?php echo get_the_date() . ", " . get_the_time();?></p>
                         </section>
                     <?php endwhile;?>
 
