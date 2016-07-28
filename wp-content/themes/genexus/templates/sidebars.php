@@ -6,6 +6,8 @@ global $post;
 
 if ( check_if_in_news() === true ) {
     $show_news_sidebar = true;
+} else {
+    $show_news_sidebar = false;
 }
 
 

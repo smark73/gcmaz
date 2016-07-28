@@ -1,10 +1,39 @@
-/* ## Pagination
---------------------------------------------- */
+// Pagination 
 
 .pagination {
+
+    span,
+    a {
+        display: block;
+        float: left;
+        margin: 3px 3px 3px 0;
+        padding: 10px 13px;
+        text-decoration: none;
+        width: auto;
+        color: $color-white;
+        background: $gray;
+    }
+
+    a:hover {
+        color: $color-white;
+        background: $red;
+    }
+
+    .current {
+        background: $blue;
+        color: $color-white;
+    }
+
 	clear: both;
 	margin: 40px 0;
+    padding: 20px 0;
+    position: relative;
+    font-size: 11px;
+    line-height: 13px;
+
+
 }
+
 
 .adjacent-entry-pagination {
 	margin-bottom: 0;
@@ -15,8 +44,8 @@
 }
 
 .archive-pagination li a {
-	background-color: #fff;
-	color: #333;
+	background-color: $color-white;
+	color: $gray-dk;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 16px;
@@ -29,6 +58,6 @@
 .archive-pagination li a:hover,
 .archive-pagination li a:focus,
 .archive-pagination .active a {
-	background-color: #cc3d25;
-	color: #fff;
+	background-color: $color-mandy;
+	color: $color-white;
 }

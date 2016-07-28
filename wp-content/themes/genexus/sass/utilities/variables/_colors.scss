@@ -18,22 +18,18 @@ $color-thunderbird: #c3251d;
 $color-white: #fff;
 $color-whitesmoke: #f5f5f5;
 
-// From BS
-$gray-base:              #000 !default;
-$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
-$gray-dark:              lighten($gray-base, 20%) !default;   // #333
-$gray:                   lighten($gray-base, 33.5%) !default; // #555
-$gray-light:             lighten($gray-base, 46.7%) !default; // #777
-$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
-
-// Ours
-$blue:			 	#3853a4; // default gcm blue
-$light-blue:		#4589ff;
-$med-blue:			#2e6fdd;
-$dark-blue:			#203062;
+// Primary
+$blue-ltr:			#56b2fe;
+$blue-lt:			#4589ff;
+$blue:				#2e6fdd;
+$blue-dk:			#174ba4;
+$blue-dkr:			#203062;
 $red:				#c00;
 $bright-red: 		#f33;
-$yellow:			#ff0;
+$orange:			#ff6600;
+$yellow:			#ffff00;
+
+// Neutrals
 $neutral-tan: 		#e6e4df;
 $neutral-tan-lt:	#f5f3f1;
 $neutral-tan-dk:	#a9a39a;
@@ -42,8 +38,14 @@ $neutral-blue-lt:	#edeff9;
 $gunmetal:			#353a44;
 $gunmetal-lt:		#575e6b;
 $gunmetal-dk:		#191c22;
+$gray-dkr:			#222;
+$gray-dk:			#333;
+$gray:				#555;
+$gray-lt:			#777;
+$gray-ltr:			#eee;
 
 // Station Colors
+$gcmaz-blue: #3953a4;
 $kaff-red: #ea2328;
 $kaff-blue: #2e4a9d;
 $kmgn-orange: #f69222;
@@ -61,16 +63,8 @@ $shine-orange: #f8b423;
 $shine-blue: #0e426a;
 
 
-// From BS
-$brand-primary:         $blue !default;
-$brand-success:         $red !default;
-$brand-info:            $blue !default;
-$brand-warning:         $yellow !default;
-$brand-danger:          $yellow !default;
-
-
 // some classes may be hardcoded in old pages
-.light-blue { color: $light-blue; }
+.light-blue { color: $blue-lt; }
 .bright-red { color: $bright-red; }
 .white { color: $color-white; }
 .black { color: $color-black; }
@@ -170,8 +164,8 @@ $menu-toggle-color: $red;
 // create pg-hdr.png and put in /images dir
 // change colors for bg gradient
 
-$site-hdr-grad-top: $dark-blue;
-$site-hdr-grad-btm: $light-blue; //darken($neutral-tan, 5%);
+$site-hdr-grad-top: $blue-dk;
+$site-hdr-grad-btm: $blue-lt; //darken($neutral-tan, 5%);
 
 
 // WIDGET AREA (HDR-NAVICONS)
@@ -185,7 +179,7 @@ $hdr-nav-icons-bg-color: $red;
 
 // background
 $site-ftr-grad-top: $blue;
-$site-ftr-grad-btm: $light-blue;
+$site-ftr-grad-btm: $blue-lt;
 
 // fonts
 $ftr-text: $neutral-tan;
@@ -209,16 +203,16 @@ $sidebar-grad-btm: $neutral-tan-lt;
 
 // title
 $widget-title-color: $neutral-tan-lt;
-$widget-title-bg: transparentize($gunmetal, .8);//linear-gradient(to bottom, transparentize(#98aaca, .2), transparentize(#a5afc1, .2));
+$widget-title-bg: transparentize($blue, .4);
 
 $widget-title-border: $neutral-blue-lt;
 
 // widget
-$widget-grad-top: transparentize($color-dusty-gray, .2);
-$widget-grad-btm: transparentize($gunmetal-lt, .2);
+$widget-grad-top: $blue-ltr;
+$widget-grad-btm: $blue;
 
 
 //widget ul li a
-$widget-list-link: darken($neutral-blue-lt, 3%);//lighten($light-blue, 10%);
+$widget-list-link: $neutral-tan-lt;//darken($neutral-blue-lt, 3%);//lighten($light-blue, 10%);
 $widget-list-link-hover: $color-white;
-$widget-list-link-bg-hover: transparentize($color-black, .9);
+$widget-list-link-bg-hover: transparentize($blue, .7);//transparentize($color-black, .9);

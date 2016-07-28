@@ -64,7 +64,7 @@
 			.news-date {
 				margin: 0;
 				padding:0;
-				color: $gray-light;
+				color: $gray-lt;
 				font-size: .6em;
 			}
 
@@ -212,13 +212,13 @@
 	color: $blue;
 	margin-left: 5px;
 	padding: 0 4px;
-	border-left: 1px solid transparentize($light-blue, .5);
-	border-right: 1px solid transparentize($light-blue, .5);
+	border-left: 1px solid transparentize($blue-lt, .5);
+	border-right: 1px solid transparentize($blue-lt, .5);
 	background: $neutral-blue-lt;
 	word-break: keep-all;
 	display: inline-block;
 
 	&:hover {
-		background-color: transparentize($light-blue, .8);
+		background-color: transparentize($blue-lt, .8);
 	}
 }

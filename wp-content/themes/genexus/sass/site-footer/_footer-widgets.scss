@@ -43,7 +43,7 @@
 	}
 
 	.copyright {
-		color: $light-blue;
+		color: $blue-lt;
 		font-size: 10px;
 		font-weight: bold;
 		padding: 0;
@@ -56,10 +56,10 @@
 		font-weight: bold;
 		font-size: 11px;
 		text-decoration: none;
-		color: $gray-light;
+		color: $gray-lt;
 
 		&:hover {
-			color: $light-blue;
+			color: $blue-lt;
 		}
 	}
 

@@ -58,12 +58,12 @@
 				color: $blue;
 				margin-left: 5px;
 				padding: 2px 4px;
-				border-left: 2px solid transparentize($light-blue, .5);
-				border-right: 2px solid transparentize($light-blue, .5);
+				border-left: 2px solid transparentize($blue-lt, .5);
+				border-right: 2px solid transparentize($blue-lt, .5);
 				background: $neutral-blue-lt;
 
 				&:hover {
-					background-color: transparentize($light-blue, .8);
+					background-color: transparentize($blue-lt, .8);
 				}
 
 			}

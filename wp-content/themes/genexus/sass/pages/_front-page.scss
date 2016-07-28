@@ -60,7 +60,7 @@
           width:100%;
           height: 54px;
           line-height: 50px;
-          background: $widget-title-bg;
+          background: transparentize($blue, .6);
           display: block;
           color: $widget-title-color;
           vertical-align: middle;
@@ -82,7 +82,7 @@
 
             a {
               &:hover {
-                color: $widget-list-link-hover;
+                color: $color-white;
                 //&::after {
                   //color: $red;
                   //content: ' ►';
@@ -90,7 +90,7 @@
               }
 
               @extend %montserrat;
-              color: lighten($light-blue, 10%);
+              color: $neutral-tan-lt;
               letter-spacing: -.5px;
               padding: 5px 0 5px 15px;
               display: block;
@@ -98,7 +98,7 @@
             }
 
             &:hover {
-              background: $widget-list-link-bg-hover;
+              background: transparentize($blue, .7);
             }
 
             //border-bottom: 1px solid $gray;
@@ -130,11 +130,11 @@
       }
 
     //@include background(transparentize($color-black, .8));
-    @include background-image(url('images/widget-bg.png'), linear-gradient($light-blue, transparentize($light-blue, .8)));
+    @include background-image(url('images/widget-bg.png'), linear-gradient($blue-ltr, $blue));
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    border-bottom: 1px solid $light-blue;
+    border-bottom: 1px solid $blue-lt;
     padding: 12px;
     margin: auto;
     text-align: center;
@@ -203,7 +203,7 @@
 
   margin:40px 0;
   padding: 40px 0;
-  background: $gray-dark;
+  background: $gray-dk;
   @include background(radial-gradient($gunmetal, $gunmetal-dk));
 }
 
