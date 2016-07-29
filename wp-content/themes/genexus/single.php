@@ -88,13 +88,17 @@ function page_loop() {
 
                     // COMMENTS
                     // If comments are open or we have at least one comment, load up the comment template.
-                    if ( comments_open() || get_comments_number() ) {
-                        echo '<section class="entry-comments">';
-                        comments_template();
-                        echo '</section>';
-                    }
+                    //if ( comments_open() || get_comments_number() ) {
+                    //    echo "comments open or at least 1";
+                    //    echo '<section class="entry-comments">';
+                    //    comments_template();
+                    //    echo '</section>';
+                    //}
 
                 //endif;
+
+
+                comments_template($post->ID);
             ?>
 
         </div>

@@ -17,7 +17,7 @@ function page_loop() {
         <?php
             $the_query = new WP_Query( array(
                 'order' => 'ASC',
-                'posts_per_page' => 2,
+                'posts_per_page' => 10,
                 'paged' => $paged,
                 ));
         ?>
