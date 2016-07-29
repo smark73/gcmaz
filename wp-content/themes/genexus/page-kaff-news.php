@@ -21,7 +21,7 @@ function page_loop() {
 
         <div class="featured-slider">
 
-            <?php echo do_shortcode('[metaslider id=653]'); ?>
+            <?php genesis_widget_area( 'kaff-news-slider' );?>
 
         </div>
         

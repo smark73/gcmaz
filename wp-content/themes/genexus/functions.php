@@ -216,6 +216,14 @@ genesis_register_sidebar( array(
     'description' => 'Landing Pages Sidebar',
 ));
 
+    
+//---- SLIDER WIDGETS ----------------
+genesis_register_sidebar( array(
+    'id' => 'kaff-news-slider',
+    'name' => 'KAFF News Slider',
+    'description' => 'Widget to hold KAFF News Slider ',
+));
+
 
 //* Reduce the secondary navigation menu to one level depth
 function genesis_sample_secondary_menu_args( $args ) {
@@ -867,7 +875,7 @@ function modify_comment_form_fields($fields){
 
     $fields['email'] =
         '<p class="comment-form-email">' .
-        '<label for="email">' . __( 'Your Email' ) . '</label> ' .
+        '<label for="email">' . __( 'Your Email <span class="sm-print">(will not be published)</span>' ) . '</label> ' .
         ( $req ? '<span class="required">*</span>' : '' ) .
         '<input id="email" placeholder="email@example.com" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
         '" size="30"' . $aria_req . ' />'  .
