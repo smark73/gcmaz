@@ -1,5 +1,5 @@
-/* # Widgets
----------------------------------------------------------------------------------------------------- */
+// Widgets
+
 
 .widget {
 	margin-bottom: 40px;
@@ -44,3 +44,106 @@
 }
 
 
+
+// ---------------------------------------------------
+// SPECIFICALLY TARGETED BY BODY CLASSES
+// ---------------------------------------------------
+// KAFF NEWS WIDGETS
+.kaff-news {
+
+  .sidebar {
+
+  	.widget-area {
+
+  		.widget {
+
+        //hdr
+        .widget-title {
+
+        	@extend %bree;
+
+          width: 100%;
+          background: $widget-title-bg;
+          display: block;
+          color: $widget-title-color;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+          font-size: 1em;
+          font-weight: 400;
+          vertical-align: middle;
+          padding: 8px 8px 8px 20px;
+          margin-bottom: 10px;
+          border-top: 1px solid $widget-title-border;
+          border-bottom: 1px solid $widget-title-border;
+
+         }
+
+        ul {
+
+        	li {
+
+        		a {
+
+        			@extend %montserrat;
+
+        			&:hover {
+        				color: $widget-list-link-hover;
+        			}
+
+        			color: $widget-list-link;
+        			display: block;
+        			padding-left: 10px;
+        			font-size: .9em;
+        		}
+
+      			&:hover {
+              background: $widget-list-link-bg-hover;
+      			}
+
+      			padding: 5px;
+      			margin: 0;
+        		//border-left: 2px solid transparentize($color-white, .9);
+        		//border-right: 2px solid transparentize($gunmetal, .8);
+
+        	}
+
+    				// @include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
+    				// background-position: center center;
+    				// background-size: cover;
+    				// background-repeat: no-repeat;
+
+        }
+
+    			padding: 10px;
+    			//background: $neutral-tan-dk;//transparentize($gunmetal-lt, .5);
+    			@include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
+    			background-position: center center;
+    			background-size: cover;
+    			background-repeat: no-repeat;
+          color: $neutral-tan-lt;
+          border-bottom: 1px solid $widget-grad-top;
+
+  		}
+
+  		padding: 10px;
+
+  	}
+
+    //@include background(linear-gradient(transparentize($neutral-tan, .2), transparentize($neutral-tan, .5)));
+    @include background(linear-gradient($sidebar-grad-top, $sidebar-grad-btm));
+
+    padding: 7px;
+    font-size: 16px;
+    font-size: 1.6rem;
+
+  }
+
+}
+
+
+// ---------------------------------------------------
+// SPECIFICALLY TARGETED BY SIDEBAR CLASS (sidbar-name)
+// ---------------------------------------------------
+
+.sidebar-primary {
+
+}
