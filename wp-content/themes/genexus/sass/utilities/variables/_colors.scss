@@ -88,67 +88,43 @@ $default-menu-bg-color: $gunmetal; //$gray-dark; //$neutral-tan !default;
 $default-menu-bg-color-underline: $red !default;
 
 
-// TEXT
 
-// **** Regular Menu
-// Defaults
+// ********************************************************************
+// NORMAL MENU 
+// ********************************************************************
+// TEXT
 $menu-text-color: $default-menu-text-color;
 $menu-text-sub-color: $default-submenu-text-color;
-// Hover
 $menu-text-color-hover: $default-menu-text-color-hover;
-
-// **** Mobile Menu
-// Defaults
-$sliding-panel-color: $default-menu-text-color;
-// submenu items
-$sliding-panel-sub-color: $default-submenu-text-color;
-// Hover
-$sliding-panel-color-hover: $default-menu-text-color-hover;
-
-
-
 // BACKGROUND
-
-// **** Regular Menu
-// Defaults
 $menu-bg-color: $default-menu-bg-color;
 $menu-bg-color-hover: darken($menu-bg-color, 5%);
 $menu-bg-color-underline: $default-menu-bg-color-underline;
-// Hover
-// Focus
-
-// **** Mobile
-$sliding-panel-background: darken($default-menu-bg-color, 10%);
-// Hover
-$sliding-panel-background-hover: darken($sliding-panel-background, 3%);
-// Focus
-//$sliding-panel-background-focus: lighten($sliding-panel-background, 5%);
-
-
-
 // CURRENT ITEM
-
-// **** Regular Menu
 $cur-menu-item: $red;
-//$cur-menu-border-left: $red;
-
-// **** Mobile Menu
-
-
-
 // BORDERS
-
-// **** Regular
 $menu-border-color: darken($menu-bg-color, 5%);
-// **** Mobile
-$sliding-panel-border-color: darken($sliding-panel-background, 5%);
+
+
+// ********************************************************************
+// MOBILE MENU (SLIDING PANEL)
+// ********************************************************************
+// TEXT
+$mobile-menu-top-item-color: $bright-red;
+$mobile-menu-item-color: $neutral-tan-lt;
+// BG
+$sliding-panel-color: $neutral-tan-lt;
+$sliding-panel-color-hover: $blue-lt;
+$sliding-panel-bg: $default-menu-bg-color;
+$mobile-menu-item-bg-hover: lighten($sliding-panel-bg, 3%);
+// BORDER
+$sliding-panel-border-color: $sliding-panel-bg;
+
 
 
 
 // TOGGLE BTN
 $menu-toggle-color: $red;
-
-
 
 
 
@@ -192,8 +168,8 @@ $ftr-text-hover: $color-white;
 // SIDEBAR
 // ********************************************************************
 
-$sidebar-grad-top: $neutral-tan;
-$sidebar-grad-btm: $neutral-tan-lt;
+$sidebar-grad-top: transparentize($color-white, .25);
+$sidebar-grad-btm: transparentize($color-white, 1);
 
 
 
@@ -203,16 +179,16 @@ $sidebar-grad-btm: $neutral-tan-lt;
 
 // title
 $widget-title-color: $neutral-tan-lt;
-$widget-title-bg: transparentize($blue, .4);
+//$widget-title-bg: transparentize($blue, .4);
 
-$widget-title-border: $neutral-blue-lt;
+$widget-border: $neutral-tan;
 
 // widget
-$widget-grad-top: $blue-ltr;
-$widget-grad-btm: $blue;
+//$widget-grad-top: $blue-ltr;
+//$widget-grad-btm: $blue;
 
 
 //widget ul li a
-$widget-list-link: $neutral-tan-lt;//darken($neutral-blue-lt, 3%);//lighten($light-blue, 10%);
-$widget-list-link-hover: $color-white;
-$widget-list-link-bg-hover: transparentize($blue, .7);//transparentize($color-black, .9);
+$widget-list-link: $neutral-tan-dkr;
+$widget-list-link-hover:  $blue;
+$widget-list-link-bg-hover: transparentize($neutral-tan, .5);

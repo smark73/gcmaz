@@ -5,23 +5,13 @@
 // ---------------------------------------------------
 // SPECIFICALLY TARGETED BY BODY CLASS
 // ---------------------------------------------------
-.kaff-news {
+// .kaff-news {
 
-  .sidebar {
+//   .sidebar {
 
-    //widget styles in widgets/_widgets.scss
+//   }
 
-    //@include background(linear-gradient(transparentize($neutral-tan, .2), transparentize($neutral-tan, .5)));
-    @include background(linear-gradient($sidebar-grad-top, $sidebar-grad-btm));
-    
-    //background: $gunmetal;
-    padding: 7px;
-    font-size: 16px;
-    font-size: 1.6rem;
-
-  }
-
-}
+// }
 
 
 
@@ -31,12 +21,8 @@
 
 .sidebar {
 
-  //widget styles in widgets/_widgets.scss
+  @include background(linear-gradient($sidebar-grad-top, $sidebar-grad-btm));
 
-  //@include background(linear-gradient(transparentize($neutral-tan, .2), transparentize($neutral-tan, .5)));
-  //@include background(linear-gradient($sidebar-grad-top, $sidebar-grad-btm));
-
-  //background: $color-black;
   padding: 7px;
   font-size: 16px;
   font-size: 1.6rem;

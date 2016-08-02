@@ -138,8 +138,6 @@ nav.nav-primary {
 	}
 
 
-
-
 	// hide on mobile screens
 	@include media($md-screen){
 		@include visuallyhidden();

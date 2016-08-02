@@ -1,0 +1,97 @@
+// WEATHER
+
+.weather-page{
+
+    background: #7db9e8; /* Old browsers */
+    @include background(linear-gradient(to bottom,  #7db9e8 16%,#f7f2ff 88%));
+
+}
+
+#weather {
+	margin: 0 auto;
+	padding: 10px;
+	text-align: center;
+	border-top: 1px solid transparentize($color-white, .8);
+	max-width: 800px;
+}
+
+#weather h2 {
+	color: $neutral-tan-lt;
+	font-size: 2em;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+}
+
+#weather p {
+	color: $gunmetal;
+	font-size: 1.5em;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+	margin: auto;
+	text-align: center;
+}
+
+
+#weather p span {
+	font-size: 1em;
+	padding-left: 15px;
+	color: $gunmetal;// #47657c;
+}
+
+#weather p a {
+	display: inline-block;
+	clear: both;
+	text-decoration: none;
+	color: $blue;
+	font-size: 1em;
+	border: 0;
+}
+
+#weather a:hover {
+	color: $color-white;
+	text-decoration: underline;
+	border: 0;
+}
+
+.wthr-lnks{
+	margin: 0 auto 15px;
+	width: 100%;
+}
+
+a.wthrcty{
+
+	@extend %montserrat;
+
+	font-size: 1em;
+	color: $blue;
+	padding: 5px 10px;
+	margin: 0 5px;
+	cursor: pointer;
+	font-weight: 700;
+
+	@include media($sm-screen) {
+		padding: 5px;
+		margin: 0 3px;
+		font-size: .8em;
+	}
+}
+
+a.wthrcty:hover{
+	text-decoration: underline;
+	color: $blue-dk;
+}
+
+.wthr-spnsrs {
+
+	p {
+		margin-top: 20px;
+		font-size: .8em;
+		color: $neutral-tan-dk;
+	}
+
+	img{
+		margin: 5px auto;
+	}
+
+	margin-bottom: 2%;
+	padding-bottom: 2%;
+	color: $gunmetal-lt;
+}

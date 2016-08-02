@@ -225,6 +225,8 @@ genesis_register_sidebar( array(
 ));
 
 
+    
+//---- 2ND MENU DEPTH ----------------
 //* Reduce the secondary navigation menu to one level depth
 function genesis_sample_secondary_menu_args( $args ) {
 	if ( 'secondary' != $args['theme_location'] ) {
@@ -236,6 +238,8 @@ function genesis_sample_secondary_menu_args( $args ) {
 add_filter( 'wp_nav_menu_args', 'genesis_sample_secondary_menu_args' );
 
 
+    
+//---- SUPERFISH ----------------
 // Tell WP to use our Superfish JS arguments instead of defaults
 /**
 * Filter in URL for custom Superfish arguments.
@@ -611,29 +615,70 @@ add_action( 'genesis_before_header', 'genexus_mobile_nav');
 
 
 // Create the mobile menu 
-$menu_name = 'Mobile Menu';
-$menu_exists = wp_get_nav_menu_object( $menu_name );
+//$menu_name = 'Mobile Menu';
+//$menu_exists = wp_get_nav_menu_object( $menu_name );
 
 //if doesn't exist, create it
-if( ! $menu_exists ){
-    $menu_id = wp_create_nav_menu( $menu_name );
+//if( ! $menu_exists ){
+//    $menu_id = wp_create_nav_menu( $menu_name );
 
     //set default items
     // Home Page (repeat for other items)
-    wp_update_nav_menu_item( $menu_id, 0, array(
-        'menu-item-title' => __('Home'),
-        'menu-item-classes' => 'home',
-        'menu-item-url' => home_url('/'),
-        'menu-item-status' => 'publish'
-        ));
-}
+//    wp_update_nav_menu_item( $menu_id, 0, array(
+//        'menu-item-title' => __('Home'),
+//        'menu-item-classes' => 'home',
+//        'menu-item-url' => home_url('/'),
+//        'menu-item-status' => 'publish'
+//        ));
+//}
 
 
 // Register our mobile menu 
 function register_mobile_menu() {
-  register_nav_menu('mobile-menu',__( 'Mobile Menu' ));
+ register_nav_menu('mobile-menu',__( 'Mobile Menu' ));
 }
 add_action( 'init', 'register_mobile_menu' );
+
+
+// Get the mobile menu and modify the items output
+function modify_mobile_menu(){
+
+    // start creating html
+    $menu_list = '';
+    $menu_list .= '<nav class="js-menu sliding-panel-content">';
+    $menu_list .= '<div class="wrap">';
+    $menu_list .= '<ul class="menu genesis-nav-menu mobile-menu">';
+
+    // get the menu object and items
+    $locations = get_nav_menu_locations();
+    $menu = get_term($locations['mobile-menu']);
+    $menu_items = wp_get_nav_menu_items($menu->term_id);
+
+    // cycle through items and add arrow
+    foreach( $menu_items as $menu_item ){
+
+        //print_r($menu_item);
+
+        if($menu_item->menu_item_parent === '0') {
+            $menu_list .= '<li class="menu-item menu-item-has-child">';
+        } else {
+            $menu_list .= '<li class="menu-item">';
+        }
+
+        $menu_list .= '<a href="' . $menu_item->url . '" itemprop="url"><span itemprop="name">' . $menu_item->title . '</span></a>';
+        $menu_list .= '</li>';
+    }
+
+    // finish building html
+    $menu_list .= '</ul>';
+    $menu_list .= '</div>';
+    $menu_list .= '</nav>';
+
+    //print_r($menu_items);
+    echo $menu_list;
+}
+add_action( 'genesis_before_content_sidebar_wrap', 'modify_mobile_menu', 5 );
+    
 
 
 

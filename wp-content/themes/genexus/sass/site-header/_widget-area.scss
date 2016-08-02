@@ -23,6 +23,14 @@
 }
 
 
+.widget-area.header-widget-area {
+
+    @include media($sm-screen){
+      margin-bottom: 40px;
+    }
+
+}
+
 //HEADER NAV ICONS
 .hdr-nav-icons {
 
@@ -101,7 +109,6 @@
   position: relative;
   display: inline-block;
   cursor: pointer;
-  // keep above responsive menu & search
   z-index: 10000;
 }
 

@@ -44,7 +44,7 @@
 
             float:left;
             margin-left: 20px;
-            color: $widget-title-color;
+            color: $neutral-tan-lt;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
           }
 
@@ -62,10 +62,10 @@
           line-height: 50px;
           background: transparentize($blue, .6);
           display: block;
-          color: $widget-title-color;
+          color: $neutral-tan-lt;
           vertical-align: middle;
-          border-top: 2px solid $widget-title-border;
-          border-bottom: 2px solid $widget-title-border;
+          border-top: 2px solid $neutral-blue-lt;
+          border-bottom: 2px solid $neutral-blue-lt;
 
         }
 
