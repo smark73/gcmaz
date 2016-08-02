@@ -37,17 +37,17 @@ function page_loop(){
             </div>
 
             <div class="home-news">
-                <section class="news-headlines">
+                <section class="home-headlines">
 
-                    <a href="/kaff-news" class="kaff-news-link">
+                    <a href="/kaff-news">
                         <div class="news-headlines-hdr">
-                            <div class="news-hdr-txt">
-                                KAFF News <span class="red">Posts</span>
+                            <div class="hdr-txt">
+                                KAFF News
                             </div>
-                            <div class="news-hdr-arrow">
+                            <!--div class="hdr-arrow">
                                 <i class="fa fa-chevron-right"></i>
                             </div>
-                            <div class="clearfix"></div>
+                            <div class="clearfix"></div-->
                         </div>
                     </a>
 
@@ -55,16 +55,16 @@ function page_loop(){
                         //save WP post object
                         $saved_post = $post;
 
-                        $featured_query = new WP_Query(array(
+                        $f_news_query = new WP_Query(array(
                             'category_name' => 'featured',
                             'posts_per_page' => 5,
                         ));
                     ?>
 
-                    <?php if($featured_query->have_posts()) : ?>
+                    <?php if($f_news_query->have_posts()) : ?>
 
                         <ul>
-                            <?php while($featured_query->have_posts()) : $featured_query->the_post(); ?>
+                            <?php while($f_news_query->have_posts()) : $f_news_query->the_post(); ?>
                                 <li><a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a></li>
                             <?php endwhile;?>
                         </ul>
@@ -81,7 +81,65 @@ function page_loop(){
                     <?php endif;?>
 
                 </section>
+            </div>
 
+            <div class="home-local">
+                <section class="home-headlines">
+
+                    <div class="local-headlines-hdr">
+                        <div class="hdr-txt">
+                            Local Events
+                        </div>
+                    </div>
+
+                    <?php
+                        $local_query = new WP_Query( array(
+                            'post_type' => 'gcmaz-event',
+                            'orderby' => 'meta_value',
+                            'meta_key' => 'event_start_date_comp',
+                            'order' => 'ASC',
+                            'posts_per_page' => 100000,
+                            'paged' => $paged,
+                            ));
+                    ?>
+
+
+                    <?php if($local_query->have_posts()) : ?>
+
+                        <ul>
+                            <?php while($local_query->have_posts()) : $local_query->the_post(); ?>
+                        
+                                <?php
+                                // for position - use start date (event_start_date_comp)
+                                // for kill date - use end date (event_end_date_comp)
+                                // check for past dated posts or non-dated posts (default date for undated posts is 20000101)
+                                $expDate = get_post_custom_values('event_end_date_comp');
+                                if (!$expDate[0]){
+                                    // if no end date set, use start date or default value
+                                    $expDate = get_post_custom_values('event_start_date_comp');
+                                }
+                                
+                                if( ( $expDate[0] == '20000101' ) || ( strtotime($expDate[0]) ) >= ( strtotime('now') ) ) : ?>
+                                    <li><a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a></li>
+                                <?php endif;?>
+
+                            <?php endwhile;?>
+                        </ul>
+
+                        <?php
+                            // restore WP post object
+                            $post = $saved_post;
+                        ?>
+
+                    <?php else: ?>
+                        <div class="">
+                            <p>No Posts Found</p>
+                        </div>
+                    <?php endif;?>
+
+
+
+                </section>
             </div>
 
         </div> <!--home-top-->

@@ -14,9 +14,10 @@
 .home-top {
 
   @include row();
+  @include omega;
 
   .slider-c2a {
-    @include span-columns(8);
+    @include span-columns(6);
 
       // target the meta-slider
       .slider-wrap div{
@@ -25,138 +26,158 @@
         box-shadow: 0px 10px 14px -5px rgba(0,0,0,0.1);
       }
 
+    padding-left: 20px;
+
     @include media($md-screen){
       @include span-columns(12);
+      margin: auto;
+      padding: 0 40px;
     }
   }
 
-  .home-news {
-    @include span-columns(4);
 
-      .news-headlines {
+  .home-news,
+  .home-local {
 
-        //hdr
-        .news-headlines-hdr {
+    @include span-columns(3);
+    @include omega;
 
-          .news-hdr-txt {
+    .home-headlines {
 
-            @extend %bree;
+      //news feed list
+      ul {
 
-            float:left;
-            margin-left: 20px;
-            color: $neutral-tan-lt;
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
-          }
+        li {
 
-          .news-hdr-arrow {
-            width:52px;
-            height:52px;
-            background: transparentize($color-white, .9);
-            float:right;
-            text-align: center;
-            color: $neutral-blue-lt;
-          }
-
-          width:100%;
-          height: 54px;
-          line-height: 50px;
-          background: transparentize($blue, .6);
-          display: block;
-          color: $neutral-tan-lt;
-          vertical-align: middle;
-          border-top: 2px solid $neutral-blue-lt;
-          border-bottom: 2px solid $neutral-blue-lt;
-
-        }
-
-
-        a.kaff-news-link,
-        a.kaff-news-link:hover {
-          color: $color-black;
-        }
-
-        //news feed list
-        ul {
-
-          li {
-
-            a {
-              &:hover {
-                color: $color-white;
-                //&::after {
-                  //color: $red;
-                  //content: ' ►';
-                //}
-              }
-
-              @extend %montserrat;
-              color: $neutral-tan-lt;
-              letter-spacing: -.5px;
-              padding: 5px 0 5px 15px;
-              display: block;
-
-            }
-
+          a {
             &:hover {
-              background: transparentize($blue, .7);
+              color: $color-white;
+              //&::after {
+                //color: $red;
+                //content: ' ►';
+              //}
             }
 
-            //border-bottom: 1px solid $gray;
+            @extend %montserrat;
+            color: $neutral-tan-lt;
+            letter-spacing: -.5px;
+            padding: 5px 0 5px 15px;
+            display: block;
 
           }
 
-          font-size: .8em;
-          line-height: 2em;
-
-          //shrink on "med"
-          //@media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-           //font-size: .7em; 
-          //}
+          &:hover {
+            background: transparentize($blue, .7);
+          }
 
         }
 
-        text-align: left;
-        //@include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
-        //background-position: center center;
-        //background-size: cover;
-        //background-repeat: no-repeat;
-
-
-        @include media($md-screen){
-          //give space between slider and news on this page break
-          margin-top: 20px;
-        }
+        font-size: .8em;
+        line-height: 2em;
 
       }
 
-    //@include background(transparentize($color-black, .8));
-    @include background-image(url('images/widget-bg.png'), linear-gradient($blue-ltr, $blue));
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-bottom: 1px solid $blue-lt;
-    padding: 12px;
+      text-align: left;
+      padding: 0;
+      margin: 0;
+
+
+      @include media($md-screen){
+        //give space between slider and news on this page break
+        margin-top: 20px;
+      }
+
+    }
+
+    padding: 7px;
     margin: auto;
     text-align: center;
 
+  }
+
+  .home-news {
+
+    @include media($lg-screen){
+      @include span-columns(6);
+      @include omega();
+    }
+
     @include media($md-screen){
-      @include span-columns(12);
+      @include span-columns(6);
+    }
+  }
+
+  .home-local {
+
+    //hide local section on md-to-lg screen
+    @include media($screen-md-to-lg){
+      @include hidden;
+      @include span-columns(0);
+      @include omega();
+    }
+
+    @include media($md-screen){
+      @include shown;
+      @include span-columns(6);
+      @include omega();
     }
 
   }
 
-  //.widget {
-    //border-bottom: 5px solid $neutral-tan-lt;
 
-    //.widgettitle {
-      //background: $neutral-tan-lt;
-    //}
 
-  //}
+  //hdr
+  .news-headlines-hdr,
+  .local-headlines-hdr {
 
-  padding: 40px 10px;
+    .hdr-txt {
+
+      @extend %bree;
+
+      float:left;
+      margin-left: 20px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+    }
+
+    .hdr-arrow {
+      width:48px;
+      height:48px;
+      background: transparentize($color-white, .9);
+      float:right;
+      text-align: center;
+      color: $neutral-blue-lt;
+
+      @include media($sm-screen) {
+        @include hidden;
+      }
+    }
+
+    width:100%;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    vertical-align: middle;
+
+
+  }
+
+  .news-headlines-hdr {
+    color: $blue-lt;
+    background: transparentize($color-black, .9);
+    border-top: 1px solid transparentize($color-white, .7);
+    border-bottom: 1px solid transparentize($color-white, .7);
+  }
+
+  .local-headlines-hdr {
+    color: $blue-lt;
+    background: transparentize($color-black, .9);
+    border-top: 1px solid transparentize($color-white, .7);
+    border-bottom: 1px solid transparentize($color-white, .7);
+  }
+
+
+  padding: 40px 0;
   @include background(linear-gradient(darken($gunmetal, 5%), $blue 100%));
-
 
 }
 
