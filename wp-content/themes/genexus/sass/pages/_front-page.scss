@@ -97,13 +97,17 @@
 
   .home-news {
 
-    @include media($lg-screen){
+    @include media($lg-screen) {
       @include span-columns(6);
       @include omega();
     }
 
-    @include media($md-screen){
+    @include media($screen-md-to-lg) {
       @include span-columns(6);
+    }
+
+    @include media($sm-screen) {
+      @include span-columns(12);
     }
   }
 
@@ -122,6 +126,9 @@
       @include omega();
     }
 
+    @include media($sm-screen) {
+      @include span-columns(12);
+    }
   }
 
 
