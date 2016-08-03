@@ -1,9 +1,13 @@
 <?php
+/*
+Template Name: Events by Category
+*/
+
+
 
 // Content Area
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 add_action( 'genesis_loop', 'page_loop' );
-
 
 
 function page_loop() {
@@ -11,29 +15,60 @@ function page_loop() {
     global $post;
     global $paged;
 
+    // --- Check Slug and Set Event Type ---
+    // use the slug to set the event type
+    // check it for "community", "what", "concert"
+    $cpt_slug = get_permalink();
+
+
+    // set the event_cat by slug
+    if ( stripos( $cpt_slug, 'community' ) !== false ){
+        $event_cat_slug = "community-info";
+        $event_cat_obj = get_category_by_slug($event_cat_slug);
+        $event_cat_id = $event_cat_obj->term_id;
+        $event_hdr = "Community Information";
+
+    } elseif ( stripos( $cpt_slug, 'concert' ) !== false ){
+        $event_cat_slug = "concert";
+        $event_cat_obj = get_category_by_slug($event_cat_slug);
+        $event_cat_id = $event_cat_obj->term_id;
+        $event_hdr = "Concerts";
+
+    } elseif ( stripos( $cpt_slug, 'what' ) !== false ){
+        $event_cat_slug = "whats-happening";
+        $event_cat_obj = get_category_by_slug($event_cat_slug);
+        $event_cat_id = $event_cat_obj->term_id;
+        $event_hdr = "What's Happening";
+
+    } else {
+        // not a correct slug/page for this tpl
+    }
+    // --- End ---
+
     ?>
 
     <div class="archive-description taxonomy-archive-description taxonomy-description">
-        <h1 class="entry-title" itemprop="headline">What's Happening</h1>
+        <h1 class="entry-title" itemprop="headline"><?php echo $event_hdr ; ?></h1>
     </div>
-        
+
     <div class="entry archive-page">
 
         <?php
-            $the_query = new WP_Query( array(
-                'post_type' => 'whats-happening',
+            $the_query = new WP_Query(array(
+                'post_type' => 'gcmaz-event',
+                'cat' => $event_cat_id,
                 'orderby' => 'meta_value',
                 'meta_key' => 'event_start_date_comp',
                 'order' => 'ASC',
                 'posts_per_page' => 100000,
                 'paged' => $paged,
-                ));
+            ));
         ?>
         
         <?php if( $the_query->have_posts() ) : ?>
 
             <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-        
+
                 <?php
                 // for position - use start date (event_start_date_comp)
                 // for kill date - use end date (event_end_date_comp)
@@ -85,17 +120,17 @@ function page_loop() {
         
             <?php endwhile;?>
 
-        <?php if ( function_exists('base_pagination') ) { base_pagination(); } else if ( is_paged() ) { ?>
-            <div class="navigation clearfix">
-                <div class="alignleft"><?php next_posts_link('&laquo; Previous Entries') ?></div>
-                <div class="alignright"><?php previous_posts_link('Next Entries &raquo;') ?></div>
-            </div>
-        <?php } ?>
-        
-        <?php
-            /* Restore original Post Data */
-            wp_reset_postdata();
-        ?>
+            <?php if ( function_exists('base_pagination') ) { base_pagination(); } else if ( is_paged() ) { ?>
+                <div class="navigation clearfix">
+                    <div class="alignleft"><?php next_posts_link('&laquo; Previous Entries') ?></div>
+                    <div class="alignright"><?php previous_posts_link('Next Entries &raquo;') ?></div>
+                </div>
+            <?php } ?>
+
+            <?php
+                /* Restore original Post Data */
+                wp_reset_postdata();
+            ?>
 
         <?php else: ?>
 

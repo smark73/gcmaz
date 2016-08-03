@@ -158,6 +158,15 @@ unregister_sidebar( 'sidebar' );
 unregister_sidebar( 'sidebar-alt' );
 
 
+// Unregister Genesis templates
+function remove_genesis_page_templates( $page_templates ) {
+    unset( $page_templates['page_archive.php'] );
+    unset( $page_templates['page_blog.php'] );
+    return $page_templates;
+}
+add_filter( 'theme_page_templates', 'remove_genesis_page_templates' );
+
+
 //* Hide the secondary navigation menu (unless on KAFF News, then it shows)
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 
@@ -217,7 +226,7 @@ genesis_register_sidebar( array(
 ));
 
     
-//---- SLIDER WIDGETS ----------------
+// REGISTER SIDEBAR FOR SLIDER WIDGETS
 genesis_register_sidebar( array(
     'id' => 'kaff-news-slider',
     'name' => 'KAFF News Slider',
@@ -297,28 +306,27 @@ add_action( 'genesis_meta', 'genexus_meta_info' );
 function genexus_meta_info(){
     ?>
     <meta name="author" content="Great Circle Media">
-    <meta name="dcterms.dateCopyrighted" content="2015">
+    <meta name="dcterms.dateCopyrighted" content="2016">
     <meta name="dcterms.rights" content="All Rights Reserved">
     <meta name="dcterms.rightsHolder" content="Great Circle Media">
     <?php
 }
-//add_action('wp_head', 'genexus_meta_info');
+add_action('wp_head', 'genexus_meta_info');
 
 
 
 
 
 /**********************************************************/
-// ADD CPT'S TO ARCHIVES
-// make archives include custom post types
-function namespace_add_custom_types( $query ) {
-    if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
-        $query->set( 'post_type', array(
-            'post', 'nav_menu_item', 'whats-happening', 'concert', 'community-info', 'splash-post',
-        ));
-        return $query;
-    }
+// Custom Post Types 
+
+// remove comments on CPT's
+function remove_custom_post_comment() {
+    remove_post_type_support( 'splash-post', 'comments' );
+    remove_post_type_support( 'station-content', 'comments' );
 }
+//add_action( 'init', 'remove_custom_post_comment' );
+
 
 
 
@@ -872,13 +880,13 @@ function sp_breadcrumb_args( $args ) {
     $args['heirarchial_categories'] = true; // Genesis 1.5 and later
     $args['display'] = true;
     $args['labels']['prefix'] = '';
-    $args['labels']['author'] = 'Archives for ';
-    $args['labels']['category'] = 'Archives for '; // Genesis 1.6 and later
-    $args['labels']['tag'] = 'Archives for ';
-    $args['labels']['date'] = 'Archives for ';
+    $args['labels']['author'] = '';
+    $args['labels']['category'] = ''; // Genesis 1.6 and later
+    $args['labels']['tag'] = '';
+    $args['labels']['date'] = '';
     $args['labels']['search'] = 'Search for ';
-    $args['labels']['tax'] = 'Archives for ';
-    $args['labels']['post_type'] = 'Archives for ';
+    $args['labels']['tax'] = '';
+    $args['labels']['post_type'] = '';
     $args['labels']['404'] = 'Not found: '; // Genesis 1.5 and later
 return $args;
 }

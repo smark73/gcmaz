@@ -20,7 +20,7 @@ add_action('init', 'station_post_type');
 function splash_post_type(){
     $args = array(
             'labels' => array(
-                'name' => __("Splash or Contest"),
+                'name' => __("Splash Pages"),
                 'singular_name' => __('Splash or Contest'),
                 'menu_name' => __('Splash / Contest'),
                 'all_items' => __('See All'),
@@ -51,7 +51,7 @@ function splash_post_type(){
 function station_post_type(){
     $args = array(
             'labels' => array(
-                'name' => __("Jobs, Media Kits, and other Station content"),
+                'name' => __("Great Circle Media Information"),
                 'singular_name' => __('Station Content'),
                 'menu_name' => __('Station Content'),
                 'all_items' => __('See All'),

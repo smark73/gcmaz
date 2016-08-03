@@ -61,7 +61,7 @@ function gcmaz_event_post_type(){
             'has_archive' => true,
             'rewrite' => array('slug' => 'events'),
             'capability_type' => 'post',
-            'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields', 'publicize'),
+            'supports' => array('title', 'excerpt', 'editor', 'author', 'thumbnail', 'custom-fields', 'publicize', 'comments'),
             'description' => "Posts for all stations 'HAPPENINGS', 'CONCERTS', 'INFO' listings",
             'taxonomies' => array('category'),
     );

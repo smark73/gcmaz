@@ -27,6 +27,7 @@
 
     @include media($md-screen){
       @include span-columns(12);
+      margin-bottom: 30px;
     }
   }
 
@@ -60,20 +61,15 @@
           width:100%;
           height: 54px;
           line-height: 50px;
-          background: transparentize($blue, .6);
+          background: transparentize($color-black, .5);
           display: block;
           color: $neutral-tan-lt;
           vertical-align: middle;
-          border-top: 2px solid $neutral-blue-lt;
-          border-bottom: 2px solid $neutral-blue-lt;
+          border-top: 2px solid $red;
+          border-bottom: 2px solid $red;
 
         }
 
-
-        a.kaff-news-link,
-        a.kaff-news-link:hover {
-          color: $color-black;
-        }
 
         //news feed list
         ul {
@@ -130,11 +126,11 @@
       }
 
     //@include background(transparentize($color-black, .8));
-    @include background-image(url('images/widget-bg.png'), linear-gradient($blue-ltr, $blue));
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-bottom: 1px solid $blue-lt;
+    //@include background-image(url('images/widget-bg.png'), linear-gradient($blue-ltr, $blue));
+    //background-position: center center;
+    //background-size: cover;
+    //background-repeat: no-repeat;
+    //border-bottom: 1px solid $blue-lt;
     padding: 12px;
     margin: auto;
     text-align: center;
@@ -154,7 +150,7 @@
 
   //}
 
-  padding: 40px 10px;
+  padding: 40px;
   @include background(linear-gradient(darken($gunmetal, 5%), $blue 100%));
 
 

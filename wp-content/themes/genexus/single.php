@@ -65,47 +65,64 @@ function page_loop() {
 
             <?php the_content(); ?>
 
-            <section class="post-meta-info">
-                <time class="published" datetime="<?php echo get_the_time('c'); ?>"><?php echo get_the_date() . ", " . get_the_time(); ?></time>
-                <p class="byline author vcard"><?php echo __('By'); ?> 
-                    <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="author-link">
-                        <?php echo get_the_author(); ?>
-                    </a>
-                </p>
-            </section>
 
             <?php
-                // add Comments & Tags (can add check for News if want)
-                //if( check_if_in_news() === true ) :
+
+                // Add Author to KAFF News
+                if( check_if_in_news() === true ) {
+
+                    // AUTHOR
+                    // Just for News
+                    ?>
+                    <section class="post-meta-info">
+                        <time class="published" datetime="<?php echo get_the_time('c'); ?>"><?php echo get_the_date() . ", " . get_the_time(); ?></time>
+                        <p class="byline author vcard"><?php echo __('By'); ?> 
+                            <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="author-link">
+                                <?php echo get_the_author(); ?>
+                            </a>
+                        </p>
+                    </section>
+                    <?php
+                }
+
+
+                // Add Tags to KAFF News
+                if( check_if_in_news() === true ) {
                     
                     // TAGS
                     // if post has tags list them
                     if( get_the_tag_list() ) {
-                        echo '<section class="entry-tags">';
-                        echo get_the_tag_list('<ul><span>Tags: </span><li class="">', '</li><li class=""> ', '</li></ul>');
-                        echo '</section>';
+                        ?>
+                        <section class="entry-tags">
+                            <?php echo get_the_tag_list('<ul><span>Tags: </span><li class="">', '</li><li class=""> ', '</li></ul>');?>
+                        </section>
+                        <?php
                     }
+
+                }
+
+                // Add Comments to KAFF News & Events
+                if( check_if_in_news() === true || $post->post_type === 'gcmaz-event' ) {
 
                     // COMMENTS
                     // If comments are open or we have at least one comment, load up the comment template.
-                    //if ( comments_open() || get_comments_number() ) {
-                    //    echo "comments open or at least 1";
-                    //    echo '<section class="entry-comments">';
-                    //    comments_template();
-                    //    echo '</section>';
-                    //}
+                    if ( comments_open() || get_comments_number() ) {
+                        ?>
+                        <section class="entry-comments">
+                            <?php comments_template( $post->ID );?>
+                        </section>
+                        <?php
+                    }
 
-                //endif;
+                }
 
-
-                comments_template($post->ID);
             ?>
 
         </div>
 
         <?php else: ?>
 
-            <div class="alert alert-warning">
+            <div class="alert">
                 <?php _e('Sorry, no results were found.'); ?>
             </div>
 

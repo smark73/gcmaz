@@ -1,10 +1,19 @@
 
-.alert,
+.alert {
+	background: $color-white;
+	color: $neutral-tan-dkr;
+	padding: 20px;
+	margin: auto;
+	border-left: 4px solid $neutral-tan-dk;
+}
+
+
 .alert-warning {
 	//border: 1px solid $red;
 	background: transparentize($red, .9);
 	color: $red;
 	padding: 20px;
 	margin: auto;
+	border-left: 4px solid $red;
 }
 

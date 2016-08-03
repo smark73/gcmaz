@@ -1,5 +1,6 @@
 <?php
 
+// !!! FALSE UNLESS DEBUGGING !!!
 $debug_sidebar = false;
 
 global $post;
