@@ -54,37 +54,41 @@
 
 			margin-top: 20px;
 			padding: 10px 40px 5px 20px;
-			border-left: 2px solid $neutral-tan;
 
 		}
 
 		.depth-1 {
 			padding-left: 0;
+			
 		}
 
-		.depth-2 {
-			border-left: 2px solid $neutral-tan;
-		}
+		.depth-2 {}
 
 		.comment.even,
 		.comment.odd {
 			background: transparentize($neutral-tan, .9);
 		}
 
+		.comment.even {
+			border-left: 2px solid $blue-lt;
+		}
+
+		.comment.odd {
+			border-left: 2px solid $red;
+		}
+
 		.reply {
 
 			a {
 				font-size: 1em;
-				color: $blue;
+				color: $blue-lt;
 				padding: 2px 6px;
-				border-left: 1px solid transparentize($neutral-tan-dk, .7);
-				border-right: 1px solid transparentize($neutral-tan-dk, .7);
-				background: transparentize($neutral-tan, .7);
+				background: transparentize($neutral-tan, .5);
 				word-break: keep-all;
 				display: inline-block;
 
 				&:hover {
-					background-color: transparentize($neutral-tan, .4);
+					background-color: transparentize($neutral-tan, .3);
 				}
 			}
 

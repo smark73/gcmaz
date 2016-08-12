@@ -10,6 +10,15 @@
 	background-color: #fff;
 }
 
+.entry-title{
+
+	margin-bottom: 20px;
+
+	@include media($sm-screen){
+		font-size: 1.4em;
+	}
+}
+
 .entry-content ol,
 .entry-content ul {
 	margin-bottom: 20px;

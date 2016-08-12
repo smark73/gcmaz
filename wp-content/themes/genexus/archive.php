@@ -15,9 +15,12 @@ function page_loop() {
     <div class="entry archive-page">
 
         <?php
+
+            $the_category = get_query_var('cat');
+
             $the_query = new WP_Query( array(
-                'order' => 'ASC',
-                'posts_per_page' => 100000,
+                'cat' => $the_category,
+                'posts_per_page' => get_option('posts_per_page'),
                 'paged' => $paged,
                 ));
         ?>
@@ -64,7 +67,7 @@ function page_loop() {
 
         <?php else: ?>
 
-            <div class="alert alert-warning">
+            <div class="alert">
                 <?php _e('Sorry, no results were found.'); ?>
             </div>
 

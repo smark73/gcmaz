@@ -41,6 +41,7 @@ function page_loop(){
 
                     <a href="/kaff-news">
                         <div class="news-headlines-hdr">
+
                             <div class="hdr-txt">
                                 KAFF News
                             </div>
@@ -75,7 +76,7 @@ function page_loop(){
                         ?>
 
                     <?php else: ?>
-                        <div class="">
+                        <div class="alert">
                             <p>KAFF News Feed Not Found</p>
                         </div>
                     <?php endif;?>
@@ -142,7 +143,7 @@ function page_loop(){
                 </section>
             </div>
 
-        </div> <!--home-top-->
+        </div>
 
         <div class="ad-spot" style="width:90%;margin:50px auto;text-align:center;background:#ccc;height:100px;">
             <p>banner ad spot (and page takeover)</p>

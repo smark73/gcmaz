@@ -70,6 +70,7 @@
             background: transparentize($blue, .7);
           }
 
+
         }
 
         font-size: .8em;
@@ -139,6 +140,7 @@
 
     .hdr-txt {
 
+
       @extend %bree;
 
       float:left;
@@ -183,7 +185,9 @@
   }
 
 
+
   padding: 40px 0;
+  
   @include background(linear-gradient(darken($gunmetal, 5%), $blue 100%));
 
 }

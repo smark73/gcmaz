@@ -65,7 +65,7 @@ function page_loop() {
 
         <?php else: ?>
 
-            <div class="alert alert-warning">
+            <div class="alert">
                 <?php _e('Sorry, no results were found.'); ?>
             </div>
 
