@@ -17,7 +17,7 @@
   @include omega;
 
   .slider-c2a {
-    @include span-columns(6);
+    @include span-columns(8);
 
       // target the meta-slider
       .slider-wrap div{
@@ -36,10 +36,9 @@
   }
 
 
-  .home-news,
   .home-local {
 
-    @include span-columns(3);
+    @include span-columns(4);
     @include omega;
 
     .home-headlines {
@@ -94,52 +93,20 @@
     margin: auto;
     text-align: center;
 
-  }
-
-  .home-news {
-
-    @include media($lg-screen) {
-      @include span-columns(6);
-      @include omega();
-    }
-
-    @include media($screen-md-to-lg) {
-      @include span-columns(6);
-    }
-
-    @include media($sm-screen) {
+    @include media($md-screen) {
       @include span-columns(12);
     }
-  }
 
-  .home-local {
 
-    //hide local section on md-to-lg screen
-    @include media($screen-md-to-lg){
-      @include hidden;
-      @include span-columns(0);
-      @include omega();
-    }
-
-    @include media($md-screen){
-      @include shown;
-      @include span-columns(6);
-      @include omega();
-    }
-
-    @include media($sm-screen) {
-      @include span-columns(12);
-    }
   }
 
 
 
   //hdr
-  .news-headlines-hdr,
+
   .local-headlines-hdr {
 
     .hdr-txt {
-
 
       @extend %bree;
 
@@ -148,18 +115,6 @@
       text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
     }
 
-    .hdr-arrow {
-      width:48px;
-      height:48px;
-      background: transparentize($color-white, .9);
-      float:right;
-      text-align: center;
-      color: $neutral-blue-lt;
-
-      @include media($sm-screen) {
-        @include hidden;
-      }
-    }
 
     width:100%;
     height: 50px;
@@ -168,13 +123,6 @@
     vertical-align: middle;
 
 
-  }
-
-  .news-headlines-hdr {
-    color: $blue-lt;
-    background: transparentize($color-black, .9);
-    border-top: 1px solid transparentize($color-white, .7);
-    border-bottom: 1px solid transparentize($color-white, .7);
   }
 
   .local-headlines-hdr {
@@ -187,7 +135,7 @@
 
 
   padding: 40px 0;
-  
+
   @include background(linear-gradient(darken($gunmetal, 5%), $blue 100%));
 
 }
@@ -247,11 +195,10 @@
 .ktmg-logo,
 .knot-logo,
 .kzgl-logo,
-.e979-logo,
 .kaffnews-logo {
   margin: auto;
   max-height: 130px;
-  max-width: 200px;
+  max-width: 220px;
 }
 
 .kaff-block { background: $kaff-blue; }
@@ -261,7 +208,6 @@
 .ktmg-block { background: $ktmg-lt-blue; }
 .knot-block { background: $color-whitesmoke; }
 .kzgl-block { background: $color-black; }
-.e979-block { background: $color-black; }
 .kaffnews-block { background: $neutral-tan-lt; }
 
 .station-tile {

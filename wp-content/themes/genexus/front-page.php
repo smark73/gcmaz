@@ -36,53 +36,6 @@ function page_loop(){
                  </section>
             </div>
 
-            <div class="home-news">
-                <section class="home-headlines">
-
-                    <a href="/kaff-news">
-                        <div class="news-headlines-hdr">
-
-                            <div class="hdr-txt">
-                                KAFF News
-                            </div>
-                            <!--div class="hdr-arrow">
-                                <i class="fa fa-chevron-right"></i>
-                            </div>
-                            <div class="clearfix"></div-->
-                        </div>
-                    </a>
-
-                    <?php
-                        //save WP post object
-                        $saved_post = $post;
-
-                        $f_news_query = new WP_Query(array(
-                            'category_name' => 'featured',
-                            'posts_per_page' => 5,
-                        ));
-                    ?>
-
-                    <?php if($f_news_query->have_posts()) : ?>
-
-                        <ul>
-                            <?php while($f_news_query->have_posts()) : $f_news_query->the_post(); ?>
-                                <li><a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a></li>
-                            <?php endwhile;?>
-                        </ul>
-
-                        <?php
-                            // restore WP post object
-                            $post = $saved_post;
-                        ?>
-
-                    <?php else: ?>
-                        <div class="alert">
-                            <p>KAFF News Feed Not Found</p>
-                        </div>
-                    <?php endif;?>
-
-                </section>
-            </div>
 
             <div class="home-local">
                 <section class="home-headlines">
@@ -99,8 +52,8 @@ function page_loop(){
                             'orderby' => 'meta_value',
                             'meta_key' => 'event_start_date_comp',
                             'order' => 'ASC',
-                            'posts_per_page' => 100000,
-                            'paged' => $paged,
+                            'posts_per_page' => 5,
+                            //'paged' => $paged,
                             ));
                     ?>
 
@@ -191,7 +144,7 @@ function page_loop(){
             <div class="kzgl-block station-tile">
                 <div class="logo-block">
                     <a href="http://eagle.gcmaz.com/" target="_blank">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kzgl-logo.png" alt="103.7 The Eagle Rocks" class="kzgl-logo img-responsive centered"/>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/eagle-square-whiteeagle.png" alt="The Eagle Rocks" class="kzgl-logo img-responsive centered"/>
                     </a>
                 </div>
                 <div class="block-btns block-btn-kzgl block-btn-hide">
@@ -248,22 +201,6 @@ function page_loop(){
                     </div>
                     <div class="block-btn-listen">
                         <a href="http://player.listenlive.co/36571" target="_blank" class="logo-block-link" style="color:#28231e;">LISTEN<div class="spkr-icon"><i class="fa fa-volume-up"></i></div></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="e979-block station-tile">
-                <div class="logo-block">
-                    <a href="http://979theeagle.gcmaz.com/" target="_blank">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/97-9-logo.png" alt="97.9 The Eagle Rocks" class="e979-logo img-responsive centered"/>
-                    </a>
-                </div>
-                <div class="block-btns block-btn-e979 block-btn-hide">
-                    <div class="block-btn-web">
-                        <a href="http://979theeagle.gcmaz.com/" target="_blank" class="logo-block-link">WEBSITE</a>
-                    </div>
-                    <div class="block-btn-listen">
-                        <a href="http://979theeagle.gcmaz.com/stream-player/" target="_blank" class="logo-block-link">LISTEN<div class="spkr-icon"><i class="fa fa-volume-up"></i></div></a>
                     </div>
                 </div>
             </div>
