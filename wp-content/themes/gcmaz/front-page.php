@@ -48,7 +48,7 @@
     
     <div id="kzglBlock" class="stationTile col-md-4 col-sm-6">
         <div class="logoBlock">
-            <img id="kzglLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kzgl-logo.png" alt="103.7 The Eagle Rocks" class="img-responsive"/>
+            <img id="kzglLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/eagle-square-whiteeagle.png" alt="The Eagle Rocks" class="img-responsive"/>
         </div>
         <div class="row blockBtn blockBtnHide">
             <div class="col-xs-6 blockBtnWeb">
@@ -102,19 +102,6 @@
         </div>
     </div>
 
-    <div id="e979Block" class="stationTile col-md-4 col-sm-6">
-        <div class="logoBlock">
-            <img id="e979Logo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/97-9-logo.png" alt="97.9 The Eagle Rocks" class="img-responsive"/>
-        </div>
-        <div class="row blockBtn blockBtnHide">
-            <div class="col-xs-6 blockBtnWeb">
-                <a href="http://979theeagle.gcmaz.com/" target="_blank">WEBSITE</a>
-            </div>
-            <div class="col-xs-6 blockBtnListen">
-                <a href="http://979theeagle.gcmaz.com/stream-player/" target="_blank">LISTEN<div class="spkrIcon"><i class="glyphicon glyphicon-volume-up"></i></div></a>
-            </div>
-        </div>
-    </div>
     <div id="knotBlock" class="stationTile col-md-4 col-sm-6">
         <div class="logoBlock">
             <img id="knotLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/az-shine-logo.png" alt="Arizona Shine" class="img-responsive"/>
@@ -128,6 +115,7 @@
             </div>
         </div>
     </div>
+    
     <div id="kaffnewsBlock" class="stationTile col-md-4 col-sm-6">
         <div class="logoBlock">
             <img id="kaffnewsLogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/kaff-news-logo.png" alt="KAFF News of Northern Arizona" class="img-responsive"/>
