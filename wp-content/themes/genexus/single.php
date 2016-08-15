@@ -49,7 +49,7 @@ function page_loop() {
             </header>
             
             <?php if (get_post_custom_values('event_start_date')) : ?>
-                <span class="event-date">
+                <p class="event-date">
                     <?php
                         // echo date
                         $startdate = get_post_custom_values('event_start_date');
@@ -60,7 +60,7 @@ function page_loop() {
                             echo " - " . $enddate[0];
                         }
                      ?>
-                </span>
+                </p>
             <?php endif; ?>
 
             <?php the_content(); ?>

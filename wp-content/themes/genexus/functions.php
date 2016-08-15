@@ -58,7 +58,7 @@ function genexus_enqueue_reqs() {
 	wp_deregister_style( 'genesis-sample-theme' );
 
 	//* Add compiled stylesheet
-	wp_register_style( 'genexus-styles', get_stylesheet_directory_uri() . '/style.css', array(), CHILD_THEME_VERSION );
+	wp_register_style( 'genexus-styles', get_stylesheet_directory_uri() . '/style.min.css', array(), CHILD_THEME_VERSION );
 	wp_enqueue_style( 'genexus-styles' );
 
 	//wp_enqueue_script( 'genexus-responsive-menu', get_stylesheet_directory_uri() . '/js/responsive-menu.js', array( 'jquery' ), '1.0.0', true );
@@ -898,6 +898,13 @@ add_filter( 'genesis_breadcrumb_args', 'sp_breadcrumb_args' );
 /**********************************************************/
 // COMMENTS
 
+// manually include comments file, otherwise throws error
+// something (CPT in single ??) looking but not finding it ??
+function genexus_comment_template(){
+    return dirname(__FILE__) . '/comments.php';
+}
+add_filter( 'comments_template', 'genexus_comment_template' );
+
 
 // Modify comments header text in comments
 function child_title_comments() {
@@ -905,51 +912,12 @@ function child_title_comments() {
 }
 add_filter( 'genesis_title_comments', 'child_title_comments');
 
- 
-// Unset URL from comment form
-function crunchify_move_comment_form_below( $fields ) { 
-    $comment_field = $fields['comment']; 
-    unset( $fields['comment'] ); 
-    $fields['comment'] = $comment_field; 
-    return $fields; 
-} 
-add_filter( 'comment_form_fields', 'crunchify_move_comment_form_below' ); 
- 
 
-// Add placeholder for Name and Email
-function modify_comment_form_fields($fields){
-    $fields['author'] = 
-        '<p class="comment-form-author">' .
-        '<label for="author">' . __( 'Your Name' ) . '</label> ' .
-        ( $req ? '<span class="required">*</span>' : '' )  .
-        '<input id="author" placeholder="Your Name" name="author" type="text" value="' .
-        esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' />'.
-        '</p>';
-
-    $fields['email'] =
-        '<p class="comment-form-email">' .
-        '<label for="email">' . __( 'Your Email <span class="sm-print">(will not be published)</span>' ) . '</label> ' .
-        ( $req ? '<span class="required">*</span>' : '' ) .
-        '<input id="email" placeholder="email@example.com" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-        '" size="30"' . $aria_req . ' />'  .
-        '</p>';
-
-    $fields['url'] = 
-        '<label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
-        '<p class="comment-form-url">' .
-        '<input id="url" name="url" placeholder="http://your-site-name.com" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /> ' .
-       '</p>';
-    
-    return $fields;
-}
-add_filter('comment_form_default_fields','modify_comment_form_fields');
-
-
-function crunchify_disable_comment_url($fields) { 
+function gx_disable_comment_url($fields) { 
     unset($fields['url']);
     return $fields;
 }
-add_filter('comment_form_default_fields','crunchify_disable_comment_url');
+add_filter('comment_form_default_fields','gx_disable_comment_url');
 
 
 
