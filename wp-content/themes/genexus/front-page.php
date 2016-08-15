@@ -18,6 +18,9 @@ function page_loop(){
                 <?php
                     //display home page content
                     global $post;
+                    //store post object
+                    $saved_post = $post;
+
                     // get slug of home page in case someone changes permalink - which breaks the following fn's that rely on it
                     $hp_slug = $post->post_name;
                     

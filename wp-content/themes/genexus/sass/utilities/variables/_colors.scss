@@ -83,8 +83,8 @@ $shine-blue: #0e426a;
 // Init Defaults (override below);
 $default-menu-text-color: $color-whitesmoke; //$gray-dark !default;
 $default-submenu-text-color: $color-whitesmoke; //$gray !default;
-$default-menu-text-color-hover: $bright-red !default;
-$default-menu-bg-color: $gunmetal; //$gray-dark; //$neutral-tan !default;
+$default-menu-text-color-hover: $blue-ltr;//$bright-red !default;
+$default-menu-bg-color: $blue-dk;//$gunmetal; //$gray-dark; //$neutral-tan !default;
 $default-menu-bg-color-underline: $red !default;
 
 
@@ -110,7 +110,7 @@ $menu-border-color: darken($menu-bg-color, 5%);
 // MOBILE MENU (SLIDING PANEL)
 // ********************************************************************
 // TEXT
-$mobile-menu-top-item-color: $bright-red;
+$mobile-menu-top-item-color: $default-menu-text-color-hover;
 $mobile-menu-item-color: $neutral-tan-lt;
 // BG
 $sliding-panel-color: $neutral-tan-lt;
