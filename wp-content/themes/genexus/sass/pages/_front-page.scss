@@ -230,6 +230,16 @@
   }
 }
 
+.station-tile.blank-tile {
+
+    background: transparentize($color-white, .2);
+
+    @include media($md-screen){
+    @include span-columns(0);
+    @include hidden;
+  }
+}
+
 .logo-block {
   margin-top: 50px;
   text-align: center;

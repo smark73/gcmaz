@@ -59,56 +59,58 @@ class PTKO_Settings{
             </form>
         </div>
         <script type="text/javascript">
-            jQuery(document).ready(function($){
-                //header image uploader
-                var hdr_uploader;
-                $('#ptko_settings\\[ptko_hdrimg\\]').click(function(e) {
-                    e.preventDefault();
-                    //If the uploader object has already been created, reopen the dialog
-                    if (hdr_uploader) {
+            jQuery(function($) {
+                $(document).ready(function() {
+                    //header image uploader
+                    var hdr_uploader;
+                    $('#ptko_settings\\[ptko_hdrimg\\]').click(function(e) {
+                        e.preventDefault();
+                        //If the uploader object has already been created, reopen the dialog
+                        if (hdr_uploader) {
+                            hdr_uploader.open();
+                            return;
+                        }
+                        //Extend the wp.media object
+                        hdr_uploader = wp.media.frames.file_frame = wp.media({
+                            title: 'Choose Image',
+                            button: {
+                                text: 'Choose Image'
+                            },
+                            multiple: false
+                        });
+                        //When a file is selected, grab the URL and set it as the text field's value
+                        hdr_uploader.on('select', function() {
+                            attachment = hdr_uploader.state().get('selection').first().toJSON();
+                            $('#ptko_settings\\[ptko_hdrimg\\]').val(attachment.url);
+                        });
+                        //Open the uploader dialog
                         hdr_uploader.open();
-                        return;
-                    }
-                    //Extend the wp.media object
-                    hdr_uploader = wp.media.frames.file_frame = wp.media({
-                        title: 'Choose Image',
-                        button: {
-                            text: 'Choose Image'
-                        },
-                        multiple: false
                     });
-                    //When a file is selected, grab the URL and set it as the text field's value
-                    hdr_uploader.on('select', function() {
-                        attachment = hdr_uploader.state().get('selection').first().toJSON();
-                        $('#ptko_settings\\[ptko_hdrimg\\]').val(attachment.url);
-                    });
-                    //Open the uploader dialog
-                    hdr_uploader.open();
-                });
-                //bg image uploader
-                var bg_uploader;
-                $('#ptko_settings\\[ptko_bgimg\\]').click(function(e) {
-                    e.preventDefault();
-                    //If the uploader object has already been created, reopen the dialog
-                    if (bg_uploader) {
+                    //bg image uploader
+                    var bg_uploader;
+                    $('#ptko_settings\\[ptko_bgimg\\]').click(function(e) {
+                        e.preventDefault();
+                        //If the uploader object has already been created, reopen the dialog
+                        if (bg_uploader) {
+                            bg_uploader.open();
+                            return;
+                        }
+                        //Extend the wp.media object
+                        bg_uploader = wp.media.frames.file_frame = wp.media({
+                            title: 'Choose Image',
+                            button: {
+                                text: 'Choose Image'
+                            },
+                            multiple: false
+                        });
+                        //When a file is selected, grab the URL and set it as the text field's value
+                        bg_uploader.on('select', function() {
+                            attachment = bg_uploader.state().get('selection').first().toJSON();
+                            $('#ptko_settings\\[ptko_bgimg\\]').val(attachment.url);
+                        });
+                        //Open the uploader dialog
                         bg_uploader.open();
-                        return;
-                    }
-                    //Extend the wp.media object
-                    bg_uploader = wp.media.frames.file_frame = wp.media({
-                        title: 'Choose Image',
-                        button: {
-                            text: 'Choose Image'
-                        },
-                        multiple: false
                     });
-                    //When a file is selected, grab the URL and set it as the text field's value
-                    bg_uploader.on('select', function() {
-                        attachment = bg_uploader.state().get('selection').first().toJSON();
-                        $('#ptko_settings\\[ptko_bgimg\\]').val(attachment.url);
-                    });
-                    //Open the uploader dialog
-                    bg_uploader.open();
                 });
             });
         </script>
@@ -217,8 +219,8 @@ class PTKO_Settings{
     // PTKO Bg Color option
     public function ptko_bgcolor_callback(){
         // enqueue and load necessary jquery ui components and iris color picker assets
-        wp_enqueue_style('iris-cp', get_template_directory_uri() . '/assets/js/Automattic-Iris-8ac1152/src/iris.min.css', false, null);
-        wp_register_script('iris-colorpicker', get_template_directory_uri() . '/assets/js/Automattic-Iris-8ac1152/dist/iris.min.js', false, null, true);
+        wp_enqueue_style('iris-cp', get_stylesheet_directory_uri() . '/js/Automattic-Iris-8ac1152/src/iris.min.css', false, null);
+        wp_register_script('iris-colorpicker', get_stylesheet_directory_uri() . '/js/Automattic-Iris-8ac1152/dist/iris.min.js', false, null, true);
         wp_enqueue_style('iris-cp');
         wp_enqueue_script('jquery-ui-widget');
         wp_enqueue_script('jquery-ui-slider');

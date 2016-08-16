@@ -101,10 +101,6 @@ function page_loop(){
 
         </div>
 
-        <div class="ad-spot" style="width:90%;margin:50px auto;text-align:center;background:#ccc;height:100px;">
-            <p>banner ad spot (and page takeover)</p>
-        </div>
-
         <div class="home-stations">
 
             <section class="stations-hdr">
@@ -239,12 +235,11 @@ function page_loop(){
                     </div>
                 </div>
             </div>
+
+            <div class="station-tile blank-tile"></div>
         
         </div>
 
-        <div class="ad-spot" style="width:90%;margin:50px auto;text-align:center;background:#ccc;height:100px;">
-            <p>banner ad spot (and page takeover)</p>
-        </div>
 
     </div>
 
