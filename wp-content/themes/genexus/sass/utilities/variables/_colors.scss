@@ -81,10 +81,10 @@ $shine-blue: #0e426a;
 // ****************************************************************
 
 // Init Defaults (override below);
-$default-menu-text-color: $color-whitesmoke; //$gray-dark !default;
-$default-submenu-text-color: $color-whitesmoke; //$gray !default;
-$default-menu-text-color-hover: $blue-ltr;//$bright-red !default;
-$default-menu-bg-color: $blue-dk;//$gunmetal; //$gray-dark; //$neutral-tan !default;
+$default-menu-text-color: $color-whitesmoke;
+$default-submenu-text-color: $gunmetal;//$color-whitesmoke;
+$default-menu-text-color-hover: $color-white;//$blue-ltr;
+$default-menu-bg-color: $blue-dk;
 $default-menu-bg-color-underline: $red !default;
 
 
@@ -94,12 +94,15 @@ $default-menu-bg-color-underline: $red !default;
 // ********************************************************************
 // TEXT
 $menu-text-color: $default-menu-text-color;
-$menu-text-sub-color: $default-submenu-text-color;
+$submenu-text-color: $default-submenu-text-color;
+$submenu-text-color-hover: darken($submenu-text-color, 10%);
 $menu-text-color-hover: $default-menu-text-color-hover;
 // BACKGROUND
 $menu-bg-color: $default-menu-bg-color;
-$menu-bg-color-hover: darken($menu-bg-color, 5%);
+$menu-bg-color-hover: $blue;//darken($menu-bg-color, 5%);
 $menu-bg-color-underline: $default-menu-bg-color-underline;
+$submenu-bg-color: $neutral-tan;//$menu-bg-color;
+$submenu-bg-color-hover: darken($neutral-tan, 5%);
 // CURRENT ITEM
 $cur-menu-item: $red;
 // BORDERS
@@ -110,7 +113,7 @@ $menu-border-color: darken($menu-bg-color, 5%);
 // MOBILE MENU (SLIDING PANEL)
 // ********************************************************************
 // TEXT
-$mobile-menu-top-item-color: $default-menu-text-color-hover;
+$mobile-menu-top-item-color: $blue-ltr;
 $mobile-menu-item-color: $neutral-tan-lt;
 // BG
 $sliding-panel-color: $neutral-tan-lt;
