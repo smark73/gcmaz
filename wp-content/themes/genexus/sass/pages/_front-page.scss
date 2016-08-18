@@ -134,7 +134,7 @@
 
 
 
-  padding: 40px 0;
+  padding: 60px 0;
 
   @include background(linear-gradient(darken($gunmetal, 5%), $blue 100%));
 
@@ -181,9 +181,8 @@
     margin: 20px auto 40px;
   }
 
-  margin:40px 0;
-  padding: 40px 0;
-  background: $gray-dk;
+  margin: 0 auto;
+  padding: 60px 0 100px;
   @include background(radial-gradient($gunmetal, $gunmetal-dk));
 }
 
