@@ -2,8 +2,13 @@
 
 .weather-page{
 
+	.entry-title {
+		color: $blue;
+	}
+
     background: #7db9e8; /* Old browsers */
-    @include background(linear-gradient(to bottom,  #7db9e8 16%,#f7f2ff 88%));
+    //@include background(linear-gradient(to bottom,  #7db9e8 16%,#f7f2ff 88%));
+    @include background(linear-gradient(to bottom,  #7db9e8 16%, $neutral-tan-lt 88%));
 
 }
 
@@ -16,7 +21,7 @@
 }
 
 #weather h2 {
-	color: $neutral-tan-lt;
+	color: $color-white;
 	font-size: 2em;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
 }
@@ -45,11 +50,6 @@
 	border: 0;
 }
 
-#weather a:hover {
-	color: $color-white;
-	text-decoration: underline;
-	border: 0;
-}
 
 .wthr-lnks{
 	margin: 0 auto 15px;
@@ -61,11 +61,12 @@ a.wthrcty{
 	@extend %montserrat;
 
 	font-size: 1em;
-	color: $blue;
+	color: $neutral-blue-lt;
 	padding: 5px 10px;
 	margin: 0 5px;
 	cursor: pointer;
 	font-weight: 700;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
 
 	@include media($sm-screen) {
 		padding: 5px;
@@ -76,7 +77,7 @@ a.wthrcty{
 
 a.wthrcty:hover{
 	text-decoration: underline;
-	color: $blue-dk;
+	color: $color-white;
 }
 
 .wthr-spnsrs {
