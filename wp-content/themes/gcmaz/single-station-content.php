@@ -20,9 +20,3 @@
     <?php endwhile; ?>
 </div>
 
-<button type="button" class="btn btn-default" onclick="goBack()" style="margin:20px 0;">Go Back</button>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
