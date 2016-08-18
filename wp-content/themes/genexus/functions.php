@@ -265,6 +265,21 @@ add_filter( 'genesis_superfish_args_url', 'prefix_superfish_args_url' );
 
 
 
+/**********************************************************/
+// FULL WIDTH LAYOUTS ON SPECIFIC 
+// splash-post cpt
+function full_width_layout(){
+    global $post;
+
+    if( $post && $post->post_type === 'splash-post') {
+        $opt = 'full-width-content';
+        return $opt;
+    }
+}
+add_filter( 'genesis_pre_get_option_site_layout', 'full_width_layout' );
+
+
+
 
 /**********************************************************/
 // ADD MORE BTNS TO EDITOR
