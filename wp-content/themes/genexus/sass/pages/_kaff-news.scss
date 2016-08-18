@@ -205,20 +205,3 @@
 
 }
 
-
-
-.read-more {
-	font-size: .9em;
-	color: $blue;
-	margin-left: 5px;
-	padding: 0 4px;
-	border-left: 1px solid transparentize($blue-lt, .5);
-	border-right: 1px solid transparentize($blue-lt, .5);
-	background: $neutral-blue-lt;
-	word-break: keep-all;
-	display: inline-block;
-
-	&:hover {
-		background-color: transparentize($blue-lt, .8);
-	}
-}

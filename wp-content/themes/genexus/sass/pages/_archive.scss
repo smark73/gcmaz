@@ -53,20 +53,6 @@
 				color: $gray;
 			}
 
-			.read-more {
-				font-size: .9em;
-				color: $blue;
-				margin-left: 5px;
-				padding: 2px 4px;
-				border-left: 2px solid transparentize($blue-lt, .5);
-				border-right: 2px solid transparentize($blue-lt, .5);
-				background: $neutral-blue-lt;
-
-				&:hover {
-					background-color: transparentize($blue-lt, .8);
-				}
-
-			}
 
 		}
 
