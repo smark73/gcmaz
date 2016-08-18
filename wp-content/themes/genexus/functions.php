@@ -211,19 +211,8 @@ genesis_register_sidebar( array(
     'description' => 'Home Page Sidebar',
 ));
 
-// Splash sidebar
-genesis_register_sidebar( array(
-    'id' => 'sidebar-splash',
-    'name' => 'Splash Sidebar',
-    'description' => 'Splash Pages Sidebar',
-));
 
-// Landing page template sidebar
-genesis_register_sidebar( array(
-    'id' => 'sidebar-landing-page',
-    'name' => 'Landing Page Sidebar',
-    'description' => 'Landing Pages Sidebar',
-));
+
 
     
 // REGISTER SIDEBAR FOR SLIDER WIDGETS
@@ -271,9 +260,11 @@ add_filter( 'genesis_superfish_args_url', 'prefix_superfish_args_url' );
 function full_width_layout(){
     global $post;
 
-    if( $post && $post->post_type === 'splash-post') {
-        $opt = 'full-width-content';
-        return $opt;
+    if ( $post ) {
+        if( $post->post_type === 'splash-post' || is_page_template( 'page_landing.php' ) ) {
+            $opt = 'full-width-content';
+            return $opt;
+        }
     }
 }
 add_filter( 'genesis_pre_get_option_site_layout', 'full_width_layout' );
@@ -757,10 +748,9 @@ add_action( 'genesis_before_content_sidebar_wrap', 'modify_mobile_menu', 5 );
 /**********************************************************/
 // SIDEBARS
 // customize sidebar based on category/page/etc
+// the tpl file does all the work
 function genexus_custom_sidebar() {
-
     get_template_part( 'templates/sidebars' );
-
 }
 add_action( 'genesis_before_sidebar_widget_area', 'genexus_custom_sidebar' );
 
@@ -955,6 +945,17 @@ return $args;
 }
 add_filter( 'genesis_breadcrumb_args', 'sp_breadcrumb_args' );
 
+
+//remove breadcrumbs from specific pages
+function gx_rem_genesis_breadcrumbs(){
+    global $post;
+    if( $post ){
+        if ( $post->post_type === 'splash-post' ){
+            remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs');
+        }
+    }
+}
+add_action( 'genesis_before', 'gx_rem_genesis_breadcrumbs' );
 
 
 

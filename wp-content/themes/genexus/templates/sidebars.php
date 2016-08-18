@@ -72,24 +72,6 @@ if( is_search() ) {
         }
         genesis_widget_area( 'sidebar-local' );
 
-
-
-
-    // SPLASH PAGES
-    } elseif( is_page_template('template-splash.php' ) ){
-        if ( $debug_sidebar === true ) {
-            echo "<div style=''>splash</div>";
-        }
-        genesis_widget_area('sidebar-splash');
-
-
-
-    // LANDING PAGES
-    } elseif( is_page_template('page_landing.php' ) ){
-        if ( $debug_sidebar === true ) {
-            echo "<div style=''>splash</div>";
-        }
-        genesis_widget_area('sidebar-landing-page');
         
 
 
