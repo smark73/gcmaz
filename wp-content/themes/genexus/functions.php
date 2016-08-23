@@ -10,11 +10,7 @@
 
 
 // NEED TO DO
-
-// build PTO plugin
-// custom jetpack publicize fn
-// KAFF News GA custom scripts (See roots scripts.php)
-
+// ad rotate everywhere
 
 
 //* Start the engine
@@ -39,6 +35,10 @@ define( 'CHILD_THEME_URL', '' );
 define( 'CHILD_THEME_VERSION', '2.1.2' );
 
 
+
+/**********************************************************/
+// Initialize
+define('GOOGLE_ANALYTICS_ID', 'UA-47756322-1'); // UA-XXXXX-Y
 
 
 
@@ -88,6 +88,67 @@ function genexus_admin_reqs(){
 }
 add_action( 'admin_enqueue_scripts', 'genexus_admin_reqs');
 
+
+// Google Analytics Script
+function gx_google_analytics() {
+    global $post;
+    ?>
+    <script type="text/javascript">
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','<?php echo GOOGLE_ANALYTICS_ID; ?>');
+        <?php
+            //init as "not" in news
+            $inKaffNews = false;
+
+            if( !empty( $post ) ){
+                //check if in "news" to add news tracking dimensions
+                if( check_if_in_news() === true) {
+                    $array_of_news_cats = get_news_cats();
+                    $c = get_the_category();
+                    $inKaffNews = false;
+                    if( $c ){
+                        //check if the category or parent category is News
+                        // convert to array
+                        $c_array = object_to_array($c);
+                        if( $c_array[0]['term_id'] ){
+                            //if set
+                            if( in_array( $c_array[0]['term_id'], $array_of_news_cats ) ){
+                                //if current cat is in news cats
+                                $inKaffNews = true;
+                            }
+                        }
+                    }
+                }
+
+                // add "news" tracking
+                if( $post->post_name === 'kaff-news' || $inKaffNews === true) {
+                    // set tracking for KAFF News
+                    // first ALL
+                    ?>ga('set', 'dimension1', 'All News');<?php
+                    if ( is_category( "Prescott News" ) || in_category( "Prescott News", $post->ID ) ){
+                        // 2nd set trakcing if KAFF News - Prescott
+                        ?>ga('set', 'dimension2', 'Prescott News');<?php
+                    }
+                    if( is_category( "Flagstaff News" ) || in_category( "Flagstaff News", $post->ID ) ){
+                        // 3rd set tracking if KAFF News - Flagstaff
+                        ?>ga('set', 'dimension3', 'Flagstaff News');<?php
+                    }
+                }
+                
+            }
+      ?>
+    ga('send','pageview');
+    </script>
+<?php
+}
+
+if (GOOGLE_ANALYTICS_ID) {
+    add_action('wp_footer', 'gx_google_analytics', 20);
+}
 
 
 
@@ -573,7 +634,6 @@ function check_if_in_news() {
 add_action( 'wp', 'check_if_in_news');
 
 
-
 /**********************************************************/
 // END KAFF NEWS MODS 
 /**********************************************************/
@@ -585,12 +645,6 @@ add_action( 'wp', 'check_if_in_news');
 /**********************************************************/
 // PAGE TAKEOVER
 /**********************************************************/
-// if enabled, call this function
-
-// if( page_takeover() ) {
-
-// }
-
 
 // get the ptko options array
 $ptko_settings = get_option('ptko_settings');
@@ -858,7 +912,7 @@ function featured_image_in_post( ) {
         echo '</div>';
     }
 }
-
+// not called?
 
 
 
@@ -956,6 +1010,9 @@ function gx_rem_genesis_breadcrumbs(){
     }
 }
 add_action( 'genesis_before', 'gx_rem_genesis_breadcrumbs' );
+
+
+
 
 
 
@@ -1110,7 +1167,7 @@ function shorten_and_strip_html($string, $length){
 // JETPACK TWEAKS
 /* JetPack Publicize custom on/off chosen in Settings/GCMAZ */
 // get current user id and compare it against stored id's in our gcmaz_publicize option value
-function cust_jetpack_pub_fn(){
+function gx_jetpack_pub_fn(){
     $current_user = wp_get_current_user();
     $gcmaz_settings = get_option( 'gcmaz_settings' );
     if( !in_array( $current_user->ID, $gcmaz_settings['gcmaz_publicize'] ) ){
@@ -1120,14 +1177,14 @@ function cust_jetpack_pub_fn(){
         //print_r($gcmaz_settings['gcmaz_publicize']);
     }   
 }
-//add_action( 'after_setup_theme', 'cust_jetpack_pub_fn');
+add_action( 'after_setup_theme', 'gx_jetpack_pub_fn');
 
 
 /* remove JetPack sharing buttons from excerpts */
-function gcmaz_remove_filters_func() {
+function gx_remove_filters_func() {
      remove_filter( 'the_excerpt', 'sharing_display', 19 );
 }
-add_action( 'init', 'gcmaz_remove_filters_func' );
+add_action( 'init', 'gx_remove_filters_func' );
 
 
 

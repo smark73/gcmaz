@@ -28,9 +28,26 @@
 }
 
 
-.full-width-content .content {
-	width: 100%;
+.full-width-content {
+
+	.content {
+
+		.featured-image {
+			margin:auto;
+			width: 100%;
+			text-align: center;
+		}
+
+		.entry-header{
+			margin:auto;
+			text-align: center;
+		}
+
+		width: 100%;
+	}
 }
+
+
 
 
 
