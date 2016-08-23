@@ -1090,7 +1090,8 @@ function object_to_array($object_to_array) {
 function shorten($string, $length){
     // By default, an ellipsis will be appended to the end of the text.
 
-    $suffix = ' (more &hellip;)';
+    //$suffix = ' (more &hellip;)';
+    $suffix = '';
  
     // Convert 'smart' punctuation to 'dumb' punctuation, strip the HTML tags,
     // and convert all tabs and line-break characters to single spaces.

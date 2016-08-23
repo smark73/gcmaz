@@ -147,7 +147,7 @@ function page_loop() {
 
         <?php $the_query = new WP_Query(array(
             'category_name' => 'news',
-            'posts_per_archive_page' => '5',
+            'posts_per_archive_page' => '10',
             //'order' => 'DESC',
             'posts_per_page' => get_option('posts_per_page'),
             'paged' => $paged,
@@ -155,12 +155,14 @@ function page_loop() {
         ?>
 
         <?php if($the_query->have_posts()) : ?>
+
+            <?php $latest_count_var = 1; //count up to 6 posts ?>
         
             <?php while($the_query->have_posts()) : $the_query->the_post(); ?>
                 
                 <?php
                     // check if id is stored in our temp array of featured id's - dont display post if it is
-                    if( !in_array( $post->ID, $temp_featured_ids ) ) :
+                    if( !in_array( $post->ID, $temp_featured_ids ) && $latest_count_var <= 6 ) :
                 ?>
 
                     <section class="news-listing <?php if(has_post_thumbnail()){echo 'has-img';} ?> ">
@@ -185,6 +187,8 @@ function page_loop() {
                         <hr>
 
                     </section>
+        
+                    <?php $latest_count_var++ ?>
 
                 <?php endif; ?>
         
