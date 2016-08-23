@@ -189,15 +189,6 @@ function page_loop() {
                 <?php endif; ?>
         
             <?php endwhile;?>
-        
-            <?php if ($the_query->max_num_pages > 1) : ?>
-              <nav class="post-nav">
-                <ul class="pager">
-                  <li class="previous"><?php next_posts_link(__('&laquo; Older posts', 'roots')); ?></li>
-                  <li class="next"><?php previous_posts_link(__('Newer posts &raquo;', 'roots')); ?></li>
-                </ul>
-              </nav>
-            <?php endif; ?>
 
             <?php
                 /* Restore original Post Data */
