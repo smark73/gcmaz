@@ -826,12 +826,12 @@ function genexus_login_logo() {
 	?>
     <style type="text/css">
         #login{
-            width:500px !important;
+            width:400px !important;
         }
         .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri();?>/assets/img/all-logos-gcm.png) !important;
-            width:500px !important;
-            height:100px !important;
+            background-image: url(<?php echo get_stylesheet_directory_uri();?>/images/all-logos-gcm.png) !important;
+            width:400px !important;
+            height:83px !important;
             background-size:contain !important;
             background-position:center top !important;
         }
