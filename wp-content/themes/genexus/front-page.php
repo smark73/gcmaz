@@ -111,11 +111,11 @@ function page_loop(){
             <div class="kaff-block station-tile">
                 <div class="logo-block">
                     <a href="http://kaff.gcmaz.com" target="_blank">
-                        <img src="<?php echo get_stylesheet_directory_uri();?>/images/kaff-logo.png" alt="92.9 KAFF Country" class="kaff-logo img-responsive centered"/>
+                        <img src="<?php echo get_stylesheet_directory_uri();?>/images/kaff-logo.png" alt="92.9 KAFF Country" class="kaff-logo"/>
                     </a>
                 </div>
-                <div class="block-btns block-btn-kaff blockBtnKaff block-btn-hide blockBtnKaff">
-                    <div class="block-btn-web" blockBtnKaff>
+                <div class="block-btns block-btn-kaff btns-hide">
+                    <div class="block-btn-web">
                         <a href="http://kaff.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
                     </div>
                     <div class="block-btn-listen">
@@ -127,10 +127,10 @@ function page_loop(){
             <div class="kmgn-block station-tile">
                 <div class="logo-block">
                     <a href="http://939themountain.gcmaz.com" target="_blank">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kmgn-logo.png" alt="93-9 The Mountain" class="kmgn-logo img-responsive centered"/>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kmgn-logo.png" alt="93-9 The Mountain" class="kmgn-logo"/>
                     </a>
                 </div>
-                <div class="block-btns block-btn-kmgn blockBtnKmgn block-btn-hide">
+                <div class="block-btns block-btn-kmgn btns-hide">
                     <div class="block-btn-web">
                         <a href="http://939themountain.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
                     </div>
@@ -143,10 +143,10 @@ function page_loop(){
             <div class="kzgl-block station-tile">
                 <div class="logo-block">
                     <a href="http://eagle.gcmaz.com/" target="_blank">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/eagle-square-whiteeagle.png" alt="The Eagle Rocks" class="kzgl-logo img-responsive centered"/>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/eagle-square-whiteeagle.png" alt="The Eagle Rocks" class="kzgl-logo"/>
                     </a>
                 </div>
-                <div class="block-btns block-btn-kzgl block-btn-hide">
+                <div class="block-btns block-btn-kzgl btns-hide">
                     <div class="block-btn-web">
                         <a href="http://eagle.gcmaz.com/" target="_blank" class="logo-block-link">WEBSITE</a>
                     </div>
@@ -159,10 +159,10 @@ function page_loop(){
             <div class="kfsz-block station-tile">
                 <div class="logo-block">
                     <a href="http://hits106.gcmaz.com" target="_blank">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kfsz-logo.png" alt="Hits 106" class="kfsz-logo img-responsive centered"/>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kfsz-logo.png" alt="Hits 106" class="kfsz-logo"/>
                     </a>
                 </div>
-                <div class="block-btns block-btn-kfsz block-btn-hide">
+                <div class="block-btns block-btn-kfsz btns-hide">
                     <div class="block-btn-web">
                         <a href="http://hits106.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
                     </div>
@@ -175,10 +175,10 @@ function page_loop(){
             <div class="ktmg-block station-tile">
                 <div class="logo-block">
                     <a href="http://magic991.gcmaz.com" target="_blank">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ktmg-logo.png" alt="Magic 99.1" class="ktmg-logo img-responsive centered"/>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ktmg-logo.png" alt="Magic 99.1" class="ktmg-logo"/>
                     </a>
                 </div>
-                <div class="block-btns block-btn-ktmg block-btn-hide">
+                <div class="block-btns block-btn-ktmg btns-hide">
                     <div class="block-btn-web">
                         <a href="http://magic991.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
                     </div>
@@ -191,10 +191,10 @@ function page_loop(){
             <div class="kaffam-block station-tile">
                 <div class="logo-block">
                     <a href="http://kafflegends.gcmaz.com" target="_blank">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kaffam-logo.png" alt="KAFF Legends 93-5 AM930" class="kaffam-logo img-responsive centered"/>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kaffam-logo.png" alt="KAFF Legends 93-5 AM930" class="kaffam-logo"/>
                     </a>
                 </div>
-                <div class="block-btns block-btn-kaffam block-btn-hide">
+                <div class="block-btns block-btn-kaffam btns-hide">
                     <div class="block-btn-web">
                         <a href="http://kafflegends.gcmaz.com" target="_blank" class="logo-block-link" style="color:#28231e;">WEBSITE</a>
                     </div>
@@ -207,10 +207,10 @@ function page_loop(){
             <div class="knot-block station-tile">
                 <div class="logo-block">
                     <a href="http://arizonashine.org" target="_blank">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/az-shine-logo.png" alt="Arizona Shine" class="knot-logo img-responsive centered"/>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/az-shine-logo.png" alt="Arizona Shine" class="knot-logo"/>
                     </a>
                 </div>
-                <div class="block-btns block-btn-knot block-btn-hide">
+                <div class="block-btns block-btn-knot btns-hide">
                     <div class="block-btn-web">
                         <a href="http://arizonashine.org" target="_blank" class="logo-block-link" style="color:#00416a;">WEBSITE</a>
                     </div>
@@ -223,10 +223,10 @@ function page_loop(){
             <div class="kaffnews-block station-tile">
                 <div class="logo-block">
                     <a href="http://gcmaz.com/kaff-news" target="_blank">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kaff-news-logo.png" alt="KAFF News of Northern Arizona" class="kaffnews-logo img-responsive centered"/>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kaff-news-logo.png" alt="KAFF News of Northern Arizona" class="kaffnews-logo"/>
                     </a>
                 </div>
-                <div class="block-btns block-btn-kaffnews block-btn-hide">
+                <div class="block-btns block-btn-kaffnews btns-hide">
                     <div class="block-btn-web">
                         <a href="http://gcmaz.com/kaff-news" target="_blank" class="logo-block-link" style="color:#2d4a9f;">WEBSITE</a>
                     </div>

@@ -64,7 +64,7 @@ var GenexusSite = {
                 // home page station tile listen btns
                 $('.station-tile').hover(function(){
                     var $blockBtn = jQuery(this).children("[class*=block-btn-]");
-                    $blockBtn.toggleClass('block-btn-show block-btn-hide');
+                    $blockBtn.toggleClass('btns-show btns-hide');
                 });
 
                 //var $spkrIcon = jQuery(document).find('div.spkrIcon');

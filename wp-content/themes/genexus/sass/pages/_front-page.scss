@@ -196,8 +196,9 @@
 .kzgl-logo,
 .kaffnews-logo {
   margin: auto;
-  max-height: 130px;
   max-width: 220px;
+  height: auto;
+  max-height: 130px;
 }
 
 .kaff-block { background: $kaff-blue; }
@@ -250,7 +251,8 @@
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 240px;
+  //top: 240px;
+  bottom: 0;
   width: 100%;
   display: table;
   //background: rgba(255, 255, 255, .07);
@@ -318,7 +320,7 @@ a.logo-block-link {
 
 }
 
-.block-btn-show {
+.btns-show {
   animation: blockBtnOn;
   animation-duration: .3s;
   animation-fill-mode: forwards;
@@ -328,7 +330,7 @@ a.logo-block-link {
   transform: translate3d(0, 0, 0);
 }
 
-.block-btn-hide {
+.btns-hide {
   animation: blockBtnOff;
   animation-duration: .8s;
   animation-fill-mode: forwards;
