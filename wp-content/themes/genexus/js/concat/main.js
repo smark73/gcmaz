@@ -65,14 +65,15 @@ var GenexusSite = {
                 $('.station-tile').hover(function(){
                     var $blockBtn = jQuery(this).children("[class*=block-btn-]");
                     $blockBtn.toggleClass('btns-show btns-hide');
+                    var $stationLogo = jQuery(this).children('.logo-block');
+                    $stationLogo.removeClass('logo-norm');
+                    $stationLogo.addClass('logo-tilt');
                 });
 
-                //var $spkrIcon = jQuery(document).find('div.spkrIcon');
-                //$('.block-btn-listen').hover(function(){
-                //    $spkrIcon.stop().animate({ left: 7 }, 100);
-                //}, function(){
-                //    $spkrIcon.stop().animate({ left: 0 });
-                //});
+                $('.station-tile').mouseleave(function(){
+                    var $stationLogo = jQuery(this).children('.logo-block');
+                    $stationLogo.toggleClass('logo-tilt logo-norm');
+                });
 
             });
 
