@@ -479,7 +479,7 @@ function kaff_news_mods() {
             function kaff_news_site_title(){
                 ?>
                 <div class="hdr-nav-logo kaff-news-hdr">
-                    <a href="/kaff-news"><img src="<?php echo get_stylesheet_directory_uri();?>/images/kaff-news-logo.png"></a>
+                    <a href="/kaff-news"><img src="<?php echo get_stylesheet_directory_uri();?>/images/kaff-news-logo.png" class="logo"></a>
                 </div>
                 <?php
             }
