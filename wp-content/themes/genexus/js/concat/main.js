@@ -24,6 +24,20 @@ var GenexusSite = {
                     });
                 });
 
+                // NAU HDR NAV ICON
+                var $nauNav = $(document).find('.nau-nav');
+
+                $nauNav.hover(function() {
+                    var $button, $menu;
+                    $button = $(this);
+                    $menu = $button.children('.dropdown');
+                    $menu.toggleClass('show-me hide-me');
+                    $menu.children('li').click(function() {
+                        $menu.removeClass('show-me hide-me');
+                        $button.html($(this).html());
+                    });
+                });
+
                 // SEARCH HDR NAV ICON
                 var $searchNav = $(document).find('.search-nav');
                 

@@ -51,21 +51,49 @@
 
     // SEARCH ICON & DROPDOWN
     ?>
-    <div class="search-nav">
-        <a class="icon-search" title="Search">
-            <i class="fa fa-search"></i>
-        </a>
-    </div>
-
+        <div class="search-nav">
+            <a class="icon-search" title="Search">
+                <i class="fa fa-search"></i>
+            </a>
+        </div>
     <?php
 
 
 
-    // SOCIAL ICONS
+    // NON-KAFF NEWS
+    if( !empty( $post ) ){
+
+        if( $post->post_name === 'kaff-news' || in_category( get_news_cats() ) ) {
+            // dont' show this
+        } else {
+
+        ?>
+            <div class="nau-nav">
+                <a class="icon-nau" title="NAU Broadcast Partner">
+                    <img src="<?php echo get_stylesheet_directory_uri();?>/images/nau-icon.png">
+                </a>
+
+                <ul class="dropdown hide-me">
+                  <li><a href="/nau-athletics" title="NAU Broadcast Partner">NAU Broadcast Partner</a></li>
+                  <li><a href="/nau-lumberjacks-football" title="NAU Lumberjacks Football Schedule">Lumberjacks Football Schedule</a></li>
+                  <li><a href="/nau-basketball-schedule" title="NAU Basketball Schedule">Basketball Schedule</a></li>
+                </ul>
+
+            </div>
+        <?php
+
+        }
+
+    }
+
+
+
+
+    // KAFF NEWS
     // (checks and displays KAFF News social icons on kaff news pages)
     if( !empty( $post ) ){
 
-        if( $post->post_name == 'kaff-news' || in_category( get_news_cats() ) ) {
+        if( $post->post_name === 'kaff-news' || in_category( get_news_cats() ) ) {
         ?>
         
             <a href="https://www.facebook.com/NewsOnKAFF" target="_blank" class="icon-fb" title="KAFF News Facebook">
@@ -79,6 +107,8 @@
         }
 
     }
+
+
 
 
     // MOBILE NAV BTN
