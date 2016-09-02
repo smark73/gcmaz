@@ -54,7 +54,7 @@ function page_loop(){
                             'post_type' => 'gcmaz-event',
                             'orderby' => 'meta_value',
                             'meta_key' => 'event_start_date_comp',
-                            'order' => 'ASC',
+                            'order' => 'DESC',
                             'posts_per_page' => 5,
                             //'paged' => $paged,
                             ));
@@ -83,11 +83,6 @@ function page_loop(){
                             <?php endwhile;?>
                         </ul>
 
-                        <?php
-                            // restore WP post object
-                            $post = $saved_post;
-                        ?>
-
                     <?php else: ?>
                         <div class="">
                             <p>No Posts Found</p>
@@ -95,6 +90,10 @@ function page_loop(){
                     <?php endif;?>
 
 
+                    <?php
+                        // restore WP post object
+                        $post = $saved_post;
+                    ?>
 
                 </section>
             </div>
