@@ -7,6 +7,9 @@ add_action( 'genesis_loop', 'page_loop' );
 
 
 function page_loop(){
+
+    global $post;
+    global $paged;
     ?>
 
     <div class="front-page-wrap">
@@ -17,7 +20,7 @@ function page_loop(){
                 <section class="slider-wrap">
                 <?php
                     //display home page content
-                    global $post;
+
                     //store post object
                     $saved_post = $post;
 
@@ -39,6 +42,10 @@ function page_loop(){
                  </section>
             </div>
 
+            <?php
+                /* Restore original Post Data */
+                wp_reset_postdata();
+            ?>
 
             <div class="home-local">
                 <section class="home-headlines">
@@ -54,9 +61,9 @@ function page_loop(){
                             'post_type' => 'gcmaz-event',
                             'orderby' => 'meta_value',
                             'meta_key' => 'event_start_date_comp',
-                            'order' => 'DESC',
+                            'order' => 'ASC',
                             'posts_per_page' => 5,
-                            //'paged' => $paged,
+                            'paged' => $paged,
                             ));
                     ?>
 
@@ -64,6 +71,7 @@ function page_loop(){
                     <?php if($local_query->have_posts()) : ?>
 
                         <ul>
+
                             <?php while($local_query->have_posts()) : $local_query->the_post(); ?>
                         
                                 <?php
@@ -76,7 +84,7 @@ function page_loop(){
                                     $expDate = get_post_custom_values('event_start_date_comp');
                                 }
                                 
-                                if( ( $expDate[0] == '20000101' ) || ( strtotime($expDate[0]) ) >= ( strtotime('now') ) ) : ?>
+                                if( ( $expDate[0] !== '20000101' ) || ( strtotime($expDate[0]) ) >= ( strtotime('now') ) ) : ?>
                                     <li><a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a></li>
                                 <?php endif;?>
 
