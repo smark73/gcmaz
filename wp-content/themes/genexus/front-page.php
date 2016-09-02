@@ -21,9 +21,6 @@ function page_loop(){
                 <?php
                     //display home page content
 
-                    //store post object
-                    $saved_post = $post;
-
                     // get slug of home page in case someone changes permalink - which breaks the following fn's that rely on it
                     $hp_slug = $post->post_name;
                     
@@ -42,6 +39,10 @@ function page_loop(){
                  </section>
             </div>
 
+            <?php
+                /* Restore original Post Data */
+                wp_reset_postdata();
+            ?>
 
             <div class="home-local">
                 <section class="home-headlines">
@@ -55,14 +56,14 @@ function page_loop(){
                     <?php
                         $local_query = new WP_Query( array(
                             'post_type' => 'gcmaz-event',
-                            'orderby' => 'meta_value',
-                            'meta_key' => 'event_start_date_comp',
-                            'order' => 'ASC',
-                            //'orderby' => 'rand',
+                            //'orderby' => 'meta_value',
+                            //'meta_key' => 'event_start_date_comp',
+                            //'order' => 'ASC',
+                            'category_name' => 'home-list',
+                            'orderby' => 'rand',
                             'posts_per_page' => 5,
                             ));
                     ?>
-
 
                     <?php if($local_query->have_posts()) : ?>
 
@@ -74,15 +75,15 @@ function page_loop(){
                                 // for position - use start date (event_start_date_comp)
                                 // for kill date - use end date (event_end_date_comp)
                                 // check for past dated posts or non-dated posts (default date for undated posts is 20000101)
-                                $expDate = get_post_custom_values('event_end_date_comp');
-                                if (!$expDate[0]){
+                                //$expDate = get_post_custom_values('event_end_date_comp');
+                                //if (!$expDate[0]){
                                     // if no end date set, use start date or default value
-                                    $expDate = get_post_custom_values('event_start_date_comp');
-                                }
+                                    //$expDate = get_post_custom_values('event_start_date_comp');
+                                //}
                                 
-                                if( ( $expDate[0] != '20000101' ) || ( strtotime($expDate[0]) ) >= ( strtotime('now') ) ) : ?>
+                                //if( ( $expDate[0] != '20000101' ) || ( strtotime($expDate[0]) ) >= ( strtotime('now') ) ) : ?>
                                     <li><a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a></li>
-                                <?php endif;?>
+                                <?php //endif;?>
 
                             <?php endwhile;?>
                         </ul>
@@ -95,8 +96,8 @@ function page_loop(){
 
 
                     <?php
-                        // restore WP post object
-                        $post = $saved_post;
+                        /* Restore original Post Data */
+                        wp_reset_postdata();
                     ?>
 
                 </section>
