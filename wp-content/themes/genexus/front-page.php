@@ -55,11 +55,11 @@ function page_loop(){
                     <?php
                         $local_query = new WP_Query( array(
                             'post_type' => 'gcmaz-event',
-                            //'orderby' => 'meta_value',
-                            //'meta_key' => 'event_start_date_comp',
-                            //'order' => 'ASC',
-                            'orderby' => 'rand',
-                            'posts_per_page' => 5
+                            'orderby' => 'meta_value',
+                            'meta_key' => 'event_start_date_comp',
+                            'order' => 'ASC',
+                            //'orderby' => 'rand',
+                            'posts_per_page' => 5,
                             ));
                     ?>
 
