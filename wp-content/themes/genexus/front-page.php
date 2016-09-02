@@ -80,7 +80,7 @@ function page_loop(){
                                     $expDate = get_post_custom_values('event_start_date_comp');
                                 }
                                 
-                                if( ( $expDate[0] !== '20000101' ) || ( strtotime($expDate[0]) ) >= ( strtotime('now') ) ) : ?>
+                                if( ( $expDate[0] != '20000101' ) || ( strtotime($expDate[0]) ) >= ( strtotime('now') ) ) : ?>
                                     <li><a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a></li>
                                 <?php endif;?>
 
