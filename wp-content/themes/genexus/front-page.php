@@ -59,8 +59,7 @@ function page_loop(){
                             //'meta_key' => 'event_start_date_comp',
                             //'order' => 'ASC',
                             'orderby' => 'rand',
-                            'posts_per_page' => 5,
-                            'nopaging' => true,
+                            'posts_per_page' => 5
                             ));
                     ?>
 
