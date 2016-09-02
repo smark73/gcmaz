@@ -42,10 +42,6 @@ function page_loop(){
                  </section>
             </div>
 
-            <?php
-                /* Restore original Post Data */
-                wp_reset_postdata();
-            ?>
 
             <div class="home-local">
                 <section class="home-headlines">
@@ -59,11 +55,12 @@ function page_loop(){
                     <?php
                         $local_query = new WP_Query( array(
                             'post_type' => 'gcmaz-event',
-                            'orderby' => 'meta_value',
-                            'meta_key' => 'event_start_date_comp',
-                            'order' => 'ASC',
+                            //'orderby' => 'meta_value',
+                            //'meta_key' => 'event_start_date_comp',
+                            //'order' => 'ASC',
+                            'orderby' => 'rand',
                             'posts_per_page' => 5,
-                            'paged' => $paged,
+                            'nopaging' => true,
                             ));
                     ?>
 
