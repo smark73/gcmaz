@@ -61,7 +61,7 @@ function page_loop(){
                             'order' => 'ASC',
                             //'category_name' => 'home-list',
                             //'orderby' => 'rand',
-                            'posts_per_page' => 20,
+                            'posts_per_page' => 10000,
                             ));
                     ?>
 
