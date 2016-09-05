@@ -49,7 +49,7 @@ function page_loop(){
 
                     <div class="local-headlines-hdr">
                         <div class="hdr-txt">
-                            Local Events
+                            Upcoming Events
                         </div>
                     </div>
 
