@@ -54,83 +54,108 @@ function page_loop() {
     <div class="entry archive-page">
 
         <?php
+            $todays_date = date('Ymd');
+
             $the_query = new WP_Query(array(
                 'post_type' => 'gcmaz-event',
                 'cat' => $event_cat_id,
-                'orderby' => 'meta_value',
                 'meta_key' => 'event_start_date_comp',
+                'orderby' => 'meta_value_num',
                 'order' => 'ASC',
-                'posts_per_page' => 100000,
+                'posts_per_page' => 10,
                 'paged' => $paged,
+                'meta_query' => array(
+                    //start and end dates
+                    'relation' => 'AND',
+                    array(
+                        // end date is >= todays date OR ..
+                        'relation' => 'OR',
+                        array(
+                            'key' => 'event_end_date_comp',
+                            'value' => $todays_date,
+                            'type' => 'numeric',
+                            'compare' => '>=',
+                        ),
+                        // end date is null AND ...
+                        array(
+                            'relation' => 'AND',
+                            array(
+                                'key' => 'event_end_date_comp',
+                                'value' => null,
+                                'compare' => '=',
+                            ),
+                            // start date is >= todays date OR default 20000101
+                            array(
+                                'relation' => 'OR',
+                                array(
+                                    'key' => 'event_start_date_comp',
+                                    'value' => $todays_date,
+                                    'type' => 'numeric',
+                                    'compare' => '>=',
+                                ),
+                                array(
+                                    'key' => 'event_start_date_comp',
+                                    'value' => '20000101',
+                                    //'type' => 'numeric',
+                                    'compare' => '=',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
             ));
+
+            // show the query sql
+            //echo "<div style='color:red;'>" . $the_query->request . "</div>";
         ?>
         
         <?php if( $the_query->have_posts() ) : ?>
 
             <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-                <?php
-                // for position - use start date (event_start_date_comp)
-                // for kill date - use end date (event_end_date_comp)
-                // check for past dated posts or non-dated posts (default date for undated posts is 20000101)
-                $expDate = get_post_custom_values('event_end_date_comp');
-                if (!$expDate[0]){
-                    // if no end date set, use start date or default value
-                    $expDate = get_post_custom_values('event_start_date_comp');
-                }
-                
-                if( ( $expDate[0] == '20000101' ) || ( strtotime($expDate[0]) ) >= ( strtotime('now') ) ) : ?>
+                <section class="archive-listing <?php if( has_post_thumbnail() ) { echo 'has-img'; } ?>">
+                    
+                    <div class="archive-listing-text">
+                        <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="archive-listing-title">
+                            <?php the_title(); ?>
+                        </a>
+                        <br>
+                        <span class="listing-date">
+                            <?php
+                                // echo date
+                                $startdate = get_post_custom_values('event_start_date');
+                                echo $startdate[0];
+                                // if has end date, add it
+                                $enddate = get_post_custom_values('event_end_date');
+                                if($enddate[0]){
+                                    echo " - " . $enddate[0];
+                                }
+                             ?>
+                        </span>
+                        <?php the_excerpt(); ?>
+                    </div>
 
-                    <section class="archive-listing <?php if( has_post_thumbnail() ) { echo 'has-img'; } ?>">
-                        
-                        <div class="archive-listing-text">
-                            <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="archive-listing-title">
-                                <?php the_title(); ?>
+                    <?php if( has_post_thumbnail() ) : ?>
+                        <div class="archive-listing-image">
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                <?php the_post_thumbnail('thumbnail');?>
                             </a>
-                            <br>
-                            <span class="listing-date">
-                                <?php
-                                    // echo date
-                                    $startdate = get_post_custom_values('event_start_date');
-                                    echo $startdate[0];
-                                    // if has end date, add it
-                                    $enddate = get_post_custom_values('event_end_date');
-                                    if($enddate[0]){
-                                        echo " - " . $enddate[0];
-                                    }
-                                 ?>
-                            </span>
-                            <?php the_excerpt(); ?>
                         </div>
+                    <?php endif; ?>
 
-                        <?php if( has_post_thumbnail() ) : ?>
-                            <div class="archive-listing-image">
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                                    <?php the_post_thumbnail('thumbnail');?>
-                                </a>
-                            </div>
-                        <?php endif; ?>
+                    <div class="clearfix"></div>
+                    <hr>
 
-                        <div class="clearfix"></div>
-                        <hr>
-
-                    </section>
-
-                <?php endif;?>
+                </section>
         
             <?php endwhile;?>
 
-            <?php if ( function_exists('base_pagination') ) { base_pagination(); } else if ( is_paged() ) { ?>
+            <?php if ( function_exists('base_pagination') ) { base_pagination( $the_query ); } else if ( is_paged() ) { ?>
                 <div class="navigation clearfix">
                     <div class="alignleft"><?php next_posts_link('&laquo; Previous Entries') ?></div>
                     <div class="alignright"><?php previous_posts_link('Next Entries &raquo;') ?></div>
                 </div>
             <?php } ?>
-
-            <?php
-                /* Restore original Post Data */
-                wp_reset_postdata();
-            ?>
 
         <?php else: ?>
 
@@ -140,6 +165,10 @@ function page_loop() {
 
         <?php endif;?>
 
+        <?php
+            /* Restore original Post Data */
+            wp_reset_postdata();
+        ?>
     </div>
 
 <?php
