@@ -58,10 +58,6 @@ function page_loop(){
 
                         $local_query = new WP_Query( array(
                             'post_type' => 'gcmaz-event',
-                            //'orderby' => 'meta_value',
-                            //'meta_key' => 'event_start_date_comp',
-                            //'order' => 'ASC',
-                            //'category_name' => 'home-list',
                             'meta_query' => array(
                                 array(
                                     'key' => 'event_start_date_comp',
@@ -75,8 +71,11 @@ function page_loop(){
                                 'event_start_date_comp' => 'ASC',
                             ),
                             'posts_per_page' => 5,
+                            'no_found_rows' => true, //decr overhead when pagination not used
+                            'update_post_term_cache' => false, //decs overhead when taxonomy not used
                         ));
 
+                        // show the query sql
                         //echo "<li style='color:white;'>" . $local_query->request . "</li>";
 
                     ?>
@@ -84,37 +83,11 @@ function page_loop(){
                     <?php if($local_query->have_posts()) : ?>
 
                         <ul>
-                            <?php $displayed_posts = 0; //count to show total of 5?>
+                            <?php //$displayed_posts = 0; //count to show total of 5?>
 
                             <?php while($local_query->have_posts()) : $local_query->the_post(); ?>
 
-                                <?php //if( $displayed_posts < 5) : ?>
-                        
-                                    <?php
-                                    // for position - use start date (event_start_date_comp)
-                                    // for kill date - use end date (event_end_date_comp)
-                                    // check for past dated posts or non-dated posts (default date for undated posts is 20000101)
-                                    $expDate = get_post_custom_values( 'event_end_date_comp' );
-                                    if (!$expDate[0]){
-                                        // if no end date set, use start date or default value
-                                        $expDate = get_post_custom_values( 'event_start_date_comp' );
-                                    }
-                                    
-                                    //if( strtotime( $expDate[0])  >= strtotime('now') ) : ?>
-
-                                        <?php //if( $expDate[0] != '20000101' )  : // don't want undated events (20000101)?>
-
-                                            <?php $displayed_posts++;?>
-
-                                            <li style="color:orange;"><?php $x = get_post_custom_values( 'event_start_date_comp' ); echo $x[0]; ?></li>
-
-                                            <li><a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a></li>
-
-                                        <?php //endif;?>
-
-                                    <?php //endif;?>
-
-                                <?php //endif;?>
+                                <li><a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a></li>
 
                             <?php endwhile;?>
                         </ul>
