@@ -17,30 +17,30 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
 
-#: functions.php:123, functions.php:125
+#: functions.php:131, functions.php:133
 msgid ""
 msgstr ""
 
-#: functions.php:245
+#: functions.php:381
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:245
+#: functions.php:381
 msgid "KAFF News Menu"
 msgstr ""
 
-#: lib/customize.php:65
+#: lib/customize.php:129
 msgid "Change the default color for linked titles, menu links, post info links and more."
 msgstr ""
 
-#: lib/customize.php:66
+#: lib/customize.php:131
 msgid "Link Color"
 msgstr ""
 
-#: lib/customize.php:86
+#: lib/customize.php:171
 msgid "Change the default color for button hovers."
 msgstr ""
 
-#: lib/customize.php:87
+#: lib/customize.php:173
 msgid "Accent Color"
 msgstr ""
