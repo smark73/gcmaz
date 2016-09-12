@@ -91,19 +91,19 @@ function page_loop() {
                 <div class="alignright"><?php previous_posts_link('Next Entries &raquo;') ?></div>
             </div>
         <?php } ?>
-        
-        <?php
-            /* Restore original Post Data */
-            wp_reset_postdata();
-        ?>
 
         <?php else: ?>
 
             <div class="alert">
                 <?php _e('Sorry, no results were found.'); ?>
             </div>
-
+            
         <?php endif;?>
+
+        <?php
+            /* Restore original Post Data */
+            wp_reset_postdata();
+        ?>
 
     </div>
 

@@ -85,17 +85,12 @@ function page_loop() {
         
             <?php endwhile;?>
 
-        <?php if ( function_exists('base_pagination') ) { base_pagination(); } else if ( is_paged() ) { ?>
+        <?php if ( function_exists('base_pagination') ) { base_pagination( $the_query ); } else if ( is_paged() ) { ?>
             <div class="navigation clearfix">
                 <div class="alignleft"><?php next_posts_link('&laquo; Previous Entries') ?></div>
                 <div class="alignright"><?php previous_posts_link('Next Entries &raquo;') ?></div>
             </div>
         <?php } ?>
-        
-        <?php
-            /* Restore original Post Data */
-            wp_reset_postdata();
-        ?>
 
         <?php else: ?>
 
@@ -105,6 +100,11 @@ function page_loop() {
 
         <?php endif;?>
 
+        <?php
+            /* Restore original Post Data */
+            wp_reset_postdata();
+        ?>
+        
     </div>
 
 <?php
