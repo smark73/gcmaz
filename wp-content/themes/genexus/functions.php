@@ -9,9 +9,6 @@
  */
 
 
-// NEED TO DO
-// ad rotate everywhere
-
 
 //* Start the engine
 include_once( get_template_directory() . '/lib/init.php' );
@@ -38,7 +35,8 @@ define( 'CHILD_THEME_VERSION', '2.1.2' );
 
 /**********************************************************/
 // Initialize
-define('GOOGLE_ANALYTICS_ID', 'UA-47756322-1'); // UA-XXXXX-Y
+// Google Analytics ID UA-XXXXX-Y
+define('GOOGLE_ANALYTICS_ID', 'UA-47756322-1');
 
 
 
@@ -952,24 +950,24 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 // FEED TEMPLATES
 
 function gcm_feeds_tpl(){
-    add_feed('whats', 'whats_feeds_render');
-    add_feed('concerts', 'concerts_feeds_render');
-    add_feed('community', 'community_feeds_render');
+    //add_feed('whats', 'whats_feeds_render');
+    //add_feed('concerts', 'concerts_feeds_render');
+    //add_feed('community', 'community_feeds_render');
     add_feed('events', 'events_feed_render');
 }
 add_action('after_setup_theme', 'gcm_feeds_tpl');
 /*
  * gcm feeds RSS template callback
  */
-function whats_feeds_render(){
-    get_template_part('feed', 'whats');
-}
-function concerts_feeds_render(){
-    get_template_part('feed', 'concerts');
-}
-function community_feeds_render(){
-    get_template_part('feed', 'community');
-}
+//function whats_feeds_render(){
+    //get_template_part('feed', 'whats');
+//}
+//function concerts_feeds_render(){
+    //get_template_part('feed', 'concerts');
+//}
+//function community_feeds_render(){
+    //get_template_part('feed', 'community');
+//}
 function events_feed_render(){
     get_template_part('feed', 'events');
 }
