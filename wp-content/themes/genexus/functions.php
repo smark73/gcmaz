@@ -1128,11 +1128,13 @@ function shorten_and_strip_html($string, $length){
     $more_tag = "(more&hellip;)";
     if ( stripos( $desc, $more_tag ) !== false ){
         $more_tag_exists = true;
+    } else {
+        $more_tag_exists = false;
     }
  
     // If the last character is a period, an exclamation point, or a question 
     // mark, clear out the appended text.
-    if ( $lastchar == '.' || $lastchar == '!' || $lastchar == '?' || $more_tag_exists == true ){
+    if ( $lastchar === '.' || $lastchar === '!' || $lastchar === '?' || $more_tag_exists === false ){
         $suffix='';
     }
  

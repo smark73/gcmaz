@@ -46,7 +46,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                 $temp_post = $post;
                 
                 // get today
-                $d = date('Ymd');
+                $todays_date = date('Ymd');
                 
                 // query the Event CPT
                 // for position - use start date
@@ -55,20 +55,66 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                 //  compare to todays date
                 //  -- note 'posts_per_page' known to solve issue of some posts not showing up
                 $args = array(
+                    //'post_type' => 'gcmaz-event',
+                    //'meta_key' => 'event_start_date_comp',
+                    //'posts_per_page' => '999',
+                    //'orderby' => 'meta_value',
+                    //'order' => 'ASC',
+                    //'meta_query' => array(
+                    //    array(
+                    //        'key' => 'event_start_date_comp',
+                    //        'value' => array('20000101', $d),
+                    //        'type' => 'date',
+                    //        'compare' => '>=',
+                    //    ),
+                    //),
+
                     'post_type' => 'gcmaz-event',
                     'meta_key' => 'event_start_date_comp',
-                    'posts_per_page' => '999',
-                    'orderby' => 'meta_value',
+                    'orderby' => 'meta_value_num',
                     'order' => 'ASC',
+                    'posts_per_page' => 100,
+                    'nopaging' => true,
                     'meta_query' => array(
+                        //start and end dates
+                        //'relation' => 'AND',
                         array(
-                            'key' => 'event_start_date_comp',
-                            'value' => array('20000101', $d),
-                            'type' => 'date',
-                            'compare' => '>=',
+                            // end date is >= todays date OR ..
+                            'relation' => 'OR',
+                            array(
+                                'key' => 'event_end_date_comp',
+                                'value' => $todays_date,
+                                'type' => 'numeric',
+                                'compare' => '>=',
+                            ),
+                            // end date is null AND ...
+                            array(
+                                'relation' => 'AND',
+                                array(
+                                    'key' => 'event_end_date_comp',
+                                    'value' => null,
+                                    'compare' => '=',
+                                ),
+                                // start date is >= todays date OR default 20000101
+                                array(
+                                    'relation' => 'OR',
+                                    array(
+                                        'key' => 'event_start_date_comp',
+                                        'value' => $todays_date,
+                                        'type' => 'numeric',
+                                        'compare' => '>=',
+                                    ),
+                                    array(
+                                        'key' => 'event_start_date_comp',
+                                        'value' => '20000101',
+                                        //'type' => 'numeric',
+                                        'compare' => '=',
+                                    ),
+                                ),
+                            ),
                         ),
                     ),
-                  );
+                );
                 
                 $the_query = new WP_Query($args);
             ?>
