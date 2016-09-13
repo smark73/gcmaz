@@ -866,7 +866,10 @@ add_filter('user_contactmethods', 'genexus_user_contactmethods', 10, 1);
 function base_pagination( $the_query = NULL ) {
     global $wp_query;
 
-    $wp_query = $the_query;
+    if (!empty( $the_query ) ){
+        // overwrite wp_query with the passed one if exists
+        $wp_query = $the_query;
+    }
 
     $big = 999999999; // This needs to be an unlikely integer
 
