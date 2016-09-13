@@ -1160,24 +1160,30 @@ function shorten_and_strip_html($string, $length){
 /**********************************************************/
 
 // JETPACK TWEAKS
-/* JetPack Publicize custom on/off chosen in Settings/GCMAZ */
-// get current user id and compare it against stored id's in our gcmaz_publicize option value
-function gx_jetpack_pub_fn(){
-    $current_user = wp_get_current_user();
-    $gcmaz_settings = get_option( 'gcmaz_settings' );
-    if( !in_array( $current_user->ID, $gcmaz_settings['gcmaz_publicize'] ) ){
-        // set auto post to unchecked
-        add_filter( 'publicize_checkbox_default', '__return_false' );
-        //echo "<script> alert('Booo');</script>";
-        //print_r($gcmaz_settings['gcmaz_publicize']);
-    }   
+// JetPack Publicize - custom on/off chosen in Settings/GCMAZ
+// -- get current user id and compare it against stored id's in our gcmaz_publicize option value
+// -- check if gcmaz custom settings plugin active first
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if(is_plugin_active( 'jetpack/jetpack.php' )){
+    function gx_jetpack_pub_fn(){
+        $current_user = wp_get_current_user();
+        $gcmaz_settings = get_option( 'gcmaz_settings' );
+        // check if the objects settings array is populated, if not assign empty array
+        $gcmaz_jp_pub_settings = isset($gcmaz_settings['gcmaz_publicize']) ? $gcmaz_settings['gcmaz_publicize'] : array(0);
+        if( !in_array( $current_user->ID, $gcmaz_jp_pub_settings ) ){
+            // set auto post to unchecked
+            add_filter( 'publicize_checkbox_default', '__return_false' );
+            //echo "<script> alert('Booo');</script>";
+            //print_r($gcmaz_settings['gcmaz_publicize']);
+        }   
+    }
+    add_action( 'after_setup_theme', 'gx_jetpack_pub_fn');
 }
-add_action( 'after_setup_theme', 'gx_jetpack_pub_fn');
 
 
-/* remove JetPack sharing buttons from excerpts */
+// remove JetPack sharing buttons from excerpts
 function gx_remove_filters_func() {
-     remove_filter( 'the_excerpt', 'sharing_display', 19 );
+    remove_filter( 'the_excerpt', 'sharing_display', 19 );
 }
 add_action( 'init', 'gx_remove_filters_func' );
 

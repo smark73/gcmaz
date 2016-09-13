@@ -148,15 +148,22 @@ class GCMAZ_Settings{
     
     // GCMAZ JetPack Publicize Fields
     public function gcmaz_publicize_callback(){
-        // check if JetPack is active (doesn't save stored values as expected ??)
-        //if(is_plugin_active( 'jetpack/jetpack.php' )){
+        // check if JetPack is active
+        if(is_plugin_active( 'jetpack/jetpack.php' )){
                 $i = 0;
                 echo "<ul>";
                 foreach($this->get_gcmaz_users() as $user){
                     // save user ID's if enable is checked
                     $gcmaz_uid = $user->ID;
                     $user_setting = "gcmaz_settings[gcmaz_publicize][$i]";
-                    if( in_array( $gcmaz_uid, $this->settings['gcmaz_publicize'] ) ){
+                    //print_r($user_setting);
+                    //print_r($this);
+                    //print_r($this->settings);
+
+                    // check if the objects settings array is populated, if not assign empty array
+                    $gcmaz_jp_pub_settings = isset($this->settings['gcmaz_publicize']) ? $this->settings['gcmaz_publicize'] : array(0);
+
+                    if( in_array( $gcmaz_uid, $gcmaz_jp_pub_settings ) ){
                         // retrieve stored ID's and check the box
                         echo "<li><input type='checkbox' name='$user_setting' id='$user_setting' value='$gcmaz_uid'  checked='true' /> " . $user->display_name . "</li>";
                     } else {
@@ -164,15 +171,32 @@ class GCMAZ_Settings{
                         echo "<li><input type='checkbox' name='$user_setting' id='$user_setting' value='$gcmaz_uid' /> " . $user->display_name . "</li>";
                     }
                     $i++;
+
                 }
                 echo "</ul>";
                 //print_r($this->settings['gcmaz_publicize']);
-        //} else {
-            // get stored values and reenter them if saved
-            //echo "The JetPack (Publicize) Plugin isn't active";
-            //print_r($this->settings['gcmaz_publicize']);
-            //echo "<input type='hidden' name='' id='' value='" . $this->settings['gcmaz_publicize'] . "' />";
-        //}
+        } else {
+
+            echo "The JetPack (Publicize) Plugin isn't active";
+            
+            // get stored values and reenter them if saved            
+            $i = 0;
+            foreach($this->get_gcmaz_users() as $user){
+                // save user ID's if enable is checked
+                $gcmaz_uid = $user->ID;
+                $user_setting = "gcmaz_settings[gcmaz_publicize][$i]";
+
+                // check if the objects settings array is populated, if not assign empty array
+                $gcmaz_jp_pub_settings = isset($this->settings['gcmaz_publicize']) ? $this->settings['gcmaz_publicize'] : array(0);
+
+                if( in_array( $gcmaz_uid, $gcmaz_jp_pub_settings ) ){
+                    // retrieve stored ID's to resave
+                    echo "<input type='hidden' name='$user_setting' id='$user_setting' value='$gcmaz_uid' />";
+                }
+                $i++;
+
+            }
+        }
     }
     
     // GCMAZ TuneGenie Section Description
