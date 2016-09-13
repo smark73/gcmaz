@@ -863,7 +863,7 @@ add_filter('user_contactmethods', 'genexus_user_contactmethods', 10, 1);
  * @global $wp_query http://codex.wordpress.org/Class_Reference/WP_Query
  * @return Prints the HTML for the pagination if a template is $paged
  */
-function base_pagination( $the_query ) {
+function base_pagination( $the_query = NULL ) {
     global $wp_query;
 
     $wp_query = $the_query;
