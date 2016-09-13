@@ -1134,7 +1134,7 @@ function shorten_and_strip_html($string, $length){
  
     // If the last character is a period, an exclamation point, or a question 
     // mark, clear out the appended text.
-    if ( $lastchar === '.' || $lastchar === '!' || $lastchar === '?' || $more_tag_exists === false ){
+    if ( $lastchar === '.' || $lastchar === '!' || $lastchar === '?' || $more_tag_exists === true ){
         $suffix='';
     }
  
