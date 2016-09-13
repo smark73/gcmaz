@@ -1,6 +1,5 @@
 <?php
 
-
 // Content Area
 remove_action( 'genesis_loop', 'genesis_do_loop' );
 add_action( 'genesis_loop', 'page_loop' );
@@ -80,12 +79,12 @@ function page_loop(){
 
                     ?>
 
-                    <?php if($local_query->have_posts()) : ?>
+                    <?php if( $local_query->have_posts() ) : ?>
 
                         <ul>
                             <?php //$displayed_posts = 0; //count to show total of 5?>
 
-                            <?php while($local_query->have_posts()) : $local_query->the_post(); ?>
+                            <?php while( $local_query->have_posts() ) : $local_query->the_post(); ?>
 
                                 <li><a href="<?php the_permalink();?>" title="<?php the_title();?>"><?php the_title(); ?></a></li>
 
