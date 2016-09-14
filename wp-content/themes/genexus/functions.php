@@ -91,13 +91,25 @@ add_action( 'admin_enqueue_scripts', 'genexus_admin_reqs');
 function gx_google_analytics() {
     global $post;
     ?>
-    <script type="text/javascript">
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','<?php echo GOOGLE_ANALYTICS_ID; ?>');
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', '<?php echo GOOGLE_ANALYTICS_ID; ?>', 'auto');
+
+    <?php
+    // OLD
+    //<script type="text/javascript">
+    //    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    //    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    //    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    //    e.src='//www.google-analytics.com/analytics.js';
+    //    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    //    ga('create','<?php echo GOOGLE_ANALYTICS_ID; ? >');
+    ?>
+
         <?php
             //init as "not" in news
             $inKaffNews = false;
@@ -1164,7 +1176,7 @@ function shorten_and_strip_html($string, $length){
 // -- get current user id and compare it against stored id's in our gcmaz_publicize option value
 // -- check if gcmaz custom settings plugin active first
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-if(is_plugin_active( 'jetpack/jetpack.php' )){
+if( is_plugin_active( 'jetpack/jetpack.php' ) ){
     function gx_jetpack_pub_fn(){
         $current_user = wp_get_current_user();
         $gcmaz_settings = get_option( 'gcmaz_settings' );
