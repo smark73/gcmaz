@@ -3,8 +3,14 @@
 .metaslider {
 
 	.caption {
-		font-size: .8em;
+		font-size: .7em;
 		text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+		//line-height: 1em;
+	}
+
+	.caption-wrap {
+		height: 50px;
+		overflow: hidden;
 	}
 
 }
