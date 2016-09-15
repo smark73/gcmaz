@@ -49,6 +49,12 @@ function page_loop() {
                                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="img-link" style="background-image:url('<?php echo $img_src[0];?>'); background-position: center center; background-size: cover;">
                                 </a>
 
+                            <?php else : ?>
+
+                                <div class="no-img">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/images/kaff-news-logo.png">
+                                </div>
+
                             <?php endif; ?>
 
                             <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="news-post-title">
@@ -104,6 +110,12 @@ function page_loop() {
                                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="img-link" style="background-image:url('<?php echo $img_src[0];?>'); background-position: center center; background-size: cover;">
                                 </a>
 
+                            <?php else : ?>
+
+                                <div class="no-img">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/images/kaff-news-logo.png">
+                                </div>
+                                
                             <?php endif; ?>
 
                             <a href="<?php the_permalink();?>" title="<?php the_title();?>" class="news-post-title">

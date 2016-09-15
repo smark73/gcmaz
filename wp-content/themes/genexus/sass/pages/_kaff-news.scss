@@ -58,7 +58,26 @@
 				display: block;
 				height: 200px;
 				width: 100%;
+				//bg color in case img doesn't fill space
 				background-color: transparentize($gunmetal-lt, .9);
+			}
+
+			.no-img {
+				//no featured img - give default
+
+				img {
+
+					@include vertical-align;
+					width: auto;
+					height: auto;
+					max-width: 50%;
+					max-height: 50%;
+				}
+				
+				height: 200px;
+				margin: auto;
+				text-align: center;
+				background: transparentize($neutral-blue-lt, .4);
 			}
 
 			.news-date {
@@ -98,6 +117,7 @@
 		}
 
 	}
+
 
 	background: $neutral-tan;
 	margin: auto;
