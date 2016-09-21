@@ -117,13 +117,13 @@ function page_loop(){
 
             <div class="kaff-block station-tile">
                 <div class="logo-block">
-                    <a href="http://kaff.gcmaz.com" target="_blank">
+                    <a href="https://kaff.gcmaz.com" target="_blank">
                         <img src="<?php echo get_stylesheet_directory_uri();?>/images/kaff-logo.png" alt="92.9 KAFF Country" class="kaff-logo"/>
                     </a>
                 </div>
                 <div class="block-btns block-btn-kaff btns-hide">
                     <div class="block-btn-web">
-                        <a href="http://kaff.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
+                        <a href="https://kaff.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
                     </div>
                     <div class="block-btn-listen">
                         <a href="http://player.listenlive.co/36581" target="_blank" class="logo-block-link">LISTEN<div class="spkr-icon"><i class="fa fa-volume-up"></i></div></a>
@@ -133,13 +133,13 @@ function page_loop(){
             
             <div class="kmgn-block station-tile">
                 <div class="logo-block">
-                    <a href="http://939themountain.gcmaz.com" target="_blank">
+                    <a href="https://939themountain.gcmaz.com" target="_blank">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kmgn-logo.png" alt="93-9 The Mountain" class="kmgn-logo"/>
                     </a>
                 </div>
                 <div class="block-btns block-btn-kmgn btns-hide">
                     <div class="block-btn-web">
-                        <a href="http://939themountain.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
+                        <a href="https://939themountain.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
                     </div>
                     <div class="block-btn-listen">
                         <a href="http://player.listenlive.co/36601" target="_blank" class="logo-block-link">LISTEN<div class="spkr-icon"><i class="fa fa-volume-up"></i></div></a>
@@ -149,13 +149,13 @@ function page_loop(){
             
             <div class="kzgl-block station-tile">
                 <div class="logo-block">
-                    <a href="http://eagle.gcmaz.com/" target="_blank">
+                    <a href="https://eagle.gcmaz.com/" target="_blank">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/eagle-square-whiteeagle.png" alt="The Eagle Rocks" class="kzgl-logo"/>
                     </a>
                 </div>
                 <div class="block-btns block-btn-kzgl btns-hide">
                     <div class="block-btn-web">
-                        <a href="http://eagle.gcmaz.com/" target="_blank" class="logo-block-link">WEBSITE</a>
+                        <a href="https://eagle.gcmaz.com/" target="_blank" class="logo-block-link">WEBSITE</a>
                     </div>
                     <div class="block-btn-listen">
                         <a href="http://eagle.gcmaz.com/kzgl-stream-player/" target="_blank" class="logo-block-link">LISTEN<div class="spkr-icon"><i class="fa fa-volume-up"></i></div></a>
@@ -165,13 +165,13 @@ function page_loop(){
 
             <div class="kfsz-block station-tile">
                 <div class="logo-block">
-                    <a href="http://hits106.gcmaz.com" target="_blank">
+                    <a href="https://hits106.gcmaz.com" target="_blank">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kfsz-logo.png" alt="Hits 106" class="kfsz-logo"/>
                     </a>
                 </div>
                 <div class="block-btns block-btn-kfsz btns-hide">
                     <div class="block-btn-web">
-                        <a href="http://hits106.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
+                        <a href="https://hits106.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
                     </div>
                     <div class="block-btn-listen">
                         <a href="http://player.listenlive.co/36591" target="_blank" class="logo-block-link">LISTEN<div class="spkr-icon"><i class="fa fa-volume-up"></i></div></a>
@@ -181,13 +181,13 @@ function page_loop(){
             
             <div class="ktmg-block station-tile">
                 <div class="logo-block">
-                    <a href="http://magic991.gcmaz.com" target="_blank">
+                    <a href="https://magic991.gcmaz.com" target="_blank">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ktmg-logo.png" alt="Magic 99.1" class="ktmg-logo"/>
                     </a>
                 </div>
                 <div class="block-btns block-btn-ktmg btns-hide">
                     <div class="block-btn-web">
-                        <a href="http://magic991.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
+                        <a href="https://magic991.gcmaz.com" target="_blank" class="logo-block-link">WEBSITE</a>
                     </div>
                     <div class="block-btn-listen">
                         <a href="http://player.listenlive.co/36621" target="_blank" class="logo-block-link">LISTEN<div class="spkr-icon"><i class="fa fa-volume-up"></i></div></a>
@@ -197,13 +197,13 @@ function page_loop(){
             
             <div class="kaffam-block station-tile">
                 <div class="logo-block">
-                    <a href="http://kafflegends.gcmaz.com" target="_blank">
+                    <a href="https://kafflegends.gcmaz.com" target="_blank">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/kaffam-logo.png" alt="KAFF Legends 93-5 AM930" class="kaffam-logo"/>
                     </a>
                 </div>
                 <div class="block-btns block-btn-kaffam btns-hide">
                     <div class="block-btn-web">
-                        <a href="http://kafflegends.gcmaz.com" target="_blank" class="logo-block-link" style="color:#28231e;">WEBSITE</a>
+                        <a href="https://kafflegends.gcmaz.com" target="_blank" class="logo-block-link" style="color:#28231e;">WEBSITE</a>
                     </div>
                     <div class="block-btn-listen">
                         <a href="http://player.listenlive.co/36571" target="_blank" class="logo-block-link" style="color:#28231e;">LISTEN<div class="spkr-icon"><i class="fa fa-volume-up"></i></div></a>
