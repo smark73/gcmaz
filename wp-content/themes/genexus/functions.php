@@ -157,7 +157,7 @@ function gx_google_analytics() {
 }
 
 if (GOOGLE_ANALYTICS_ID) {
-    add_action('wp_footer', 'gx_google_analytics', 20);
+    add_action('wp_head', 'gx_google_analytics', 20);
 }
 
 
