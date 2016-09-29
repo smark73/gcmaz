@@ -23,7 +23,7 @@
       .slider-wrap div{
         //max-width:900px;
         height: auto;
-        box-shadow: 0px 10px 14px -5px rgba(0,0,0,0.1);
+        box-shadow: 0px 10px 14px -5px rgba(0, 0, 0, .1);
       }
 
     padding-left: 20px;
@@ -32,6 +32,10 @@
       @include span-columns(12);
       margin: auto;
       padding: 0 40px;
+    }
+
+    @include media($sm-screen){
+      padding: 0;
     }
   }
 
@@ -137,6 +141,10 @@
   padding: 60px 0;
 
   @include background(linear-gradient(darken($gunmetal, 5%), $blue 100%));
+
+  @include media($sm-screen){
+    padding-top: 0;
+  }
 
 }
 
