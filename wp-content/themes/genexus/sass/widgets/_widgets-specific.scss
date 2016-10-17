@@ -1,0 +1,33 @@
+// target specific widgets
+
+// KAFF News subscribe form widget
+.widget .subscribe-kaff-news_wrapper {
+
+	.subscribe-kaff-news {
+
+		label {
+			color: $neutral-tan-dkr;
+		}
+
+		.button {
+			padding: 10px;
+			background: darken($neutral-tan, 3%);
+			color: $neutral-tan-dkr;
+			width: 100%;
+			margin-top: -60px;
+
+			&:hover {
+				background: darken($neutral-tan, 5%);
+			}
+		}
+
+		margin: auto;
+		text-align: left;
+		color: $neutral-tan;
+	}
+
+	padding: 20px;
+	margin: 0 auto;
+	text-align: center;
+	background: transparentize($neutral-tan, .2);
+}
