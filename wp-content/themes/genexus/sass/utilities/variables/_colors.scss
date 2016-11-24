@@ -1,0 +1,200 @@
+// Color Variables
+
+// ************************************************************
+// COLORS
+// ************************************************************
+// From Bourbon
+$color-alto: #ddd;
+$color-black: #000;
+$color-cod-gray: #111;
+$color-dove-gray: #666;
+$color-dusty-gray: #999;
+$color-gallery: #eee;
+$color-mandy: #e5554e;
+$color-mine-shaft: #333;
+$color-silver-chalice: #aaa;
+$color-silver: #ccc;
+$color-thunderbird: #c3251d;
+$color-white: #fff;
+$color-whitesmoke: #f5f5f5;
+
+// Primary
+$blue-ltr:			#56b2fe;
+$blue-lt:			#4589ff;
+$blue:				#2e6fdd;
+$blue-dk:			#174ba4;
+$blue-dkr:			#203062;
+$red:				#c00;
+$bright-red: 		#f33;
+$orange:			#ff6600;
+$yellow:			#ffff00;
+
+// Neutrals
+$neutral-tan: 		#e6e4df;
+$neutral-tan-lt:	#f5f3f1;
+$neutral-tan-dk:	#a9a39a;
+$neutral-tan-dkr:	#726c63;
+$neutral-blue-lt:	#edeff9;
+$gunmetal:			#353a44;
+$gunmetal-lt:		#575e6b;
+$gunmetal-dk:		#191c22;
+$gray-dkr:			#222;
+$gray-dk:			#333;
+$gray:				#555;
+$gray-lt:			#777;
+$gray-ltr:			#eee;
+
+// Station Colors
+$gcmaz-blue: #3953a4;
+$kaff-red: #ea2328;
+$kaff-blue: #2e4a9d;
+$kmgn-orange: #f69222;
+$kmgn-gray: #414143;
+$eagle-yellow: #f5eb1a;
+$kfsz-blue: #0055a5;
+$kfsz-gray: #35393c;
+$ktmg-yellow: #fede11;
+$ktmg-blue: #2f67b2;
+$ktmg-lt-blue: #3399ff;
+$kaffam-blue: #434777;
+$kaffam-red: #ba383a;
+$kaffam-white: #eee8e8;
+$shine-orange: #f8b423;
+$shine-blue: #0e426a;
+
+$nau-blue: #013e7d;
+$nau-yellow: #ffd202;
+
+
+// some classes may be hardcoded in old pages
+.light-blue { color: $blue-lt; }
+.bright-red { color: $bright-red; }
+.white { color: $color-white; }
+.black { color: $color-black; }
+.neutral-tan { color: $neutral-tan; }
+.neutral-tan-lt { color: $neutral-tan-lt; }
+.neutral-tan-dk { color: $neutral-tan-dk; }
+.neutral-blue-lt { color: $neutral-blue-lt; }
+
+
+
+
+// *****************************************************************
+// MENU COLORS
+// ****************************************************************
+
+// Init Defaults (override below);
+$default-menu-text-color: $color-whitesmoke;
+$default-submenu-text-color: $gunmetal;//$color-whitesmoke;
+$default-menu-text-color-hover: $color-white;//$blue-ltr;
+$default-menu-bg-color: $blue-dk;
+$default-menu-bg-color-underline: $red !default;
+
+
+
+// ********************************************************************
+// NORMAL MENU 
+// ********************************************************************
+// TEXT
+$menu-text-color: $default-menu-text-color;
+$submenu-text-color: $default-submenu-text-color;
+$submenu-text-color-hover: darken($submenu-text-color, 10%);
+$menu-text-color-hover: $default-menu-text-color-hover;
+// BACKGROUND
+$menu-bg-color: $default-menu-bg-color;
+$menu-bg-color-hover: $blue;//darken($menu-bg-color, 5%);
+$menu-bg-color-underline: $default-menu-bg-color-underline;
+$submenu-bg-color: $neutral-tan;//$menu-bg-color;
+$submenu-bg-color-hover: darken($neutral-tan, 5%);
+// CURRENT ITEM
+$cur-menu-item: $red;
+// BORDERS
+$menu-border-color: darken($menu-bg-color, 5%);
+
+
+// ********************************************************************
+// MOBILE MENU (SLIDING PANEL)
+// ********************************************************************
+// TEXT
+$mobile-menu-top-item-color: $blue-ltr;
+$mobile-menu-item-color: $neutral-tan-lt;
+// BG
+$sliding-panel-color: $neutral-tan-lt;
+$sliding-panel-color-hover: $blue-lt;
+$sliding-panel-bg: $default-menu-bg-color;
+$mobile-menu-item-bg-hover: lighten($sliding-panel-bg, 3%);
+// BORDER
+$sliding-panel-border-color: $sliding-panel-bg;
+
+
+
+
+// TOGGLE BTN
+$menu-toggle-color: $red;
+
+
+
+
+// ********************************************************************
+// SITE HEADER
+// ********************************************************************
+
+// .site-header has ...
+   // @include background-image(url('images/pg-hdr.png'), linear-gradient($site-hdr-grad-top, $site-hdr-grad-btm 100%));
+
+// to customize
+// create pg-hdr.png and put in /images dir
+// change colors for bg gradient
+
+$site-hdr-grad-top: $blue-dk;
+$site-hdr-grad-btm: $blue-lt; //darken($neutral-tan, 5%);
+
+
+// WIDGET AREA (HDR-NAVICONS)
+$hdr-nav-icons-color: $color-white;
+$hdr-nav-icons-bg-color: $red;
+
+
+// ********************************************************************
+// SITE FOOTER
+// ********************************************************************
+
+// background
+$site-ftr-grad-top: $blue;
+$site-ftr-grad-btm: $blue-lt;
+
+// fonts
+$ftr-text: $neutral-tan;
+$ftr-text-hover: $color-white;
+
+
+
+
+// ********************************************************************
+// SIDEBAR
+// ********************************************************************
+
+$sidebar-grad-top: transparentize($color-white, .25);
+$sidebar-grad-btm: transparentize($color-white, 1);
+
+
+
+// ********************************************************************
+// WIDGETS
+// ********************************************************************
+
+// title
+$widget-title-color: $neutral-tan-lt;
+//$widget-title-bg: transparentize($blue, .4);
+
+$widget-border: $neutral-tan;
+
+// widget
+//$widget-grad-top: $blue-ltr;
+//$widget-grad-btm: $blue;
+
+
+//widget ul li a
+$widget-list-link: $neutral-tan-dkr;
+$widget-list-link-hover:  $blue;
+$widget-list-link-bg-hover: transparentize($neutral-tan, .5);

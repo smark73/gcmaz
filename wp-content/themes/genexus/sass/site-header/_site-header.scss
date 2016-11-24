@@ -1,0 +1,33 @@
+/* # Site Header
+---------------------------------------------------------------------------------------------------- */
+
+.site-header {
+
+	@include outer-container;
+	//@include background-image(url('images/pg-hdr.jpg'));
+	//@include background-image(url('images/pg-hdr.png'), linear-gradient($site-hdr-grad-top, $site-hdr-grad-btm 100%));
+	@include background-image(url('images/pg-hdr.png'), linear-gradient($site-hdr-grad-top, $site-hdr-grad-btm 100%));
+
+	.site-header .wrap {
+		padding: 20px;
+	}
+
+	min-height: 120px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	animation: animateHdrBg;
+	animation-iteration-count: 1;
+    animation-duration: .8s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    transform: translate3d(0,0,0);
+
+	@keyframes animateHdrBg {
+		//from { background-position: right center; }
+		//to { background-position: center center; }
+		0% { background-position: right center; }
+		100% { background-position: center center; }
+	}
+
+
+} // .site-header

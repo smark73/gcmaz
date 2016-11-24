@@ -1,0 +1,31 @@
+/* # Site Footer
+---------------------------------------------------------------------------------------------------- */
+
+.site-footer {
+
+	@include outer-container;
+
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1;
+	padding: 40px 0;
+	text-align: center;
+
+	@include background-image(linear-gradient($site-ftr-grad-top, $site-ftr-grad-btm 100%));
+}
+
+.site-footer p {
+
+	a {
+		color: $ftr-text;
+		text-decoration: none;
+
+		&:hover, &:focus {
+			color: $ftr-text-hover;
+			text-decoration: underline;
+		}
+
+	}
+	margin-bottom: 0;
+	color: $ftr-text;
+}

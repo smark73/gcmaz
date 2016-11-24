@@ -1,0 +1,59 @@
+/* ## Genesis
+--------------------------------------------- */
+
+.breadcrumb {
+
+	.breadcrumb-link-wrap {
+
+		a {
+			color: $neutral-tan-dk;
+			&:hover {
+				color: $blue;
+				text-decoration: underline;
+			}
+			padding: 2px 6px;
+		}
+	}
+	font-size: .6em;
+	color: $neutral-tan-dk;
+	margin: 0 auto;
+	padding: 10px 0 10px 20px;
+	background: transparentize($neutral-tan, .5);
+}
+
+.after-entry,
+.archive-description,
+.author-box {
+	background-color: transparentize($color-white, .8);
+	font-size: 16px;
+	font-size: 1.6rem;
+	margin-bottom: 0;
+	padding: 30px 40px;
+}
+
+.author-box-title {
+	font-size: 16px;
+	font-size: 1.6rem;
+	margin-bottom: 4px;
+}
+
+.archive-description p:last-child,
+.author-box p:last-child {
+	margin-bottom: 0;
+}
+
+.read-more {
+	font-size: 12px;
+	color: $blue;
+	margin-left: 10px;
+	padding: 0 4px;
+	border-left: 1px solid transparentize($blue-lt, .7);
+	border-right: 1px solid transparentize($blue-lt, .7);
+	background: $neutral-blue-lt;
+	word-break: keep-all;
+	display: inline-block;
+
+	&:hover {
+		background-color: transparentize($blue-lt, .8);
+	}
+}

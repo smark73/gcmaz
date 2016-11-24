@@ -1,0 +1,185 @@
+// Widgets
+
+
+.widget {
+	margin-bottom: 40px;
+	word-wrap: break-word;
+}
+
+.widget p:last-child,
+.widget ul > li:last-of-type,
+.widget-area .widget:last-of-type {
+	margin-bottom: 0;
+}
+
+.widget ul > li {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.widget ul > li:last-of-type {
+	padding-bottom: 0;
+}
+
+.widget ol > li {
+	list-style-position: inside;
+	list-style-type: decimal;
+	padding-left: 20px;
+	text-indent: -20px;
+}
+
+.widget li li {
+	border: 0;
+	margin: 0 0 0 30px;
+	padding: 0;
+}
+
+.widget_calendar table {
+	width: 100%;
+}
+
+.widget_calendar td,
+.widget_calendar th {
+	text-align: center;
+}
+
+
+
+// ---------------------------------------------------
+// WIDGETS IN ALL SIDEBARS
+// ---------------------------------------------------
+.sidebar {
+
+	.widget-area {
+
+		.widget {
+
+      //hdr
+      .widget-title {
+
+      	@extend %bree;
+
+        width: 100%;
+        //@include background-image(url('images/widget-bg.png'), linear-gradient(darken($neutral-tan, 5%), darken($neutral-tan, 5%)));
+        @include background-image(url('images/widget-bg.png'), linear-gradient($blue, $blue));
+  			background-position: center top;
+  			background-size: cover;
+  			background-repeat: no-repeat;
+        display: block;
+        color: $widget-title-color;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+        font-size: 1em;
+        font-weight: 400;
+        vertical-align: middle;
+        padding: 8px 8px 8px 20px;
+        margin-bottom: 10px;
+        //border-top: 1px solid $widget-title-border;
+        //border-bottom: 1px solid $widget-title-border;
+
+       }
+
+      ul {
+
+      	li {
+
+      		a {
+
+      			@extend %montserrat;
+
+      			&:hover {
+      				color: $widget-list-link-hover;
+      			}
+
+      			color: $widget-list-link;
+      			display: block;
+      			padding-left: 10px;
+      			font-size: .9em;
+      		}
+
+    			&:hover {
+            background: $widget-list-link-bg-hover;
+    			}
+
+    			padding: 5px;
+    			margin: 0;
+      		//border-left: 2px solid transparentize($color-white, .9);
+      		//border-right: 2px solid transparentize($gunmetal, .8);
+
+      	}
+
+  				// @include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
+  				//@include background-image(url('images/widget-bg.png'));
+  				background-position: center center;
+  				background-size: cover;
+  				background-repeat: no-repeat;
+
+      }
+
+  			padding: 10px;
+  			//@include background-image(url('images/widget-bg.png'), linear-gradient($widget-grad-top, $widget-grad-btm 100%));
+  			background-position: center center;
+  			background-size: cover;
+  			background-repeat: no-repeat;
+        color: $neutral-tan-lt;
+        border-bottom: 1px solid $widget-border;
+
+		}
+
+    label {
+      color: $neutral-tan-dk;
+    }
+
+		padding: 10px;
+
+	}
+
+}
+
+
+
+
+// ---------------------------------------------------
+// SPECIFICALLY TARGETED BY BODY CLASSES
+// ---------------------------------------------------
+// KAFF NEWS WIDGETS
+// .kaff-news {
+
+//   .sidebar {
+
+//   	.widget-area {
+
+//   		.widget {
+
+//         //hdr
+//         .widget-title {
+
+//          }
+
+//         ul {
+
+//         	li {
+
+//         		a {
+
+//         			&:hover {
+
+//         			}
+
+//         		}
+
+//       			&:hover {
+
+//       			}
+
+//         	}
+
+//         }
+
+//   		}
+
+
+//   	}
+
+//   }
+
+// }

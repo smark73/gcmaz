@@ -1,0 +1,45 @@
+/* ## Entries
+--------------------------------------------- */
+
+.entry {
+	margin-bottom: 40px;
+	padding: 50px 60px;
+}
+
+.content .entry {
+	background-color: #fff;
+}
+
+.entry-title{
+
+	margin-bottom: 20px;
+
+	@include media($sm-screen){
+		font-size: 1.4em;
+	}
+}
+
+.entry-content ol,
+.entry-content ul {
+	margin-bottom: 20px;
+	margin-left: 20px;
+	//see _comments for overrides
+}
+
+.entry-content ol > li {
+	list-style-type: none;
+}
+
+.entry-content ul > li {
+	list-style-type: none;
+}
+
+.entry-content ol ol,
+.entry-content ul ul {
+	margin-bottom: 0;
+}
+
+.entry-content code {
+	background-color: $color-mine-shaft;
+	color: $color-alto;
+}

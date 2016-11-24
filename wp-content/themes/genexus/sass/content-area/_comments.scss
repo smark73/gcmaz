@@ -1,0 +1,161 @@
+/* ## Comments
+--------------------------------------------- */
+
+.comment-respond,
+.entry-comments,
+.entry-pings {
+	background-color: $color-white;
+	margin-bottom: 40px;
+}
+
+.comment-respond,
+.entry-pings {
+	padding: 20px 0;
+}
+
+.entry-comments {
+	padding: 0;
+}
+
+.comment-header {
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+
+.comment-content {
+
+	p {
+		padding: 0;
+		margin: 0 auto;
+	}
+
+	clear: both;
+	word-wrap: break-word;
+}
+
+
+.entry-comments {
+	.comment-list {
+
+		@include row();
+
+
+		li.comment {
+
+			li {
+				
+				.comment-body {
+					margin-bottom: 20px;
+				}
+
+			margin-right: -40px;
+
+			}
+
+			margin-top: 20px;
+			padding: 10px 40px 5px 20px;
+
+		}
+
+		.depth-1 {
+			padding-left: 0;
+			
+		}
+
+		.depth-2 {}
+
+		.comment.even,
+		.comment.odd {
+			background: transparentize($neutral-tan, .9);
+		}
+
+		.comment.even {
+			border-left: 2px solid $blue-lt;
+		}
+
+		.comment.odd {
+			border-left: 2px solid $red;
+		}
+
+		.reply {
+
+			a {
+				font-size: 1em;
+				color: $blue-lt;
+				padding: 2px 6px;
+				background: transparentize($neutral-tan, .5);
+				word-break: keep-all;
+				display: inline-block;
+
+				&:hover {
+					background-color: transparentize($neutral-tan, .3);
+				}
+			}
+
+			text-align: right;
+		}
+
+
+		font-size: .8em;
+		margin-bottom: 20px;
+		margin-left: 0;
+
+	}
+}
+
+
+
+.comment-respond input[type="email"],
+.comment-respond input[type="text"],
+.comment-respond input[type="url"] {
+	width: 50%;
+}
+
+.comment-respond label {
+	display: block;
+	margin-right: 12px;
+}
+
+.entry-comments .comment-author {
+	margin-bottom: 0;
+}
+
+.entry-pings .reply {
+	display: none;
+}
+
+.form-allowed-tags {
+	background-color: $color-whitesmoke;
+	font-size: 16px;
+	font-size: 1.6rem;
+	padding: 24px;
+}
+
+
+.comment-metadata {
+	a {
+		color: $neutral-tan-dk;
+		font-size: .8em;
+	}
+
+	a.comment-edit-link {
+		margin-left: 10px;
+		color: $blue;
+	}
+}
+
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url,
+.comment-form-comment {
+
+	span.sm-print {
+
+		font-size: .8em;
+		color: $gunmetal-lt;
+	}
+
+	color: $gunmetal;
+
+}

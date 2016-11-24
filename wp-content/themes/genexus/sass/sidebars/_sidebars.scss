@@ -1,0 +1,33 @@
+
+//Sidebars
+
+
+// ---------------------------------------------------
+// SPECIFICALLY TARGETED BY BODY CLASS
+// ---------------------------------------------------
+// .kaff-news {
+
+//   .sidebar {
+
+//   }
+
+// }
+
+
+
+// ---------------------------------------------------
+// SPECIFICALLY TARGETED BY SIDEBAR CLASS (sidebar-name)
+// ---------------------------------------------------
+
+.sidebar {
+
+  @include background(linear-gradient($sidebar-grad-top, $sidebar-grad-btm));
+
+  padding: 7px;
+  font-size: 16px;
+  font-size: 1.6rem;
+
+}
+
+
+

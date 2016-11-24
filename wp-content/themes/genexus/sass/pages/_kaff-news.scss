@@ -1,0 +1,228 @@
+//KAFF NEWS
+
+
+
+
+// FEATURED SECTION
+.news-featured-section{
+
+	@include row();
+	//@include align-items(stretch);
+	//@include display(flex);
+	//@include flex-direction(row);
+	//@include justify-content(flex-start);
+
+
+	.featured-slider{
+		margin-bottom: 20px;
+	}
+
+	.featured-article {
+
+		@include span-columns(6);
+
+		.news-post {
+
+			a.news-post-title{
+
+				@extend %bree;
+				padding: 5px 0 0;
+				margin: 10px auto 5px;
+				display: block;
+				font-size: 1.2em;
+				color: $gunmetal-dk;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			.news-post-content{
+
+				p {
+					font-size: .8em;
+				}
+			}
+
+			a.img-link {
+
+				img.featured-image{
+					max-width: 100%;
+					height: auto;
+					margin: auto;
+					max-height: 200px;
+				}
+
+				text-align: center;
+				margin: auto;
+				display: block;
+				height: 200px;
+				width: 100%;
+				//bg color in case img doesn't fill space
+				background-color: transparentize($gunmetal-lt, .9);
+			}
+
+			.no-img {
+				//no featured img - give default
+
+				img {
+
+					@include vertical-align;
+					width: auto;
+					height: auto;
+					max-width: 50%;
+					max-height: 50%;
+				}
+				
+				height: 200px;
+				margin: auto;
+				text-align: center;
+				background: transparentize($neutral-blue-lt, .4);
+			}
+
+			.news-date {
+				margin: 0;
+				padding:0;
+				color: $gray-lt;
+				font-size: .6em;
+			}
+
+			hr{
+				width:100%;
+				margin:10px auto;
+			}
+
+			padding: 20px;
+		}
+
+		// .news-featured-ftr {
+
+		// 	a {
+		// 		display: block;
+		// 		color: $neutral-tan-dk;
+		// 	}
+
+		// 	color: $neutral-tan-dk;
+		// 	font-weight: 600;
+		// 	font-size: .8em;
+		// 	padding: 7px 0 7px 20px;
+		// 	text-align: left;
+		// 	background: lighten($neutral-tan, 3%);
+		// }
+
+		background: $color-white;
+		margin-top: 20px;
+
+		@include media($sm-screen) {
+			@include span-columns(12);
+		}
+
+	}
+
+
+	background: $neutral-tan;
+	margin: auto;
+	padding: 20px;
+
+}
+
+
+// LATEST NEWS STORIES SECTION
+.news-latest-section {
+
+	@include row();
+
+	.news-latest-hdr{
+		h1, h2, h3, h5, h5, h6, h7{
+			@extend %bree;
+			margin: 20px auto;
+			text-align: center;
+			padding: 12px 0;
+			color: $color-whitesmoke;
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+		}
+
+		width: 100%;
+		background: $blue;
+
+	}
+
+	// general listing - no image
+	.news-listing {
+
+		.news-date {
+			margin: 0;
+			padding:0;
+			color: $gray;
+			font-size: .6em;
+		}
+
+		.latest-posts-text {
+
+			// no img
+			@include span-columns(12);
+
+			a.news-post-title {
+				@extend %bree;
+				padding: 5px 0 0;
+				margin: 5px auto;
+				//font-size: .8em;
+				color: $gunmetal-dk;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			// target excerpt p
+			p:nth-child(2){
+				font-size: .8em;
+				color: $gray;
+			}
+
+		}
+
+		padding: 0 15px;
+
+	}
+
+
+	// listing has image
+	.news-listing.has-img {
+
+		.latest-posts-text {
+			// has img
+			@include span-columns(10);
+			@include omega();
+
+			@include media($sm-screen){
+				@include span-columns(8);
+				@include omega();
+			}
+		}
+
+		.latest-posts-img {
+			// has img
+			@include span-columns(2);
+			@include omega();
+
+			@include media($sm-screen){
+				@include span-columns(4);
+				@include omega();
+			}
+
+			a {
+				img {
+					max-width: 100%;
+					height: auto;
+				}
+			}
+
+			text-align: right;
+		}
+	}
+
+	padding: 2%;
+
+}
+

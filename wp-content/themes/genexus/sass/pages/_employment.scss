@@ -1,0 +1,44 @@
+// Employment page
+
+
+.employment-page {
+
+	.entry-header {
+		background-color: transparentize($color-white, .8);
+		font-size: 16px;
+		font-size: 1.6rem;
+		margin-bottom: 0;
+		padding: 30px 40px;
+	}
+
+	.entry {
+		min-height: 400px;
+		padding: 2%;
+	}
+
+	.entry-content {
+		//target the_content p
+		p:nth-child(1) {
+			padding: 0 20px;
+			font-size: 1.2em;
+		}
+	}
+
+	.employment-listing {
+
+		a {
+			@extend %bree;
+			padding: 10px;
+			font-size: 1.2em;
+			color: $blue;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		padding: 10px;
+
+	}
+
+}

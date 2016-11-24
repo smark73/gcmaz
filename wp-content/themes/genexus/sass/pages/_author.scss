@@ -1,0 +1,69 @@
+
+
+.author-page{
+
+	@include row();
+
+
+	.author-name{
+		padding-bottom: 20px;
+		border-bottom: 1px solid $neutral-tan;
+		color: $gunmetal;
+	}
+
+
+	.author-details{
+
+		dt {
+			color: $gunmetal;
+		}
+
+		padding: 20px;
+	}
+
+
+	.author-recent-posts{
+
+		p {
+			font-weight: 600;
+			color: $gunmetal;
+		}
+
+		ul {
+			li {
+
+				a {
+
+				}
+
+				span {
+					font-size: .7em;
+					color: $gunmetal-lt;
+				}
+
+				padding: 3px;
+
+			}
+		}
+
+
+		padding: 20px;
+	}
+
+
+
+
+
+	padding: 2%;
+}
+
+
+.author {
+
+	//override page title for archives (since this is an archive)
+	// hide it since looks bad - just shows first name - odd in layout
+	.author-archive-description{
+		@include hidden();
+	}
+
+}

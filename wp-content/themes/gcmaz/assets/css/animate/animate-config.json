@@ -1,0 +1,67 @@
+{
+
+  "attention_seekers": {
+    "bounce": true,
+    "flash": true,
+    "pulse": true,
+    "rubberBand": true,
+    "shake": true,
+    "swing": true,
+    "tada": true,
+    "wobble": true
+  },
+
+  "bouncing_entrances": {
+    "bounceIn": true,
+    "bounceInDown": true,
+    "bounceInLeft": true,
+    "bounceInRight": true,
+    "bounceInUp": true
+  },
+
+  "bouncing_exits": {
+    "bounceOut": true,
+    "bounceOutDown": true,
+    "bounceOutLeft": true,
+    "bounceOutRight": true,
+    "bounceOutUp": true
+  },
+
+  "fading_entrances": {
+    "fadeIn": true,
+    "fadeInDown": true,
+    "fadeInDownBig": true,
+    "fadeInLeft": true,
+    "fadeInLeftBig": true,
+    "fadeInRight": true,
+    "fadeInRightBig": true,
+    "fadeInUp": true,
+    "fadeInUpBig": true
+  },
+
+  "fading_exits": {
+    "fadeOut": true,
+    "fadeOutDown": true,
+    "fadeOutDownBig": true,
+    "fadeOutLeft": true,
+    "fadeOutLeftBig": true,
+    "fadeOutRight": true,
+    "fadeOutRightBig": true,
+    "fadeOutUp": true,
+    "fadeOutUpBig": true
+  },
+
+  "sliding_entrances": {
+    "slideInDown": true,
+    "slideInLeft": true,
+    "slideInRight": true,
+    "slideInUp": true
+  },
+
+  "sliding_exits": {
+    "slideOutDown": true,
+    "slideOutLeft": true,
+    "slideOutRight": true,
+    "slideOutUp": true
+  }
+}

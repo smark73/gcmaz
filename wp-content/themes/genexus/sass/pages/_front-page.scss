@@ -1,0 +1,428 @@
+// Home page
+
+// -- .home-top
+// --  (ad)
+// -- .home-stations
+// --  (ad)
+// -- .home-btm
+
+
+
+// ---------------------------------------------------------------
+// HOME TOP
+// ---------------------------------------------------------------
+.home-top {
+
+  @include row();
+  @include omega;
+
+  .slider-c2a {
+    @include span-columns(8);
+
+      // target the meta-slider
+      .slider-wrap div{
+        //max-width:900px;
+        height: auto;
+        box-shadow: 0px 10px 14px -5px rgba(0, 0, 0, .1);
+      }
+
+    padding-left: 20px;
+
+    @include media($md-screen){
+      @include span-columns(12);
+      margin: auto;
+      padding: 0 40px;
+    }
+
+    @include media($sm-screen){
+      padding: 0;
+    }
+  }
+
+
+  .home-local {
+
+    @include span-columns(4);
+    @include omega;
+
+    .home-headlines {
+
+      //news feed list
+      ul {
+
+        li {
+
+          a {
+            &:hover {
+              color: $color-white;
+              //&::after {
+                //color: $red;
+                //content: ' ►';
+              //}
+            }
+
+            @extend %montserrat;
+            color: $neutral-tan-lt;
+            letter-spacing: -.5px;
+            padding: 5px 0 5px 15px;
+            display: block;
+
+          }
+
+          &:hover {
+            background: transparentize($blue, .7);
+          }
+
+
+        }
+
+        font-size: .8em;
+        line-height: 2em;
+
+      }
+
+      text-align: left;
+      padding: 0;
+      margin: 0;
+
+
+      @include media($md-screen){
+        //give space between slider and news on this page break
+        margin-top: 20px;
+      }
+
+    }
+
+    padding: 7px;
+    margin: auto;
+    text-align: center;
+
+    @include media($md-screen) {
+      @include span-columns(12);
+    }
+
+
+  }
+
+
+
+  //hdr
+
+  .local-headlines-hdr {
+
+    .hdr-txt {
+
+      @extend %bree;
+
+      float:left;
+      margin-left: 20px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, .5);
+    }
+
+
+    width:100%;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    vertical-align: middle;
+
+
+  }
+
+  .local-headlines-hdr {
+    color: $neutral-tan-lt;//$blue-lt;
+    background: transparentize($color-black, .9);
+    border-top: 1px solid $bright-red;//transparentize($color-white, .7);
+    border-bottom: 1px solid $bright-red;//transparentize($color-white, .7);
+  }
+
+
+
+  padding: 60px 0;
+
+  @include background(linear-gradient(darken($gunmetal, 5%), $blue 100%));
+
+  @include media($sm-screen){
+    padding-top: 0;
+  }
+
+}
+
+
+
+// --------------------------------------------------------------------
+// HOME STATIONS
+// --------------------------------------------------------------------
+
+.home-stations{
+
+  @include row(table);
+
+
+  .stations-hdr{
+    h1, h2, h3, h4 {
+      @extend %montserrat;
+      color: $blue;
+      font-weight: 600;
+      text-align: center;
+
+      @include media($md-screen){
+        font-size: 1.5em;
+      }
+
+      @include media($sm-screen){
+        font-size: 1.2em;
+      }
+    }
+
+    p {
+      @extend %montserrat;
+      color: $color-alto;
+      text-align: center;
+
+      @include media($md-screen){
+        font-size: .8em;
+      }
+
+    }
+
+    margin: 20px auto 40px;
+  }
+
+  margin: 0 auto;
+  padding: 60px 0 100px;
+  @include background(radial-gradient($gunmetal, $gunmetal-dk));
+}
+
+// FRONT PAGE TILE LOGOS
+.kaff-logo,
+.kmgn-logo,
+.kaffam-logo,
+.kfsz-logo,
+.ktmg-logo,
+.knot-logo,
+.kzgl-logo,
+.kaffnews-logo {
+  margin: auto;
+  max-width: 220px;
+  height: auto;
+  max-height: 130px;
+}
+
+.kaff-block { background: $kaff-blue; }
+.kmgn-block { background: $kmgn-gray; }
+.kaffam-block { background: $kaffam-white; }
+.kfsz-block { background: $kfsz-gray; }
+.ktmg-block { background: $ktmg-lt-blue; }
+.knot-block { background: $color-whitesmoke; }
+.kzgl-block { background: $color-black; }
+.kaffnews-block { background: $neutral-tan-lt; }
+
+.station-tile {
+  @include span-columns(4);
+  @include omega;
+
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  float:left;
+
+  @include media($md-screen){
+    @include span-columns(6);
+    @include omega;
+  }
+
+  @include media($sm-screen){
+    @include span-columns(12);
+    @include omega;
+  }
+}
+
+.station-tile.blank-tile {
+
+    background: transparentize($color-white, .2);
+
+    @include media($md-screen){
+    @include span-columns(0);
+    @include hidden;
+  }
+}
+
+.logo-block {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.block-btns {
+  height: 60px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  //top: 240px;
+  bottom: 0;
+  width: 100%;
+  display: table;
+  //background: rgba(255, 255, 255, .07);
+}
+
+.block-btn-kaff,
+.block-btn-kmgn,
+.block-btn-kzgl,
+.block-btn-kfsz,
+.block-btn-ktmg,
+.block-btn-e979 {
+  border: 1px solid transparent;
+  background-color: rgba(255, 255, 255, .08);
+  z-index: 100;
+}
+
+.block-btn-kaffam,
+.block-btn-knot,
+.block-btn-kaffnews {
+  border: 1px solid transparent;
+  background-color: rgba(0, 0, 0, .03);
+  z-index: 100;
+}
+
+//.block-btn-bg-lt,
+//.block-btn-bg-dk {
+  //border: 1px solid transparent;
+//}
+
+a.logo-block-link {
+  @extend %montserrat;
+  color: $color-white;
+  font-size: .8em;
+  line-height: 60px;
+  text-decoration: none;
+  vertical-align: middle;
+
+  &:hover {
+    color: $color-white;
+    font-size: .9em;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+  }
+
+}
+
+.block-btn-web {
+  display: table-cell;
+  text-align: center;
+  width: 50%;
+  z-index: 100;
+}
+
+.block-btn-listen {
+  display: table-cell;
+  text-align: center;
+  width: 50%;
+  z-index: 100;
+
+  .fa {
+    font-size: 1.4em;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    vertical-align: middle;
+  }
+
+}
+
+.btns-show {
+  animation: blockBtnOn;
+  animation-duration: .3s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.btns-hide {
+  animation: blockBtnOff;
+  animation-duration: .8s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes blockBtnOn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes blockBtnOff {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+// jQuery toggles 2 classes on click to animate icon
+.spkr-icon {
+  display: inline-block;
+  left: 0;
+  position: relative;
+}
+
+.logo-tilt {
+
+  img {
+    animation: logoSizeUp;
+    animation-duration: .1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    transform: translate3d(0, 0, 0);
+  }
+
+  animation: logoTilt;
+  animation-duration: .1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  transform: translate3d(0, 0, 0);
+}
+
+.logo-norm {
+  animation: logoNorm;
+  animation-duration: .1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes logoTilt {
+  0% {
+      transform:rotate(0deg);
+  }
+  100% {
+      transform:rotate(7deg);
+  }
+}
+
+@keyframes logoNorm {
+  0% {
+      transform:rotate(7deg);
+  }
+  100% {
+      transform:rotate(0deg);
+  }
+}
+
+@keyframes logoSizeUp {
+  0% {
+    //same as in logo class
+    margin-top: 0;
+    max-width: 220px;
+    height: auto;
+    max-height: 130px;
+  }
+  100% {
+      margin-top: -30px;
+      max-width: 300px;
+      height: auto;
+      max-height: 200px;
+  }
+}

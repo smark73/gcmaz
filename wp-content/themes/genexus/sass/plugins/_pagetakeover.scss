@@ -1,0 +1,27 @@
+// Page Takeover
+
+.takeover {
+
+	a {
+		img {
+			max-width: 100%;
+			height: auto;
+			margin: 0 auto;
+			padding: 0;
+		}
+
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	text-align: center;
+	margin: 0 auto;
+	padding: 10px 0;
+	background: $neutral-tan-lt;
+
+	@include media($sm-screen) {
+		margin: 0 auto;
+	}
+
+
+}
