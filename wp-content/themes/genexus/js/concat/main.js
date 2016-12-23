@@ -20,7 +20,7 @@ var GenexusSite = {
                     $menu.toggleClass('show-me hide-me');
                     $menu.children('li').click(function() {
                         $menu.removeClass('show-me hide-me');
-                        $button.html($(this).html());
+                        //$button.html($(this).html());
                     });
                 });
 
@@ -34,7 +34,7 @@ var GenexusSite = {
                     $menu.toggleClass('show-me hide-me');
                     $menu.children('li').click(function() {
                         $menu.removeClass('show-me hide-me');
-                        $button.html($(this).html());
+                        //$button.html($(this).html());
                     });
                 });
 
