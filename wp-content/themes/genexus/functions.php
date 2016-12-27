@@ -965,17 +965,21 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 // FEED TEMPLATES
 
 function gcm_feeds_tpl(){
-    add_feed('events', 'events_feed_render');
+    add_feed( 'events', 'events_feed_render' );
+    add_feed( 'daily-email', 'daily_email_feed_render' );
 }
-add_action('after_setup_theme', 'gcm_feeds_tpl');
+add_action( 'after_setup_theme', 'gcm_feeds_tpl' );
+
 /*
- * gcm feeds RSS template callback
+ * gcm feeds RSS template callbacks
  */
-
 function events_feed_render(){
-    get_template_part('feed', 'events');
+    get_template_part( 'feed', 'events' );
 }
 
+function daily_email_feed_render(){
+    get_template_part( 'feed', 'daily-email' );
+}
 
 
 /**********************************************************/
