@@ -1205,6 +1205,20 @@ add_action( 'init', 'gx_remove_filters_func' );
 
 
 
+// WBOUNCE TWEAK
+// from http://stefantsov.com/wbounce-display-filter/
+// disable wBounce popup when post/page isn't enough
+function d_wbounce_test_if_status_is_off($isoff) {
+    // If it's disabled manually - let it be.
+    // If it's enabled, disable it when hide_metrika is set.
+    // return $isoff || (condition ie: if current page is ...);
+    // return $isoff || (function_exists('get_field') && get_field("hide_metrika"));
+    //return $isoff || ( is_front_page() );
+    // check if in "news" category
+    return $isoff || ( !check_if_in_news() );
+}
+add_filter('wbounce_test_if_status_is_off', 'd_wbounce_test_if_status_is_off');
+
 
 /**********************************************************/
 // GRAVITY FORMS
