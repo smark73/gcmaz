@@ -57,16 +57,6 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
 
             <!-- Start loop -->
             <?php while( $the_query->have_posts()) : $the_query->the_post(); ?>
-                            
-                    <?php
-
-                        // get pertinent data and attach it to content variable
-                        $content = get_the_content_feed( 'rss2' );
-
-                        // shorten_and_strip_html( string, length )
-                        $content = shorten_and_strip_html( $content, '150' );
-
-                    ?>
 
                     <item>
                         <title><?php the_title_rss(); ?></title>
@@ -74,20 +64,8 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                         <guid isPermaLink="false"><?php the_guid(); ?></guid>
                         <author><?php the_author_meta('user_email'); echo "("; the_author(); echo ")"; ?></author>
                         <?php the_category_rss('rss2') ?>
-
-                        <?php //fill desc with excerpt ?>
-                        <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
-
-                        <?php if ( strlen( $content ) > 0 ) : ?>
-                            <?php //the content to show, if exists ?>
-                            <content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
-
-                        <?php else : ?>
-                            <?php  //if no content, use excerpt ... the_excerpt_rss( cut, encode_html )  ?>
-                            <content:encoded><![CDATA[<?php the_excerpt_rss( 150, 2 ); ?>]]></content:encoded>
-
-                        <?php endif; ?>
-
+                        <description><![CDATA[<?php the_excerpt_rss( 150, 2 ); ?>]]></description>
+                        <content:encoded><![CDATA[<?php the_excerpt_rss( 150, 2 ); ?>]]></content:encoded>
                     </item>
 
             <?php endwhile; ?>
