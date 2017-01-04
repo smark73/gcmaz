@@ -46,7 +46,8 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                 $args = array(
                     'post_type' => 'post',
                     'order' => 'DESC',
-                    'posts_per_page' => 3,
+                    'nopaging' => true,
+                    //'posts_per_page' => ,
                     'no_found_rows' => true, //decr overhead when pagination not used
                 );
                 
@@ -62,9 +63,8 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                         // get pertinent data and attach it to content variable
                         $content = get_the_content_feed( 'rss2' );
 
-                        //$content = strip_tags( $content );
                         // shorten_and_strip_html( string, length )
-                        $content = shorten_and_strip_html( $content, '350' );
+                        $content = shorten_and_strip_html( $content, '150' );
 
                     ?>
 
@@ -75,26 +75,17 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                         <author><?php the_author_meta('user_email'); echo "("; the_author(); echo ")"; ?></author>
                         <?php the_category_rss('rss2') ?>
 
-                        <?php if (get_option('rss_use_excerpt')) : ?>
-                            <?php // set to use excerpts instead of content ?>
-                            <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
+                        <?php //fill desc with excerpt ?>
+                        <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
+
+                        <?php if ( strlen( $content ) > 0 ) : ?>
+                            <?php //the content to show, if exists ?>
+                            <content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
 
                         <?php else : ?>
+                            <?php  //if no content, use excerpt ... the_excerpt_rss( cut, encode_html )  ?>
+                            <content:encoded><![CDATA[<?php the_excerpt_rss( 150, 2 ); ?>]]></content:encoded>
 
-                            <?php //using content ?>
-                            <?php //fill desc with excerpt ?>
-                            <description><![CDATA[<?php the_excerpt_rss(); ?>]]></description>
-
-                            <?php if ( strlen( $content ) > 0 ) : ?>
-                                <?php //the content to show, if exists ?>
-                                <content:encoded><![CDATA[<?php echo $content; ?>]]></content:encoded>
-
-                            <?php else : ?>
-                                <?php //if no content, use excerpt ?>
-                                <content:encoded><![CDATA[<?php the_excerpt_rss(); ?>]]></content:encoded>
-
-                            <?php endif; ?>
-                            
                         <?php endif; ?>
 
                     </item>
