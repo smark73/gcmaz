@@ -47,7 +47,7 @@ echo '<?xml version="1.0" encoding="' . get_option( 'blog_charset' ) . '"?' . '>
                     'post_type' => 'post',
                     'order' => 'DESC',
                     'nopaging' => true,
-                    //'posts_per_page' => ,
+                    'posts_per_page' => 10,
                     'no_found_rows' => true, //decr overhead when pagination not used
                 );
                 
