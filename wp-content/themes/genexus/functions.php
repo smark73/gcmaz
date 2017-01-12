@@ -1254,3 +1254,16 @@ add_filter( "metaslider_capability", "metaslider_permissions" );
 /**********************************************************/
 //  END PLUGIN TWEAKS
 /**********************************************************/
+
+
+
+
+
+
+
+
+/* Disable WP Heartbeat */
+function stop_heartbeat() {
+    wp_deregister_script('heartbeat');
+}
+add_action( 'init', 'stop_heartbeat', 1 );
