@@ -8,7 +8,11 @@
  *
  */
 
-
+/* Disable WP Heartbeat */
+function stop_heartbeat() {
+    wp_deregister_script('heartbeat');
+}
+add_action( 'init', 'stop_heartbeat', 1 );
 
 //* Start the engine
 include_once( get_template_directory() . '/lib/init.php' );
@@ -1258,12 +1262,3 @@ add_filter( "metaslider_capability", "metaslider_permissions" );
 
 
 
-
-
-
-
-/* Disable WP Heartbeat */
-function stop_heartbeat() {
-    wp_deregister_script('heartbeat');
-}
-add_action( 'init', 'stop_heartbeat', 1 );
