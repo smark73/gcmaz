@@ -84,20 +84,22 @@ nav.nav-primary {
 
 		&:hover{
 			background: $submenu-bg-color-hover;
+			color: $submenu-text-color-hover;
 		}
 
 		background-color: $submenu-bg-color;
 		color: $submenu-text-color;
-		border-bottom: 1px solid transparentize($menu-border-color, .9);
+		border-bottom: 1px solid transparentize($menu-border-color, .95);
 		//border-top: 0;
-		font-size: 14px;
-		font-size: 1.4rem;
+		font-size: 15px;
+		font-size: 1.5rem;
 		padding: 20px;
 		position: relative;
 		width: 250px;
 		word-wrap: break-word;
-		font-weight: 600;
+		font-weight: 500;
 		text-shadow: 1px 1px 1px rgba(0,0,0,.1);
+		letter-spacing: -.5px;
 	}
 
 	.genesis-nav-menu .sub-menu .sub-menu {

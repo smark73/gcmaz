@@ -85,7 +85,8 @@ $nau-yellow: #ffd202;
 
 // Init Defaults (override below);
 $default-menu-text-color: $color-whitesmoke;
-$default-submenu-text-color: $gunmetal;//$color-whitesmoke;
+$default-submenu-text-color: $gunmetal-lt;//$color-whitesmoke;
+$default-submenu-text-color-hover: $gunmetal;
 $default-menu-text-color-hover: $color-white;//$blue-ltr;
 $default-menu-bg-color: $blue-dk;
 $default-menu-bg-color-underline: $red !default;
@@ -98,7 +99,7 @@ $default-menu-bg-color-underline: $red !default;
 // TEXT
 $menu-text-color: $default-menu-text-color;
 $submenu-text-color: $default-submenu-text-color;
-$submenu-text-color-hover: darken($submenu-text-color, 10%);
+$submenu-text-color-hover: $default-submenu-text-color-hover; //darken($submenu-text-color, 10%);
 $menu-text-color-hover: $default-menu-text-color-hover;
 // BACKGROUND
 $menu-bg-color: $default-menu-bg-color;
