@@ -74,8 +74,10 @@ nav.nav-primary {
 		opacity: 0;
 		position: absolute;
 		transition: opacity .2s ease-in-out;
-		width: 200px;
+		width: 250px;
 		z-index: 99;
+		border-top: 4px solid $menu-border-color;
+		border-bottom: 4px solid $menu-border-color;
 	}
 
 	.genesis-nav-menu .sub-menu a {
@@ -86,15 +88,15 @@ nav.nav-primary {
 
 		background-color: $submenu-bg-color;
 		color: $submenu-text-color;
-		//border: 1px solid #eee;
-		border-top: 0;
+		border-bottom: 1px solid transparentize($menu-border-color, .9);
+		//border-top: 0;
 		font-size: 14px;
 		font-size: 1.4rem;
 		padding: 20px;
 		position: relative;
-		width: 200px;
+		width: 250px;
 		word-wrap: break-word;
-		font-weight: 500;
+		font-weight: 600;
 		text-shadow: 1px 1px 1px rgba(0,0,0,.1);
 	}
 

@@ -5,6 +5,12 @@
  * @package GCMAZ
  */
 
+/*
+    We use this custom feed template because
+        - it has custom title and description that are used in the Aweber Email Blog Broadcast -> Daily Update
+        - only loads the 10 most recent posts (lower overhead when being pinged)
+*/
+
 /**
  * Feed defaults.
  */

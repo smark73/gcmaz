@@ -109,7 +109,7 @@ $submenu-bg-color-hover: darken($neutral-tan, 5%);
 // CURRENT ITEM
 $cur-menu-item: $red;
 // BORDERS
-$menu-border-color: darken($menu-bg-color, 5%);
+$menu-border-color: $menu-bg-color-hover; //darken($menu-bg-color, 5%);
 
 
 // ********************************************************************
